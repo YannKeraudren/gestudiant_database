@@ -283,110 +283,1239 @@ INSERT INTO Structure_Parcours (id_parcours, code_ue, est_obligatoire, semestreP
 -- ------------------------------------------
 -- PROMO L1 (5 Étudiants) - Inscrits en S1 et S2 (en_cours)
 -- ------------------------------------------
-INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, id_parcours) VALUES
-                                                                             (11001, 'Aubert', 'Alice', '2005-02-14', 1), (11002, 'Baudry', 'Bastien', '2005-06-21', 1),
-                                                                             (11003, 'Caron', 'Chloe', '2004-11-03', 1), (11004, 'Dumont', 'David', '2005-01-30', 1),
-                                                                             (11005, 'Evrard', 'Emma', '2005-08-12', 1);
+INSERT INTO Etudiant VALUES (10101, 'Nom_1_1', 'Prenom_1', '2005-11-28', 1);
+INSERT INTO Etudiant VALUES (10102, 'Nom_1_2', 'Prenom_2', '2005-09-09', 1);
+INSERT INTO Etudiant VALUES (10103, 'Nom_1_3', 'Prenom_3', '2005-01-23', 1);
+INSERT INTO Etudiant VALUES (10104, 'Nom_1_4', 'Prenom_4', '2005-07-02', 1);
+INSERT INTO Etudiant VALUES (10105, 'Nom_1_5', 'Prenom_5', '2005-08-02', 1);
+INSERT INTO Etudiant VALUES (10106, 'Nom_1_6', 'Prenom_6', '2005-02-16', 1);
+INSERT INTO Etudiant VALUES (10107, 'Nom_1_7', 'Prenom_7', '2005-01-04', 1);
+INSERT INTO Etudiant VALUES (10108, 'Nom_1_8', 'Prenom_8', '2005-08-15', 1);
+INSERT INTO Etudiant VALUES (10109, 'Nom_1_9', 'Prenom_9', '2005-09-20', 1);
+INSERT INTO Etudiant VALUES (10110, 'Nom_1_10', 'Prenom_10', '2005-11-11', 1);
+INSERT INTO Etudiant VALUES (10111, 'Nom_1_11', 'Prenom_11', '2005-09-28', 1);
+INSERT INTO Etudiant VALUES (10112, 'Nom_1_12', 'Prenom_12', '2005-04-22', 1);
+INSERT INTO Etudiant VALUES (10113, 'Nom_1_13', 'Prenom_13', '2005-01-07', 1);
+INSERT INTO Etudiant VALUES (10114, 'Nom_1_14', 'Prenom_14', '2005-12-06', 1);
+INSERT INTO Etudiant VALUES (10115, 'Nom_1_15', 'Prenom_15', '2005-02-07', 1);
+INSERT INTO Etudiant VALUES (10116, 'Nom_1_16', 'Prenom_16', '2005-04-15', 1);
+INSERT INTO Etudiant VALUES (10117, 'Nom_1_17', 'Prenom_17', '2005-08-04', 1);
+INSERT INTO Etudiant VALUES (10118, 'Nom_1_18', 'Prenom_18', '2005-12-08', 1);
+INSERT INTO Etudiant VALUES (10119, 'Nom_1_19', 'Prenom_19', '2005-11-08', 1);
+INSERT INTO Etudiant VALUES (10120, 'Nom_1_20', 'Prenom_20', '2005-01-12', 1);
+INSERT INTO Etudiant VALUES (10121, 'Nom_1_21', 'Prenom_21', '2005-01-14', 1);
+INSERT INTO Etudiant VALUES (10122, 'Nom_1_22', 'Prenom_22', '2005-03-23', 1);
+INSERT INTO Etudiant VALUES (10123, 'Nom_1_23', 'Prenom_23', '2005-01-07', 1);
+INSERT INTO Etudiant VALUES (10124, 'Nom_1_24', 'Prenom_24', '2005-02-22', 1);
+INSERT INTO Etudiant VALUES (10125, 'Nom_1_25', 'Prenom_25', '2005-05-12', 1);
+INSERT INTO Etudiant VALUES (10126, 'Nom_1_26', 'Prenom_26', '2005-12-30', 1);
+INSERT INTO Etudiant VALUES (10127, 'Nom_1_27', 'Prenom_27', '2005-09-14', 1);
+INSERT INTO Etudiant VALUES (10128, 'Nom_1_28', 'Prenom_28', '2005-07-12', 1);
+INSERT INTO Etudiant VALUES (10129, 'Nom_1_29', 'Prenom_29', '2005-07-28', 1);
+INSERT INTO Etudiant VALUES (10130, 'Nom_1_30', 'Prenom_30', '2005-01-31', 1);
+INSERT INTO Etudiant VALUES (20101, 'Nom_1_1', 'Prenom_1', '2004-01-24', 1);
+INSERT INTO Etudiant VALUES (20102, 'Nom_1_2', 'Prenom_2', '2004-08-31', 1);
+INSERT INTO Etudiant VALUES (20103, 'Nom_1_3', 'Prenom_3', '2004-12-02', 1);
+INSERT INTO Etudiant VALUES (20104, 'Nom_1_4', 'Prenom_4', '2004-04-09', 1);
+INSERT INTO Etudiant VALUES (20105, 'Nom_1_5', 'Prenom_5', '2004-08-07', 1);
+INSERT INTO Etudiant VALUES (20106, 'Nom_1_6', 'Prenom_6', '2004-07-07', 1);
+INSERT INTO Etudiant VALUES (20107, 'Nom_1_7', 'Prenom_7', '2004-01-18', 1);
+INSERT INTO Etudiant VALUES (20108, 'Nom_1_8', 'Prenom_8', '2004-01-24', 1);
+INSERT INTO Etudiant VALUES (20109, 'Nom_1_9', 'Prenom_9', '2004-12-23', 1);
+INSERT INTO Etudiant VALUES (20110, 'Nom_1_10', 'Prenom_10', '2004-10-19', 1);
+INSERT INTO Etudiant VALUES (20111, 'Nom_1_11', 'Prenom_11', '2004-11-15', 1);
+INSERT INTO Etudiant VALUES (20112, 'Nom_1_12', 'Prenom_12', '2004-03-16', 1);
+INSERT INTO Etudiant VALUES (20113, 'Nom_1_13', 'Prenom_13', '2004-06-20', 1);
+INSERT INTO Etudiant VALUES (20114, 'Nom_1_14', 'Prenom_14', '2004-07-30', 1);
+INSERT INTO Etudiant VALUES (20115, 'Nom_1_15', 'Prenom_15', '2004-09-30', 1);
+INSERT INTO Etudiant VALUES (20116, 'Nom_1_16', 'Prenom_16', '2004-12-15', 1);
+INSERT INTO Etudiant VALUES (20117, 'Nom_1_17', 'Prenom_17', '2004-12-27', 1);
+INSERT INTO Etudiant VALUES (20118, 'Nom_1_18', 'Prenom_18', '2004-08-07', 1);
+INSERT INTO Etudiant VALUES (20119, 'Nom_1_19', 'Prenom_19', '2004-07-11', 1);
+INSERT INTO Etudiant VALUES (20120, 'Nom_1_20', 'Prenom_20', '2004-02-11', 1);
+INSERT INTO Etudiant VALUES (20121, 'Nom_1_21', 'Prenom_21', '2004-07-22', 1);
+INSERT INTO Etudiant VALUES (20122, 'Nom_1_22', 'Prenom_22', '2004-04-15', 1);
+INSERT INTO Etudiant VALUES (20123, 'Nom_1_23', 'Prenom_23', '2004-02-05', 1);
+INSERT INTO Etudiant VALUES (20124, 'Nom_1_24', 'Prenom_24', '2004-08-10', 1);
+INSERT INTO Etudiant VALUES (20125, 'Nom_1_25', 'Prenom_25', '2004-12-27', 1);
+INSERT INTO Etudiant VALUES (20126, 'Nom_1_26', 'Prenom_26', '2004-03-10', 1);
+INSERT INTO Etudiant VALUES (20127, 'Nom_1_27', 'Prenom_27', '2004-12-21', 1);
+INSERT INTO Etudiant VALUES (20128, 'Nom_1_28', 'Prenom_28', '2004-09-03', 1);
+INSERT INTO Etudiant VALUES (20129, 'Nom_1_29', 'Prenom_29', '2004-06-04', 1);
+INSERT INTO Etudiant VALUES (20130, 'Nom_1_30', 'Prenom_30', '2004-10-19', 1);
+INSERT INTO Etudiant VALUES (20131, 'Nom_1_31', 'Prenom_31', '2004-10-09', 1);
+INSERT INTO Etudiant VALUES (30101, 'Nom_1_1', 'Prenom_1', '2003-01-01', 1);
+INSERT INTO Etudiant VALUES (30102, 'Nom_1_2', 'Prenom_2', '2003-09-04', 1);
+INSERT INTO Etudiant VALUES (30103, 'Nom_1_3', 'Prenom_3', '2003-07-28', 1);
+INSERT INTO Etudiant VALUES (30104, 'Nom_1_4', 'Prenom_4', '2003-11-23', 1);
+INSERT INTO Etudiant VALUES (30105, 'Nom_1_5', 'Prenom_5', '2003-09-23', 1);
+INSERT INTO Etudiant VALUES (30106, 'Nom_1_6', 'Prenom_6', '2003-10-12', 1);
+INSERT INTO Etudiant VALUES (30107, 'Nom_1_7', 'Prenom_7', '2003-10-10', 1);
+INSERT INTO Etudiant VALUES (30108, 'Nom_1_8', 'Prenom_8', '2003-05-02', 1);
+INSERT INTO Etudiant VALUES (30109, 'Nom_1_9', 'Prenom_9', '2003-09-18', 1);
+INSERT INTO Etudiant VALUES (30110, 'Nom_1_10', 'Prenom_10', '2003-03-04', 1);
+INSERT INTO Etudiant VALUES (30111, 'Nom_1_11', 'Prenom_11', '2003-06-23', 1);
+INSERT INTO Etudiant VALUES (30112, 'Nom_1_12', 'Prenom_12', '2003-09-27', 1);
+INSERT INTO Etudiant VALUES (30113, 'Nom_1_13', 'Prenom_13', '2003-01-13', 1);
+INSERT INTO Etudiant VALUES (30114, 'Nom_1_14', 'Prenom_14', '2003-11-07', 1);
+INSERT INTO Etudiant VALUES (30115, 'Nom_1_15', 'Prenom_15', '2003-06-21', 1);
+INSERT INTO Etudiant VALUES (30116, 'Nom_1_16', 'Prenom_16', '2003-06-12', 1);
+INSERT INTO Etudiant VALUES (30117, 'Nom_1_17', 'Prenom_17', '2003-01-17', 1);
+INSERT INTO Etudiant VALUES (30118, 'Nom_1_18', 'Prenom_18', '2003-12-08', 1);
+INSERT INTO Etudiant VALUES (30119, 'Nom_1_19', 'Prenom_19', '2003-01-06', 1);
+INSERT INTO Etudiant VALUES (30120, 'Nom_1_20', 'Prenom_20', '2003-08-24', 1);
+INSERT INTO Etudiant VALUES (30121, 'Nom_1_21', 'Prenom_21', '2003-09-29', 1);
+INSERT INTO Etudiant VALUES (30122, 'Nom_1_22', 'Prenom_22', '2003-06-18', 1);
+INSERT INTO Etudiant VALUES (30123, 'Nom_1_23', 'Prenom_23', '2003-06-21', 1);
+INSERT INTO Etudiant VALUES (30124, 'Nom_1_24', 'Prenom_24', '2003-04-14', 1);
+INSERT INTO Etudiant VALUES (30125, 'Nom_1_25', 'Prenom_25', '2003-02-21', 1);
+INSERT INTO Etudiant VALUES (30126, 'Nom_1_26', 'Prenom_26', '2003-02-14', 1);
+INSERT INTO Etudiant VALUES (30127, 'Nom_1_27', 'Prenom_27', '2003-02-12', 1);
+INSERT INTO Etudiant VALUES (30128, 'Nom_1_28', 'Prenom_28', '2003-10-06', 1);
+INSERT INTO Etudiant VALUES (30129, 'Nom_1_29', 'Prenom_29', '2003-06-14', 1);
+INSERT INTO Etudiant VALUES (30130, 'Nom_1_30', 'Prenom_30', '2003-01-01', 1);
+INSERT INTO Etudiant VALUES (30131, 'Nom_1_31', 'Prenom_31', '2003-06-05', 1);
+INSERT INTO Etudiant VALUES (10201, 'Nom_2_1', 'Prenom_1', '2005-02-22', 2);
+INSERT INTO Etudiant VALUES (10202, 'Nom_2_2', 'Prenom_2', '2005-03-02', 2);
+INSERT INTO Etudiant VALUES (10203, 'Nom_2_3', 'Prenom_3', '2005-01-21', 2);
+INSERT INTO Etudiant VALUES (10204, 'Nom_2_4', 'Prenom_4', '2005-02-05', 2);
+INSERT INTO Etudiant VALUES (10205, 'Nom_2_5', 'Prenom_5', '2005-03-21', 2);
+INSERT INTO Etudiant VALUES (10206, 'Nom_2_6', 'Prenom_6', '2005-06-09', 2);
+INSERT INTO Etudiant VALUES (10207, 'Nom_2_7', 'Prenom_7', '2005-02-20', 2);
+INSERT INTO Etudiant VALUES (10208, 'Nom_2_8', 'Prenom_8', '2005-11-13', 2);
+INSERT INTO Etudiant VALUES (10209, 'Nom_2_9', 'Prenom_9', '2005-01-29', 2);
+INSERT INTO Etudiant VALUES (10210, 'Nom_2_10', 'Prenom_10', '2005-07-08', 2);
+INSERT INTO Etudiant VALUES (10211, 'Nom_2_11', 'Prenom_11', '2005-09-07', 2);
+INSERT INTO Etudiant VALUES (10212, 'Nom_2_12', 'Prenom_12', '2005-04-03', 2);
+INSERT INTO Etudiant VALUES (10213, 'Nom_2_13', 'Prenom_13', '2005-06-10', 2);
+INSERT INTO Etudiant VALUES (10214, 'Nom_2_14', 'Prenom_14', '2005-03-28', 2);
+INSERT INTO Etudiant VALUES (10215, 'Nom_2_15', 'Prenom_15', '2005-04-17', 2);
+INSERT INTO Etudiant VALUES (10216, 'Nom_2_16', 'Prenom_16', '2005-08-28', 2);
+INSERT INTO Etudiant VALUES (10217, 'Nom_2_17', 'Prenom_17', '2005-06-27', 2);
+INSERT INTO Etudiant VALUES (10218, 'Nom_2_18', 'Prenom_18', '2005-12-26', 2);
+INSERT INTO Etudiant VALUES (10219, 'Nom_2_19', 'Prenom_19', '2005-04-04', 2);
+INSERT INTO Etudiant VALUES (10220, 'Nom_2_20', 'Prenom_20', '2005-03-31', 2);
+INSERT INTO Etudiant VALUES (10221, 'Nom_2_21', 'Prenom_21', '2005-10-05', 2);
+INSERT INTO Etudiant VALUES (10222, 'Nom_2_22', 'Prenom_22', '2005-07-15', 2);
+INSERT INTO Etudiant VALUES (10223, 'Nom_2_23', 'Prenom_23', '2005-05-20', 2);
+INSERT INTO Etudiant VALUES (10224, 'Nom_2_24', 'Prenom_24', '2005-02-11', 2);
+INSERT INTO Etudiant VALUES (10225, 'Nom_2_25', 'Prenom_25', '2005-03-31', 2);
+INSERT INTO Etudiant VALUES (10226, 'Nom_2_26', 'Prenom_26', '2005-09-29', 2);
+INSERT INTO Etudiant VALUES (10227, 'Nom_2_27', 'Prenom_27', '2005-10-02', 2);
+INSERT INTO Etudiant VALUES (10228, 'Nom_2_28', 'Prenom_28', '2005-06-13', 2);
+INSERT INTO Etudiant VALUES (10229, 'Nom_2_29', 'Prenom_29', '2005-02-01', 2);
+INSERT INTO Etudiant VALUES (10230, 'Nom_2_30', 'Prenom_30', '2005-12-10', 2);
+INSERT INTO Etudiant VALUES (10231, 'Nom_2_31', 'Prenom_31', '2005-06-25', 2);
+INSERT INTO Etudiant VALUES (20201, 'Nom_2_1', 'Prenom_1', '2004-11-19', 2);
+INSERT INTO Etudiant VALUES (20202, 'Nom_2_2', 'Prenom_2', '2004-07-10', 2);
+INSERT INTO Etudiant VALUES (20203, 'Nom_2_3', 'Prenom_3', '2004-11-30', 2);
+INSERT INTO Etudiant VALUES (20204, 'Nom_2_4', 'Prenom_4', '2004-03-05', 2);
+INSERT INTO Etudiant VALUES (20205, 'Nom_2_5', 'Prenom_5', '2004-05-29', 2);
+INSERT INTO Etudiant VALUES (20206, 'Nom_2_6', 'Prenom_6', '2004-08-31', 2);
+INSERT INTO Etudiant VALUES (20207, 'Nom_2_7', 'Prenom_7', '2004-07-08', 2);
+INSERT INTO Etudiant VALUES (20208, 'Nom_2_8', 'Prenom_8', '2004-11-09', 2);
+INSERT INTO Etudiant VALUES (20209, 'Nom_2_9', 'Prenom_9', '2004-08-13', 2);
+INSERT INTO Etudiant VALUES (20210, 'Nom_2_10', 'Prenom_10', '2004-01-01', 2);
+INSERT INTO Etudiant VALUES (20211, 'Nom_2_11', 'Prenom_11', '2004-07-11', 2);
+INSERT INTO Etudiant VALUES (20212, 'Nom_2_12', 'Prenom_12', '2004-04-25', 2);
+INSERT INTO Etudiant VALUES (20213, 'Nom_2_13', 'Prenom_13', '2004-09-26', 2);
+INSERT INTO Etudiant VALUES (20214, 'Nom_2_14', 'Prenom_14', '2004-03-18', 2);
+INSERT INTO Etudiant VALUES (20215, 'Nom_2_15', 'Prenom_15', '2004-09-23', 2);
+INSERT INTO Etudiant VALUES (20216, 'Nom_2_16', 'Prenom_16', '2004-11-27', 2);
+INSERT INTO Etudiant VALUES (20217, 'Nom_2_17', 'Prenom_17', '2004-07-12', 2);
+INSERT INTO Etudiant VALUES (20218, 'Nom_2_18', 'Prenom_18', '2004-11-22', 2);
+INSERT INTO Etudiant VALUES (20219, 'Nom_2_19', 'Prenom_19', '2004-09-26', 2);
+INSERT INTO Etudiant VALUES (20220, 'Nom_2_20', 'Prenom_20', '2004-12-25', 2);
+INSERT INTO Etudiant VALUES (20221, 'Nom_2_21', 'Prenom_21', '2004-06-28', 2);
+INSERT INTO Etudiant VALUES (20222, 'Nom_2_22', 'Prenom_22', '2004-05-10', 2);
+INSERT INTO Etudiant VALUES (20223, 'Nom_2_23', 'Prenom_23', '2004-01-09', 2);
+INSERT INTO Etudiant VALUES (20224, 'Nom_2_24', 'Prenom_24', '2004-10-06', 2);
+INSERT INTO Etudiant VALUES (20225, 'Nom_2_25', 'Prenom_25', '2004-08-23', 2);
+INSERT INTO Etudiant VALUES (20226, 'Nom_2_26', 'Prenom_26', '2004-10-27', 2);
+INSERT INTO Etudiant VALUES (20227, 'Nom_2_27', 'Prenom_27', '2004-10-01', 2);
+INSERT INTO Etudiant VALUES (20228, 'Nom_2_28', 'Prenom_28', '2004-10-07', 2);
+INSERT INTO Etudiant VALUES (20229, 'Nom_2_29', 'Prenom_29', '2004-04-08', 2);
+INSERT INTO Etudiant VALUES (20230, 'Nom_2_30', 'Prenom_30', '2004-09-11', 2);
+INSERT INTO Etudiant VALUES (30201, 'Nom_2_1', 'Prenom_1', '2003-07-16', 2);
+INSERT INTO Etudiant VALUES (30202, 'Nom_2_2', 'Prenom_2', '2003-05-26', 2);
+INSERT INTO Etudiant VALUES (30203, 'Nom_2_3', 'Prenom_3', '2003-10-16', 2);
+INSERT INTO Etudiant VALUES (30204, 'Nom_2_4', 'Prenom_4', '2003-11-25', 2);
+INSERT INTO Etudiant VALUES (30205, 'Nom_2_5', 'Prenom_5', '2003-07-19', 2);
+INSERT INTO Etudiant VALUES (30206, 'Nom_2_6', 'Prenom_6', '2003-07-29', 2);
+INSERT INTO Etudiant VALUES (30207, 'Nom_2_7', 'Prenom_7', '2003-09-19', 2);
+INSERT INTO Etudiant VALUES (30208, 'Nom_2_8', 'Prenom_8', '2003-11-19', 2);
+INSERT INTO Etudiant VALUES (30209, 'Nom_2_9', 'Prenom_9', '2003-03-02', 2);
+INSERT INTO Etudiant VALUES (30210, 'Nom_2_10', 'Prenom_10', '2003-06-08', 2);
+INSERT INTO Etudiant VALUES (30211, 'Nom_2_11', 'Prenom_11', '2003-08-21', 2);
+INSERT INTO Etudiant VALUES (30212, 'Nom_2_12', 'Prenom_12', '2003-05-01', 2);
+INSERT INTO Etudiant VALUES (30213, 'Nom_2_13', 'Prenom_13', '2003-06-08', 2);
+INSERT INTO Etudiant VALUES (30214, 'Nom_2_14', 'Prenom_14', '2003-10-20', 2);
+INSERT INTO Etudiant VALUES (30215, 'Nom_2_15', 'Prenom_15', '2003-09-24', 2);
+INSERT INTO Etudiant VALUES (30216, 'Nom_2_16', 'Prenom_16', '2003-12-27', 2);
+INSERT INTO Etudiant VALUES (30217, 'Nom_2_17', 'Prenom_17', '2003-08-12', 2);
+INSERT INTO Etudiant VALUES (30218, 'Nom_2_18', 'Prenom_18', '2003-04-22', 2);
+INSERT INTO Etudiant VALUES (30219, 'Nom_2_19', 'Prenom_19', '2003-11-06', 2);
+INSERT INTO Etudiant VALUES (30220, 'Nom_2_20', 'Prenom_20', '2003-11-02', 2);
+INSERT INTO Etudiant VALUES (30221, 'Nom_2_21', 'Prenom_21', '2003-12-08', 2);
+INSERT INTO Etudiant VALUES (30222, 'Nom_2_22', 'Prenom_22', '2003-09-30', 2);
+INSERT INTO Etudiant VALUES (30223, 'Nom_2_23', 'Prenom_23', '2003-01-11', 2);
+INSERT INTO Etudiant VALUES (30224, 'Nom_2_24', 'Prenom_24', '2003-02-11', 2);
+INSERT INTO Etudiant VALUES (30225, 'Nom_2_25', 'Prenom_25', '2003-10-27', 2);
+INSERT INTO Etudiant VALUES (30226, 'Nom_2_26', 'Prenom_26', '2003-11-26', 2);
+INSERT INTO Etudiant VALUES (30227, 'Nom_2_27', 'Prenom_27', '2003-07-04', 2);
+INSERT INTO Etudiant VALUES (30228, 'Nom_2_28', 'Prenom_28', '2003-02-01', 2);
+INSERT INTO Etudiant VALUES (10301, 'Nom_3_1', 'Prenom_1', '2005-09-05', 3);
+INSERT INTO Etudiant VALUES (10302, 'Nom_3_2', 'Prenom_2', '2005-10-30', 3);
+INSERT INTO Etudiant VALUES (10303, 'Nom_3_3', 'Prenom_3', '2005-02-08', 3);
+INSERT INTO Etudiant VALUES (10304, 'Nom_3_4', 'Prenom_4', '2005-06-27', 3);
+INSERT INTO Etudiant VALUES (10305, 'Nom_3_5', 'Prenom_5', '2005-08-20', 3);
+INSERT INTO Etudiant VALUES (10306, 'Nom_3_6', 'Prenom_6', '2005-06-17', 3);
+INSERT INTO Etudiant VALUES (10307, 'Nom_3_7', 'Prenom_7', '2005-07-05', 3);
+INSERT INTO Etudiant VALUES (10308, 'Nom_3_8', 'Prenom_8', '2005-05-13', 3);
+INSERT INTO Etudiant VALUES (10309, 'Nom_3_9', 'Prenom_9', '2005-12-07', 3);
+INSERT INTO Etudiant VALUES (10310, 'Nom_3_10', 'Prenom_10', '2005-08-05', 3);
+INSERT INTO Etudiant VALUES (10311, 'Nom_3_11', 'Prenom_11', '2005-09-09', 3);
+INSERT INTO Etudiant VALUES (10312, 'Nom_3_12', 'Prenom_12', '2005-08-03', 3);
+INSERT INTO Etudiant VALUES (10313, 'Nom_3_13', 'Prenom_13', '2005-02-07', 3);
+INSERT INTO Etudiant VALUES (10314, 'Nom_3_14', 'Prenom_14', '2005-03-04', 3);
+INSERT INTO Etudiant VALUES (10315, 'Nom_3_15', 'Prenom_15', '2005-09-18', 3);
+INSERT INTO Etudiant VALUES (10316, 'Nom_3_16', 'Prenom_16', '2005-09-15', 3);
+INSERT INTO Etudiant VALUES (10317, 'Nom_3_17', 'Prenom_17', '2005-03-06', 3);
+INSERT INTO Etudiant VALUES (10318, 'Nom_3_18', 'Prenom_18', '2005-11-01', 3);
+INSERT INTO Etudiant VALUES (10319, 'Nom_3_19', 'Prenom_19', '2005-11-16', 3);
+INSERT INTO Etudiant VALUES (10320, 'Nom_3_20', 'Prenom_20', '2005-12-13', 3);
+INSERT INTO Etudiant VALUES (10321, 'Nom_3_21', 'Prenom_21', '2005-05-10', 3);
+INSERT INTO Etudiant VALUES (10322, 'Nom_3_22', 'Prenom_22', '2005-04-22', 3);
+INSERT INTO Etudiant VALUES (10323, 'Nom_3_23', 'Prenom_23', '2005-06-11', 3);
+INSERT INTO Etudiant VALUES (10324, 'Nom_3_24', 'Prenom_24', '2005-03-31', 3);
+INSERT INTO Etudiant VALUES (10325, 'Nom_3_25', 'Prenom_25', '2005-06-20', 3);
+INSERT INTO Etudiant VALUES (10326, 'Nom_3_26', 'Prenom_26', '2005-04-09', 3);
+INSERT INTO Etudiant VALUES (10327, 'Nom_3_27', 'Prenom_27', '2005-01-18', 3);
+INSERT INTO Etudiant VALUES (10328, 'Nom_3_28', 'Prenom_28', '2005-07-13', 3);
+INSERT INTO Etudiant VALUES (10329, 'Nom_3_29', 'Prenom_29', '2005-10-19', 3);
+INSERT INTO Etudiant VALUES (10330, 'Nom_3_30', 'Prenom_30', '2005-08-17', 3);
+INSERT INTO Etudiant VALUES (20301, 'Nom_3_1', 'Prenom_1', '2004-06-03', 3);
+INSERT INTO Etudiant VALUES (20302, 'Nom_3_2', 'Prenom_2', '2004-07-17', 3);
+INSERT INTO Etudiant VALUES (20303, 'Nom_3_3', 'Prenom_3', '2004-02-29', 3);
+INSERT INTO Etudiant VALUES (20304, 'Nom_3_4', 'Prenom_4', '2004-02-14', 3);
+INSERT INTO Etudiant VALUES (20305, 'Nom_3_5', 'Prenom_5', '2004-07-05', 3);
+INSERT INTO Etudiant VALUES (20306, 'Nom_3_6', 'Prenom_6', '2004-12-17', 3);
+INSERT INTO Etudiant VALUES (20307, 'Nom_3_7', 'Prenom_7', '2004-08-13', 3);
+INSERT INTO Etudiant VALUES (20308, 'Nom_3_8', 'Prenom_8', '2004-06-18', 3);
+INSERT INTO Etudiant VALUES (20309, 'Nom_3_9', 'Prenom_9', '2004-07-12', 3);
+INSERT INTO Etudiant VALUES (20310, 'Nom_3_10', 'Prenom_10', '2004-02-15', 3);
+INSERT INTO Etudiant VALUES (20311, 'Nom_3_11', 'Prenom_11', '2004-11-12', 3);
+INSERT INTO Etudiant VALUES (20312, 'Nom_3_12', 'Prenom_12', '2004-09-25', 3);
+INSERT INTO Etudiant VALUES (20313, 'Nom_3_13', 'Prenom_13', '2004-05-17', 3);
+INSERT INTO Etudiant VALUES (20314, 'Nom_3_14', 'Prenom_14', '2004-12-09', 3);
+INSERT INTO Etudiant VALUES (20315, 'Nom_3_15', 'Prenom_15', '2004-07-01', 3);
+INSERT INTO Etudiant VALUES (20316, 'Nom_3_16', 'Prenom_16', '2004-10-01', 3);
+INSERT INTO Etudiant VALUES (20317, 'Nom_3_17', 'Prenom_17', '2004-07-30', 3);
+INSERT INTO Etudiant VALUES (20318, 'Nom_3_18', 'Prenom_18', '2004-09-21', 3);
+INSERT INTO Etudiant VALUES (20319, 'Nom_3_19', 'Prenom_19', '2004-05-02', 3);
+INSERT INTO Etudiant VALUES (20320, 'Nom_3_20', 'Prenom_20', '2004-01-23', 3);
+INSERT INTO Etudiant VALUES (20321, 'Nom_3_21', 'Prenom_21', '2004-01-01', 3);
+INSERT INTO Etudiant VALUES (20322, 'Nom_3_22', 'Prenom_22', '2004-02-13', 3);
+INSERT INTO Etudiant VALUES (20323, 'Nom_3_23', 'Prenom_23', '2004-04-05', 3);
+INSERT INTO Etudiant VALUES (20324, 'Nom_3_24', 'Prenom_24', '2004-07-09', 3);
+INSERT INTO Etudiant VALUES (20325, 'Nom_3_25', 'Prenom_25', '2004-01-30', 3);
+INSERT INTO Etudiant VALUES (20326, 'Nom_3_26', 'Prenom_26', '2004-12-02', 3);
+INSERT INTO Etudiant VALUES (20327, 'Nom_3_27', 'Prenom_27', '2004-08-18', 3);
+INSERT INTO Etudiant VALUES (20328, 'Nom_3_28', 'Prenom_28', '2004-10-08', 3);
+INSERT INTO Etudiant VALUES (20329, 'Nom_3_29', 'Prenom_29', '2004-08-05', 3);
+INSERT INTO Etudiant VALUES (20330, 'Nom_3_30', 'Prenom_30', '2004-06-23', 3);
+INSERT INTO Etudiant VALUES (20331, 'Nom_3_31', 'Prenom_31', '2004-01-08', 3);
+INSERT INTO Etudiant VALUES (30301, 'Nom_3_1', 'Prenom_1', '2003-11-23', 3);
+INSERT INTO Etudiant VALUES (30302, 'Nom_3_2', 'Prenom_2', '2003-03-01', 3);
+INSERT INTO Etudiant VALUES (30303, 'Nom_3_3', 'Prenom_3', '2003-07-02', 3);
+INSERT INTO Etudiant VALUES (30304, 'Nom_3_4', 'Prenom_4', '2003-02-14', 3);
+INSERT INTO Etudiant VALUES (30305, 'Nom_3_5', 'Prenom_5', '2003-08-11', 3);
+INSERT INTO Etudiant VALUES (30306, 'Nom_3_6', 'Prenom_6', '2003-07-19', 3);
+INSERT INTO Etudiant VALUES (30307, 'Nom_3_7', 'Prenom_7', '2003-06-16', 3);
+INSERT INTO Etudiant VALUES (30308, 'Nom_3_8', 'Prenom_8', '2003-11-16', 3);
+INSERT INTO Etudiant VALUES (30309, 'Nom_3_9', 'Prenom_9', '2003-01-18', 3);
+INSERT INTO Etudiant VALUES (30310, 'Nom_3_10', 'Prenom_10', '2003-12-09', 3);
+INSERT INTO Etudiant VALUES (30311, 'Nom_3_11', 'Prenom_11', '2003-07-07', 3);
+INSERT INTO Etudiant VALUES (30312, 'Nom_3_12', 'Prenom_12', '2003-12-21', 3);
+INSERT INTO Etudiant VALUES (30313, 'Nom_3_13', 'Prenom_13', '2003-05-10', 3);
+INSERT INTO Etudiant VALUES (30314, 'Nom_3_14', 'Prenom_14', '2003-12-06', 3);
+INSERT INTO Etudiant VALUES (30315, 'Nom_3_15', 'Prenom_15', '2003-05-01', 3);
+INSERT INTO Etudiant VALUES (30316, 'Nom_3_16', 'Prenom_16', '2003-12-15', 3);
+INSERT INTO Etudiant VALUES (30317, 'Nom_3_17', 'Prenom_17', '2003-02-15', 3);
+INSERT INTO Etudiant VALUES (30318, 'Nom_3_18', 'Prenom_18', '2003-06-24', 3);
+INSERT INTO Etudiant VALUES (30319, 'Nom_3_19', 'Prenom_19', '2003-06-05', 3);
+INSERT INTO Etudiant VALUES (30320, 'Nom_3_20', 'Prenom_20', '2003-10-15', 3);
+INSERT INTO Etudiant VALUES (30321, 'Nom_3_21', 'Prenom_21', '2003-07-12', 3);
+INSERT INTO Etudiant VALUES (30322, 'Nom_3_22', 'Prenom_22', '2003-08-15', 3);
+INSERT INTO Etudiant VALUES (30323, 'Nom_3_23', 'Prenom_23', '2003-03-07', 3);
+INSERT INTO Etudiant VALUES (30324, 'Nom_3_24', 'Prenom_24', '2003-06-02', 3);
+INSERT INTO Etudiant VALUES (30325, 'Nom_3_25', 'Prenom_25', '2003-12-09', 3);
+INSERT INTO Etudiant VALUES (30326, 'Nom_3_26', 'Prenom_26', '2003-07-14', 3);
+INSERT INTO Etudiant VALUES (30327, 'Nom_3_27', 'Prenom_27', '2003-09-03', 3);
+INSERT INTO Etudiant VALUES (30328, 'Nom_3_28', 'Prenom_28', '2003-07-05', 3);
+INSERT INTO Etudiant VALUES (30329, 'Nom_3_29', 'Prenom_29', '2003-12-07', 3);
+INSERT INTO Etudiant VALUES (10401, 'Nom_4_1', 'Prenom_1', '2005-09-04', 4);
+INSERT INTO Etudiant VALUES (10402, 'Nom_4_2', 'Prenom_2', '2005-06-13', 4);
+INSERT INTO Etudiant VALUES (10403, 'Nom_4_3', 'Prenom_3', '2005-11-08', 4);
+INSERT INTO Etudiant VALUES (10404, 'Nom_4_4', 'Prenom_4', '2005-12-17', 4);
+INSERT INTO Etudiant VALUES (10405, 'Nom_4_5', 'Prenom_5', '2005-05-02', 4);
+INSERT INTO Etudiant VALUES (10406, 'Nom_4_6', 'Prenom_6', '2005-07-12', 4);
+INSERT INTO Etudiant VALUES (10407, 'Nom_4_7', 'Prenom_7', '2005-06-22', 4);
+INSERT INTO Etudiant VALUES (10408, 'Nom_4_8', 'Prenom_8', '2005-05-05', 4);
+INSERT INTO Etudiant VALUES (10409, 'Nom_4_9', 'Prenom_9', '2005-04-26', 4);
+INSERT INTO Etudiant VALUES (10410, 'Nom_4_10', 'Prenom_10', '2005-11-16', 4);
+INSERT INTO Etudiant VALUES (10411, 'Nom_4_11', 'Prenom_11', '2005-04-01', 4);
+INSERT INTO Etudiant VALUES (10412, 'Nom_4_12', 'Prenom_12', '2005-05-15', 4);
+INSERT INTO Etudiant VALUES (10413, 'Nom_4_13', 'Prenom_13', '2005-01-21', 4);
+INSERT INTO Etudiant VALUES (10414, 'Nom_4_14', 'Prenom_14', '2005-09-25', 4);
+INSERT INTO Etudiant VALUES (10415, 'Nom_4_15', 'Prenom_15', '2005-01-06', 4);
+INSERT INTO Etudiant VALUES (10416, 'Nom_4_16', 'Prenom_16', '2005-12-17', 4);
+INSERT INTO Etudiant VALUES (10417, 'Nom_4_17', 'Prenom_17', '2005-11-16', 4);
+INSERT INTO Etudiant VALUES (10418, 'Nom_4_18', 'Prenom_18', '2005-02-11', 4);
+INSERT INTO Etudiant VALUES (10419, 'Nom_4_19', 'Prenom_19', '2005-08-11', 4);
+INSERT INTO Etudiant VALUES (10420, 'Nom_4_20', 'Prenom_20', '2005-12-29', 4);
+INSERT INTO Etudiant VALUES (10421, 'Nom_4_21', 'Prenom_21', '2005-02-26', 4);
+INSERT INTO Etudiant VALUES (10422, 'Nom_4_22', 'Prenom_22', '2005-11-02', 4);
+INSERT INTO Etudiant VALUES (10423, 'Nom_4_23', 'Prenom_23', '2005-08-05', 4);
+INSERT INTO Etudiant VALUES (10424, 'Nom_4_24', 'Prenom_24', '2005-12-31', 4);
+INSERT INTO Etudiant VALUES (10425, 'Nom_4_25', 'Prenom_25', '2005-03-09', 4);
+INSERT INTO Etudiant VALUES (10426, 'Nom_4_26', 'Prenom_26', '2005-03-28', 4);
+INSERT INTO Etudiant VALUES (10427, 'Nom_4_27', 'Prenom_27', '2005-05-28', 4);
+INSERT INTO Etudiant VALUES (10428, 'Nom_4_28', 'Prenom_28', '2005-10-08', 4);
+INSERT INTO Etudiant VALUES (10429, 'Nom_4_29', 'Prenom_29', '2005-11-03', 4);
+INSERT INTO Etudiant VALUES (20401, 'Nom_4_1', 'Prenom_1', '2004-12-05', 4);
+INSERT INTO Etudiant VALUES (20402, 'Nom_4_2', 'Prenom_2', '2004-03-15', 4);
+INSERT INTO Etudiant VALUES (20403, 'Nom_4_3', 'Prenom_3', '2004-02-27', 4);
+INSERT INTO Etudiant VALUES (20404, 'Nom_4_4', 'Prenom_4', '2004-09-11', 4);
+INSERT INTO Etudiant VALUES (20405, 'Nom_4_5', 'Prenom_5', '2004-06-01', 4);
+INSERT INTO Etudiant VALUES (20406, 'Nom_4_6', 'Prenom_6', '2004-03-30', 4);
+INSERT INTO Etudiant VALUES (20407, 'Nom_4_7', 'Prenom_7', '2004-04-06', 4);
+INSERT INTO Etudiant VALUES (20408, 'Nom_4_8', 'Prenom_8', '2004-12-31', 4);
+INSERT INTO Etudiant VALUES (20409, 'Nom_4_9', 'Prenom_9', '2004-12-10', 4);
+INSERT INTO Etudiant VALUES (20410, 'Nom_4_10', 'Prenom_10', '2004-09-25', 4);
+INSERT INTO Etudiant VALUES (20411, 'Nom_4_11', 'Prenom_11', '2004-01-15', 4);
+INSERT INTO Etudiant VALUES (20412, 'Nom_4_12', 'Prenom_12', '2004-12-27', 4);
+INSERT INTO Etudiant VALUES (20413, 'Nom_4_13', 'Prenom_13', '2004-03-28', 4);
+INSERT INTO Etudiant VALUES (20414, 'Nom_4_14', 'Prenom_14', '2004-11-27', 4);
+INSERT INTO Etudiant VALUES (20415, 'Nom_4_15', 'Prenom_15', '2004-12-24', 4);
+INSERT INTO Etudiant VALUES (20416, 'Nom_4_16', 'Prenom_16', '2004-03-11', 4);
+INSERT INTO Etudiant VALUES (20417, 'Nom_4_17', 'Prenom_17', '2004-07-31', 4);
+INSERT INTO Etudiant VALUES (20418, 'Nom_4_18', 'Prenom_18', '2004-08-24', 4);
+INSERT INTO Etudiant VALUES (20419, 'Nom_4_19', 'Prenom_19', '2004-02-25', 4);
+INSERT INTO Etudiant VALUES (20420, 'Nom_4_20', 'Prenom_20', '2004-12-13', 4);
+INSERT INTO Etudiant VALUES (20421, 'Nom_4_21', 'Prenom_21', '2004-06-16', 4);
+INSERT INTO Etudiant VALUES (20422, 'Nom_4_22', 'Prenom_22', '2004-01-09', 4);
+INSERT INTO Etudiant VALUES (20423, 'Nom_4_23', 'Prenom_23', '2004-03-21', 4);
+INSERT INTO Etudiant VALUES (20424, 'Nom_4_24', 'Prenom_24', '2004-05-24', 4);
+INSERT INTO Etudiant VALUES (20425, 'Nom_4_25', 'Prenom_25', '2004-04-19', 4);
+INSERT INTO Etudiant VALUES (20426, 'Nom_4_26', 'Prenom_26', '2004-06-26', 4);
+INSERT INTO Etudiant VALUES (20427, 'Nom_4_27', 'Prenom_27', '2004-12-15', 4);
+INSERT INTO Etudiant VALUES (20428, 'Nom_4_28', 'Prenom_28', '2004-09-29', 4);
+INSERT INTO Etudiant VALUES (20429, 'Nom_4_29', 'Prenom_29', '2004-06-24', 4);
+INSERT INTO Etudiant VALUES (20430, 'Nom_4_30', 'Prenom_30', '2004-08-22', 4);
+INSERT INTO Etudiant VALUES (20431, 'Nom_4_31', 'Prenom_31', '2004-06-29', 4);
+INSERT INTO Etudiant VALUES (20432, 'Nom_4_32', 'Prenom_32', '2004-04-18', 4);
+INSERT INTO Etudiant VALUES (30401, 'Nom_4_1', 'Prenom_1', '2003-07-15', 4);
+INSERT INTO Etudiant VALUES (30402, 'Nom_4_2', 'Prenom_2', '2003-09-19', 4);
+INSERT INTO Etudiant VALUES (30403, 'Nom_4_3', 'Prenom_3', '2003-11-08', 4);
+INSERT INTO Etudiant VALUES (30404, 'Nom_4_4', 'Prenom_4', '2003-02-15', 4);
+INSERT INTO Etudiant VALUES (30405, 'Nom_4_5', 'Prenom_5', '2003-04-02', 4);
+INSERT INTO Etudiant VALUES (30406, 'Nom_4_6', 'Prenom_6', '2003-08-31', 4);
+INSERT INTO Etudiant VALUES (30407, 'Nom_4_7', 'Prenom_7', '2003-11-06', 4);
+INSERT INTO Etudiant VALUES (30408, 'Nom_4_8', 'Prenom_8', '2003-08-27', 4);
+INSERT INTO Etudiant VALUES (30409, 'Nom_4_9', 'Prenom_9', '2003-02-22', 4);
+INSERT INTO Etudiant VALUES (30410, 'Nom_4_10', 'Prenom_10', '2003-11-02', 4);
+INSERT INTO Etudiant VALUES (30411, 'Nom_4_11', 'Prenom_11', '2003-12-11', 4);
+INSERT INTO Etudiant VALUES (30412, 'Nom_4_12', 'Prenom_12', '2003-04-11', 4);
+INSERT INTO Etudiant VALUES (30413, 'Nom_4_13', 'Prenom_13', '2003-07-01', 4);
+INSERT INTO Etudiant VALUES (30414, 'Nom_4_14', 'Prenom_14', '2003-11-30', 4);
+INSERT INTO Etudiant VALUES (30415, 'Nom_4_15', 'Prenom_15', '2003-03-25', 4);
+INSERT INTO Etudiant VALUES (30416, 'Nom_4_16', 'Prenom_16', '2003-10-28', 4);
+INSERT INTO Etudiant VALUES (30417, 'Nom_4_17', 'Prenom_17', '2003-06-03', 4);
+INSERT INTO Etudiant VALUES (30418, 'Nom_4_18', 'Prenom_18', '2003-01-10', 4);
+INSERT INTO Etudiant VALUES (30419, 'Nom_4_19', 'Prenom_19', '2003-10-23', 4);
+INSERT INTO Etudiant VALUES (30420, 'Nom_4_20', 'Prenom_20', '2003-01-20', 4);
+INSERT INTO Etudiant VALUES (30421, 'Nom_4_21', 'Prenom_21', '2003-01-30', 4);
+INSERT INTO Etudiant VALUES (30422, 'Nom_4_22', 'Prenom_22', '2003-07-11', 4);
+INSERT INTO Etudiant VALUES (30423, 'Nom_4_23', 'Prenom_23', '2003-02-06', 4);
+INSERT INTO Etudiant VALUES (30424, 'Nom_4_24', 'Prenom_24', '2003-07-19', 4);
+INSERT INTO Etudiant VALUES (30425, 'Nom_4_25', 'Prenom_25', '2003-06-19', 4);
+INSERT INTO Etudiant VALUES (30426, 'Nom_4_26', 'Prenom_26', '2003-10-25', 4);
+INSERT INTO Etudiant VALUES (30427, 'Nom_4_27', 'Prenom_27', '2003-12-21', 4);
+INSERT INTO Etudiant VALUES (30428, 'Nom_4_28', 'Prenom_28', '2003-08-16', 4);
+INSERT INTO Etudiant VALUES (30429, 'Nom_4_29', 'Prenom_29', '2003-11-13', 4);
+INSERT INTO Etudiant VALUES (10501, 'Nom_5_1', 'Prenom_1', '2005-11-11', 5);
+INSERT INTO Etudiant VALUES (10502, 'Nom_5_2', 'Prenom_2', '2005-03-02', 5);
+INSERT INTO Etudiant VALUES (10503, 'Nom_5_3', 'Prenom_3', '2005-09-01', 5);
+INSERT INTO Etudiant VALUES (10504, 'Nom_5_4', 'Prenom_4', '2005-05-06', 5);
+INSERT INTO Etudiant VALUES (10505, 'Nom_5_5', 'Prenom_5', '2005-03-22', 5);
+INSERT INTO Etudiant VALUES (10506, 'Nom_5_6', 'Prenom_6', '2005-06-05', 5);
+INSERT INTO Etudiant VALUES (10507, 'Nom_5_7', 'Prenom_7', '2005-02-19', 5);
+INSERT INTO Etudiant VALUES (10508, 'Nom_5_8', 'Prenom_8', '2005-08-05', 5);
+INSERT INTO Etudiant VALUES (10509, 'Nom_5_9', 'Prenom_9', '2005-04-15', 5);
+INSERT INTO Etudiant VALUES (10510, 'Nom_5_10', 'Prenom_10', '2005-06-14', 5);
+INSERT INTO Etudiant VALUES (10511, 'Nom_5_11', 'Prenom_11', '2005-06-06', 5);
+INSERT INTO Etudiant VALUES (10512, 'Nom_5_12', 'Prenom_12', '2005-01-08', 5);
+INSERT INTO Etudiant VALUES (10513, 'Nom_5_13', 'Prenom_13', '2005-07-02', 5);
+INSERT INTO Etudiant VALUES (10514, 'Nom_5_14', 'Prenom_14', '2005-01-03', 5);
+INSERT INTO Etudiant VALUES (10515, 'Nom_5_15', 'Prenom_15', '2005-12-09', 5);
+INSERT INTO Etudiant VALUES (10516, 'Nom_5_16', 'Prenom_16', '2005-02-27', 5);
+INSERT INTO Etudiant VALUES (10517, 'Nom_5_17', 'Prenom_17', '2005-07-08', 5);
+INSERT INTO Etudiant VALUES (10518, 'Nom_5_18', 'Prenom_18', '2005-08-22', 5);
+INSERT INTO Etudiant VALUES (10519, 'Nom_5_19', 'Prenom_19', '2005-11-14', 5);
+INSERT INTO Etudiant VALUES (10520, 'Nom_5_20', 'Prenom_20', '2005-06-12', 5);
+INSERT INTO Etudiant VALUES (10521, 'Nom_5_21', 'Prenom_21', '2005-08-22', 5);
+INSERT INTO Etudiant VALUES (10522, 'Nom_5_22', 'Prenom_22', '2005-03-23', 5);
+INSERT INTO Etudiant VALUES (10523, 'Nom_5_23', 'Prenom_23', '2005-04-30', 5);
+INSERT INTO Etudiant VALUES (10524, 'Nom_5_24', 'Prenom_24', '2005-07-27', 5);
+INSERT INTO Etudiant VALUES (10525, 'Nom_5_25', 'Prenom_25', '2005-10-05', 5);
+INSERT INTO Etudiant VALUES (10526, 'Nom_5_26', 'Prenom_26', '2005-09-22', 5);
+INSERT INTO Etudiant VALUES (10527, 'Nom_5_27', 'Prenom_27', '2005-09-12', 5);
+INSERT INTO Etudiant VALUES (10528, 'Nom_5_28', 'Prenom_28', '2005-05-13', 5);
+INSERT INTO Etudiant VALUES (10529, 'Nom_5_29', 'Prenom_29', '2005-04-27', 5);
+INSERT INTO Etudiant VALUES (10530, 'Nom_5_30', 'Prenom_30', '2005-04-10', 5);
+INSERT INTO Etudiant VALUES (10531, 'Nom_5_31', 'Prenom_31', '2005-09-30', 5);
+INSERT INTO Etudiant VALUES (10532, 'Nom_5_32', 'Prenom_32', '2005-04-25', 5);
+INSERT INTO Etudiant VALUES (20501, 'Nom_5_1', 'Prenom_1', '2004-05-27', 5);
+INSERT INTO Etudiant VALUES (20502, 'Nom_5_2', 'Prenom_2', '2004-10-08', 5);
+INSERT INTO Etudiant VALUES (20503, 'Nom_5_3', 'Prenom_3', '2004-12-21', 5);
+INSERT INTO Etudiant VALUES (20504, 'Nom_5_4', 'Prenom_4', '2004-08-01', 5);
+INSERT INTO Etudiant VALUES (20505, 'Nom_5_5', 'Prenom_5', '2004-01-16', 5);
+INSERT INTO Etudiant VALUES (20506, 'Nom_5_6', 'Prenom_6', '2004-06-13', 5);
+INSERT INTO Etudiant VALUES (20507, 'Nom_5_7', 'Prenom_7', '2004-07-03', 5);
+INSERT INTO Etudiant VALUES (20508, 'Nom_5_8', 'Prenom_8', '2004-11-01', 5);
+INSERT INTO Etudiant VALUES (20509, 'Nom_5_9', 'Prenom_9', '2004-05-15', 5);
+INSERT INTO Etudiant VALUES (20510, 'Nom_5_10', 'Prenom_10', '2004-12-09', 5);
+INSERT INTO Etudiant VALUES (20511, 'Nom_5_11', 'Prenom_11', '2004-09-29', 5);
+INSERT INTO Etudiant VALUES (20512, 'Nom_5_12', 'Prenom_12', '2004-03-24', 5);
+INSERT INTO Etudiant VALUES (20513, 'Nom_5_13', 'Prenom_13', '2004-09-03', 5);
+INSERT INTO Etudiant VALUES (20514, 'Nom_5_14', 'Prenom_14', '2004-12-17', 5);
+INSERT INTO Etudiant VALUES (20515, 'Nom_5_15', 'Prenom_15', '2004-07-31', 5);
+INSERT INTO Etudiant VALUES (20516, 'Nom_5_16', 'Prenom_16', '2004-06-30', 5);
+INSERT INTO Etudiant VALUES (20517, 'Nom_5_17', 'Prenom_17', '2004-06-11', 5);
+INSERT INTO Etudiant VALUES (20518, 'Nom_5_18', 'Prenom_18', '2004-12-01', 5);
+INSERT INTO Etudiant VALUES (20519, 'Nom_5_19', 'Prenom_19', '2004-05-27', 5);
+INSERT INTO Etudiant VALUES (20520, 'Nom_5_20', 'Prenom_20', '2004-12-11', 5);
+INSERT INTO Etudiant VALUES (20521, 'Nom_5_21', 'Prenom_21', '2004-09-28', 5);
+INSERT INTO Etudiant VALUES (20522, 'Nom_5_22', 'Prenom_22', '2004-01-27', 5);
+INSERT INTO Etudiant VALUES (20523, 'Nom_5_23', 'Prenom_23', '2004-06-12', 5);
+INSERT INTO Etudiant VALUES (20524, 'Nom_5_24', 'Prenom_24', '2004-08-14', 5);
+INSERT INTO Etudiant VALUES (20525, 'Nom_5_25', 'Prenom_25', '2004-05-18', 5);
+INSERT INTO Etudiant VALUES (20526, 'Nom_5_26', 'Prenom_26', '2004-05-25', 5);
+INSERT INTO Etudiant VALUES (20527, 'Nom_5_27', 'Prenom_27', '2004-11-15', 5);
+INSERT INTO Etudiant VALUES (20528, 'Nom_5_28', 'Prenom_28', '2004-05-29', 5);
+INSERT INTO Etudiant VALUES (30501, 'Nom_5_1', 'Prenom_1', '2003-04-19', 5);
+INSERT INTO Etudiant VALUES (30502, 'Nom_5_2', 'Prenom_2', '2003-07-04', 5);
+INSERT INTO Etudiant VALUES (30503, 'Nom_5_3', 'Prenom_3', '2003-02-06', 5);
+INSERT INTO Etudiant VALUES (30504, 'Nom_5_4', 'Prenom_4', '2003-09-28', 5);
+INSERT INTO Etudiant VALUES (30505, 'Nom_5_5', 'Prenom_5', '2003-12-30', 5);
+INSERT INTO Etudiant VALUES (30506, 'Nom_5_6', 'Prenom_6', '2003-12-06', 5);
+INSERT INTO Etudiant VALUES (30507, 'Nom_5_7', 'Prenom_7', '2003-09-08', 5);
+INSERT INTO Etudiant VALUES (30508, 'Nom_5_8', 'Prenom_8', '2003-12-04', 5);
+INSERT INTO Etudiant VALUES (30509, 'Nom_5_9', 'Prenom_9', '2003-10-16', 5);
+INSERT INTO Etudiant VALUES (30510, 'Nom_5_10', 'Prenom_10', '2003-06-12', 5);
+INSERT INTO Etudiant VALUES (30511, 'Nom_5_11', 'Prenom_11', '2003-01-29', 5);
+INSERT INTO Etudiant VALUES (30512, 'Nom_5_12', 'Prenom_12', '2003-08-19', 5);
+INSERT INTO Etudiant VALUES (30513, 'Nom_5_13', 'Prenom_13', '2003-06-12', 5);
+INSERT INTO Etudiant VALUES (30514, 'Nom_5_14', 'Prenom_14', '2003-09-29', 5);
+INSERT INTO Etudiant VALUES (30515, 'Nom_5_15', 'Prenom_15', '2003-11-05', 5);
+INSERT INTO Etudiant VALUES (30516, 'Nom_5_16', 'Prenom_16', '2003-11-17', 5);
+INSERT INTO Etudiant VALUES (30517, 'Nom_5_17', 'Prenom_17', '2003-07-07', 5);
+INSERT INTO Etudiant VALUES (30518, 'Nom_5_18', 'Prenom_18', '2003-06-02', 5);
+INSERT INTO Etudiant VALUES (30519, 'Nom_5_19', 'Prenom_19', '2003-05-04', 5);
+INSERT INTO Etudiant VALUES (30520, 'Nom_5_20', 'Prenom_20', '2003-05-29', 5);
+INSERT INTO Etudiant VALUES (30521, 'Nom_5_21', 'Prenom_21', '2003-01-14', 5);
+INSERT INTO Etudiant VALUES (30522, 'Nom_5_22', 'Prenom_22', '2003-02-28', 5);
+INSERT INTO Etudiant VALUES (30523, 'Nom_5_23', 'Prenom_23', '2003-03-11', 5);
+INSERT INTO Etudiant VALUES (30524, 'Nom_5_24', 'Prenom_24', '2003-05-24', 5);
+INSERT INTO Etudiant VALUES (30525, 'Nom_5_25', 'Prenom_25', '2003-12-31', 5);
+INSERT INTO Etudiant VALUES (30526, 'Nom_5_26', 'Prenom_26', '2003-08-01', 5);
+INSERT INTO Etudiant VALUES (30527, 'Nom_5_27', 'Prenom_27', '2003-07-06', 5);
+INSERT INTO Etudiant VALUES (30528, 'Nom_5_28', 'Prenom_28', '2003-03-07', 5);
+INSERT INTO Etudiant VALUES (30529, 'Nom_5_29', 'Prenom_29', '2003-09-30', 5);
+INSERT INTO Etudiant VALUES (30530, 'Nom_5_30', 'Prenom_30', '2003-01-19', 5);
+INSERT INTO Etudiant VALUES (30531, 'Nom_5_31', 'Prenom_31', '2003-12-24', 5);
+INSERT INTO Etudiant VALUES (30532, 'Nom_5_32', 'Prenom_32', '2003-03-21', 5);
+INSERT INTO Etudiant VALUES (10601, 'Nom_6_1', 'Prenom_1', '2005-02-11', 6);
+INSERT INTO Etudiant VALUES (10602, 'Nom_6_2', 'Prenom_2', '2005-08-05', 6);
+INSERT INTO Etudiant VALUES (10603, 'Nom_6_3', 'Prenom_3', '2005-05-19', 6);
+INSERT INTO Etudiant VALUES (10604, 'Nom_6_4', 'Prenom_4', '2005-12-21', 6);
+INSERT INTO Etudiant VALUES (10605, 'Nom_6_5', 'Prenom_5', '2005-02-23', 6);
+INSERT INTO Etudiant VALUES (10606, 'Nom_6_6', 'Prenom_6', '2005-11-24', 6);
+INSERT INTO Etudiant VALUES (10607, 'Nom_6_7', 'Prenom_7', '2005-04-24', 6);
+INSERT INTO Etudiant VALUES (10608, 'Nom_6_8', 'Prenom_8', '2005-05-24', 6);
+INSERT INTO Etudiant VALUES (10609, 'Nom_6_9', 'Prenom_9', '2005-04-10', 6);
+INSERT INTO Etudiant VALUES (10610, 'Nom_6_10', 'Prenom_10', '2005-09-11', 6);
+INSERT INTO Etudiant VALUES (10611, 'Nom_6_11', 'Prenom_11', '2005-08-14', 6);
+INSERT INTO Etudiant VALUES (10612, 'Nom_6_12', 'Prenom_12', '2005-10-23', 6);
+INSERT INTO Etudiant VALUES (10613, 'Nom_6_13', 'Prenom_13', '2005-09-20', 6);
+INSERT INTO Etudiant VALUES (10614, 'Nom_6_14', 'Prenom_14', '2005-12-16', 6);
+INSERT INTO Etudiant VALUES (10615, 'Nom_6_15', 'Prenom_15', '2005-04-29', 6);
+INSERT INTO Etudiant VALUES (10616, 'Nom_6_16', 'Prenom_16', '2005-08-09', 6);
+INSERT INTO Etudiant VALUES (10617, 'Nom_6_17', 'Prenom_17', '2005-02-21', 6);
+INSERT INTO Etudiant VALUES (10618, 'Nom_6_18', 'Prenom_18', '2005-09-16', 6);
+INSERT INTO Etudiant VALUES (10619, 'Nom_6_19', 'Prenom_19', '2005-07-08', 6);
+INSERT INTO Etudiant VALUES (10620, 'Nom_6_20', 'Prenom_20', '2005-03-03', 6);
+INSERT INTO Etudiant VALUES (10621, 'Nom_6_21', 'Prenom_21', '2005-04-03', 6);
+INSERT INTO Etudiant VALUES (10622, 'Nom_6_22', 'Prenom_22', '2005-01-15', 6);
+INSERT INTO Etudiant VALUES (10623, 'Nom_6_23', 'Prenom_23', '2005-10-04', 6);
+INSERT INTO Etudiant VALUES (10624, 'Nom_6_24', 'Prenom_24', '2005-02-23', 6);
+INSERT INTO Etudiant VALUES (10625, 'Nom_6_25', 'Prenom_25', '2005-05-19', 6);
+INSERT INTO Etudiant VALUES (10626, 'Nom_6_26', 'Prenom_26', '2005-08-29', 6);
+INSERT INTO Etudiant VALUES (10627, 'Nom_6_27', 'Prenom_27', '2005-06-01', 6);
+INSERT INTO Etudiant VALUES (10628, 'Nom_6_28', 'Prenom_28', '2005-06-22', 6);
+INSERT INTO Etudiant VALUES (10629, 'Nom_6_29', 'Prenom_29', '2005-09-09', 6);
+INSERT INTO Etudiant VALUES (10630, 'Nom_6_30', 'Prenom_30', '2005-04-09', 6);
+INSERT INTO Etudiant VALUES (10631, 'Nom_6_31', 'Prenom_31', '2005-01-19', 6);
+INSERT INTO Etudiant VALUES (10632, 'Nom_6_32', 'Prenom_32', '2005-07-17', 6);
+INSERT INTO Etudiant VALUES (20601, 'Nom_6_1', 'Prenom_1', '2004-12-25', 6);
+INSERT INTO Etudiant VALUES (20602, 'Nom_6_2', 'Prenom_2', '2004-09-15', 6);
+INSERT INTO Etudiant VALUES (20603, 'Nom_6_3', 'Prenom_3', '2004-08-13', 6);
+INSERT INTO Etudiant VALUES (20604, 'Nom_6_4', 'Prenom_4', '2004-02-01', 6);
+INSERT INTO Etudiant VALUES (20605, 'Nom_6_5', 'Prenom_5', '2004-06-27', 6);
+INSERT INTO Etudiant VALUES (20606, 'Nom_6_6', 'Prenom_6', '2004-11-12', 6);
+INSERT INTO Etudiant VALUES (20607, 'Nom_6_7', 'Prenom_7', '2004-03-12', 6);
+INSERT INTO Etudiant VALUES (20608, 'Nom_6_8', 'Prenom_8', '2004-03-09', 6);
+INSERT INTO Etudiant VALUES (20609, 'Nom_6_9', 'Prenom_9', '2004-09-01', 6);
+INSERT INTO Etudiant VALUES (20610, 'Nom_6_10', 'Prenom_10', '2004-06-25', 6);
+INSERT INTO Etudiant VALUES (20611, 'Nom_6_11', 'Prenom_11', '2004-09-17', 6);
+INSERT INTO Etudiant VALUES (20612, 'Nom_6_12', 'Prenom_12', '2004-02-02', 6);
+INSERT INTO Etudiant VALUES (20613, 'Nom_6_13', 'Prenom_13', '2004-12-18', 6);
+INSERT INTO Etudiant VALUES (20614, 'Nom_6_14', 'Prenom_14', '2004-06-12', 6);
+INSERT INTO Etudiant VALUES (20615, 'Nom_6_15', 'Prenom_15', '2004-12-21', 6);
+INSERT INTO Etudiant VALUES (20616, 'Nom_6_16', 'Prenom_16', '2004-05-05', 6);
+INSERT INTO Etudiant VALUES (20617, 'Nom_6_17', 'Prenom_17', '2004-01-10', 6);
+INSERT INTO Etudiant VALUES (20618, 'Nom_6_18', 'Prenom_18', '2004-07-09', 6);
+INSERT INTO Etudiant VALUES (20619, 'Nom_6_19', 'Prenom_19', '2004-12-25', 6);
+INSERT INTO Etudiant VALUES (20620, 'Nom_6_20', 'Prenom_20', '2004-06-02', 6);
+INSERT INTO Etudiant VALUES (20621, 'Nom_6_21', 'Prenom_21', '2004-02-26', 6);
+INSERT INTO Etudiant VALUES (20622, 'Nom_6_22', 'Prenom_22', '2004-09-21', 6);
+INSERT INTO Etudiant VALUES (20623, 'Nom_6_23', 'Prenom_23', '2004-10-28', 6);
+INSERT INTO Etudiant VALUES (20624, 'Nom_6_24', 'Prenom_24', '2004-01-21', 6);
+INSERT INTO Etudiant VALUES (20625, 'Nom_6_25', 'Prenom_25', '2004-11-13', 6);
+INSERT INTO Etudiant VALUES (20626, 'Nom_6_26', 'Prenom_26', '2004-10-12', 6);
+INSERT INTO Etudiant VALUES (20627, 'Nom_6_27', 'Prenom_27', '2004-04-04', 6);
+INSERT INTO Etudiant VALUES (20628, 'Nom_6_28', 'Prenom_28', '2004-05-01', 6);
+INSERT INTO Etudiant VALUES (20629, 'Nom_6_29', 'Prenom_29', '2004-06-10', 6);
+INSERT INTO Etudiant VALUES (20630, 'Nom_6_30', 'Prenom_30', '2004-10-11', 6);
+INSERT INTO Etudiant VALUES (20631, 'Nom_6_31', 'Prenom_31', '2004-11-07', 6);
+INSERT INTO Etudiant VALUES (20632, 'Nom_6_32', 'Prenom_32', '2004-12-06', 6);
+INSERT INTO Etudiant VALUES (30601, 'Nom_6_1', 'Prenom_1', '2003-12-15', 6);
+INSERT INTO Etudiant VALUES (30602, 'Nom_6_2', 'Prenom_2', '2003-11-05', 6);
+INSERT INTO Etudiant VALUES (30603, 'Nom_6_3', 'Prenom_3', '2003-11-10', 6);
+INSERT INTO Etudiant VALUES (30604, 'Nom_6_4', 'Prenom_4', '2003-08-09', 6);
+INSERT INTO Etudiant VALUES (30605, 'Nom_6_5', 'Prenom_5', '2003-03-03', 6);
+INSERT INTO Etudiant VALUES (30606, 'Nom_6_6', 'Prenom_6', '2003-03-28', 6);
+INSERT INTO Etudiant VALUES (30607, 'Nom_6_7', 'Prenom_7', '2003-11-08', 6);
+INSERT INTO Etudiant VALUES (30608, 'Nom_6_8', 'Prenom_8', '2003-08-29', 6);
+INSERT INTO Etudiant VALUES (30609, 'Nom_6_9', 'Prenom_9', '2003-04-14', 6);
+INSERT INTO Etudiant VALUES (30610, 'Nom_6_10', 'Prenom_10', '2003-04-20', 6);
+INSERT INTO Etudiant VALUES (30611, 'Nom_6_11', 'Prenom_11', '2003-03-12', 6);
+INSERT INTO Etudiant VALUES (30612, 'Nom_6_12', 'Prenom_12', '2003-04-04', 6);
+INSERT INTO Etudiant VALUES (30613, 'Nom_6_13', 'Prenom_13', '2003-06-30', 6);
+INSERT INTO Etudiant VALUES (30614, 'Nom_6_14', 'Prenom_14', '2003-09-21', 6);
+INSERT INTO Etudiant VALUES (30615, 'Nom_6_15', 'Prenom_15', '2003-02-27', 6);
+INSERT INTO Etudiant VALUES (30616, 'Nom_6_16', 'Prenom_16', '2003-05-16', 6);
+INSERT INTO Etudiant VALUES (30617, 'Nom_6_17', 'Prenom_17', '2003-07-03', 6);
+INSERT INTO Etudiant VALUES (30618, 'Nom_6_18', 'Prenom_18', '2003-04-08', 6);
+INSERT INTO Etudiant VALUES (30619, 'Nom_6_19', 'Prenom_19', '2003-03-08', 6);
+INSERT INTO Etudiant VALUES (30620, 'Nom_6_20', 'Prenom_20', '2003-01-24', 6);
+INSERT INTO Etudiant VALUES (30621, 'Nom_6_21', 'Prenom_21', '2003-07-29', 6);
+INSERT INTO Etudiant VALUES (30622, 'Nom_6_22', 'Prenom_22', '2003-10-18', 6);
+INSERT INTO Etudiant VALUES (30623, 'Nom_6_23', 'Prenom_23', '2003-03-28', 6);
+INSERT INTO Etudiant VALUES (30624, 'Nom_6_24', 'Prenom_24', '2003-05-05', 6);
+INSERT INTO Etudiant VALUES (30625, 'Nom_6_25', 'Prenom_25', '2003-04-15', 6);
+INSERT INTO Etudiant VALUES (30626, 'Nom_6_26', 'Prenom_26', '2003-12-29', 6);
+INSERT INTO Etudiant VALUES (30627, 'Nom_6_27', 'Prenom_27', '2003-04-19', 6);
+INSERT INTO Etudiant VALUES (30628, 'Nom_6_28', 'Prenom_28', '2003-09-18', 6);
+INSERT INTO Etudiant VALUES (30629, 'Nom_6_29', 'Prenom_29', '2003-05-08', 6);
+INSERT INTO Etudiant VALUES (10701, 'Nom_7_1', 'Prenom_1', '2005-09-22', 7);
+INSERT INTO Etudiant VALUES (10702, 'Nom_7_2', 'Prenom_2', '2005-02-21', 7);
+INSERT INTO Etudiant VALUES (10703, 'Nom_7_3', 'Prenom_3', '2005-07-11', 7);
+INSERT INTO Etudiant VALUES (10704, 'Nom_7_4', 'Prenom_4', '2005-02-12', 7);
+INSERT INTO Etudiant VALUES (10705, 'Nom_7_5', 'Prenom_5', '2005-01-27', 7);
+INSERT INTO Etudiant VALUES (10706, 'Nom_7_6', 'Prenom_6', '2005-05-28', 7);
+INSERT INTO Etudiant VALUES (10707, 'Nom_7_7', 'Prenom_7', '2005-09-09', 7);
+INSERT INTO Etudiant VALUES (10708, 'Nom_7_8', 'Prenom_8', '2005-11-29', 7);
+INSERT INTO Etudiant VALUES (10709, 'Nom_7_9', 'Prenom_9', '2005-04-23', 7);
+INSERT INTO Etudiant VALUES (10710, 'Nom_7_10', 'Prenom_10', '2005-02-22', 7);
+INSERT INTO Etudiant VALUES (10711, 'Nom_7_11', 'Prenom_11', '2005-04-15', 7);
+INSERT INTO Etudiant VALUES (10712, 'Nom_7_12', 'Prenom_12', '2005-04-29', 7);
+INSERT INTO Etudiant VALUES (10713, 'Nom_7_13', 'Prenom_13', '2005-03-09', 7);
+INSERT INTO Etudiant VALUES (10714, 'Nom_7_14', 'Prenom_14', '2005-03-02', 7);
+INSERT INTO Etudiant VALUES (10715, 'Nom_7_15', 'Prenom_15', '2005-04-29', 7);
+INSERT INTO Etudiant VALUES (10716, 'Nom_7_16', 'Prenom_16', '2005-01-16', 7);
+INSERT INTO Etudiant VALUES (10717, 'Nom_7_17', 'Prenom_17', '2005-03-26', 7);
+INSERT INTO Etudiant VALUES (10718, 'Nom_7_18', 'Prenom_18', '2005-11-17', 7);
+INSERT INTO Etudiant VALUES (10719, 'Nom_7_19', 'Prenom_19', '2005-04-15', 7);
+INSERT INTO Etudiant VALUES (10720, 'Nom_7_20', 'Prenom_20', '2005-11-16', 7);
+INSERT INTO Etudiant VALUES (10721, 'Nom_7_21', 'Prenom_21', '2005-04-05', 7);
+INSERT INTO Etudiant VALUES (10722, 'Nom_7_22', 'Prenom_22', '2005-11-17', 7);
+INSERT INTO Etudiant VALUES (10723, 'Nom_7_23', 'Prenom_23', '2005-02-11', 7);
+INSERT INTO Etudiant VALUES (10724, 'Nom_7_24', 'Prenom_24', '2005-03-11', 7);
+INSERT INTO Etudiant VALUES (10725, 'Nom_7_25', 'Prenom_25', '2005-04-07', 7);
+INSERT INTO Etudiant VALUES (10726, 'Nom_7_26', 'Prenom_26', '2005-04-30', 7);
+INSERT INTO Etudiant VALUES (10727, 'Nom_7_27', 'Prenom_27', '2005-11-15', 7);
+INSERT INTO Etudiant VALUES (10728, 'Nom_7_28', 'Prenom_28', '2005-10-19', 7);
+INSERT INTO Etudiant VALUES (10729, 'Nom_7_29', 'Prenom_29', '2005-05-21', 7);
+INSERT INTO Etudiant VALUES (20701, 'Nom_7_1', 'Prenom_1', '2004-07-12', 7);
+INSERT INTO Etudiant VALUES (20702, 'Nom_7_2', 'Prenom_2', '2004-11-11', 7);
+INSERT INTO Etudiant VALUES (20703, 'Nom_7_3', 'Prenom_3', '2004-07-27', 7);
+INSERT INTO Etudiant VALUES (20704, 'Nom_7_4', 'Prenom_4', '2004-12-04', 7);
+INSERT INTO Etudiant VALUES (20705, 'Nom_7_5', 'Prenom_5', '2004-03-23', 7);
+INSERT INTO Etudiant VALUES (20706, 'Nom_7_6', 'Prenom_6', '2004-07-14', 7);
+INSERT INTO Etudiant VALUES (20707, 'Nom_7_7', 'Prenom_7', '2004-07-28', 7);
+INSERT INTO Etudiant VALUES (20708, 'Nom_7_8', 'Prenom_8', '2004-10-05', 7);
+INSERT INTO Etudiant VALUES (20709, 'Nom_7_9', 'Prenom_9', '2004-10-13', 7);
+INSERT INTO Etudiant VALUES (20710, 'Nom_7_10', 'Prenom_10', '2004-08-31', 7);
+INSERT INTO Etudiant VALUES (20711, 'Nom_7_11', 'Prenom_11', '2004-09-29', 7);
+INSERT INTO Etudiant VALUES (20712, 'Nom_7_12', 'Prenom_12', '2004-08-12', 7);
+INSERT INTO Etudiant VALUES (20713, 'Nom_7_13', 'Prenom_13', '2004-08-08', 7);
+INSERT INTO Etudiant VALUES (20714, 'Nom_7_14', 'Prenom_14', '2004-09-26', 7);
+INSERT INTO Etudiant VALUES (20715, 'Nom_7_15', 'Prenom_15', '2004-10-10', 7);
+INSERT INTO Etudiant VALUES (20716, 'Nom_7_16', 'Prenom_16', '2004-10-13', 7);
+INSERT INTO Etudiant VALUES (20717, 'Nom_7_17', 'Prenom_17', '2004-10-31', 7);
+INSERT INTO Etudiant VALUES (20718, 'Nom_7_18', 'Prenom_18', '2004-11-03', 7);
+INSERT INTO Etudiant VALUES (20719, 'Nom_7_19', 'Prenom_19', '2004-11-27', 7);
+INSERT INTO Etudiant VALUES (20720, 'Nom_7_20', 'Prenom_20', '2004-01-05', 7);
+INSERT INTO Etudiant VALUES (20721, 'Nom_7_21', 'Prenom_21', '2004-11-24', 7);
+INSERT INTO Etudiant VALUES (20722, 'Nom_7_22', 'Prenom_22', '2004-12-05', 7);
+INSERT INTO Etudiant VALUES (20723, 'Nom_7_23', 'Prenom_23', '2004-12-11', 7);
+INSERT INTO Etudiant VALUES (20724, 'Nom_7_24', 'Prenom_24', '2004-07-24', 7);
+INSERT INTO Etudiant VALUES (20725, 'Nom_7_25', 'Prenom_25', '2004-03-24', 7);
+INSERT INTO Etudiant VALUES (20726, 'Nom_7_26', 'Prenom_26', '2004-04-09', 7);
+INSERT INTO Etudiant VALUES (20727, 'Nom_7_27', 'Prenom_27', '2004-03-07', 7);
+INSERT INTO Etudiant VALUES (20728, 'Nom_7_28', 'Prenom_28', '2004-07-24', 7);
+INSERT INTO Etudiant VALUES (30701, 'Nom_7_1', 'Prenom_1', '2003-05-30', 7);
+INSERT INTO Etudiant VALUES (30702, 'Nom_7_2', 'Prenom_2', '2003-11-18', 7);
+INSERT INTO Etudiant VALUES (30703, 'Nom_7_3', 'Prenom_3', '2003-09-09', 7);
+INSERT INTO Etudiant VALUES (30704, 'Nom_7_4', 'Prenom_4', '2003-06-06', 7);
+INSERT INTO Etudiant VALUES (30705, 'Nom_7_5', 'Prenom_5', '2003-12-25', 7);
+INSERT INTO Etudiant VALUES (30706, 'Nom_7_6', 'Prenom_6', '2003-11-30', 7);
+INSERT INTO Etudiant VALUES (30707, 'Nom_7_7', 'Prenom_7', '2003-01-21', 7);
+INSERT INTO Etudiant VALUES (30708, 'Nom_7_8', 'Prenom_8', '2003-03-25', 7);
+INSERT INTO Etudiant VALUES (30709, 'Nom_7_9', 'Prenom_9', '2003-12-04', 7);
+INSERT INTO Etudiant VALUES (30710, 'Nom_7_10', 'Prenom_10', '2003-03-05', 7);
+INSERT INTO Etudiant VALUES (30711, 'Nom_7_11', 'Prenom_11', '2003-10-19', 7);
+INSERT INTO Etudiant VALUES (30712, 'Nom_7_12', 'Prenom_12', '2003-05-28', 7);
+INSERT INTO Etudiant VALUES (30713, 'Nom_7_13', 'Prenom_13', '2003-03-10', 7);
+INSERT INTO Etudiant VALUES (30714, 'Nom_7_14', 'Prenom_14', '2003-09-28', 7);
+INSERT INTO Etudiant VALUES (30715, 'Nom_7_15', 'Prenom_15', '2003-08-24', 7);
+INSERT INTO Etudiant VALUES (30716, 'Nom_7_16', 'Prenom_16', '2003-06-23', 7);
+INSERT INTO Etudiant VALUES (30717, 'Nom_7_17', 'Prenom_17', '2003-08-30', 7);
+INSERT INTO Etudiant VALUES (30718, 'Nom_7_18', 'Prenom_18', '2003-06-25', 7);
+INSERT INTO Etudiant VALUES (30719, 'Nom_7_19', 'Prenom_19', '2003-06-24', 7);
+INSERT INTO Etudiant VALUES (30720, 'Nom_7_20', 'Prenom_20', '2003-11-29', 7);
+INSERT INTO Etudiant VALUES (30721, 'Nom_7_21', 'Prenom_21', '2003-02-17', 7);
+INSERT INTO Etudiant VALUES (30722, 'Nom_7_22', 'Prenom_22', '2003-08-29', 7);
+INSERT INTO Etudiant VALUES (30723, 'Nom_7_23', 'Prenom_23', '2003-07-18', 7);
+INSERT INTO Etudiant VALUES (30724, 'Nom_7_24', 'Prenom_24', '2003-08-26', 7);
+INSERT INTO Etudiant VALUES (30725, 'Nom_7_25', 'Prenom_25', '2003-12-10', 7);
+INSERT INTO Etudiant VALUES (30726, 'Nom_7_26', 'Prenom_26', '2003-05-03', 7);
+INSERT INTO Etudiant VALUES (30727, 'Nom_7_27', 'Prenom_27', '2003-10-27', 7);
+INSERT INTO Etudiant VALUES (30728, 'Nom_7_28', 'Prenom_28', '2003-02-08', 7);
+INSERT INTO Etudiant VALUES (10801, 'Nom_8_1', 'Prenom_1', '2005-11-10', 8);
+INSERT INTO Etudiant VALUES (10802, 'Nom_8_2', 'Prenom_2', '2005-05-29', 8);
+INSERT INTO Etudiant VALUES (10803, 'Nom_8_3', 'Prenom_3', '2005-09-28', 8);
+INSERT INTO Etudiant VALUES (10804, 'Nom_8_4', 'Prenom_4', '2005-08-07', 8);
+INSERT INTO Etudiant VALUES (10805, 'Nom_8_5', 'Prenom_5', '2005-05-28', 8);
+INSERT INTO Etudiant VALUES (10806, 'Nom_8_6', 'Prenom_6', '2005-11-14', 8);
+INSERT INTO Etudiant VALUES (10807, 'Nom_8_7', 'Prenom_7', '2005-08-06', 8);
+INSERT INTO Etudiant VALUES (10808, 'Nom_8_8', 'Prenom_8', '2005-03-23', 8);
+INSERT INTO Etudiant VALUES (10809, 'Nom_8_9', 'Prenom_9', '2005-05-23', 8);
+INSERT INTO Etudiant VALUES (10810, 'Nom_8_10', 'Prenom_10', '2005-07-26', 8);
+INSERT INTO Etudiant VALUES (10811, 'Nom_8_11', 'Prenom_11', '2005-10-24', 8);
+INSERT INTO Etudiant VALUES (10812, 'Nom_8_12', 'Prenom_12', '2005-10-03', 8);
+INSERT INTO Etudiant VALUES (10813, 'Nom_8_13', 'Prenom_13', '2005-12-06', 8);
+INSERT INTO Etudiant VALUES (10814, 'Nom_8_14', 'Prenom_14', '2005-11-21', 8);
+INSERT INTO Etudiant VALUES (10815, 'Nom_8_15', 'Prenom_15', '2005-12-29', 8);
+INSERT INTO Etudiant VALUES (10816, 'Nom_8_16', 'Prenom_16', '2005-03-07', 8);
+INSERT INTO Etudiant VALUES (10817, 'Nom_8_17', 'Prenom_17', '2005-11-20', 8);
+INSERT INTO Etudiant VALUES (10818, 'Nom_8_18', 'Prenom_18', '2005-02-06', 8);
+INSERT INTO Etudiant VALUES (10819, 'Nom_8_19', 'Prenom_19', '2005-02-20', 8);
+INSERT INTO Etudiant VALUES (10820, 'Nom_8_20', 'Prenom_20', '2005-11-14', 8);
+INSERT INTO Etudiant VALUES (10821, 'Nom_8_21', 'Prenom_21', '2005-07-23', 8);
+INSERT INTO Etudiant VALUES (10822, 'Nom_8_22', 'Prenom_22', '2005-11-05', 8);
+INSERT INTO Etudiant VALUES (10823, 'Nom_8_23', 'Prenom_23', '2005-03-12', 8);
+INSERT INTO Etudiant VALUES (10824, 'Nom_8_24', 'Prenom_24', '2005-05-03', 8);
+INSERT INTO Etudiant VALUES (10825, 'Nom_8_25', 'Prenom_25', '2005-07-10', 8);
+INSERT INTO Etudiant VALUES (10826, 'Nom_8_26', 'Prenom_26', '2005-01-30', 8);
+INSERT INTO Etudiant VALUES (10827, 'Nom_8_27', 'Prenom_27', '2005-04-04', 8);
+INSERT INTO Etudiant VALUES (10828, 'Nom_8_28', 'Prenom_28', '2005-05-06', 8);
+INSERT INTO Etudiant VALUES (10829, 'Nom_8_29', 'Prenom_29', '2005-03-01', 8);
+INSERT INTO Etudiant VALUES (10830, 'Nom_8_30', 'Prenom_30', '2005-01-03', 8);
+INSERT INTO Etudiant VALUES (20801, 'Nom_8_1', 'Prenom_1', '2004-03-20', 8);
+INSERT INTO Etudiant VALUES (20802, 'Nom_8_2', 'Prenom_2', '2004-05-04', 8);
+INSERT INTO Etudiant VALUES (20803, 'Nom_8_3', 'Prenom_3', '2004-08-06', 8);
+INSERT INTO Etudiant VALUES (20804, 'Nom_8_4', 'Prenom_4', '2004-10-23', 8);
+INSERT INTO Etudiant VALUES (20805, 'Nom_8_5', 'Prenom_5', '2004-01-09', 8);
+INSERT INTO Etudiant VALUES (20806, 'Nom_8_6', 'Prenom_6', '2004-03-16', 8);
+INSERT INTO Etudiant VALUES (20807, 'Nom_8_7', 'Prenom_7', '2004-01-31', 8);
+INSERT INTO Etudiant VALUES (20808, 'Nom_8_8', 'Prenom_8', '2004-07-26', 8);
+INSERT INTO Etudiant VALUES (20809, 'Nom_8_9', 'Prenom_9', '2004-09-18', 8);
+INSERT INTO Etudiant VALUES (20810, 'Nom_8_10', 'Prenom_10', '2004-04-21', 8);
+INSERT INTO Etudiant VALUES (20811, 'Nom_8_11', 'Prenom_11', '2004-11-06', 8);
+INSERT INTO Etudiant VALUES (20812, 'Nom_8_12', 'Prenom_12', '2004-04-11', 8);
+INSERT INTO Etudiant VALUES (20813, 'Nom_8_13', 'Prenom_13', '2004-05-06', 8);
+INSERT INTO Etudiant VALUES (20814, 'Nom_8_14', 'Prenom_14', '2004-06-10', 8);
+INSERT INTO Etudiant VALUES (20815, 'Nom_8_15', 'Prenom_15', '2004-04-06', 8);
+INSERT INTO Etudiant VALUES (20816, 'Nom_8_16', 'Prenom_16', '2004-09-25', 8);
+INSERT INTO Etudiant VALUES (20817, 'Nom_8_17', 'Prenom_17', '2004-03-17', 8);
+INSERT INTO Etudiant VALUES (20818, 'Nom_8_18', 'Prenom_18', '2004-07-30', 8);
+INSERT INTO Etudiant VALUES (20819, 'Nom_8_19', 'Prenom_19', '2004-11-09', 8);
+INSERT INTO Etudiant VALUES (20820, 'Nom_8_20', 'Prenom_20', '2004-04-08', 8);
+INSERT INTO Etudiant VALUES (20821, 'Nom_8_21', 'Prenom_21', '2004-04-02', 8);
+INSERT INTO Etudiant VALUES (20822, 'Nom_8_22', 'Prenom_22', '2004-08-08', 8);
+INSERT INTO Etudiant VALUES (20823, 'Nom_8_23', 'Prenom_23', '2004-04-05', 8);
+INSERT INTO Etudiant VALUES (20824, 'Nom_8_24', 'Prenom_24', '2004-03-13', 8);
+INSERT INTO Etudiant VALUES (20825, 'Nom_8_25', 'Prenom_25', '2004-11-09', 8);
+INSERT INTO Etudiant VALUES (20826, 'Nom_8_26', 'Prenom_26', '2004-01-02', 8);
+INSERT INTO Etudiant VALUES (20827, 'Nom_8_27', 'Prenom_27', '2004-06-05', 8);
+INSERT INTO Etudiant VALUES (20828, 'Nom_8_28', 'Prenom_28', '2004-12-20', 8);
+INSERT INTO Etudiant VALUES (30801, 'Nom_8_1', 'Prenom_1', '2003-11-12', 8);
+INSERT INTO Etudiant VALUES (30802, 'Nom_8_2', 'Prenom_2', '2003-12-26', 8);
+INSERT INTO Etudiant VALUES (30803, 'Nom_8_3', 'Prenom_3', '2003-07-29', 8);
+INSERT INTO Etudiant VALUES (30804, 'Nom_8_4', 'Prenom_4', '2003-04-03', 8);
+INSERT INTO Etudiant VALUES (30805, 'Nom_8_5', 'Prenom_5', '2003-01-22', 8);
+INSERT INTO Etudiant VALUES (30806, 'Nom_8_6', 'Prenom_6', '2003-04-01', 8);
+INSERT INTO Etudiant VALUES (30807, 'Nom_8_7', 'Prenom_7', '2003-01-03', 8);
+INSERT INTO Etudiant VALUES (30808, 'Nom_8_8', 'Prenom_8', '2003-02-22', 8);
+INSERT INTO Etudiant VALUES (30809, 'Nom_8_9', 'Prenom_9', '2003-04-05', 8);
+INSERT INTO Etudiant VALUES (30810, 'Nom_8_10', 'Prenom_10', '2003-08-12', 8);
+INSERT INTO Etudiant VALUES (30811, 'Nom_8_11', 'Prenom_11', '2003-03-30', 8);
+INSERT INTO Etudiant VALUES (30812, 'Nom_8_12', 'Prenom_12', '2003-07-08', 8);
+INSERT INTO Etudiant VALUES (30813, 'Nom_8_13', 'Prenom_13', '2003-01-18', 8);
+INSERT INTO Etudiant VALUES (30814, 'Nom_8_14', 'Prenom_14', '2003-09-25', 8);
+INSERT INTO Etudiant VALUES (30815, 'Nom_8_15', 'Prenom_15', '2003-01-01', 8);
+INSERT INTO Etudiant VALUES (30816, 'Nom_8_16', 'Prenom_16', '2003-07-09', 8);
+INSERT INTO Etudiant VALUES (30817, 'Nom_8_17', 'Prenom_17', '2003-06-21', 8);
+INSERT INTO Etudiant VALUES (30818, 'Nom_8_18', 'Prenom_18', '2003-10-06', 8);
+INSERT INTO Etudiant VALUES (30819, 'Nom_8_19', 'Prenom_19', '2003-12-02', 8);
+INSERT INTO Etudiant VALUES (30820, 'Nom_8_20', 'Prenom_20', '2003-03-29', 8);
+INSERT INTO Etudiant VALUES (30821, 'Nom_8_21', 'Prenom_21', '2003-04-25', 8);
+INSERT INTO Etudiant VALUES (30822, 'Nom_8_22', 'Prenom_22', '2003-07-31', 8);
+INSERT INTO Etudiant VALUES (30823, 'Nom_8_23', 'Prenom_23', '2003-03-06', 8);
+INSERT INTO Etudiant VALUES (30824, 'Nom_8_24', 'Prenom_24', '2003-10-21', 8);
+INSERT INTO Etudiant VALUES (30825, 'Nom_8_25', 'Prenom_25', '2003-01-26', 8);
+INSERT INTO Etudiant VALUES (30826, 'Nom_8_26', 'Prenom_26', '2003-03-09', 8);
+INSERT INTO Etudiant VALUES (30827, 'Nom_8_27', 'Prenom_27', '2003-02-19', 8);
+INSERT INTO Etudiant VALUES (30828, 'Nom_8_28', 'Prenom_28', '2003-07-01', 8);
+INSERT INTO Etudiant VALUES (30829, 'Nom_8_29', 'Prenom_29', '2003-12-15', 8);
+INSERT INTO Etudiant VALUES (10901, 'Nom_9_1', 'Prenom_1', '2005-02-23', 9);
+INSERT INTO Etudiant VALUES (10902, 'Nom_9_2', 'Prenom_2', '2005-03-14', 9);
+INSERT INTO Etudiant VALUES (10903, 'Nom_9_3', 'Prenom_3', '2005-01-09', 9);
+INSERT INTO Etudiant VALUES (10904, 'Nom_9_4', 'Prenom_4', '2005-01-21', 9);
+INSERT INTO Etudiant VALUES (10905, 'Nom_9_5', 'Prenom_5', '2005-12-22', 9);
+INSERT INTO Etudiant VALUES (10906, 'Nom_9_6', 'Prenom_6', '2005-04-08', 9);
+INSERT INTO Etudiant VALUES (10907, 'Nom_9_7', 'Prenom_7', '2005-09-28', 9);
+INSERT INTO Etudiant VALUES (10908, 'Nom_9_8', 'Prenom_8', '2005-06-25', 9);
+INSERT INTO Etudiant VALUES (10909, 'Nom_9_9', 'Prenom_9', '2005-02-28', 9);
+INSERT INTO Etudiant VALUES (10910, 'Nom_9_10', 'Prenom_10', '2005-09-14', 9);
+INSERT INTO Etudiant VALUES (10911, 'Nom_9_11', 'Prenom_11', '2005-10-12', 9);
+INSERT INTO Etudiant VALUES (10912, 'Nom_9_12', 'Prenom_12', '2005-08-26', 9);
+INSERT INTO Etudiant VALUES (10913, 'Nom_9_13', 'Prenom_13', '2005-03-08', 9);
+INSERT INTO Etudiant VALUES (10914, 'Nom_9_14', 'Prenom_14', '2005-12-14', 9);
+INSERT INTO Etudiant VALUES (10915, 'Nom_9_15', 'Prenom_15', '2005-02-09', 9);
+INSERT INTO Etudiant VALUES (10916, 'Nom_9_16', 'Prenom_16', '2005-04-29', 9);
+INSERT INTO Etudiant VALUES (10917, 'Nom_9_17', 'Prenom_17', '2005-02-18', 9);
+INSERT INTO Etudiant VALUES (10918, 'Nom_9_18', 'Prenom_18', '2005-06-18', 9);
+INSERT INTO Etudiant VALUES (10919, 'Nom_9_19', 'Prenom_19', '2005-09-07', 9);
+INSERT INTO Etudiant VALUES (10920, 'Nom_9_20', 'Prenom_20', '2005-10-13', 9);
+INSERT INTO Etudiant VALUES (10921, 'Nom_9_21', 'Prenom_21', '2005-10-02', 9);
+INSERT INTO Etudiant VALUES (10922, 'Nom_9_22', 'Prenom_22', '2005-09-14', 9);
+INSERT INTO Etudiant VALUES (10923, 'Nom_9_23', 'Prenom_23', '2005-12-04', 9);
+INSERT INTO Etudiant VALUES (10924, 'Nom_9_24', 'Prenom_24', '2005-06-06', 9);
+INSERT INTO Etudiant VALUES (10925, 'Nom_9_25', 'Prenom_25', '2005-10-26', 9);
+INSERT INTO Etudiant VALUES (10926, 'Nom_9_26', 'Prenom_26', '2005-01-30', 9);
+INSERT INTO Etudiant VALUES (10927, 'Nom_9_27', 'Prenom_27', '2005-02-10', 9);
+INSERT INTO Etudiant VALUES (10928, 'Nom_9_28', 'Prenom_28', '2005-04-26', 9);
+INSERT INTO Etudiant VALUES (10929, 'Nom_9_29', 'Prenom_29', '2005-10-18', 9);
+INSERT INTO Etudiant VALUES (20901, 'Nom_9_1', 'Prenom_1', '2004-01-21', 9);
+INSERT INTO Etudiant VALUES (20902, 'Nom_9_2', 'Prenom_2', '2004-01-11', 9);
+INSERT INTO Etudiant VALUES (20903, 'Nom_9_3', 'Prenom_3', '2004-03-29', 9);
+INSERT INTO Etudiant VALUES (20904, 'Nom_9_4', 'Prenom_4', '2004-02-22', 9);
+INSERT INTO Etudiant VALUES (20905, 'Nom_9_5', 'Prenom_5', '2004-08-23', 9);
+INSERT INTO Etudiant VALUES (20906, 'Nom_9_6', 'Prenom_6', '2004-04-27', 9);
+INSERT INTO Etudiant VALUES (20907, 'Nom_9_7', 'Prenom_7', '2004-04-11', 9);
+INSERT INTO Etudiant VALUES (20908, 'Nom_9_8', 'Prenom_8', '2004-11-26', 9);
+INSERT INTO Etudiant VALUES (20909, 'Nom_9_9', 'Prenom_9', '2004-04-01', 9);
+INSERT INTO Etudiant VALUES (20910, 'Nom_9_10', 'Prenom_10', '2004-03-24', 9);
+INSERT INTO Etudiant VALUES (20911, 'Nom_9_11', 'Prenom_11', '2004-10-15', 9);
+INSERT INTO Etudiant VALUES (20912, 'Nom_9_12', 'Prenom_12', '2004-07-21', 9);
+INSERT INTO Etudiant VALUES (20913, 'Nom_9_13', 'Prenom_13', '2004-01-30', 9);
+INSERT INTO Etudiant VALUES (20914, 'Nom_9_14', 'Prenom_14', '2004-11-09', 9);
+INSERT INTO Etudiant VALUES (20915, 'Nom_9_15', 'Prenom_15', '2004-12-31', 9);
+INSERT INTO Etudiant VALUES (20916, 'Nom_9_16', 'Prenom_16', '2004-08-31', 9);
+INSERT INTO Etudiant VALUES (20917, 'Nom_9_17', 'Prenom_17', '2004-03-21', 9);
+INSERT INTO Etudiant VALUES (20918, 'Nom_9_18', 'Prenom_18', '2004-06-04', 9);
+INSERT INTO Etudiant VALUES (20919, 'Nom_9_19', 'Prenom_19', '2004-02-28', 9);
+INSERT INTO Etudiant VALUES (20920, 'Nom_9_20', 'Prenom_20', '2004-11-15', 9);
+INSERT INTO Etudiant VALUES (20921, 'Nom_9_21', 'Prenom_21', '2004-03-06', 9);
+INSERT INTO Etudiant VALUES (20922, 'Nom_9_22', 'Prenom_22', '2004-12-06', 9);
+INSERT INTO Etudiant VALUES (20923, 'Nom_9_23', 'Prenom_23', '2004-01-17', 9);
+INSERT INTO Etudiant VALUES (20924, 'Nom_9_24', 'Prenom_24', '2004-11-11', 9);
+INSERT INTO Etudiant VALUES (20925, 'Nom_9_25', 'Prenom_25', '2004-05-05', 9);
+INSERT INTO Etudiant VALUES (20926, 'Nom_9_26', 'Prenom_26', '2004-12-13', 9);
+INSERT INTO Etudiant VALUES (20927, 'Nom_9_27', 'Prenom_27', '2004-05-21', 9);
+INSERT INTO Etudiant VALUES (20928, 'Nom_9_28', 'Prenom_28', '2004-03-15', 9);
+INSERT INTO Etudiant VALUES (20929, 'Nom_9_29', 'Prenom_29', '2004-05-28', 9);
+INSERT INTO Etudiant VALUES (20930, 'Nom_9_30', 'Prenom_30', '2004-10-17', 9);
+INSERT INTO Etudiant VALUES (30901, 'Nom_9_1', 'Prenom_1', '2003-05-10', 9);
+INSERT INTO Etudiant VALUES (30902, 'Nom_9_2', 'Prenom_2', '2003-06-20', 9);
+INSERT INTO Etudiant VALUES (30903, 'Nom_9_3', 'Prenom_3', '2003-11-05', 9);
+INSERT INTO Etudiant VALUES (30904, 'Nom_9_4', 'Prenom_4', '2003-02-05', 9);
+INSERT INTO Etudiant VALUES (30905, 'Nom_9_5', 'Prenom_5', '2003-07-02', 9);
+INSERT INTO Etudiant VALUES (30906, 'Nom_9_6', 'Prenom_6', '2003-05-21', 9);
+INSERT INTO Etudiant VALUES (30907, 'Nom_9_7', 'Prenom_7', '2003-09-24', 9);
+INSERT INTO Etudiant VALUES (30908, 'Nom_9_8', 'Prenom_8', '2003-03-12', 9);
+INSERT INTO Etudiant VALUES (30909, 'Nom_9_9', 'Prenom_9', '2003-06-26', 9);
+INSERT INTO Etudiant VALUES (30910, 'Nom_9_10', 'Prenom_10', '2003-02-02', 9);
+INSERT INTO Etudiant VALUES (30911, 'Nom_9_11', 'Prenom_11', '2003-06-20', 9);
+INSERT INTO Etudiant VALUES (30912, 'Nom_9_12', 'Prenom_12', '2003-03-24', 9);
+INSERT INTO Etudiant VALUES (30913, 'Nom_9_13', 'Prenom_13', '2003-06-29', 9);
+INSERT INTO Etudiant VALUES (30914, 'Nom_9_14', 'Prenom_14', '2003-09-22', 9);
+INSERT INTO Etudiant VALUES (30915, 'Nom_9_15', 'Prenom_15', '2003-08-15', 9);
+INSERT INTO Etudiant VALUES (30916, 'Nom_9_16', 'Prenom_16', '2003-12-24', 9);
+INSERT INTO Etudiant VALUES (30917, 'Nom_9_17', 'Prenom_17', '2003-10-24', 9);
+INSERT INTO Etudiant VALUES (30918, 'Nom_9_18', 'Prenom_18', '2003-11-04', 9);
+INSERT INTO Etudiant VALUES (30919, 'Nom_9_19', 'Prenom_19', '2003-01-25', 9);
+INSERT INTO Etudiant VALUES (30920, 'Nom_9_20', 'Prenom_20', '2003-01-07', 9);
+INSERT INTO Etudiant VALUES (30921, 'Nom_9_21', 'Prenom_21', '2003-07-26', 9);
+INSERT INTO Etudiant VALUES (30922, 'Nom_9_22', 'Prenom_22', '2003-07-22', 9);
+INSERT INTO Etudiant VALUES (30923, 'Nom_9_23', 'Prenom_23', '2003-12-25', 9);
+INSERT INTO Etudiant VALUES (30924, 'Nom_9_24', 'Prenom_24', '2003-08-01', 9);
+INSERT INTO Etudiant VALUES (30925, 'Nom_9_25', 'Prenom_25', '2003-02-16', 9);
+INSERT INTO Etudiant VALUES (30926, 'Nom_9_26', 'Prenom_26', '2003-08-20', 9);
+INSERT INTO Etudiant VALUES (30927, 'Nom_9_27', 'Prenom_27', '2003-04-06', 9);
+INSERT INTO Etudiant VALUES (30928, 'Nom_9_28', 'Prenom_28', '2003-11-06', 9);
+INSERT INTO Etudiant VALUES (30929, 'Nom_9_29', 'Prenom_29', '2003-09-08', 9);
+INSERT INTO Etudiant VALUES (30930, 'Nom_9_30', 'Prenom_30', '2003-01-28', 9);
+INSERT INTO Etudiant VALUES (30931, 'Nom_9_31', 'Prenom_31', '2003-06-17', 9);
+INSERT INTO Etudiant VALUES (11001, 'Nom_10_1', 'Prenom_1', '2005-03-15', 10);
+INSERT INTO Etudiant VALUES (11002, 'Nom_10_2', 'Prenom_2', '2005-12-18', 10);
+INSERT INTO Etudiant VALUES (11003, 'Nom_10_3', 'Prenom_3', '2005-02-08', 10);
+INSERT INTO Etudiant VALUES (11004, 'Nom_10_4', 'Prenom_4', '2005-11-09', 10);
+INSERT INTO Etudiant VALUES (11005, 'Nom_10_5', 'Prenom_5', '2005-08-24', 10);
+INSERT INTO Etudiant VALUES (11006, 'Nom_10_6', 'Prenom_6', '2005-12-28', 10);
+INSERT INTO Etudiant VALUES (11007, 'Nom_10_7', 'Prenom_7', '2005-12-26', 10);
+INSERT INTO Etudiant VALUES (11008, 'Nom_10_8', 'Prenom_8', '2005-06-17', 10);
+INSERT INTO Etudiant VALUES (11009, 'Nom_10_9', 'Prenom_9', '2005-05-30', 10);
+INSERT INTO Etudiant VALUES (11010, 'Nom_10_10', 'Prenom_10', '2005-08-24', 10);
+INSERT INTO Etudiant VALUES (11011, 'Nom_10_11', 'Prenom_11', '2005-08-14', 10);
+INSERT INTO Etudiant VALUES (11012, 'Nom_10_12', 'Prenom_12', '2005-01-19', 10);
+INSERT INTO Etudiant VALUES (11013, 'Nom_10_13', 'Prenom_13', '2005-01-20', 10);
+INSERT INTO Etudiant VALUES (11014, 'Nom_10_14', 'Prenom_14', '2005-07-21', 10);
+INSERT INTO Etudiant VALUES (11015, 'Nom_10_15', 'Prenom_15', '2005-08-06', 10);
+INSERT INTO Etudiant VALUES (11016, 'Nom_10_16', 'Prenom_16', '2005-10-10', 10);
+INSERT INTO Etudiant VALUES (11017, 'Nom_10_17', 'Prenom_17', '2005-02-23', 10);
+INSERT INTO Etudiant VALUES (11018, 'Nom_10_18', 'Prenom_18', '2005-07-18', 10);
+INSERT INTO Etudiant VALUES (11019, 'Nom_10_19', 'Prenom_19', '2005-11-25', 10);
+INSERT INTO Etudiant VALUES (11020, 'Nom_10_20', 'Prenom_20', '2005-01-09', 10);
+INSERT INTO Etudiant VALUES (11021, 'Nom_10_21', 'Prenom_21', '2005-07-20', 10);
+INSERT INTO Etudiant VALUES (11022, 'Nom_10_22', 'Prenom_22', '2005-12-26', 10);
+INSERT INTO Etudiant VALUES (11023, 'Nom_10_23', 'Prenom_23', '2005-01-02', 10);
+INSERT INTO Etudiant VALUES (11024, 'Nom_10_24', 'Prenom_24', '2005-03-08', 10);
+INSERT INTO Etudiant VALUES (11025, 'Nom_10_25', 'Prenom_25', '2005-10-17', 10);
+INSERT INTO Etudiant VALUES (11026, 'Nom_10_26', 'Prenom_26', '2005-11-19', 10);
+INSERT INTO Etudiant VALUES (11027, 'Nom_10_27', 'Prenom_27', '2005-03-17', 10);
+INSERT INTO Etudiant VALUES (11028, 'Nom_10_28', 'Prenom_28', '2005-03-31', 10);
+INSERT INTO Etudiant VALUES (11029, 'Nom_10_29', 'Prenom_29', '2005-04-28', 10);
+INSERT INTO Etudiant VALUES (21001, 'Nom_10_1', 'Prenom_1', '2004-06-20', 10);
+INSERT INTO Etudiant VALUES (21002, 'Nom_10_2', 'Prenom_2', '2004-12-29', 10);
+INSERT INTO Etudiant VALUES (21003, 'Nom_10_3', 'Prenom_3', '2004-05-31', 10);
+INSERT INTO Etudiant VALUES (21004, 'Nom_10_4', 'Prenom_4', '2004-12-12', 10);
+INSERT INTO Etudiant VALUES (21005, 'Nom_10_5', 'Prenom_5', '2004-01-08', 10);
+INSERT INTO Etudiant VALUES (21006, 'Nom_10_6', 'Prenom_6', '2004-07-16', 10);
+INSERT INTO Etudiant VALUES (21007, 'Nom_10_7', 'Prenom_7', '2004-04-20', 10);
+INSERT INTO Etudiant VALUES (21008, 'Nom_10_8', 'Prenom_8', '2004-06-16', 10);
+INSERT INTO Etudiant VALUES (21009, 'Nom_10_9', 'Prenom_9', '2004-12-29', 10);
+INSERT INTO Etudiant VALUES (21010, 'Nom_10_10', 'Prenom_10', '2004-07-30', 10);
+INSERT INTO Etudiant VALUES (21011, 'Nom_10_11', 'Prenom_11', '2004-08-13', 10);
+INSERT INTO Etudiant VALUES (21012, 'Nom_10_12', 'Prenom_12', '2004-12-30', 10);
+INSERT INTO Etudiant VALUES (21013, 'Nom_10_13', 'Prenom_13', '2004-08-22', 10);
+INSERT INTO Etudiant VALUES (21014, 'Nom_10_14', 'Prenom_14', '2004-07-16', 10);
+INSERT INTO Etudiant VALUES (21015, 'Nom_10_15', 'Prenom_15', '2004-02-22', 10);
+INSERT INTO Etudiant VALUES (21016, 'Nom_10_16', 'Prenom_16', '2004-02-03', 10);
+INSERT INTO Etudiant VALUES (21017, 'Nom_10_17', 'Prenom_17', '2004-12-06', 10);
+INSERT INTO Etudiant VALUES (21018, 'Nom_10_18', 'Prenom_18', '2004-09-28', 10);
+INSERT INTO Etudiant VALUES (21019, 'Nom_10_19', 'Prenom_19', '2004-05-31', 10);
+INSERT INTO Etudiant VALUES (21020, 'Nom_10_20', 'Prenom_20', '2004-07-01', 10);
+INSERT INTO Etudiant VALUES (21021, 'Nom_10_21', 'Prenom_21', '2004-02-29', 10);
+INSERT INTO Etudiant VALUES (21022, 'Nom_10_22', 'Prenom_22', '2004-06-07', 10);
+INSERT INTO Etudiant VALUES (21023, 'Nom_10_23', 'Prenom_23', '2004-03-15', 10);
+INSERT INTO Etudiant VALUES (21024, 'Nom_10_24', 'Prenom_24', '2004-10-10', 10);
+INSERT INTO Etudiant VALUES (21025, 'Nom_10_25', 'Prenom_25', '2004-03-04', 10);
+INSERT INTO Etudiant VALUES (21026, 'Nom_10_26', 'Prenom_26', '2004-05-23', 10);
+INSERT INTO Etudiant VALUES (21027, 'Nom_10_27', 'Prenom_27', '2004-03-30', 10);
+INSERT INTO Etudiant VALUES (21028, 'Nom_10_28', 'Prenom_28', '2004-06-13', 10);
+INSERT INTO Etudiant VALUES (21029, 'Nom_10_29', 'Prenom_29', '2004-01-01', 10);
+INSERT INTO Etudiant VALUES (21030, 'Nom_10_30', 'Prenom_30', '2004-01-10', 10);
+INSERT INTO Etudiant VALUES (21031, 'Nom_10_31', 'Prenom_31', '2004-10-30', 10);
+INSERT INTO Etudiant VALUES (31001, 'Nom_10_1', 'Prenom_1', '2003-08-18', 10);
+INSERT INTO Etudiant VALUES (31002, 'Nom_10_2', 'Prenom_2', '2003-09-22', 10);
+INSERT INTO Etudiant VALUES (31003, 'Nom_10_3', 'Prenom_3', '2003-04-20', 10);
+INSERT INTO Etudiant VALUES (31004, 'Nom_10_4', 'Prenom_4', '2003-01-12', 10);
+INSERT INTO Etudiant VALUES (31005, 'Nom_10_5', 'Prenom_5', '2003-03-02', 10);
+INSERT INTO Etudiant VALUES (31006, 'Nom_10_6', 'Prenom_6', '2003-09-26', 10);
+INSERT INTO Etudiant VALUES (31007, 'Nom_10_7', 'Prenom_7', '2003-03-20', 10);
+INSERT INTO Etudiant VALUES (31008, 'Nom_10_8', 'Prenom_8', '2003-09-06', 10);
+INSERT INTO Etudiant VALUES (31009, 'Nom_10_9', 'Prenom_9', '2003-01-17', 10);
+INSERT INTO Etudiant VALUES (31010, 'Nom_10_10', 'Prenom_10', '2003-11-22', 10);
+INSERT INTO Etudiant VALUES (31011, 'Nom_10_11', 'Prenom_11', '2003-12-12', 10);
+INSERT INTO Etudiant VALUES (31012, 'Nom_10_12', 'Prenom_12', '2003-05-26', 10);
+INSERT INTO Etudiant VALUES (31013, 'Nom_10_13', 'Prenom_13', '2003-10-21', 10);
+INSERT INTO Etudiant VALUES (31014, 'Nom_10_14', 'Prenom_14', '2003-08-14', 10);
+INSERT INTO Etudiant VALUES (31015, 'Nom_10_15', 'Prenom_15', '2003-04-15', 10);
+INSERT INTO Etudiant VALUES (31016, 'Nom_10_16', 'Prenom_16', '2003-01-04', 10);
+INSERT INTO Etudiant VALUES (31017, 'Nom_10_17', 'Prenom_17', '2003-06-19', 10);
+INSERT INTO Etudiant VALUES (31018, 'Nom_10_18', 'Prenom_18', '2003-10-12', 10);
+INSERT INTO Etudiant VALUES (31019, 'Nom_10_19', 'Prenom_19', '2003-08-07', 10);
+INSERT INTO Etudiant VALUES (31020, 'Nom_10_20', 'Prenom_20', '2003-01-03', 10);
+INSERT INTO Etudiant VALUES (31021, 'Nom_10_21', 'Prenom_21', '2003-06-10', 10);
+INSERT INTO Etudiant VALUES (31022, 'Nom_10_22', 'Prenom_22', '2003-05-19', 10);
+INSERT INTO Etudiant VALUES (31023, 'Nom_10_23', 'Prenom_23', '2003-05-03', 10);
+INSERT INTO Etudiant VALUES (31024, 'Nom_10_24', 'Prenom_24', '2003-08-17', 10);
+INSERT INTO Etudiant VALUES (31025, 'Nom_10_25', 'Prenom_25', '2003-04-21', 10);
+INSERT INTO Etudiant VALUES (31026, 'Nom_10_26', 'Prenom_26', '2003-10-15', 10);
+INSERT INTO Etudiant VALUES (31027, 'Nom_10_27', 'Prenom_27', '2003-03-06', 10);
+INSERT INTO Etudiant VALUES (31028, 'Nom_10_28', 'Prenom_28', '2003-06-29', 10);
+INSERT INTO Etudiant VALUES (31029, 'Nom_10_29', 'Prenom_29', '2003-03-18', 10);
+INSERT INTO Etudiant VALUES (31030, 'Nom_10_30', 'Prenom_30', '2003-10-24', 10);
+INSERT INTO Etudiant VALUES (11101, 'Nom_11_1', 'Prenom_1', '2005-12-16', 11);
+INSERT INTO Etudiant VALUES (11102, 'Nom_11_2', 'Prenom_2', '2005-02-19', 11);
+INSERT INTO Etudiant VALUES (11103, 'Nom_11_3', 'Prenom_3', '2005-01-21', 11);
+INSERT INTO Etudiant VALUES (11104, 'Nom_11_4', 'Prenom_4', '2005-09-14', 11);
+INSERT INTO Etudiant VALUES (11105, 'Nom_11_5', 'Prenom_5', '2005-03-21', 11);
+INSERT INTO Etudiant VALUES (11106, 'Nom_11_6', 'Prenom_6', '2005-04-23', 11);
+INSERT INTO Etudiant VALUES (11107, 'Nom_11_7', 'Prenom_7', '2005-10-15', 11);
+INSERT INTO Etudiant VALUES (11108, 'Nom_11_8', 'Prenom_8', '2005-10-30', 11);
+INSERT INTO Etudiant VALUES (11109, 'Nom_11_9', 'Prenom_9', '2005-03-19', 11);
+INSERT INTO Etudiant VALUES (11110, 'Nom_11_10', 'Prenom_10', '2005-03-01', 11);
+INSERT INTO Etudiant VALUES (11111, 'Nom_11_11', 'Prenom_11', '2005-04-18', 11);
+INSERT INTO Etudiant VALUES (11112, 'Nom_11_12', 'Prenom_12', '2005-09-25', 11);
+INSERT INTO Etudiant VALUES (11113, 'Nom_11_13', 'Prenom_13', '2005-04-16', 11);
+INSERT INTO Etudiant VALUES (11114, 'Nom_11_14', 'Prenom_14', '2005-07-19', 11);
+INSERT INTO Etudiant VALUES (11115, 'Nom_11_15', 'Prenom_15', '2005-01-06', 11);
+INSERT INTO Etudiant VALUES (11116, 'Nom_11_16', 'Prenom_16', '2005-05-12', 11);
+INSERT INTO Etudiant VALUES (11117, 'Nom_11_17', 'Prenom_17', '2005-08-09', 11);
+INSERT INTO Etudiant VALUES (11118, 'Nom_11_18', 'Prenom_18', '2005-08-16', 11);
+INSERT INTO Etudiant VALUES (11119, 'Nom_11_19', 'Prenom_19', '2005-08-27', 11);
+INSERT INTO Etudiant VALUES (11120, 'Nom_11_20', 'Prenom_20', '2005-09-28', 11);
+INSERT INTO Etudiant VALUES (11121, 'Nom_11_21', 'Prenom_21', '2005-07-13', 11);
+INSERT INTO Etudiant VALUES (11122, 'Nom_11_22', 'Prenom_22', '2005-12-03', 11);
+INSERT INTO Etudiant VALUES (11123, 'Nom_11_23', 'Prenom_23', '2005-04-13', 11);
+INSERT INTO Etudiant VALUES (11124, 'Nom_11_24', 'Prenom_24', '2005-06-22', 11);
+INSERT INTO Etudiant VALUES (11125, 'Nom_11_25', 'Prenom_25', '2005-11-16', 11);
+INSERT INTO Etudiant VALUES (11126, 'Nom_11_26', 'Prenom_26', '2005-04-05', 11);
+INSERT INTO Etudiant VALUES (11127, 'Nom_11_27', 'Prenom_27', '2005-07-26', 11);
+INSERT INTO Etudiant VALUES (11128, 'Nom_11_28', 'Prenom_28', '2005-06-09', 11);
+INSERT INTO Etudiant VALUES (11129, 'Nom_11_29', 'Prenom_29', '2005-04-05', 11);
+INSERT INTO Etudiant VALUES (21101, 'Nom_11_1', 'Prenom_1', '2004-11-07', 11);
+INSERT INTO Etudiant VALUES (21102, 'Nom_11_2', 'Prenom_2', '2004-03-25', 11);
+INSERT INTO Etudiant VALUES (21103, 'Nom_11_3', 'Prenom_3', '2004-01-22', 11);
+INSERT INTO Etudiant VALUES (21104, 'Nom_11_4', 'Prenom_4', '2004-03-30', 11);
+INSERT INTO Etudiant VALUES (21105, 'Nom_11_5', 'Prenom_5', '2004-04-01', 11);
+INSERT INTO Etudiant VALUES (21106, 'Nom_11_6', 'Prenom_6', '2004-03-04', 11);
+INSERT INTO Etudiant VALUES (21107, 'Nom_11_7', 'Prenom_7', '2004-04-17', 11);
+INSERT INTO Etudiant VALUES (21108, 'Nom_11_8', 'Prenom_8', '2004-07-14', 11);
+INSERT INTO Etudiant VALUES (21109, 'Nom_11_9', 'Prenom_9', '2004-07-06', 11);
+INSERT INTO Etudiant VALUES (21110, 'Nom_11_10', 'Prenom_10', '2004-07-04', 11);
+INSERT INTO Etudiant VALUES (21111, 'Nom_11_11', 'Prenom_11', '2004-12-16', 11);
+INSERT INTO Etudiant VALUES (21112, 'Nom_11_12', 'Prenom_12', '2004-02-13', 11);
+INSERT INTO Etudiant VALUES (21113, 'Nom_11_13', 'Prenom_13', '2004-08-12', 11);
+INSERT INTO Etudiant VALUES (21114, 'Nom_11_14', 'Prenom_14', '2004-06-07', 11);
+INSERT INTO Etudiant VALUES (21115, 'Nom_11_15', 'Prenom_15', '2004-09-22', 11);
+INSERT INTO Etudiant VALUES (21116, 'Nom_11_16', 'Prenom_16', '2004-11-10', 11);
+INSERT INTO Etudiant VALUES (21117, 'Nom_11_17', 'Prenom_17', '2004-09-06', 11);
+INSERT INTO Etudiant VALUES (21118, 'Nom_11_18', 'Prenom_18', '2004-03-08', 11);
+INSERT INTO Etudiant VALUES (21119, 'Nom_11_19', 'Prenom_19', '2004-01-12', 11);
+INSERT INTO Etudiant VALUES (21120, 'Nom_11_20', 'Prenom_20', '2004-04-25', 11);
+INSERT INTO Etudiant VALUES (21121, 'Nom_11_21', 'Prenom_21', '2004-07-02', 11);
+INSERT INTO Etudiant VALUES (21122, 'Nom_11_22', 'Prenom_22', '2004-10-15', 11);
+INSERT INTO Etudiant VALUES (21123, 'Nom_11_23', 'Prenom_23', '2004-08-18', 11);
+INSERT INTO Etudiant VALUES (21124, 'Nom_11_24', 'Prenom_24', '2004-07-28', 11);
+INSERT INTO Etudiant VALUES (21125, 'Nom_11_25', 'Prenom_25', '2004-12-05', 11);
+INSERT INTO Etudiant VALUES (21126, 'Nom_11_26', 'Prenom_26', '2004-01-09', 11);
+INSERT INTO Etudiant VALUES (21127, 'Nom_11_27', 'Prenom_27', '2004-12-08', 11);
+INSERT INTO Etudiant VALUES (21128, 'Nom_11_28', 'Prenom_28', '2004-01-27', 11);
+INSERT INTO Etudiant VALUES (21129, 'Nom_11_29', 'Prenom_29', '2004-06-20', 11);
+INSERT INTO Etudiant VALUES (31101, 'Nom_11_1', 'Prenom_1', '2003-04-13', 11);
+INSERT INTO Etudiant VALUES (31102, 'Nom_11_2', 'Prenom_2', '2003-11-16', 11);
+INSERT INTO Etudiant VALUES (31103, 'Nom_11_3', 'Prenom_3', '2003-05-20', 11);
+INSERT INTO Etudiant VALUES (31104, 'Nom_11_4', 'Prenom_4', '2003-01-27', 11);
+INSERT INTO Etudiant VALUES (31105, 'Nom_11_5', 'Prenom_5', '2003-01-07', 11);
+INSERT INTO Etudiant VALUES (31106, 'Nom_11_6', 'Prenom_6', '2003-10-05', 11);
+INSERT INTO Etudiant VALUES (31107, 'Nom_11_7', 'Prenom_7', '2003-01-20', 11);
+INSERT INTO Etudiant VALUES (31108, 'Nom_11_8', 'Prenom_8', '2003-05-09', 11);
+INSERT INTO Etudiant VALUES (31109, 'Nom_11_9', 'Prenom_9', '2003-11-23', 11);
+INSERT INTO Etudiant VALUES (31110, 'Nom_11_10', 'Prenom_10', '2003-04-02', 11);
+INSERT INTO Etudiant VALUES (31111, 'Nom_11_11', 'Prenom_11', '2003-06-27', 11);
+INSERT INTO Etudiant VALUES (31112, 'Nom_11_12', 'Prenom_12', '2003-03-05', 11);
+INSERT INTO Etudiant VALUES (31113, 'Nom_11_13', 'Prenom_13', '2003-06-20', 11);
+INSERT INTO Etudiant VALUES (31114, 'Nom_11_14', 'Prenom_14', '2003-06-04', 11);
+INSERT INTO Etudiant VALUES (31115, 'Nom_11_15', 'Prenom_15', '2003-01-06', 11);
+INSERT INTO Etudiant VALUES (31116, 'Nom_11_16', 'Prenom_16', '2003-08-08', 11);
+INSERT INTO Etudiant VALUES (31117, 'Nom_11_17', 'Prenom_17', '2003-12-06', 11);
+INSERT INTO Etudiant VALUES (31118, 'Nom_11_18', 'Prenom_18', '2003-01-26', 11);
+INSERT INTO Etudiant VALUES (31119, 'Nom_11_19', 'Prenom_19', '2003-09-22', 11);
+INSERT INTO Etudiant VALUES (31120, 'Nom_11_20', 'Prenom_20', '2003-08-15', 11);
+INSERT INTO Etudiant VALUES (31121, 'Nom_11_21', 'Prenom_21', '2003-06-24', 11);
+INSERT INTO Etudiant VALUES (31122, 'Nom_11_22', 'Prenom_22', '2003-01-24', 11);
+INSERT INTO Etudiant VALUES (31123, 'Nom_11_23', 'Prenom_23', '2003-04-03', 11);
+INSERT INTO Etudiant VALUES (31124, 'Nom_11_24', 'Prenom_24', '2003-03-03', 11);
+INSERT INTO Etudiant VALUES (31125, 'Nom_11_25', 'Prenom_25', '2003-01-07', 11);
+INSERT INTO Etudiant VALUES (31126, 'Nom_11_26', 'Prenom_26', '2003-04-24', 11);
+INSERT INTO Etudiant VALUES (31127, 'Nom_11_27', 'Prenom_27', '2003-01-26', 11);
+INSERT INTO Etudiant VALUES (31128, 'Nom_11_28', 'Prenom_28', '2003-08-26', 11);
+INSERT INTO Etudiant VALUES (31129, 'Nom_11_29', 'Prenom_29', '2003-08-11', 11);
+INSERT INTO Etudiant VALUES (31130, 'Nom_11_30', 'Prenom_30', '2003-11-13', 11);
+INSERT INTO Etudiant VALUES (11201, 'Nom_12_1', 'Prenom_1', '2005-05-30', 12);
+INSERT INTO Etudiant VALUES (11202, 'Nom_12_2', 'Prenom_2', '2005-09-04', 12);
+INSERT INTO Etudiant VALUES (11203, 'Nom_12_3', 'Prenom_3', '2005-01-10', 12);
+INSERT INTO Etudiant VALUES (11204, 'Nom_12_4', 'Prenom_4', '2005-01-21', 12);
+INSERT INTO Etudiant VALUES (11205, 'Nom_12_5', 'Prenom_5', '2005-01-19', 12);
+INSERT INTO Etudiant VALUES (11206, 'Nom_12_6', 'Prenom_6', '2005-11-20', 12);
+INSERT INTO Etudiant VALUES (11207, 'Nom_12_7', 'Prenom_7', '2005-10-23', 12);
+INSERT INTO Etudiant VALUES (11208, 'Nom_12_8', 'Prenom_8', '2005-07-06', 12);
+INSERT INTO Etudiant VALUES (11209, 'Nom_12_9', 'Prenom_9', '2005-06-12', 12);
+INSERT INTO Etudiant VALUES (11210, 'Nom_12_10', 'Prenom_10', '2005-07-11', 12);
+INSERT INTO Etudiant VALUES (11211, 'Nom_12_11', 'Prenom_11', '2005-12-07', 12);
+INSERT INTO Etudiant VALUES (11212, 'Nom_12_12', 'Prenom_12', '2005-02-10', 12);
+INSERT INTO Etudiant VALUES (11213, 'Nom_12_13', 'Prenom_13', '2005-05-19', 12);
+INSERT INTO Etudiant VALUES (11214, 'Nom_12_14', 'Prenom_14', '2005-08-07', 12);
+INSERT INTO Etudiant VALUES (11215, 'Nom_12_15', 'Prenom_15', '2005-09-23', 12);
+INSERT INTO Etudiant VALUES (11216, 'Nom_12_16', 'Prenom_16', '2005-10-22', 12);
+INSERT INTO Etudiant VALUES (11217, 'Nom_12_17', 'Prenom_17', '2005-04-28', 12);
+INSERT INTO Etudiant VALUES (11218, 'Nom_12_18', 'Prenom_18', '2005-06-10', 12);
+INSERT INTO Etudiant VALUES (11219, 'Nom_12_19', 'Prenom_19', '2005-04-16', 12);
+INSERT INTO Etudiant VALUES (11220, 'Nom_12_20', 'Prenom_20', '2005-07-17', 12);
+INSERT INTO Etudiant VALUES (11221, 'Nom_12_21', 'Prenom_21', '2005-11-06', 12);
+INSERT INTO Etudiant VALUES (11222, 'Nom_12_22', 'Prenom_22', '2005-12-27', 12);
+INSERT INTO Etudiant VALUES (11223, 'Nom_12_23', 'Prenom_23', '2005-07-15', 12);
+INSERT INTO Etudiant VALUES (11224, 'Nom_12_24', 'Prenom_24', '2005-11-07', 12);
+INSERT INTO Etudiant VALUES (11225, 'Nom_12_25', 'Prenom_25', '2005-04-27', 12);
+INSERT INTO Etudiant VALUES (11226, 'Nom_12_26', 'Prenom_26', '2005-11-14', 12);
+INSERT INTO Etudiant VALUES (11227, 'Nom_12_27', 'Prenom_27', '2005-03-18', 12);
+INSERT INTO Etudiant VALUES (11228, 'Nom_12_28', 'Prenom_28', '2005-11-07', 12);
+INSERT INTO Etudiant VALUES (21201, 'Nom_12_1', 'Prenom_1', '2004-06-23', 12);
+INSERT INTO Etudiant VALUES (21202, 'Nom_12_2', 'Prenom_2', '2004-01-03', 12);
+INSERT INTO Etudiant VALUES (21203, 'Nom_12_3', 'Prenom_3', '2004-11-29', 12);
+INSERT INTO Etudiant VALUES (21204, 'Nom_12_4', 'Prenom_4', '2004-11-09', 12);
+INSERT INTO Etudiant VALUES (21205, 'Nom_12_5', 'Prenom_5', '2004-04-13', 12);
+INSERT INTO Etudiant VALUES (21206, 'Nom_12_6', 'Prenom_6', '2004-04-04', 12);
+INSERT INTO Etudiant VALUES (21207, 'Nom_12_7', 'Prenom_7', '2004-10-05', 12);
+INSERT INTO Etudiant VALUES (21208, 'Nom_12_8', 'Prenom_8', '2004-04-07', 12);
+INSERT INTO Etudiant VALUES (21209, 'Nom_12_9', 'Prenom_9', '2004-12-26', 12);
+INSERT INTO Etudiant VALUES (21210, 'Nom_12_10', 'Prenom_10', '2004-07-30', 12);
+INSERT INTO Etudiant VALUES (21211, 'Nom_12_11', 'Prenom_11', '2004-01-21', 12);
+INSERT INTO Etudiant VALUES (21212, 'Nom_12_12', 'Prenom_12', '2004-09-28', 12);
+INSERT INTO Etudiant VALUES (21213, 'Nom_12_13', 'Prenom_13', '2004-05-25', 12);
+INSERT INTO Etudiant VALUES (21214, 'Nom_12_14', 'Prenom_14', '2004-11-05', 12);
+INSERT INTO Etudiant VALUES (21215, 'Nom_12_15', 'Prenom_15', '2004-04-08', 12);
+INSERT INTO Etudiant VALUES (21216, 'Nom_12_16', 'Prenom_16', '2004-10-17', 12);
+INSERT INTO Etudiant VALUES (21217, 'Nom_12_17', 'Prenom_17', '2004-05-08', 12);
+INSERT INTO Etudiant VALUES (21218, 'Nom_12_18', 'Prenom_18', '2004-10-20', 12);
+INSERT INTO Etudiant VALUES (21219, 'Nom_12_19', 'Prenom_19', '2004-11-13', 12);
+INSERT INTO Etudiant VALUES (21220, 'Nom_12_20', 'Prenom_20', '2004-06-23', 12);
+INSERT INTO Etudiant VALUES (21221, 'Nom_12_21', 'Prenom_21', '2004-06-14', 12);
+INSERT INTO Etudiant VALUES (21222, 'Nom_12_22', 'Prenom_22', '2004-03-31', 12);
+INSERT INTO Etudiant VALUES (21223, 'Nom_12_23', 'Prenom_23', '2004-11-12', 12);
+INSERT INTO Etudiant VALUES (21224, 'Nom_12_24', 'Prenom_24', '2004-12-27', 12);
+INSERT INTO Etudiant VALUES (21225, 'Nom_12_25', 'Prenom_25', '2004-01-21', 12);
+INSERT INTO Etudiant VALUES (21226, 'Nom_12_26', 'Prenom_26', '2004-09-30', 12);
+INSERT INTO Etudiant VALUES (21227, 'Nom_12_27', 'Prenom_27', '2004-05-20', 12);
+INSERT INTO Etudiant VALUES (21228, 'Nom_12_28', 'Prenom_28', '2004-02-02', 12);
+INSERT INTO Etudiant VALUES (31201, 'Nom_12_1', 'Prenom_1', '2003-08-09', 12);
+INSERT INTO Etudiant VALUES (31202, 'Nom_12_2', 'Prenom_2', '2003-08-30', 12);
+INSERT INTO Etudiant VALUES (31203, 'Nom_12_3', 'Prenom_3', '2003-02-03', 12);
+INSERT INTO Etudiant VALUES (31204, 'Nom_12_4', 'Prenom_4', '2003-10-13', 12);
+INSERT INTO Etudiant VALUES (31205, 'Nom_12_5', 'Prenom_5', '2003-03-27', 12);
+INSERT INTO Etudiant VALUES (31206, 'Nom_12_6', 'Prenom_6', '2003-02-22', 12);
+INSERT INTO Etudiant VALUES (31207, 'Nom_12_7', 'Prenom_7', '2003-12-29', 12);
+INSERT INTO Etudiant VALUES (31208, 'Nom_12_8', 'Prenom_8', '2003-08-06', 12);
+INSERT INTO Etudiant VALUES (31209, 'Nom_12_9', 'Prenom_9', '2003-07-22', 12);
+INSERT INTO Etudiant VALUES (31210, 'Nom_12_10', 'Prenom_10', '2003-03-26', 12);
+INSERT INTO Etudiant VALUES (31211, 'Nom_12_11', 'Prenom_11', '2003-04-25', 12);
+INSERT INTO Etudiant VALUES (31212, 'Nom_12_12', 'Prenom_12', '2003-10-31', 12);
+INSERT INTO Etudiant VALUES (31213, 'Nom_12_13', 'Prenom_13', '2003-10-11', 12);
+INSERT INTO Etudiant VALUES (31214, 'Nom_12_14', 'Prenom_14', '2003-01-01', 12);
+INSERT INTO Etudiant VALUES (31215, 'Nom_12_15', 'Prenom_15', '2003-04-25', 12);
+INSERT INTO Etudiant VALUES (31216, 'Nom_12_16', 'Prenom_16', '2003-09-06', 12);
+INSERT INTO Etudiant VALUES (31217, 'Nom_12_17', 'Prenom_17', '2003-01-03', 12);
+INSERT INTO Etudiant VALUES (31218, 'Nom_12_18', 'Prenom_18', '2003-01-23', 12);
+INSERT INTO Etudiant VALUES (31219, 'Nom_12_19', 'Prenom_19', '2003-06-08', 12);
+INSERT INTO Etudiant VALUES (31220, 'Nom_12_20', 'Prenom_20', '2003-09-03', 12);
+INSERT INTO Etudiant VALUES (31221, 'Nom_12_21', 'Prenom_21', '2003-01-29', 12);
+INSERT INTO Etudiant VALUES (31222, 'Nom_12_22', 'Prenom_22', '2003-12-08', 12);
+INSERT INTO Etudiant VALUES (31223, 'Nom_12_23', 'Prenom_23', '2003-01-22', 12);
+INSERT INTO Etudiant VALUES (31224, 'Nom_12_24', 'Prenom_24', '2003-07-24', 12);
+INSERT INTO Etudiant VALUES (31225, 'Nom_12_25', 'Prenom_25', '2003-10-13', 12);
+INSERT INTO Etudiant VALUES (31226, 'Nom_12_26', 'Prenom_26', '2003-01-24', 12);
+INSERT INTO Etudiant VALUES (31227, 'Nom_12_27', 'Prenom_27', '2003-03-18', 12);
+INSERT INTO Etudiant VALUES (31228, 'Nom_12_28', 'Prenom_28', '2003-09-23', 12);
 
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation) VALUES
--- Étudiant 11001
-(11001, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11001, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11001, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11001, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11001, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11001, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11001, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11001, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
-(11001, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11001, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11001, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11001, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11001, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11001, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11001, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11001, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
--- Étudiant 11002
-(11002, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11002, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11002, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11002, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11002, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11002, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11002, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11002, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
-(11002, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11002, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11002, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11002, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11002, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11002, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11002, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11002, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
--- Étudiant 11003
-(11003, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11003, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11003, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11003, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11003, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11003, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11003, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11003, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
-(11003, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11003, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11003, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11003, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11003, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11003, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11003, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11003, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
--- Étudiant 11004
-(11004, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11004, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11004, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11004, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11004, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11004, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11004, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11004, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
-(11004, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11004, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11004, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11004, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11004, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11004, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11004, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11004, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
--- Étudiant 11005
-(11005, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11005, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11005, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11005, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11005, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11005, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11005, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11005, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
-(11005, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11005, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11005, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11005, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11005, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11005, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11005, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11005, 'DWEB_S2', '2023-2024', 2, 'en_cours');
+-- Inscription
 
--- ------------------------------------------
--- PROMO L2 (5 Étudiants) - S1/S2 validés, S3/S4 en_cours
--- ------------------------------------------
-INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, id_parcours) VALUES
-                                                                             (12001, 'Fabre', 'Florent', '2004-03-15', 1), (12002, 'Garnier', 'Gisele', '2003-12-08', 1),
-                                                                             (12003, 'Huet', 'Hugo', '2004-07-22', 1), (12004, 'Imbert', 'Ines', '2004-02-11', 1),
-                                                                             (12005, 'Jacquot', 'Jules', '2004-09-05', 1);
+-- L1
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+SELECT e.num_etu, sp.code_ue, '2023-2024', sp.semestrePrevu, 'en_cours'
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE e.num_etu BETWEEN 10000 AND 19999
+  AND sp.semestrePrevu IN (1,2);
 
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation) VALUES
--- Étudiant 12001 (A tout validé en L1 l'an dernier)
-(12001, 'ANG_S1', '2022-2023', 1, 'valide'), (12001, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12001, 'ALGO_S1', '2022-2023', 1, 'valide'), (12001, 'MDISC_S1', '2022-2023', 1, 'valide'), (12001, 'ECOG_S1', '2022-2023', 1, 'valide'), (12001, 'COMP_S1', '2022-2023', 1, 'valide'), (12001, 'SINF_S1', '2022-2023', 1, 'valide'), (12001, 'DWEB_S1', '2022-2023', 1, 'valide'),
-(12001, 'ANG_S2', '2022-2023', 2, 'valide'), (12001, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12001, 'ALGO_S2', '2022-2023', 2, 'valide'), (12001, 'MDISC_S2', '2022-2023', 2, 'valide'), (12001, 'ECOG_S2', '2022-2023', 2, 'valide'), (12001, 'COMP_S2', '2022-2023', 2, 'valide'), (12001, 'SINF_S2', '2022-2023', 2, 'valide'), (12001, 'DWEB_S2', '2022-2023', 2, 'valide'),
-(12001, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12001, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12001, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12001, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12001, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12001, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12001, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12001, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
-(12001, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12001, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12001, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12001, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12001, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12001, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12001, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12001, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
--- Étudiant 12002
-(12002, 'ANG_S1', '2022-2023', 1, 'valide'), (12002, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12002, 'ALGO_S1', '2022-2023', 1, 'valide'), (12002, 'MDISC_S1', '2022-2023', 1, 'valide'), (12002, 'ECOG_S1', '2022-2023', 1, 'valide'), (12002, 'COMP_S1', '2022-2023', 1, 'valide'), (12002, 'SINF_S1', '2022-2023', 1, 'valide'), (12002, 'DWEB_S1', '2022-2023', 1, 'valide'),
-(12002, 'ANG_S2', '2022-2023', 2, 'valide'), (12002, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12002, 'ALGO_S2', '2022-2023', 2, 'valide'), (12002, 'MDISC_S2', '2022-2023', 2, 'valide'), (12002, 'ECOG_S2', '2022-2023', 2, 'valide'), (12002, 'COMP_S2', '2022-2023', 2, 'valide'), (12002, 'SINF_S2', '2022-2023', 2, 'valide'), (12002, 'DWEB_S2', '2022-2023', 2, 'valide'),
-(12002, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12002, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12002, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12002, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12002, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12002, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12002, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12002, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
-(12002, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12002, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12002, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12002, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12002, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12002, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12002, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12002, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
--- Étudiant 12003 (Avec un échec rattrapé)
-(12003, 'ANG_S1', '2022-2023', 1, 'valide'), (12003, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12003, 'ALGO_S1', '2022-2023', 1, 'echoue'), (12003, 'MDISC_S1', '2022-2023', 1, 'valide'), (12003, 'ECOG_S1', '2022-2023', 1, 'valide'), (12003, 'COMP_S1', '2022-2023', 1, 'valide'), (12003, 'SINF_S1', '2022-2023', 1, 'valide'), (12003, 'DWEB_S1', '2022-2023', 1, 'valide'),
-(12003, 'ANG_S2', '2022-2023', 2, 'valide'), (12003, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12003, 'ALGO_S2', '2022-2023', 2, 'valide'), (12003, 'MDISC_S2', '2022-2023', 2, 'valide'), (12003, 'ECOG_S2', '2022-2023', 2, 'valide'), (12003, 'COMP_S2', '2022-2023', 2, 'valide'), (12003, 'SINF_S2', '2022-2023', 2, 'valide'), (12003, 'DWEB_S2', '2022-2023', 2, 'valide'),
-(12003, 'ALGO_S1', '2023-2024', 1, 'en_cours'), -- Rattrapage de la L1 !
-(12003, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12003, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12003, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12003, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12003, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12003, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12003, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12003, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
-(12003, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12003, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12003, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12003, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12003, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12003, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12003, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12003, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
--- Étudiant 12004
-(12004, 'ANG_S1', '2022-2023', 1, 'valide'), (12004, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12004, 'ALGO_S1', '2022-2023', 1, 'valide'), (12004, 'MDISC_S1', '2022-2023', 1, 'valide'), (12004, 'ECOG_S1', '2022-2023', 1, 'valide'), (12004, 'COMP_S1', '2022-2023', 1, 'valide'), (12004, 'SINF_S1', '2022-2023', 1, 'valide'), (12004, 'DWEB_S1', '2022-2023', 1, 'valide'),
-(12004, 'ANG_S2', '2022-2023', 2, 'valide'), (12004, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12004, 'ALGO_S2', '2022-2023', 2, 'valide'), (12004, 'MDISC_S2', '2022-2023', 2, 'valide'), (12004, 'ECOG_S2', '2022-2023', 2, 'valide'), (12004, 'COMP_S2', '2022-2023', 2, 'valide'), (12004, 'SINF_S2', '2022-2023', 2, 'valide'), (12004, 'DWEB_S2', '2022-2023', 2, 'valide'),
-(12004, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12004, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12004, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12004, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12004, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12004, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12004, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12004, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
-(12004, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12004, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12004, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12004, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12004, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12004, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12004, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12004, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
--- Étudiant 12005
-(12005, 'ANG_S1', '2022-2023', 1, 'valide'), (12005, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12005, 'ALGO_S1', '2022-2023', 1, 'valide'), (12005, 'MDISC_S1', '2022-2023', 1, 'valide'), (12005, 'ECOG_S1', '2022-2023', 1, 'valide'), (12005, 'COMP_S1', '2022-2023', 1, 'valide'), (12005, 'SINF_S1', '2022-2023', 1, 'valide'), (12005, 'DWEB_S1', '2022-2023', 1, 'valide'),
-(12005, 'ANG_S2', '2022-2023', 2, 'valide'), (12005, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12005, 'ALGO_S2', '2022-2023', 2, 'valide'), (12005, 'MDISC_S2', '2022-2023', 2, 'valide'), (12005, 'ECOG_S2', '2022-2023', 2, 'valide'), (12005, 'COMP_S2', '2022-2023', 2, 'valide'), (12005, 'SINF_S2', '2022-2023', 2, 'valide'), (12005, 'DWEB_S2', '2022-2023', 2, 'valide'),
-(12005, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12005, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12005, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12005, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12005, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12005, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12005, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12005, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
-(12005, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12005, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12005, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12005, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12005, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12005, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12005, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12005, 'DWEB_S4', '2023-2024', 4, 'en_cours');
+-- L2
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+SELECT e.num_etu, sp.code_ue,
+       CASE WHEN sp.semestrePrevu IN (1,2) THEN '2022-2023' ELSE '2023-2024' END,
+       sp.semestrePrevu,
+       CASE WHEN sp.semestrePrevu IN (1,2) THEN 'valide' ELSE 'en_cours' END
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE e.num_etu BETWEEN 20000 AND 29999
+  AND sp.semestrePrevu IN (1,2,3,4);
+
+-- L3
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+SELECT e.num_etu, sp.code_ue,
+       CASE
+           WHEN sp.semestrePrevu IN (1,2) THEN '2021-2022'
+           WHEN sp.semestrePrevu IN (3,4) THEN '2022-2023'
+           ELSE '2023-2024'
+           END,
+       sp.semestrePrevu,
+       CASE
+           WHEN sp.semestrePrevu IN (1,2,3,4) THEN 'valide'
+           ELSE 'en_cours'
+           END
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE e.num_etu BETWEEN 30000 AND 39999
+  AND sp.semestrePrevu IN (1,2,3,4,5,6);
 
 
--- ------------------------------------------
--- PROMO L3 (5 Étudiants) - S1 à S4 validés, S5/S6 en_cours
--- ------------------------------------------
-INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, id_parcours) VALUES
-                                                                             (13001, 'Lambert', 'Leo', '2003-05-18', 1), (13002, 'Martin', 'Manon', '2002-10-09', 1),
-                                                                             (13003, 'Navarro', 'Noa', '2003-01-27', 1), (13004, 'Olivier', 'Ocean', '2002-08-14', 1),
-                                                                             (13005, 'Perrin', 'Paul', '2003-12-01', 1);
+DROP TABLE IF EXISTS Prenoms;
+DROP TABLE IF EXISTS Noms;
 
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation) VALUES
--- Étudiant 13001 (A tout validé ses 2 premières années !)
-(13001, 'ANG_S1', '2021-2022', 1, 'valide'), (13001, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13001, 'ALGO_S1', '2021-2022', 1, 'valide'), (13001, 'MDISC_S1', '2021-2022', 1, 'valide'), (13001, 'ECOG_S1', '2021-2022', 1, 'valide'), (13001, 'COMP_S1', '2021-2022', 1, 'valide'), (13001, 'SINF_S1', '2021-2022', 1, 'valide'), (13001, 'DWEB_S1', '2021-2022', 1, 'valide'),
-(13001, 'ANG_S2', '2021-2022', 2, 'valide'), (13001, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13001, 'ALGO_S2', '2021-2022', 2, 'valide'), (13001, 'MDISC_S2', '2021-2022', 2, 'valide'), (13001, 'ECOG_S2', '2021-2022', 2, 'valide'), (13001, 'COMP_S2', '2021-2022', 2, 'valide'), (13001, 'SINF_S2', '2021-2022', 2, 'valide'), (13001, 'DWEB_S2', '2021-2022', 2, 'valide'),
-(13001, 'ANG_S3', '2022-2023', 3, 'valide'), (13001, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13001, 'ALGO_S3', '2022-2023', 3, 'valide'), (13001, 'MDISC_S3', '2022-2023', 3, 'valide'), (13001, 'ECOG_S3', '2022-2023', 3, 'valide'), (13001, 'COMP_S3', '2022-2023', 3, 'valide'), (13001, 'SINF_S3', '2022-2023', 3, 'valide'), (13001, 'DWEB_S3', '2022-2023', 3, 'valide'),
-(13001, 'ANG_S4', '2022-2023', 4, 'valide'), (13001, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13001, 'ALGO_S4', '2022-2023', 4, 'valide'), (13001, 'MDISC_S4', '2022-2023', 4, 'valide'), (13001, 'ECOG_S4', '2022-2023', 4, 'valide'), (13001, 'COMP_S4', '2022-2023', 4, 'valide'), (13001, 'SINF_S4', '2022-2023', 4, 'valide'), (13001, 'DWEB_S4', '2022-2023', 4, 'valide'),
-(13001, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13001, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13001, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13001, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13001, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13001, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13001, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13001, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
-(13001, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13001, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13001, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13001, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13001, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13001, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13001, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13001, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+CREATE TABLE Prenoms (
+                         id_prenom INT PRIMARY KEY,
+                         prenom VARCHAR(50) NOT NULL
+);
 
--- Étudiant 13002
-(13002, 'ANG_S1', '2021-2022', 1, 'valide'), (13002, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13002, 'ALGO_S1', '2021-2022', 1, 'valide'), (13002, 'MDISC_S1', '2021-2022', 1, 'valide'), (13002, 'ECOG_S1', '2021-2022', 1, 'valide'), (13002, 'COMP_S1', '2021-2022', 1, 'valide'), (13002, 'SINF_S1', '2021-2022', 1, 'valide'), (13002, 'DWEB_S1', '2021-2022', 1, 'valide'),
-(13002, 'ANG_S2', '2021-2022', 2, 'valide'), (13002, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13002, 'ALGO_S2', '2021-2022', 2, 'valide'), (13002, 'MDISC_S2', '2021-2022', 2, 'valide'), (13002, 'ECOG_S2', '2021-2022', 2, 'valide'), (13002, 'COMP_S2', '2021-2022', 2, 'valide'), (13002, 'SINF_S2', '2021-2022', 2, 'valide'), (13002, 'DWEB_S2', '2021-2022', 2, 'valide'),
-(13002, 'ANG_S3', '2022-2023', 3, 'valide'), (13002, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13002, 'ALGO_S3', '2022-2023', 3, 'valide'), (13002, 'MDISC_S3', '2022-2023', 3, 'valide'), (13002, 'ECOG_S3', '2022-2023', 3, 'valide'), (13002, 'COMP_S3', '2022-2023', 3, 'valide'), (13002, 'SINF_S3', '2022-2023', 3, 'valide'), (13002, 'DWEB_S3', '2022-2023', 3, 'valide'),
-(13002, 'ANG_S4', '2022-2023', 4, 'valide'), (13002, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13002, 'ALGO_S4', '2022-2023', 4, 'valide'), (13002, 'MDISC_S4', '2022-2023', 4, 'valide'), (13002, 'ECOG_S4', '2022-2023', 4, 'valide'), (13002, 'COMP_S4', '2022-2023', 4, 'valide'), (13002, 'SINF_S4', '2022-2023', 4, 'valide'), (13002, 'DWEB_S4', '2022-2023', 4, 'valide'),
-(13002, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13002, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13002, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13002, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13002, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13002, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13002, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13002, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
-(13002, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13002, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13002, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13002, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13002, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13002, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13002, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13002, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+CREATE TABLE Noms (
+                      id_nom INT PRIMARY KEY,
+                      nom VARCHAR(50) NOT NULL
+);
 
--- Étudiant 13003
-(13003, 'ANG_S1', '2021-2022', 1, 'valide'), (13003, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13003, 'ALGO_S1', '2021-2022', 1, 'valide'), (13003, 'MDISC_S1', '2021-2022', 1, 'valide'), (13003, 'ECOG_S1', '2021-2022', 1, 'valide'), (13003, 'COMP_S1', '2021-2022', 1, 'valide'), (13003, 'SINF_S1', '2021-2022', 1, 'valide'), (13003, 'DWEB_S1', '2021-2022', 1, 'valide'),
-(13003, 'ANG_S2', '2021-2022', 2, 'valide'), (13003, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13003, 'ALGO_S2', '2021-2022', 2, 'valide'), (13003, 'MDISC_S2', '2021-2022', 2, 'valide'), (13003, 'ECOG_S2', '2021-2022', 2, 'valide'), (13003, 'COMP_S2', '2021-2022', 2, 'valide'), (13003, 'SINF_S2', '2021-2022', 2, 'valide'), (13003, 'DWEB_S2', '2021-2022', 2, 'valide'),
-(13003, 'ANG_S3', '2022-2023', 3, 'valide'), (13003, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13003, 'ALGO_S3', '2022-2023', 3, 'valide'), (13003, 'MDISC_S3', '2022-2023', 3, 'valide'), (13003, 'ECOG_S3', '2022-2023', 3, 'valide'), (13003, 'COMP_S3', '2022-2023', 3, 'valide'), (13003, 'SINF_S3', '2022-2023', 3, 'valide'), (13003, 'DWEB_S3', '2022-2023', 3, 'valide'),
-(13003, 'ANG_S4', '2022-2023', 4, 'valide'), (13003, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13003, 'ALGO_S4', '2022-2023', 4, 'valide'), (13003, 'MDISC_S4', '2022-2023', 4, 'valide'), (13003, 'ECOG_S4', '2022-2023', 4, 'valide'), (13003, 'COMP_S4', '2022-2023', 4, 'valide'), (13003, 'SINF_S4', '2022-2023', 4, 'valide'), (13003, 'DWEB_S4', '2022-2023', 4, 'valide'),
-(13003, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13003, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13003, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13003, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13003, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13003, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13003, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13003, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
-(13003, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13003, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13003, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13003, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13003, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13003, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13003, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13003, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+INSERT INTO Prenoms (id_prenom, prenom) VALUES
+                                            (1,'Lucas'),
+                                            (2,'Emma'),
+                                            (3,'Hugo'),
+                                            (4,'Jade'),
+                                            (5,'Louis'),
+                                            (6,'Lina'),
+                                            (7,'Nathan'),
+                                            (8,'Chloe'),
+                                            (9,'Leo'),
+                                            (10,'Manon'),
+                                            (11,'Gabriel'),
+                                            (12,'Sarah'),
+                                            (13,'Arthur'),
+                                            (14,'Ines'),
+                                            (15,'Adam'),
+                                            (16,'Camille'),
+                                            (17,'Noah'),
+                                            (18,'Lea'),
+                                            (19,'Tom'),
+                                            (20,'Eva'),
+                                            (21,'Theo'),
+                                            (22,'Clara'),
+                                            (23,'Paul'),
+                                            (24,'Lola'),
+                                            (25,'Mathis'),
+                                            (26,'Juliette'),
+                                            (27,'Maxime'),
+                                            (28,'Anais'),
+                                            (29,'Baptiste'),
+                                            (30,'Marine'),
+                                            (31,'Ethan'),
+                                            (32,'Charlotte'),
+                                            (33,'Alexandre'),
+                                            (34,'Lucie'),
+                                            (35,'Antoine'),
+                                            (36,'Elise'),
+                                            (37,'Romain'),
+                                            (38,'Nina'),
+                                            (39,'Victor'),
+                                            (40,'Alice'),
+                                            (41,'Julien'),
+                                            (42,'Mael'),
+                                            (43,'Valentin'),
+                                            (44,'Zoe'),
+                                            (45,'Samuel'),
+                                            (46,'Margot'),
+                                            (47,'Thomas'),
+                                            (48,'Jeanne'),
+                                            (49,'Benjamin'),
+                                            (50,'Pauline');
 
--- Étudiant 13004
-(13004, 'ANG_S1', '2021-2022', 1, 'valide'), (13004, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13004, 'ALGO_S1', '2021-2022', 1, 'valide'), (13004, 'MDISC_S1', '2021-2022', 1, 'valide'), (13004, 'ECOG_S1', '2021-2022', 1, 'valide'), (13004, 'COMP_S1', '2021-2022', 1, 'valide'), (13004, 'SINF_S1', '2021-2022', 1, 'valide'), (13004, 'DWEB_S1', '2021-2022', 1, 'valide'),
-(13004, 'ANG_S2', '2021-2022', 2, 'valide'), (13004, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13004, 'ALGO_S2', '2021-2022', 2, 'valide'), (13004, 'MDISC_S2', '2021-2022', 2, 'valide'), (13004, 'ECOG_S2', '2021-2022', 2, 'valide'), (13004, 'COMP_S2', '2021-2022', 2, 'valide'), (13004, 'SINF_S2', '2021-2022', 2, 'valide'), (13004, 'DWEB_S2', '2021-2022', 2, 'valide'),
-(13004, 'ANG_S3', '2022-2023', 3, 'valide'), (13004, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13004, 'ALGO_S3', '2022-2023', 3, 'valide'), (13004, 'MDISC_S3', '2022-2023', 3, 'valide'), (13004, 'ECOG_S3', '2022-2023', 3, 'valide'), (13004, 'COMP_S3', '2022-2023', 3, 'valide'), (13004, 'SINF_S3', '2022-2023', 3, 'valide'), (13004, 'DWEB_S3', '2022-2023', 3, 'valide'),
-(13004, 'ANG_S4', '2022-2023', 4, 'valide'), (13004, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13004, 'ALGO_S4', '2022-2023', 4, 'valide'), (13004, 'MDISC_S4', '2022-2023', 4, 'valide'), (13004, 'ECOG_S4', '2022-2023', 4, 'valide'), (13004, 'COMP_S4', '2022-2023', 4, 'valide'), (13004, 'SINF_S4', '2022-2023', 4, 'valide'), (13004, 'DWEB_S4', '2022-2023', 4, 'valide'),
-(13004, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13004, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13004, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13004, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13004, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13004, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13004, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13004, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
-(13004, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13004, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13004, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13004, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13004, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13004, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13004, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13004, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+INSERT INTO Noms (id_nom, nom) VALUES
+                                   (1,'Martin'),
+                                   (2,'Bernard'),
+                                   (3,'Thomas'),
+                                   (4,'Petit'),
+                                   (5,'Robert'),
+                                   (6,'Richard'),
+                                   (7,'Durand'),
+                                   (8,'Dubois'),
+                                   (9,'Moreau'),
+                                   (10,'Laurent'),
+                                   (11,'Simon'),
+                                   (12,'Michel'),
+                                   (13,'Lefebvre'),
+                                   (14,'Leroy'),
+                                   (15,'Roux'),
+                                   (16,'David'),
+                                   (17,'Bertrand'),
+                                   (18,'Morel'),
+                                   (19,'Fournier'),
+                                   (20,'Girard'),
+                                   (21,'Bonnet'),
+                                   (22,'Dupont'),
+                                   (23,'Lambert'),
+                                   (24,'Fontaine'),
+                                   (25,'Rousseau'),
+                                   (26,'Vincent'),
+                                   (27,'Muller'),
+                                   (28,'Lefevre'),
+                                   (29,'Faure'),
+                                   (30,'Andre'),
+                                   (31,'Mercier'),
+                                   (32,'Blanc'),
+                                   (33,'Guerin'),
+                                   (34,'Boyer'),
+                                   (35,'Garnier'),
+                                   (36,'Chevalier'),
+                                   (37,'Francois'),
+                                   (38,'Legrand'),
+                                   (39,'Gauthier'),
+                                   (40,'Garcia'),
+                                   (41,'Perrin'),
+                                   (42,'Robin'),
+                                   (43,'Clement'),
+                                   (44,'Morin'),
+                                   (45,'Henry'),
+                                   (46,'Roussel'),
+                                   (47,'Mathieu'),
+                                   (48,'Gautier'),
+                                   (49,'Masson'),
+                                   (50,'Marchand');
 
--- Étudiant 13005
-(13005, 'ANG_S1', '2021-2022', 1, 'valide'), (13005, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13005, 'ALGO_S1', '2021-2022', 1, 'valide'), (13005, 'MDISC_S1', '2021-2022', 1, 'valide'), (13005, 'ECOG_S1', '2021-2022', 1, 'valide'), (13005, 'COMP_S1', '2021-2022', 1, 'valide'), (13005, 'SINF_S1', '2021-2022', 1, 'valide'), (13005, 'DWEB_S1', '2021-2022', 1, 'valide'),
-(13005, 'ANG_S2', '2021-2022', 2, 'valide'), (13005, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13005, 'ALGO_S2', '2021-2022', 2, 'valide'), (13005, 'MDISC_S2', '2021-2022', 2, 'valide'), (13005, 'ECOG_S2', '2021-2022', 2, 'valide'), (13005, 'COMP_S2', '2021-2022', 2, 'valide'), (13005, 'SINF_S2', '2021-2022', 2, 'valide'), (13005, 'DWEB_S2', '2021-2022', 2, 'valide'),
-(13005, 'ANG_S3', '2022-2023', 3, 'valide'), (13005, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13005, 'ALGO_S3', '2022-2023', 3, 'valide'), (13005, 'MDISC_S3', '2022-2023', 3, 'valide'), (13005, 'ECOG_S3', '2022-2023', 3, 'valide'), (13005, 'COMP_S3', '2022-2023', 3, 'valide'), (13005, 'SINF_S3', '2022-2023', 3, 'valide'), (13005, 'DWEB_S3', '2022-2023', 3, 'valide'),
-(13005, 'ANG_S4', '2022-2023', 4, 'valide'), (13005, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13005, 'ALGO_S4', '2022-2023', 4, 'valide'), (13005, 'MDISC_S4', '2022-2023', 4, 'valide'), (13005, 'ECOG_S4', '2022-2023', 4, 'valide'), (13005, 'COMP_S4', '2022-2023', 4, 'valide'), (13005, 'SINF_S4', '2022-2023', 4, 'valide'), (13005, 'DWEB_S4', '2022-2023', 4, 'valide'),
-(13005, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13005, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13005, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13005, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13005, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13005, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13005, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13005, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
-(13005, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13005, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13005, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13005, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13005, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13005, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13005, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13005, 'DWEB_S6', '2023-2024', 6, 'en_cours');
+UPDATE Etudiant e
+    JOIN Noms n
+    ON n.id_nom = ((e.num_etu - 1) MOD 50) + 1
+    JOIN Prenoms p
+    ON p.id_prenom = (((e.num_etu DIV 10) + (e.id_parcours * 7) - 1) MOD 50) + 1
+SET
+    e.nom = n.nom,
+    e.prenom = p.prenom;

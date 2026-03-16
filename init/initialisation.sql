@@ -83,1671 +83,310 @@ CREATE TABLE Inscription (
 );
 
 -- ==========================================
--- 3. INSERTIONS RÉFÉRENTIELS (UE, Mentions, Parcours)
+-- 1. INSERTIONS DES MENTIONS
 -- ==========================================
-INSERT INTO Mention VALUES
-                        (1, 'Informatique'), (2, 'Droit'), (3, 'Gestion'), (4, 'Psychologie');
-
-INSERT INTO Parcours VALUES
-                         (1, 'MIAGE', 1), (2, 'SDIA', 1), (3, 'Développement Logiciel', 1), (4, 'Systèmes et Réseaux', 1),
-                         (5, 'Gestion des Entreprises', 3), (6, 'Finance et Comptabilité', 3), (7, 'Droit Privé', 2),
-                         (8, 'Droit Public', 2), (9, 'Psychologie Clinique', 4), (10, 'Psychologie du Travail', 4);
-
-INSERT INTO UE VALUES
-                   ('INTRO_JAVA', 'Intro Java', 6), ('STATS_DESC', 'Stats Desc', 3), ('ALGO_BASE', 'Algo', 6),
-                   ('WEB_STATIC', 'Web Static', 3), ('ANGLAIS_1', 'Anglais 1', 3), ('BDD_SQL', 'SQL', 6),
-                   ('COMPTA', 'Compta', 6), ('PROBA', 'Proba', 3), ('WEB_DYN', 'Web Dynamique', 6),
-                   ('ANGLAIS_2', 'Anglais 2', 3), ('JAVA_AVANCE', 'Java Avancé', 6), ('STATS_INF', 'Stats Inf', 6),
-                   ('MANAGEMENT', 'Management', 6), ('MATH_DISC', 'Maths Disc', 3), ('ALGEBRE', 'Algèbre', 3),
-                   ('MACHINE_L', 'Machine Learning', 6), ('OPTIM', 'Optimisation', 3), ('PROJET_INFO', 'Projet Info', 6),
-                   ('ANGLAIS_3', 'Anglais 3', 3), ('RHETORIQUE', 'Rhétorique', 3), ('PROJET_PRO', 'Projet Pro', 6),
-                   ('DEEP_L', 'Deep Learning', 6), ('SYST_EXP', 'Systèmes Exploitation', 6), ('MOBILE', 'Dév Mobile', 6),
-                   ('CLOUD', 'Cloud Computing', 6), ('SECU_INFO', 'Sécurité', 6), ('RESEAU', 'Réseaux', 6),
-                   ('ALGO_AVANCE', 'Algo Avancée', 6), ('MARKETING', 'Marketing', 6), ('MACRO_ECO', 'Macro Éco', 3),
-                   ('MICRO_ECO', 'Micro Éco', 3), ('COMPTA_ANA', 'Compta Analytique', 6), ('DROIT_SOC', 'Droit Social', 6),
-                   ('MARKETING_2', 'Marketing Strat', 6), ('FINANCE', 'Finance', 6), ('AUDIT', 'Audit', 6),
-                   ('FISCALITE', 'Fiscalité', 6), ('DROIT_CONST', 'Droit Const', 6), ('HIST_DROIT', 'Hist Droit', 3),
-                   ('DROIT_CIV1', 'Droit Civil 1', 6), ('DROIT_CIV2', 'Droit Civil 2', 6), ('DROIT_PEN', 'Droit Pénal', 6),
-                   ('PROCED_CIV', 'Procédure Civile', 6), ('DROIT_TRAV', 'Droit Travail', 6), ('DROIT_EUR', 'Droit Européen', 6),
-                   ('PROCED_PEN', 'Procédure Pénale', 6), ('DROIT_ADM', 'Droit Admin', 6), ('PSYCH_GEN', 'Psych Générale', 6),
-                   ('PSYCH_DEV', 'Psych Développement', 6), ('METHODO', 'Méthodologie', 3), ('STATS_PSY', 'Stats Psycho', 3),
-                   ('PSYCH_SOC', 'Psych Sociale', 6), ('NEURO', 'Neurosciences', 6), ('PSYCH_CLIN', 'Psych Clinique', 6),
-                   ('SPORT', 'Sport', 3), ('ENTRETIEN', 'Entretien Clinique', 6), ('PSYCH_TEST', 'Tests Psychologiques', 6),
-                   ('PSYCH_TRAV', 'Psych Travail', 6);
+INSERT INTO Mention (id_mention, nom_mention) VALUES
+                                                  (1, 'MIASHS'),
+                                                  (2, 'Informatique'),
+                                                  (3, 'Mathématiques'),
+                                                  (4, 'Droit');
 
 -- ==========================================
--- 4. INSERTIONS STRUCTURELLES (Catalogue, Parcours, Prerequis)
+-- 2. INSERTIONS DES PARCOURS
 -- ==========================================
-INSERT INTO Catalogue_Mention (id_mention, code_ue) VALUES
-                                                        (1, 'INTRO_JAVA'), (1, 'ALGO_BASE'), (1, 'BDD_SQL'), (1, 'WEB_DYN'), (1, 'JAVA_AVANCE'),
-                                                        (2, 'DROIT_CONST'), (2, 'HIST_DROIT'), (2, 'DROIT_CIV1'), (2, 'DROIT_PEN'),
-                                                        (3, 'COMPTA'), (3, 'MANAGEMENT'), (3, 'MARKETING'), (3, 'FINANCE'),
-                                                        (4, 'PSYCH_GEN'), (4, 'PSYCH_DEV'), (4, 'METHODO'), (4, 'NEURO');
-
-INSERT INTO Structure_Parcours VALUES
-                                   (1, 'INTRO_JAVA', 1, 1), (1, 'ALGO_BASE', 1, 1), (1, 'STATS_DESC', 1, 1),
-                                   (1, 'BDD_SQL', 1, 2), (1, 'COMPTA', 1, 2), (1, 'WEB_DYN', 1, 2),
-                                   (1, 'JAVA_AVANCE', 1, 3), (1, 'STATS_INF', 1, 3),
-                                   (7, 'DROIT_CONST', 1, 1), (7, 'HIST_DROIT', 1, 1), (7, 'DROIT_CIV1', 1, 1),
-                                   (7, 'DROIT_CIV2', 1, 2), (7, 'DROIT_PEN', 1, 2), (7, 'PROCED_CIV', 1, 2);
-
-INSERT INTO Prerequis VALUES
-                          ('JAVA_AVANCE', 'INTRO_JAVA'),
-                          ('WEB_DYN', 'WEB_STATIC'),
-                          ('STATS_INF', 'STATS_DESC'),
-                          ('COMPTA_ANA', 'COMPTA'),
-                          ('DEEP_L', 'MACHINE_L');
+INSERT INTO Parcours (id_parcours, nom_parcours, id_mention) VALUES
+                                                                 (1, 'MIAGE', 1),
+                                                                 (2, 'Ingénierie Opérationnelle', 1),
+                                                                 (3, 'Développement Logiciel', 2),
+                                                                 (4, 'Data Science', 2),
+                                                                 (5, 'Intelligence Artificielle', 2),
+                                                                 (6, 'Réseaux et Sécurité', 2),
+                                                                 (7, 'Statistiques', 3),
+                                                                 (8, 'Algèbre', 3),
+                                                                 (9, 'Mathématiques Appliquées', 3),
+                                                                 (10, 'Droit Public', 4),
+                                                                 (11, 'Droit Privé', 4),
+                                                                 (12, 'Droit des Affaires', 4);
 
 -- ==========================================
--- 5. INSERTIONS ÉTUDIANTS & INSCRIPTIONS
+-- 3. INSERTIONS DES UEs (Déclinées S1 à S6)
 -- ==========================================
--- L1 (ont validé rien ou en cours S1)
-INSERT INTO Etudiant VALUES
-                         (11001,'Aubert','Alexis','2004-02-10',1),(11002,'Baudry','Béatrice','2004-05-22',1),
-                         (11003,'Carpentier','Cyril','2004-09-14',1),(11004,'Delorme','Diane','2004-01-30',1),
-                         (11005,'Espinoza','Ethan','2004-07-18',1),(11006,'Ferreira','Fatima','2004-11-03',1),
-                         (11007,'Gosselin','Gabin','2004-03-27',1),(11008,'Henriot','Hana','2004-08-09',1),
-                         (11009,'Imbert','Ivan','2004-06-15',1),(11010,'Jacquot','Jade','2004-12-01',1);
+INSERT INTO UE (code_ue, nom_ue, nb_credits) VALUES
+-- TRANSVERSALES (Communes à toute l'université)
+('ANG_S1', 'Anglais S1', 3), ('ANG_S2', 'Anglais S2', 3), ('ANG_S3', 'Anglais S3', 3), ('ANG_S4', 'Anglais S4', 3), ('ANG_S5', 'Anglais S5', 3), ('ANG_S6', 'Anglais S6', 3),
+('COMPRO_S1', 'Com Professionnelle S1', 3), ('COMPRO_S2', 'Com Professionnelle S2', 3), ('COMPRO_S3', 'Com Professionnelle S3', 3), ('COMPRO_S4', 'Com Professionnelle S4', 3), ('COMPRO_S5', 'Com Professionnelle S5', 3), ('COMPRO_S6', 'Com Professionnelle S6', 3),
 
-INSERT INTO Inscription VALUES
-                            (11001,'INTRO_JAVA','2023-2024',1,'en_cours'),(11001,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (11001,'ALGO_BASE','2023-2024',1,'en_cours'),(11001,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (11001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (11002,'INTRO_JAVA','2023-2024',1,'en_cours'),(11002,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (11002,'ALGO_BASE','2023-2024',1,'en_cours'),(11002,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (11003,'INTRO_JAVA','2023-2024',1,'en_cours'),(11003,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (11003,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (11004,'INTRO_JAVA','2023-2024',1,'en_cours'),(11004,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (11004,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (11005,'INTRO_JAVA','2023-2024',1,'en_cours'),(11005,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (11005,'STATS_DESC','2023-2024',1,'en_cours'),(11005,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (11005,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (11006,'INTRO_JAVA','2023-2024',1,'en_cours'),(11006,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (11007,'INTRO_JAVA','2023-2024',1,'en_cours'),(11007,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (11007,'WEB_STATIC','2023-2024',1,'en_cours'),(11007,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (11008,'INTRO_JAVA','2023-2024',1,'en_cours'),(11008,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (11008,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (11009,'INTRO_JAVA','2023-2024',1,'en_cours'),(11009,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (11010,'INTRO_JAVA','2023-2024',1,'en_cours'),(11010,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (11010,'STATS_DESC','2023-2024',1,'en_cours'),(11010,'ANGLAIS_1','2023-2024',1,'en_cours');
+-- TRONC COMMUN SCIENCES (MIASHS, Info, Maths)
+('ALGO_S1', 'Algorithmique S1', 6), ('ALGO_S2', 'Algorithmique S2', 6), ('ALGO_S3', 'Algorithmique S3', 6), ('ALGO_S4', 'Algorithmique S4', 6), ('ALGO_S5', 'Algorithmique S5', 6), ('ALGO_S6', 'Algorithmique S6', 6),
+('MDISC_S1', 'Maths Discrètes S1', 3), ('MDISC_S2', 'Maths Discrètes S2', 3), ('MDISC_S3', 'Maths Discrètes S3', 3), ('MDISC_S4', 'Maths Discrètes S4', 3), ('MDISC_S5', 'Maths Discrètes S5', 3), ('MDISC_S6', 'Maths Discrètes S6', 3),
 
--- L2 (ont validé S1+S2, en cours S3)
-INSERT INTO Etudiant VALUES
-                         (12001,'Auger','Amelie','2003-04-12',1),(12002,'Barbe','Boris','2003-07-25',1),
-                         (12003,'Caillet','Chloe','2003-02-08',1),(12004,'Delaunay','Denis','2002-11-19',1),
-                         (12005,'Evrard','Elodie','2003-06-30',1),(12006,'Faivre','Fabrice','2002-09-04',1),
-                         (12007,'Gagnon','Geraldine','2003-01-22',1),(12008,'Hoareau','Henri','2003-10-16',1),
-                         (12009,'Isoard','Iris','2002-08-03',1),(12010,'Jamin','Jerome','2003-05-11',1);
+-- TRONC COMMUN DROIT
+('DCONST_S1', 'Droit Constitutionnel S1', 6), ('DCONST_S2', 'Droit Constitutionnel S2', 6), ('DCONST_S3', 'Droit Constitutionnel S3', 6), ('DCONST_S4', 'Droit Constitutionnel S4', 6), ('DCONST_S5', 'Droit Constitutionnel S5', 6), ('DCONST_S6', 'Droit Constitutionnel S6', 6),
+('HDROIT_S1', 'Histoire du Droit S1', 3), ('HDROIT_S2', 'Histoire du Droit S2', 3), ('HDROIT_S3', 'Histoire du Droit S3', 3), ('HDROIT_S4', 'Histoire du Droit S4', 3), ('HDROIT_S5', 'Histoire du Droit S5', 3), ('HDROIT_S6', 'Histoire du Droit S6', 3),
 
-INSERT INTO Inscription VALUES
--- S1 validé
-(12001,'INTRO_JAVA','2022-2023',1,'valide'),(12001,'STATS_DESC','2022-2023',1,'valide'),
-(12001,'ALGO_BASE','2022-2023',1,'valide'),(12001,'WEB_STATIC','2022-2023',1,'valide'),
-(12001,'ANGLAIS_1','2022-2023',1,'valide'),
--- S2 validé
-(12001,'BDD_SQL','2022-2023',2,'valide'),(12001,'COMPTA','2022-2023',2,'valide'),
-(12001,'PROBA','2022-2023',2,'valide'),(12001,'WEB_DYN','2022-2023',2,'valide'),
-(12001,'ANGLAIS_2','2022-2023',2,'valide'),
--- S3 en cours
-(12001,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12001,'STATS_INF','2023-2024',3,'en_cours'),
-(12001,'MANAGEMENT','2023-2024',3,'en_cours'),(12001,'MATH_DISC','2023-2024',3,'en_cours'),
+-- SPÉCIALITÉS MIASHS
+('ECOG_S1', 'Économie et Gestion S1', 6), ('ECOG_S2', 'Économie et Gestion S2', 6), ('ECOG_S3', 'Économie et Gestion S3', 6), ('ECOG_S4', 'Économie et Gestion S4', 6), ('ECOG_S5', 'Économie et Gestion S5', 6), ('ECOG_S6', 'Économie et Gestion S6', 6),
+('COMP_S1', 'Comptabilité S1', 3), ('COMP_S2', 'Comptabilité S2', 3), ('COMP_S3', 'Comptabilité S3', 3), ('COMP_S4', 'Comptabilité S4', 3), ('COMP_S5', 'Comptabilité S5', 3), ('COMP_S6', 'Comptabilité S6', 3),
+('SINF_S1', 'Systèmes Info S1', 3), ('SINF_S2', 'Systèmes Info S2', 3), ('SINF_S3', 'Systèmes Info S3', 3), ('SINF_S4', 'Systèmes Info S4', 3), ('SINF_S5', 'Systèmes Info S5', 3), ('SINF_S6', 'Systèmes Info S6', 3),
+('RECHOP_S1', 'Recherche Opé S1', 3), ('RECHOP_S2', 'Recherche Opé S2', 3), ('RECHOP_S3', 'Recherche Opé S3', 3), ('RECHOP_S4', 'Recherche Opé S4', 3), ('RECHOP_S5', 'Recherche Opé S5', 3), ('RECHOP_S6', 'Recherche Opé S6', 3),
+('MODEL_S1', 'Modélisation S1', 3), ('MODEL_S2', 'Modélisation S2', 3), ('MODEL_S3', 'Modélisation S3', 3), ('MODEL_S4', 'Modélisation S4', 3), ('MODEL_S5', 'Modélisation S5', 3), ('MODEL_S6', 'Modélisation S6', 3),
+('STATAPP_S1', 'Stats Appliquées S1', 3), ('STATAPP_S2', 'Stats Appliquées S2', 3), ('STATAPP_S3', 'Stats Appliquées S3', 3), ('STATAPP_S4', 'Stats Appliquées S4', 3), ('STATAPP_S5', 'Stats Appliquées S5', 3), ('STATAPP_S6', 'Stats Appliquées S6', 3),
 
-(12002,'INTRO_JAVA','2022-2023',1,'valide'),(12002,'STATS_DESC','2022-2023',1,'valide'),
-(12002,'ALGO_BASE','2022-2023',1,'echoue'),(12002,'ANGLAIS_1','2022-2023',1,'valide'),
-(12002,'ALGO_BASE','2022-2023',2,'valide'),(12002,'BDD_SQL','2022-2023',2,'valide'),
-(12002,'COMPTA','2022-2023',2,'valide'),(12002,'ANGLAIS_2','2022-2023',2,'valide'),
-(12002,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12002,'STATS_INF','2023-2024',3,'en_cours'),
+-- SPÉCIALITÉS INFORMATIQUE
+('JAVAPOO_S1', 'Java Avancé S1', 6), ('JAVAPOO_S2', 'Java Avancé S2', 6), ('JAVAPOO_S3', 'Java Avancé S3', 6), ('JAVAPOO_S4', 'Java Avancé S4', 6), ('JAVAPOO_S5', 'Java Avancé S5', 6), ('JAVAPOO_S6', 'Java Avancé S6', 6),
+('DWEB_S1', 'Dév Web S1', 3), ('DWEB_S2', 'Dév Web S2', 3), ('DWEB_S3', 'Dév Web S3', 3), ('DWEB_S4', 'Dév Web S4', 3), ('DWEB_S5', 'Dév Web S5', 3), ('DWEB_S6', 'Dév Web S6', 3),
+('BDDSQL_S1', 'Base de Données S1', 3), ('BDDSQL_S2', 'Base de Données S2', 3), ('BDDSQL_S3', 'Base de Données S3', 3), ('BDDSQL_S4', 'Base de Données S4', 3), ('BDDSQL_S5', 'Base de Données S5', 3), ('BDDSQL_S6', 'Base de Données S6', 3),
+('GLOG_S1', 'Génie Logiciel S1', 3), ('GLOG_S2', 'Génie Logiciel S2', 3), ('GLOG_S3', 'Génie Logiciel S3', 3), ('GLOG_S4', 'Génie Logiciel S4', 3), ('GLOG_S5', 'Génie Logiciel S5', 3), ('GLOG_S6', 'Génie Logiciel S6', 3),
+('BDDADV_S1', 'BDD Avancées S1', 6), ('BDDADV_S2', 'BDD Avancées S2', 6), ('BDDADV_S3', 'BDD Avancées S3', 6), ('BDDADV_S4', 'BDD Avancées S4', 6), ('BDDADV_S5', 'BDD Avancées S5', 6), ('BDDADV_S6', 'BDD Avancées S6', 6),
+('BIGDAT_S1', 'Big Data S1', 3), ('BIGDAT_S2', 'Big Data S2', 3), ('BIGDAT_S3', 'Big Data S3', 3), ('BIGDAT_S4', 'Big Data S4', 3), ('BIGDAT_S5', 'Big Data S5', 3), ('BIGDAT_S6', 'Big Data S6', 3),
+('PYTH_S1', 'Python S1', 3), ('PYTH_S2', 'Python S2', 3), ('PYTH_S3', 'Python S3', 3), ('PYTH_S4', 'Python S4', 3), ('PYTH_S5', 'Python S5', 3), ('PYTH_S6', 'Python S6', 3),
+('STATDAT_S1', 'Stats pour Data S1', 3), ('STATDAT_S2', 'Stats pour Data S2', 3), ('STATDAT_S3', 'Stats pour Data S3', 3), ('STATDAT_S4', 'Stats pour Data S4', 3), ('STATDAT_S5', 'Stats pour Data S5', 3), ('STATDAT_S6', 'Stats pour Data S6', 3),
+('MACHL_S1', 'Machine Learning S1', 6), ('MACHL_S2', 'Machine Learning S2', 6), ('MACHL_S3', 'Machine Learning S3', 6), ('MACHL_S4', 'Machine Learning S4', 6), ('MACHL_S5', 'Machine Learning S5', 6), ('MACHL_S6', 'Machine Learning S6', 6),
+('DEEPL_S1', 'Deep Learning S1', 3), ('DEEPL_S2', 'Deep Learning S2', 3), ('DEEPL_S3', 'Deep Learning S3', 3), ('DEEPL_S4', 'Deep Learning S4', 3), ('DEEPL_S5', 'Deep Learning S5', 3), ('DEEPL_S6', 'Deep Learning S6', 3),
+('IAETH_S1', 'IA et Éthique S1', 3), ('IAETH_S2', 'IA et Éthique S2', 3), ('IAETH_S3', 'IA et Éthique S3', 3), ('IAETH_S4', 'IA et Éthique S4', 3), ('IAETH_S5', 'IA et Éthique S5', 3), ('IAETH_S6', 'IA et Éthique S6', 3),
+('RESLOC_S1', 'Réseaux Locaux S1', 6), ('RESLOC_S2', 'Réseaux Locaux S2', 6), ('RESLOC_S3', 'Réseaux Locaux S3', 6), ('RESLOC_S4', 'Réseaux Locaux S4', 6), ('RESLOC_S5', 'Réseaux Locaux S5', 6), ('RESLOC_S6', 'Réseaux Locaux S6', 6),
+('SECINFO_S1', 'Sécurité Info S1', 3), ('SECINFO_S2', 'Sécurité Info S2', 3), ('SECINFO_S3', 'Sécurité Info S3', 3), ('SECINFO_S4', 'Sécurité Info S4', 3), ('SECINFO_S5', 'Sécurité Info S5', 3), ('SECINFO_S6', 'Sécurité Info S6', 3),
+('ADMSYS_S1', 'Admin Système S1', 3), ('ADMSYS_S2', 'Admin Système S2', 3), ('ADMSYS_S3', 'Admin Système S3', 3), ('ADMSYS_S4', 'Admin Système S4', 3), ('ADMSYS_S5', 'Admin Système S5', 3), ('ADMSYS_S6', 'Admin Système S6', 3),
+('CLOUD_S1', 'Cloud Computing S1', 3), ('CLOUD_S2', 'Cloud Computing S2', 3), ('CLOUD_S3', 'Cloud Computing S3', 3), ('CLOUD_S4', 'Cloud Computing S4', 3), ('CLOUD_S5', 'Cloud Computing S5', 3), ('CLOUD_S6', 'Cloud Computing S6', 3),
 
-(12003,'INTRO_JAVA','2022-2023',1,'valide'),(12003,'STATS_DESC','2022-2023',1,'valide'),
-(12003,'ALGO_BASE','2022-2023',1,'valide'),(12003,'WEB_STATIC','2022-2023',1,'valide'),
-(12003,'ANGLAIS_1','2022-2023',1,'valide'),(12003,'BDD_SQL','2022-2023',2,'valide'),
-(12003,'COMPTA','2022-2023',2,'valide'),(12003,'PROBA','2022-2023',2,'valide'),
-(12003,'ANGLAIS_2','2022-2023',2,'valide'),(12003,'JAVA_AVANCE','2023-2024',3,'en_cours'),
-(12003,'MANAGEMENT','2023-2024',3,'en_cours'),(12003,'MATH_DISC','2023-2024',3,'en_cours'),
+-- SPÉCIALITÉS MATHÉMATIQUES
+('PROBA_S1', 'Probabilités S1', 6), ('PROBA_S2', 'Probabilités S2', 6), ('PROBA_S3', 'Probabilités S3', 6), ('PROBA_S4', 'Probabilités S4', 6), ('PROBA_S5', 'Probabilités S5', 6), ('PROBA_S6', 'Probabilités S6', 6),
+('STATINF_S1', 'Stats Inférentielles S1', 3), ('STATINF_S2', 'Stats Inférentielles S2', 3), ('STATINF_S3', 'Stats Inférentielles S3', 3), ('STATINF_S4', 'Stats Inférentielles S4', 3), ('STATINF_S5', 'Stats Inférentielles S5', 3), ('STATINF_S6', 'Stats Inférentielles S6', 3),
+('LOGR_S1', 'Logiciel R S1', 3), ('LOGR_S2', 'Logiciel R S2', 3), ('LOGR_S3', 'Logiciel R S3', 3), ('LOGR_S4', 'Logiciel R S4', 3), ('LOGR_S5', 'Logiciel R S5', 3), ('LOGR_S6', 'Logiciel R S6', 3),
+('SONDAG_S1', 'Théorie Sondages S1', 3), ('SONDAG_S2', 'Théorie Sondages S2', 3), ('SONDAG_S3', 'Théorie Sondages S3', 3), ('SONDAG_S4', 'Théorie Sondages S4', 3), ('SONDAG_S5', 'Théorie Sondages S5', 3), ('SONDAG_S6', 'Théorie Sondages S6', 3),
+('ALGLIN_S1', 'Algèbre Linéaire S1', 6), ('ALGLIN_S2', 'Algèbre Linéaire S2', 6), ('ALGLIN_S3', 'Algèbre Linéaire S3', 6), ('ALGLIN_S4', 'Algèbre Linéaire S4', 6), ('ALGLIN_S5', 'Algèbre Linéaire S5', 6), ('ALGLIN_S6', 'Algèbre Linéaire S6', 6),
+('ARITH_S1', 'Arithmétique S1', 3), ('ARITH_S2', 'Arithmétique S2', 3), ('ARITH_S3', 'Arithmétique S3', 3), ('ARITH_S4', 'Arithmétique S4', 3), ('ARITH_S5', 'Arithmétique S5', 3), ('ARITH_S6', 'Arithmétique S6', 3),
+('GEOM_S1', 'Géométrie S1', 3), ('GEOM_S2', 'Géométrie S2', 3), ('GEOM_S3', 'Géométrie S3', 3), ('GEOM_S4', 'Géométrie S4', 3), ('GEOM_S5', 'Géométrie S5', 3), ('GEOM_S6', 'Géométrie S6', 3),
+('TOPO_S1', 'Topologie S1', 3), ('TOPO_S2', 'Topologie S2', 3), ('TOPO_S3', 'Topologie S3', 3), ('TOPO_S4', 'Topologie S4', 3), ('TOPO_S5', 'Topologie S5', 3), ('TOPO_S6', 'Topologie S6', 3),
+('EQDIF_S1', 'Équations Diff S1', 6), ('EQDIF_S2', 'Équations Diff S2', 6), ('EQDIF_S3', 'Équations Diff S3', 6), ('EQDIF_S4', 'Équations Diff S4', 6), ('EQDIF_S5', 'Équations Diff S5', 6), ('EQDIF_S6', 'Équations Diff S6', 6),
+('ANANUM_S1', 'Analyse Numérique S1', 3), ('ANANUM_S2', 'Analyse Numérique S2', 3), ('ANANUM_S3', 'Analyse Numérique S3', 3), ('ANANUM_S4', 'Analyse Numérique S4', 3), ('ANANUM_S5', 'Analyse Numérique S5', 3), ('ANANUM_S6', 'Analyse Numérique S6', 3),
+('OPTI_S1', 'Optimisation S1', 3), ('OPTI_S2', 'Optimisation S2', 3), ('OPTI_S3', 'Optimisation S3', 3), ('OPTI_S4', 'Optimisation S4', 3), ('OPTI_S5', 'Optimisation S5', 3), ('OPTI_S6', 'Optimisation S6', 3),
 
-(12004,'INTRO_JAVA','2022-2023',1,'valide'),(12004,'ALGO_BASE','2022-2023',1,'valide'),
-(12004,'WEB_STATIC','2022-2023',1,'valide'),(12004,'ANGLAIS_1','2022-2023',1,'valide'),
-(12004,'BDD_SQL','2022-2023',2,'valide'),(12004,'COMPTA','2022-2023',2,'valide'),
-(12004,'WEB_DYN','2022-2023',2,'valide'),(12004,'ANGLAIS_2','2022-2023',2,'valide'),
-(12004,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12004,'STATS_INF','2023-2024',3,'en_cours'),
-(12004,'ALGEBRE','2023-2024',3,'en_cours'),
-
-(12005,'INTRO_JAVA','2022-2023',1,'valide'),(12005,'STATS_DESC','2022-2023',1,'valide'),
-(12005,'ALGO_BASE','2022-2023',1,'valide'),(12005,'ANGLAIS_1','2022-2023',1,'valide'),
-(12005,'BDD_SQL','2022-2023',2,'valide'),(12005,'COMPTA','2022-2023',2,'valide'),
-(12005,'PROBA','2022-2023',2,'valide'),(12005,'WEB_DYN','2022-2023',2,'valide'),
-(12005,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12005,'STATS_INF','2023-2024',3,'en_cours'),
-(12005,'MATH_DISC','2023-2024',3,'en_cours'),(12005,'ALGEBRE','2023-2024',3,'en_cours'),
-
-(12006,'INTRO_JAVA','2022-2023',1,'valide'),(12006,'ALGO_BASE','2022-2023',1,'valide'),
-(12006,'WEB_STATIC','2022-2023',1,'valide'),(12006,'ANGLAIS_1','2022-2023',1,'valide'),
-(12006,'BDD_SQL','2022-2023',2,'valide'),(12006,'COMPTA','2022-2023',2,'valide'),
-(12006,'ANGLAIS_2','2022-2023',2,'valide'),(12006,'JAVA_AVANCE','2023-2024',3,'en_cours'),
-(12006,'MANAGEMENT','2023-2024',3,'en_cours'),
-
-(12007,'INTRO_JAVA','2022-2023',1,'valide'),(12007,'STATS_DESC','2022-2023',1,'valide'),
-(12007,'ALGO_BASE','2022-2023',1,'valide'),(12007,'WEB_STATIC','2022-2023',1,'valide'),
-(12007,'BDD_SQL','2022-2023',2,'valide'),(12007,'COMPTA','2022-2023',2,'valide'),
-(12007,'PROBA','2022-2023',2,'valide'),(12007,'WEB_DYN','2022-2023',2,'valide'),
-(12007,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12007,'STATS_INF','2023-2024',3,'en_cours'),
-(12007,'MATH_DISC','2023-2024',3,'en_cours'),
-
-(12008,'INTRO_JAVA','2022-2023',1,'valide'),(12008,'ALGO_BASE','2022-2023',1,'valide'),
-(12008,'ANGLAIS_1','2022-2023',1,'valide'),(12008,'BDD_SQL','2022-2023',2,'valide'),
-(12008,'COMPTA','2022-2023',2,'valide'),(12008,'ANGLAIS_2','2022-2023',2,'valide'),
-(12008,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12008,'MANAGEMENT','2023-2024',3,'en_cours'),
-
-(12009,'INTRO_JAVA','2022-2023',1,'valide'),(12009,'STATS_DESC','2022-2023',1,'valide'),
-(12009,'ALGO_BASE','2022-2023',1,'valide'),(12009,'ANGLAIS_1','2022-2023',1,'valide'),
-(12009,'BDD_SQL','2022-2023',2,'valide'),(12009,'PROBA','2022-2023',2,'valide'),
-(12009,'WEB_DYN','2022-2023',2,'valide'),(12009,'ANGLAIS_2','2022-2023',2,'valide'),
-(12009,'JAVA_AVANCE','2023-2024',3,'en_cours'),(12009,'STATS_INF','2023-2024',3,'en_cours'),
-(12009,'ALGEBRE','2023-2024',3,'en_cours'),
-
-(12010,'INTRO_JAVA','2022-2023',1,'valide'),(12010,'STATS_DESC','2022-2023',1,'valide'),
-(12010,'WEB_STATIC','2022-2023',1,'valide'),(12010,'ANGLAIS_1','2022-2023',1,'valide'),
-(12010,'BDD_SQL','2022-2023',2,'valide'),(12010,'COMPTA','2022-2023',2,'valide'),
-(12010,'ANGLAIS_2','2022-2023',2,'valide'),(12010,'JAVA_AVANCE','2023-2024',3,'en_cours'),
-(12010,'MATH_DISC','2023-2024',3,'en_cours');
-
--- L3 (ont validé S1-S4, en cours S5/S6)
-INSERT INTO Etudiant VALUES
-                         (13001,'Aumont','Adrien','2002-03-15',1),(13002,'Bazin','Brigitte','2001-11-22',1),
-                         (13003,'Clement','Cecile','2002-05-08',1),(13004,'Deschamps','Didier','2001-07-19',1),
-                         (13005,'Esteve','Elisa','2002-09-30',1),(13006,'Fortier','Florent','2001-01-14',1),
-                         (13007,'Guichard','Gwenael','2002-12-03',1),(13008,'Herve','Helene','2001-04-25',1),
-                         (13009,'Isambert','Isabelle','2002-08-11',1),(13010,'Joubert','Julien','2001-06-17',1);
-
-INSERT INTO Inscription VALUES
-                            (13001,'INTRO_JAVA','2021-2022',1,'valide'),(13001,'STATS_DESC','2021-2022',1,'valide'),
-                            (13001,'ALGO_BASE','2021-2022',1,'valide'),(13001,'WEB_STATIC','2021-2022',1,'valide'),
-                            (13001,'ANGLAIS_1','2021-2022',1,'valide'),(13001,'BDD_SQL','2021-2022',2,'valide'),
-                            (13001,'COMPTA','2021-2022',2,'valide'),(13001,'PROBA','2021-2022',2,'valide'),
-                            (13001,'WEB_DYN','2021-2022',2,'valide'),(13001,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13001,'JAVA_AVANCE','2022-2023',3,'valide'),(13001,'STATS_INF','2022-2023',3,'valide'),
-                            (13001,'MANAGEMENT','2022-2023',3,'valide'),(13001,'MATH_DISC','2022-2023',3,'valide'),
-                            (13001,'ALGEBRE','2022-2023',3,'valide'),(13001,'MACHINE_L','2022-2023',4,'valide'),
-                            (13001,'OPTIM','2022-2023',4,'valide'),(13001,'PROJET_INFO','2022-2023',4,'valide'),
-                            (13001,'ANGLAIS_3','2022-2023',4,'valide'),(13001,'RHETORIQUE','2023-2024',5,'en_cours'),
-                            (13001,'PROJET_PRO','2023-2024',5,'en_cours'),
-
-                            (13002,'INTRO_JAVA','2021-2022',1,'valide'),(13002,'ALGO_BASE','2021-2022',1,'valide'),
-                            (13002,'STATS_DESC','2021-2022',1,'valide'),(13002,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (13002,'BDD_SQL','2021-2022',2,'valide'),(13002,'COMPTA','2021-2022',2,'valide'),
-                            (13002,'PROBA','2021-2022',2,'echoue'),(13002,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13002,'PROBA','2022-2023',3,'valide'),(13002,'JAVA_AVANCE','2022-2023',3,'valide'),
-                            (13002,'STATS_INF','2022-2023',3,'valide'),(13002,'MANAGEMENT','2022-2023',3,'valide'),
-                            (13002,'MACHINE_L','2022-2023',4,'valide'),(13002,'OPTIM','2022-2023',4,'valide'),
-                            (13002,'PROJET_INFO','2022-2023',4,'valide'),(13002,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (13003,'INTRO_JAVA','2021-2022',1,'valide'),(13003,'STATS_DESC','2021-2022',1,'valide'),
-                            (13003,'ALGO_BASE','2021-2022',1,'valide'),(13003,'WEB_STATIC','2021-2022',1,'valide'),
-                            (13003,'ANGLAIS_1','2021-2022',1,'valide'),(13003,'BDD_SQL','2021-2022',2,'valide'),
-                            (13003,'COMPTA','2021-2022',2,'valide'),(13003,'PROBA','2021-2022',2,'valide'),
-                            (13003,'WEB_DYN','2021-2022',2,'valide'),(13003,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13003,'JAVA_AVANCE','2022-2023',3,'valide'),(13003,'STATS_INF','2022-2023',3,'valide'),
-                            (13003,'MATH_DISC','2022-2023',3,'valide'),(13003,'ALGEBRE','2022-2023',3,'valide'),
-                            (13003,'MACHINE_L','2022-2023',4,'valide'),(13003,'OPTIM','2022-2023',4,'valide'),
-                            (13003,'PROJET_INFO','2022-2023',4,'valide'),(13003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (13003,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (13004,'INTRO_JAVA','2021-2022',1,'valide'),(13004,'ALGO_BASE','2021-2022',1,'valide'),
-                            (13004,'WEB_STATIC','2021-2022',1,'valide'),(13004,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (13004,'BDD_SQL','2021-2022',2,'valide'),(13004,'COMPTA','2021-2022',2,'valide'),
-                            (13004,'WEB_DYN','2021-2022',2,'valide'),(13004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13004,'JAVA_AVANCE','2022-2023',3,'valide'),(13004,'MANAGEMENT','2022-2023',3,'valide'),
-                            (13004,'MACHINE_L','2022-2023',4,'echoue'),(13004,'OPTIM','2022-2023',4,'valide'),
-                            (13004,'PROJET_INFO','2022-2023',4,'valide'),(13004,'MACHINE_L','2023-2024',5,'en_cours'),
-                            (13004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (13005,'INTRO_JAVA','2021-2022',1,'valide'),(13005,'STATS_DESC','2021-2022',1,'valide'),
-                            (13005,'ALGO_BASE','2021-2022',1,'valide'),(13005,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (13005,'BDD_SQL','2021-2022',2,'valide'),(13005,'COMPTA','2021-2022',2,'valide'),
-                            (13005,'PROBA','2021-2022',2,'valide'),(13005,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13005,'JAVA_AVANCE','2022-2023',3,'valide'),(13005,'STATS_INF','2022-2023',3,'valide'),
-                            (13005,'ALGEBRE','2022-2023',3,'valide'),(13005,'MACHINE_L','2022-2023',4,'valide'),
-                            (13005,'OPTIM','2022-2023',4,'valide'),(13005,'PROJET_INFO','2022-2023',4,'valide'),
-                            (13005,'RHETORIQUE','2023-2024',5,'en_cours'),(13005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (13006,'INTRO_JAVA','2021-2022',1,'valide'),(13006,'ALGO_BASE','2021-2022',1,'valide'),
-                            (13006,'STATS_DESC','2021-2022',1,'valide'),(13006,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (13006,'BDD_SQL','2021-2022',2,'valide'),(13006,'PROBA','2021-2022',2,'valide'),
-                            (13006,'ANGLAIS_2','2021-2022',2,'valide'),(13006,'JAVA_AVANCE','2022-2023',3,'valide'),
-                            (13006,'STATS_INF','2022-2023',3,'valide'),(13006,'MATH_DISC','2022-2023',3,'valide'),
-                            (13006,'MACHINE_L','2022-2023',4,'valide'),(13006,'PROJET_INFO','2022-2023',4,'valide'),
-                            (13006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (13007,'INTRO_JAVA','2021-2022',1,'valide'),(13007,'STATS_DESC','2021-2022',1,'valide'),
-                            (13007,'ALGO_BASE','2021-2022',1,'valide'),(13007,'WEB_STATIC','2021-2022',1,'valide'),
-                            (13007,'ANGLAIS_1','2021-2022',1,'valide'),(13007,'BDD_SQL','2021-2022',2,'valide'),
-                            (13007,'COMPTA','2021-2022',2,'valide'),(13007,'WEB_DYN','2021-2022',2,'valide'),
-                            (13007,'ANGLAIS_2','2021-2022',2,'valide'),(13007,'JAVA_AVANCE','2022-2023',3,'valide'),
-                            (13007,'MANAGEMENT','2022-2023',3,'valide'),(13007,'ALGEBRE','2022-2023',3,'valide'),
-                            (13007,'MACHINE_L','2022-2023',4,'valide'),(13007,'OPTIM','2022-2023',4,'valide'),
-                            (13007,'PROJET_INFO','2022-2023',4,'valide'),(13007,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (13008,'INTRO_JAVA','2021-2022',1,'valide'),(13008,'ALGO_BASE','2021-2022',1,'valide'),
-                            (13008,'ANGLAIS_1','2021-2022',1,'valide'),(13008,'BDD_SQL','2021-2022',2,'valide'),
-                            (13008,'COMPTA','2021-2022',2,'valide'),(13008,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13008,'JAVA_AVANCE','2022-2023',3,'valide'),(13008,'STATS_INF','2022-2023',3,'echoue'),
-                            (13008,'STATS_INF','2022-2023',4,'valide'),(13008,'MACHINE_L','2022-2023',4,'valide'),
-                            (13008,'PROJET_INFO','2022-2023',4,'valide'),(13008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (13008,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (13009,'INTRO_JAVA','2021-2022',1,'valide'),(13009,'STATS_DESC','2021-2022',1,'valide'),
-                            (13009,'ALGO_BASE','2021-2022',1,'valide'),(13009,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (13009,'BDD_SQL','2021-2022',2,'valide'),(13009,'COMPTA','2021-2022',2,'valide'),
-                            (13009,'PROBA','2021-2022',2,'valide'),(13009,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13009,'JAVA_AVANCE','2022-2023',3,'valide'),(13009,'STATS_INF','2022-2023',3,'valide'),
-                            (13009,'MATH_DISC','2022-2023',3,'valide'),(13009,'MACHINE_L','2022-2023',4,'valide'),
-                            (13009,'OPTIM','2022-2023',4,'valide'),(13009,'PROJET_INFO','2022-2023',4,'valide'),
-                            (13009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (13010,'INTRO_JAVA','2021-2022',1,'valide'),(13010,'ALGO_BASE','2021-2022',1,'valide'),
-                            (13010,'WEB_STATIC','2021-2022',1,'valide'),(13010,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (13010,'BDD_SQL','2021-2022',2,'valide'),(13010,'COMPTA','2021-2022',2,'valide'),
-                            (13010,'WEB_DYN','2021-2022',2,'valide'),(13010,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (13010,'JAVA_AVANCE','2022-2023',3,'valide'),(13010,'MANAGEMENT','2022-2023',3,'valide'),
-                            (13010,'MACHINE_L','2022-2023',4,'valide'),(13010,'PROJET_INFO','2022-2023',4,'valide'),
-                            (13010,'RHETORIQUE','2023-2024',5,'en_cours');
+-- SPÉCIALITÉS DROIT
+('DADM_S1', 'Droit Administratif S1', 6), ('DADM_S2', 'Droit Administratif S2', 6), ('DADM_S3', 'Droit Administratif S3', 6), ('DADM_S4', 'Droit Administratif S4', 6), ('DADM_S5', 'Droit Administratif S5', 6), ('DADM_S6', 'Droit Administratif S6', 6),
+('LIBPUB_S1', 'Libertés Publiques S1', 3), ('LIBPUB_S2', 'Libertés Publiques S2', 3), ('LIBPUB_S3', 'Libertés Publiques S3', 3), ('LIBPUB_S4', 'Libertés Publiques S4', 3), ('LIBPUB_S5', 'Libertés Publiques S5', 3), ('LIBPUB_S6', 'Libertés Publiques S6', 3),
+('DINT_S1', 'Droit International S1', 3), ('DINT_S2', 'Droit International S2', 3), ('DINT_S3', 'Droit International S3', 3), ('DINT_S4', 'Droit International S4', 3), ('DINT_S5', 'Droit International S5', 3), ('DINT_S6', 'Droit International S6', 3),
+('DFISC_S1', 'Droit Fiscal S1', 3), ('DFISC_S2', 'Droit Fiscal S2', 3), ('DFISC_S3', 'Droit Fiscal S3', 3), ('DFISC_S4', 'Droit Fiscal S4', 3), ('DFISC_S5', 'Droit Fiscal S5', 3), ('DFISC_S6', 'Droit Fiscal S6', 3),
+('DCIVIL_S1', 'Droit Civil S1', 6), ('DCIVIL_S2', 'Droit Civil S2', 6), ('DCIVIL_S3', 'Droit Civil S3', 6), ('DCIVIL_S4', 'Droit Civil S4', 6), ('DCIVIL_S5', 'Droit Civil S5', 6), ('DCIVIL_S6', 'Droit Civil S6', 6),
+('DPENAL_S1', 'Droit Pénal S1', 3), ('DPENAL_S2', 'Droit Pénal S2', 3), ('DPENAL_S3', 'Droit Pénal S3', 3), ('DPENAL_S4', 'Droit Pénal S4', 3), ('DPENAL_S5', 'Droit Pénal S5', 3), ('DPENAL_S6', 'Droit Pénal S6', 3),
+('PROCIV_S1', 'Procédure Civile S1', 3), ('PROCIV_S2', 'Procédure Civile S2', 3), ('PROCIV_S3', 'Procédure Civile S3', 3), ('PROCIV_S4', 'Procédure Civile S4', 3), ('PROCIV_S5', 'Procédure Civile S5', 3), ('PROCIV_S6', 'Procédure Civile S6', 3),
+('DFAM_S1', 'Droit de la Famille S1', 3), ('DFAM_S2', 'Droit de la Famille S2', 3), ('DFAM_S3', 'Droit de la Famille S3', 3), ('DFAM_S4', 'Droit de la Famille S4', 3), ('DFAM_S5', 'Droit de la Famille S5', 3), ('DFAM_S6', 'Droit de la Famille S6', 3),
+('DCOM_S1', 'Droit Commercial S1', 6), ('DCOM_S2', 'Droit Commercial S2', 6), ('DCOM_S3', 'Droit Commercial S3', 6), ('DCOM_S4', 'Droit Commercial S4', 6), ('DCOM_S5', 'Droit Commercial S5', 6), ('DCOM_S6', 'Droit Commercial S6', 6),
+('DSOC_S1', 'Droit Social S1', 3), ('DSOC_S2', 'Droit Social S2', 3), ('DSOC_S3', 'Droit Social S3', 3), ('DSOC_S4', 'Droit Social S4', 3), ('DSOC_S5', 'Droit Social S5', 3), ('DSOC_S6', 'Droit Social S6', 3),
+('FISCEN_S1', 'Fiscalité Entreprise S1', 3), ('FISCEN_S2', 'Fiscalité Entreprise S2', 3), ('FISCEN_S3', 'Fiscalité Entreprise S3', 3), ('FISCEN_S4', 'Fiscalité Entreprise S4', 3), ('FISCEN_S5', 'Fiscalité Entreprise S5', 3), ('FISCEN_S6', 'Fiscalité Entreprise S6', 3),
+('DBANQ_S1', 'Droit Bancaire S1', 3), ('DBANQ_S2', 'Droit Bancaire S2', 3), ('DBANQ_S3', 'Droit Bancaire S3', 3), ('DBANQ_S4', 'Droit Bancaire S4', 3), ('DBANQ_S5', 'Droit Bancaire S5', 3), ('DBANQ_S6', 'Droit Bancaire S6', 3);
 
 -- ==========================================
--- PARCOURS 2 : Science des Données et IA
--- S1 : INTRO_JAVA, STATS_DESC, MATH_DISC, ALGEBRE, ANGLAIS_1
--- S2 : ALGO_BASE, PROBA, BDD_SQL, STATS_INF, ANGLAIS_2
--- S3 : MACHINE_L, OPTIM, JAVA_AVANCE, PROJET_INFO
--- S4 : DEEP_L, ANGLAIS_3
+-- 4. INSERTIONS DE STRUCTURE_PARCOURS
 -- ==========================================
+INSERT INTO Structure_Parcours (id_parcours, code_ue, est_obligatoire, semestrePrevu) VALUES
+-- 1. PARCOURS MIAGE (S1 à S6)
+(1, 'ANG_S1', TRUE, 1), (1, 'COMPRO_S1', TRUE, 1), (1, 'ALGO_S1', TRUE, 1), (1, 'MDISC_S1', TRUE, 1), (1, 'ECOG_S1', TRUE, 1), (1, 'COMP_S1', TRUE, 1), (1, 'SINF_S1', TRUE, 1), (1, 'DWEB_S1', TRUE, 1),
+(1, 'ANG_S2', TRUE, 2), (1, 'COMPRO_S2', TRUE, 2), (1, 'ALGO_S2', TRUE, 2), (1, 'MDISC_S2', TRUE, 2), (1, 'ECOG_S2', TRUE, 2), (1, 'COMP_S2', TRUE, 2), (1, 'SINF_S2', TRUE, 2), (1, 'DWEB_S2', TRUE, 2),
+(1, 'ANG_S3', TRUE, 3), (1, 'COMPRO_S3', TRUE, 3), (1, 'ALGO_S3', TRUE, 3), (1, 'MDISC_S3', TRUE, 3), (1, 'ECOG_S3', TRUE, 3), (1, 'COMP_S3', TRUE, 3), (1, 'SINF_S3', TRUE, 3), (1, 'DWEB_S3', TRUE, 3),
+(1, 'ANG_S4', TRUE, 4), (1, 'COMPRO_S4', TRUE, 4), (1, 'ALGO_S4', TRUE, 4), (1, 'MDISC_S4', TRUE, 4), (1, 'ECOG_S4', TRUE, 4), (1, 'COMP_S4', TRUE, 4), (1, 'SINF_S4', TRUE, 4), (1, 'DWEB_S4', TRUE, 4),
+(1, 'ANG_S5', TRUE, 5), (1, 'COMPRO_S5', TRUE, 5), (1, 'ALGO_S5', TRUE, 5), (1, 'MDISC_S5', TRUE, 5), (1, 'ECOG_S5', TRUE, 5), (1, 'COMP_S5', TRUE, 5), (1, 'SINF_S5', TRUE, 5), (1, 'DWEB_S5', TRUE, 5),
+(1, 'ANG_S6', TRUE, 6), (1, 'COMPRO_S6', TRUE, 6), (1, 'ALGO_S6', TRUE, 6), (1, 'MDISC_S6', TRUE, 6), (1, 'ECOG_S6', TRUE, 6), (1, 'COMP_S6', TRUE, 6), (1, 'SINF_S6', TRUE, 6), (1, 'DWEB_S6', TRUE, 6),
 
-INSERT INTO Etudiant VALUES
-                         (21001,'Kamel','Nadia','2004-01-08',2),(21002,'Lebrun','Olivier','2004-04-20',2),
-                         (21003,'Marre','Pauline','2004-08-12',2),(21004,'Noel','Quentin','2004-02-26',2),
-                         (21005,'Ober','Ophelie','2004-06-14',2),(21006,'Perrot','Patrick','2004-10-07',2),
-                         (21007,'Quentin','Quynh','2004-03-31',2),(21008,'Rosier','Raphael','2004-09-23',2),
-                         (21009,'Salmon','Sabrina','2004-07-05',2),(21010,'Tessier','Thibault','2004-12-17',2);
+-- 2. PARCOURS INGÉNIERIE OPÉRATIONNELLE
+(2, 'ANG_S1', TRUE, 1), (2, 'COMPRO_S1', TRUE, 1), (2, 'ALGO_S1', TRUE, 1), (2, 'MDISC_S1', TRUE, 1), (2, 'ECOG_S1', TRUE, 1), (2, 'RECHOP_S1', TRUE, 1), (2, 'MODEL_S1', TRUE, 1), (2, 'STATAPP_S1', TRUE, 1),
+(2, 'ANG_S2', TRUE, 2), (2, 'COMPRO_S2', TRUE, 2), (2, 'ALGO_S2', TRUE, 2), (2, 'MDISC_S2', TRUE, 2), (2, 'ECOG_S2', TRUE, 2), (2, 'RECHOP_S2', TRUE, 2), (2, 'MODEL_S2', TRUE, 2), (2, 'STATAPP_S2', TRUE, 2),
+(2, 'ANG_S3', TRUE, 3), (2, 'COMPRO_S3', TRUE, 3), (2, 'ALGO_S3', TRUE, 3), (2, 'MDISC_S3', TRUE, 3), (2, 'ECOG_S3', TRUE, 3), (2, 'RECHOP_S3', TRUE, 3), (2, 'MODEL_S3', TRUE, 3), (2, 'STATAPP_S3', TRUE, 3),
+(2, 'ANG_S4', TRUE, 4), (2, 'COMPRO_S4', TRUE, 4), (2, 'ALGO_S4', TRUE, 4), (2, 'MDISC_S4', TRUE, 4), (2, 'ECOG_S4', TRUE, 4), (2, 'RECHOP_S4', TRUE, 4), (2, 'MODEL_S4', TRUE, 4), (2, 'STATAPP_S4', TRUE, 4),
+(2, 'ANG_S5', TRUE, 5), (2, 'COMPRO_S5', TRUE, 5), (2, 'ALGO_S5', TRUE, 5), (2, 'MDISC_S5', TRUE, 5), (2, 'ECOG_S5', TRUE, 5), (2, 'RECHOP_S5', TRUE, 5), (2, 'MODEL_S5', TRUE, 5), (2, 'STATAPP_S5', TRUE, 5),
+(2, 'ANG_S6', TRUE, 6), (2, 'COMPRO_S6', TRUE, 6), (2, 'ALGO_S6', TRUE, 6), (2, 'MDISC_S6', TRUE, 6), (2, 'ECOG_S6', TRUE, 6), (2, 'RECHOP_S6', TRUE, 6), (2, 'MODEL_S6', TRUE, 6), (2, 'STATAPP_S6', TRUE, 6),
 
-INSERT INTO Inscription VALUES
-                            (21001,'INTRO_JAVA','2023-2024',1,'en_cours'),(21001,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21001,'MATH_DISC','2023-2024',1,'en_cours'),(21001,'ALGEBRE','2023-2024',1,'en_cours'),
-                            (21001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (21002,'INTRO_JAVA','2023-2024',1,'en_cours'),(21002,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21002,'MATH_DISC','2023-2024',1,'en_cours'),(21002,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (21003,'INTRO_JAVA','2023-2024',1,'en_cours'),(21003,'ALGEBRE','2023-2024',1,'en_cours'),
-                            (21003,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21004,'INTRO_JAVA','2023-2024',1,'en_cours'),(21004,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (21004,'ALGEBRE','2023-2024',1,'en_cours'),(21004,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (21005,'INTRO_JAVA','2023-2024',1,'en_cours'),(21005,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21005,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (21006,'INTRO_JAVA','2023-2024',1,'en_cours'),(21006,'ALGEBRE','2023-2024',1,'en_cours'),
-                            (21006,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (21007,'INTRO_JAVA','2023-2024',1,'en_cours'),(21007,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21007,'MATH_DISC','2023-2024',1,'en_cours'),(21007,'ALGEBRE','2023-2024',1,'en_cours'),
-                            (21008,'INTRO_JAVA','2023-2024',1,'en_cours'),(21008,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21008,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (21009,'INTRO_JAVA','2023-2024',1,'en_cours'),(21009,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (21009,'STATS_DESC','2023-2024',1,'en_cours'),(21009,'ALGEBRE','2023-2024',1,'en_cours'),
-                            (21010,'INTRO_JAVA','2023-2024',1,'en_cours'),(21010,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (21010,'ALGEBRE','2023-2024',1,'en_cours');
+-- 3. PARCOURS DÉVELOPPEMENT LOGICIEL
+(3, 'ANG_S1', TRUE, 1), (3, 'COMPRO_S1', TRUE, 1), (3, 'ALGO_S1', TRUE, 1), (3, 'MDISC_S1', TRUE, 1), (3, 'JAVAPOO_S1', TRUE, 1), (3, 'DWEB_S1', TRUE, 1), (3, 'BDDSQL_S1', TRUE, 1), (3, 'GLOG_S1', TRUE, 1),
+(3, 'ANG_S2', TRUE, 2), (3, 'COMPRO_S2', TRUE, 2), (3, 'ALGO_S2', TRUE, 2), (3, 'MDISC_S2', TRUE, 2), (3, 'JAVAPOO_S2', TRUE, 2), (3, 'DWEB_S2', TRUE, 2), (3, 'BDDSQL_S2', TRUE, 2), (3, 'GLOG_S2', TRUE, 2),
+(3, 'ANG_S3', TRUE, 3), (3, 'COMPRO_S3', TRUE, 3), (3, 'ALGO_S3', TRUE, 3), (3, 'MDISC_S3', TRUE, 3), (3, 'JAVAPOO_S3', TRUE, 3), (3, 'DWEB_S3', TRUE, 3), (3, 'BDDSQL_S3', TRUE, 3), (3, 'GLOG_S3', TRUE, 3),
+(3, 'ANG_S4', TRUE, 4), (3, 'COMPRO_S4', TRUE, 4), (3, 'ALGO_S4', TRUE, 4), (3, 'MDISC_S4', TRUE, 4), (3, 'JAVAPOO_S4', TRUE, 4), (3, 'DWEB_S4', TRUE, 4), (3, 'BDDSQL_S4', TRUE, 4), (3, 'GLOG_S4', TRUE, 4),
+(3, 'ANG_S5', TRUE, 5), (3, 'COMPRO_S5', TRUE, 5), (3, 'ALGO_S5', TRUE, 5), (3, 'MDISC_S5', TRUE, 5), (3, 'JAVAPOO_S5', TRUE, 5), (3, 'DWEB_S5', TRUE, 5), (3, 'BDDSQL_S5', TRUE, 5), (3, 'GLOG_S5', TRUE, 5),
+(3, 'ANG_S6', TRUE, 6), (3, 'COMPRO_S6', TRUE, 6), (3, 'ALGO_S6', TRUE, 6), (3, 'MDISC_S6', TRUE, 6), (3, 'JAVAPOO_S6', TRUE, 6), (3, 'DWEB_S6', TRUE, 6), (3, 'BDDSQL_S6', TRUE, 6), (3, 'GLOG_S6', TRUE, 6),
 
-INSERT INTO Etudiant VALUES
-                         (22001,'Uzan','Ursula','2003-02-14',2),(22002,'Vallee','Victor','2003-05-28',2),
-                         (22003,'Weil','Wendy','2002-10-09',2),(22004,'Xia','Xavier','2003-08-22',2),
-                         (22005,'Yves','Yolande','2002-12-05',2),(22006,'Zola','Zacharie','2003-03-18',2),
-                         (22007,'Adam','Axelle','2003-07-01',2),(22008,'Blin','Benoit','2002-11-14',2),
-                         (22009,'Cazal','Carole','2003-01-27',2),(22010,'Dron','Damien','2002-09-10',2);
+-- 4. PARCOURS DATA SCIENCE
+(4, 'ANG_S1', TRUE, 1), (4, 'COMPRO_S1', TRUE, 1), (4, 'ALGO_S1', TRUE, 1), (4, 'MDISC_S1', TRUE, 1), (4, 'BDDADV_S1', TRUE, 1), (4, 'BIGDAT_S1', TRUE, 1), (4, 'PYTH_S1', TRUE, 1), (4, 'STATDAT_S1', TRUE, 1),
+(4, 'ANG_S2', TRUE, 2), (4, 'COMPRO_S2', TRUE, 2), (4, 'ALGO_S2', TRUE, 2), (4, 'MDISC_S2', TRUE, 2), (4, 'BDDADV_S2', TRUE, 2), (4, 'BIGDAT_S2', TRUE, 2), (4, 'PYTH_S2', TRUE, 2), (4, 'STATDAT_S2', TRUE, 2),
+(4, 'ANG_S3', TRUE, 3), (4, 'COMPRO_S3', TRUE, 3), (4, 'ALGO_S3', TRUE, 3), (4, 'MDISC_S3', TRUE, 3), (4, 'BDDADV_S3', TRUE, 3), (4, 'BIGDAT_S3', TRUE, 3), (4, 'PYTH_S3', TRUE, 3), (4, 'STATDAT_S3', TRUE, 3),
+(4, 'ANG_S4', TRUE, 4), (4, 'COMPRO_S4', TRUE, 4), (4, 'ALGO_S4', TRUE, 4), (4, 'MDISC_S4', TRUE, 4), (4, 'BDDADV_S4', TRUE, 4), (4, 'BIGDAT_S4', TRUE, 4), (4, 'PYTH_S4', TRUE, 4), (4, 'STATDAT_S4', TRUE, 4),
+(4, 'ANG_S5', TRUE, 5), (4, 'COMPRO_S5', TRUE, 5), (4, 'ALGO_S5', TRUE, 5), (4, 'MDISC_S5', TRUE, 5), (4, 'BDDADV_S5', TRUE, 5), (4, 'BIGDAT_S5', TRUE, 5), (4, 'PYTH_S5', TRUE, 5), (4, 'STATDAT_S5', TRUE, 5),
+(4, 'ANG_S6', TRUE, 6), (4, 'COMPRO_S6', TRUE, 6), (4, 'ALGO_S6', TRUE, 6), (4, 'MDISC_S6', TRUE, 6), (4, 'BDDADV_S6', TRUE, 6), (4, 'BIGDAT_S6', TRUE, 6), (4, 'PYTH_S6', TRUE, 6), (4, 'STATDAT_S6', TRUE, 6),
 
-INSERT INTO Inscription VALUES
-                            (22001,'INTRO_JAVA','2022-2023',1,'valide'),(22001,'STATS_DESC','2022-2023',1,'valide'),
-                            (22001,'MATH_DISC','2022-2023',1,'valide'),(22001,'ALGEBRE','2022-2023',1,'valide'),
-                            (22001,'ANGLAIS_1','2022-2023',1,'valide'),(22001,'ALGO_BASE','2022-2023',2,'valide'),
-                            (22001,'PROBA','2022-2023',2,'valide'),(22001,'BDD_SQL','2022-2023',2,'valide'),
-                            (22001,'STATS_INF','2022-2023',2,'valide'),(22001,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (22001,'MACHINE_L','2023-2024',3,'en_cours'),(22001,'OPTIM','2023-2024',3,'en_cours'),
-                            (22001,'JAVA_AVANCE','2023-2024',3,'en_cours'),
+-- 5. PARCOURS INTELLIGENCE ARTIFICIELLE
+(5, 'ANG_S1', TRUE, 1), (5, 'COMPRO_S1', TRUE, 1), (5, 'ALGO_S1', TRUE, 1), (5, 'MDISC_S1', TRUE, 1), (5, 'MACHL_S1', TRUE, 1), (5, 'PYTH_S1', TRUE, 1), (5, 'DEEPL_S1', TRUE, 1), (5, 'IAETH_S1', TRUE, 1),
+(5, 'ANG_S2', TRUE, 2), (5, 'COMPRO_S2', TRUE, 2), (5, 'ALGO_S2', TRUE, 2), (5, 'MDISC_S2', TRUE, 2), (5, 'MACHL_S2', TRUE, 2), (5, 'PYTH_S2', TRUE, 2), (5, 'DEEPL_S2', TRUE, 2), (5, 'IAETH_S2', TRUE, 2),
+(5, 'ANG_S3', TRUE, 3), (5, 'COMPRO_S3', TRUE, 3), (5, 'ALGO_S3', TRUE, 3), (5, 'MDISC_S3', TRUE, 3), (5, 'MACHL_S3', TRUE, 3), (5, 'PYTH_S3', TRUE, 3), (5, 'DEEPL_S3', TRUE, 3), (5, 'IAETH_S3', TRUE, 3),
+(5, 'ANG_S4', TRUE, 4), (5, 'COMPRO_S4', TRUE, 4), (5, 'ALGO_S4', TRUE, 4), (5, 'MDISC_S4', TRUE, 4), (5, 'MACHL_S4', TRUE, 4), (5, 'PYTH_S4', TRUE, 4), (5, 'DEEPL_S4', TRUE, 4), (5, 'IAETH_S4', TRUE, 4),
+(5, 'ANG_S5', TRUE, 5), (5, 'COMPRO_S5', TRUE, 5), (5, 'ALGO_S5', TRUE, 5), (5, 'MDISC_S5', TRUE, 5), (5, 'MACHL_S5', TRUE, 5), (5, 'PYTH_S5', TRUE, 5), (5, 'DEEPL_S5', TRUE, 5), (5, 'IAETH_S5', TRUE, 5),
+(5, 'ANG_S6', TRUE, 6), (5, 'COMPRO_S6', TRUE, 6), (5, 'ALGO_S6', TRUE, 6), (5, 'MDISC_S6', TRUE, 6), (5, 'MACHL_S6', TRUE, 6), (5, 'PYTH_S6', TRUE, 6), (5, 'DEEPL_S6', TRUE, 6), (5, 'IAETH_S6', TRUE, 6),
 
-                            (22002,'INTRO_JAVA','2022-2023',1,'valide'),(22002,'STATS_DESC','2022-2023',1,'valide'),
-                            (22002,'ALGEBRE','2022-2023',1,'valide'),(22002,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (22002,'ALGO_BASE','2022-2023',2,'valide'),(22002,'PROBA','2022-2023',2,'valide'),
-                            (22002,'BDD_SQL','2022-2023',2,'echoue'),(22002,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (22002,'BDD_SQL','2023-2024',3,'valide'),(22002,'MACHINE_L','2023-2024',3,'en_cours'),
-                            (22002,'OPTIM','2023-2024',3,'en_cours'),
+-- 6. PARCOURS RÉSEAUX ET SÉCURITÉ
+(6, 'ANG_S1', TRUE, 1), (6, 'COMPRO_S1', TRUE, 1), (6, 'ALGO_S1', TRUE, 1), (6, 'MDISC_S1', TRUE, 1), (6, 'RESLOC_S1', TRUE, 1), (6, 'SECINFO_S1', TRUE, 1), (6, 'ADMSYS_S1', TRUE, 1), (6, 'CLOUD_S1', TRUE, 1),
+(6, 'ANG_S2', TRUE, 2), (6, 'COMPRO_S2', TRUE, 2), (6, 'ALGO_S2', TRUE, 2), (6, 'MDISC_S2', TRUE, 2), (6, 'RESLOC_S2', TRUE, 2), (6, 'SECINFO_S2', TRUE, 2), (6, 'ADMSYS_S2', TRUE, 2), (6, 'CLOUD_S2', TRUE, 2),
+(6, 'ANG_S3', TRUE, 3), (6, 'COMPRO_S3', TRUE, 3), (6, 'ALGO_S3', TRUE, 3), (6, 'MDISC_S3', TRUE, 3), (6, 'RESLOC_S3', TRUE, 3), (6, 'SECINFO_S3', TRUE, 3), (6, 'ADMSYS_S3', TRUE, 3), (6, 'CLOUD_S3', TRUE, 3),
+(6, 'ANG_S4', TRUE, 4), (6, 'COMPRO_S4', TRUE, 4), (6, 'ALGO_S4', TRUE, 4), (6, 'MDISC_S4', TRUE, 4), (6, 'RESLOC_S4', TRUE, 4), (6, 'SECINFO_S4', TRUE, 4), (6, 'ADMSYS_S4', TRUE, 4), (6, 'CLOUD_S4', TRUE, 4),
+(6, 'ANG_S5', TRUE, 5), (6, 'COMPRO_S5', TRUE, 5), (6, 'ALGO_S5', TRUE, 5), (6, 'MDISC_S5', TRUE, 5), (6, 'RESLOC_S5', TRUE, 5), (6, 'SECINFO_S5', TRUE, 5), (6, 'ADMSYS_S5', TRUE, 5), (6, 'CLOUD_S5', TRUE, 5),
+(6, 'ANG_S6', TRUE, 6), (6, 'COMPRO_S6', TRUE, 6), (6, 'ALGO_S6', TRUE, 6), (6, 'MDISC_S6', TRUE, 6), (6, 'RESLOC_S6', TRUE, 6), (6, 'SECINFO_S6', TRUE, 6), (6, 'ADMSYS_S6', TRUE, 6), (6, 'CLOUD_S6', TRUE, 6),
 
-                            (22003,'INTRO_JAVA','2022-2023',1,'valide'),(22003,'MATH_DISC','2022-2023',1,'valide'),
-                            (22003,'ALGEBRE','2022-2023',1,'valide'),(22003,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (22003,'ALGO_BASE','2022-2023',2,'valide'),(22003,'PROBA','2022-2023',2,'valide'),
-                            (22003,'BDD_SQL','2022-2023',2,'valide'),(22003,'STATS_INF','2022-2023',2,'valide'),
-                            (22003,'MACHINE_L','2023-2024',3,'en_cours'),(22003,'JAVA_AVANCE','2023-2024',3,'en_cours'),
+-- 7. PARCOURS STATISTIQUES
+(7, 'ANG_S1', TRUE, 1), (7, 'COMPRO_S1', TRUE, 1), (7, 'ALGO_S1', TRUE, 1), (7, 'MDISC_S1', TRUE, 1), (7, 'PROBA_S1', TRUE, 1), (7, 'STATINF_S1', TRUE, 1), (7, 'LOGR_S1', TRUE, 1), (7, 'SONDAG_S1', TRUE, 1),
+(7, 'ANG_S2', TRUE, 2), (7, 'COMPRO_S2', TRUE, 2), (7, 'ALGO_S2', TRUE, 2), (7, 'MDISC_S2', TRUE, 2), (7, 'PROBA_S2', TRUE, 2), (7, 'STATINF_S2', TRUE, 2), (7, 'LOGR_S2', TRUE, 2), (7, 'SONDAG_S2', TRUE, 2),
+(7, 'ANG_S3', TRUE, 3), (7, 'COMPRO_S3', TRUE, 3), (7, 'ALGO_S3', TRUE, 3), (7, 'MDISC_S3', TRUE, 3), (7, 'PROBA_S3', TRUE, 3), (7, 'STATINF_S3', TRUE, 3), (7, 'LOGR_S3', TRUE, 3), (7, 'SONDAG_S3', TRUE, 3),
+(7, 'ANG_S4', TRUE, 4), (7, 'COMPRO_S4', TRUE, 4), (7, 'ALGO_S4', TRUE, 4), (7, 'MDISC_S4', TRUE, 4), (7, 'PROBA_S4', TRUE, 4), (7, 'STATINF_S4', TRUE, 4), (7, 'LOGR_S4', TRUE, 4), (7, 'SONDAG_S4', TRUE, 4),
+(7, 'ANG_S5', TRUE, 5), (7, 'COMPRO_S5', TRUE, 5), (7, 'ALGO_S5', TRUE, 5), (7, 'MDISC_S5', TRUE, 5), (7, 'PROBA_S5', TRUE, 5), (7, 'STATINF_S5', TRUE, 5), (7, 'LOGR_S5', TRUE, 5), (7, 'SONDAG_S5', TRUE, 5),
+(7, 'ANG_S6', TRUE, 6), (7, 'COMPRO_S6', TRUE, 6), (7, 'ALGO_S6', TRUE, 6), (7, 'MDISC_S6', TRUE, 6), (7, 'PROBA_S6', TRUE, 6), (7, 'STATINF_S6', TRUE, 6), (7, 'LOGR_S6', TRUE, 6), (7, 'SONDAG_S6', TRUE, 6),
 
-                            (22004,'INTRO_JAVA','2022-2023',1,'valide'),(22004,'STATS_DESC','2022-2023',1,'valide'),
-                            (22004,'MATH_DISC','2022-2023',1,'valide'),(22004,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (22004,'ALGO_BASE','2022-2023',2,'valide'),(22004,'PROBA','2022-2023',2,'valide'),
-                            (22004,'BDD_SQL','2022-2023',2,'valide'),(22004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (22004,'MACHINE_L','2023-2024',3,'en_cours'),(22004,'OPTIM','2023-2024',3,'en_cours'),
+-- 8. PARCOURS ALGÈBRE
+(8, 'ANG_S1', TRUE, 1), (8, 'COMPRO_S1', TRUE, 1), (8, 'ALGO_S1', TRUE, 1), (8, 'MDISC_S1', TRUE, 1), (8, 'ALGLIN_S1', TRUE, 1), (8, 'ARITH_S1', TRUE, 1), (8, 'GEOM_S1', TRUE, 1), (8, 'TOPO_S1', TRUE, 1),
+(8, 'ANG_S2', TRUE, 2), (8, 'COMPRO_S2', TRUE, 2), (8, 'ALGO_S2', TRUE, 2), (8, 'MDISC_S2', TRUE, 2), (8, 'ALGLIN_S2', TRUE, 2), (8, 'ARITH_S2', TRUE, 2), (8, 'GEOM_S2', TRUE, 2), (8, 'TOPO_S2', TRUE, 2),
+(8, 'ANG_S3', TRUE, 3), (8, 'COMPRO_S3', TRUE, 3), (8, 'ALGO_S3', TRUE, 3), (8, 'MDISC_S3', TRUE, 3), (8, 'ALGLIN_S3', TRUE, 3), (8, 'ARITH_S3', TRUE, 3), (8, 'GEOM_S3', TRUE, 3), (8, 'TOPO_S3', TRUE, 3),
+(8, 'ANG_S4', TRUE, 4), (8, 'COMPRO_S4', TRUE, 4), (8, 'ALGO_S4', TRUE, 4), (8, 'MDISC_S4', TRUE, 4), (8, 'ALGLIN_S4', TRUE, 4), (8, 'ARITH_S4', TRUE, 4), (8, 'GEOM_S4', TRUE, 4), (8, 'TOPO_S4', TRUE, 4),
+(8, 'ANG_S5', TRUE, 5), (8, 'COMPRO_S5', TRUE, 5), (8, 'ALGO_S5', TRUE, 5), (8, 'MDISC_S5', TRUE, 5), (8, 'ALGLIN_S5', TRUE, 5), (8, 'ARITH_S5', TRUE, 5), (8, 'GEOM_S5', TRUE, 5), (8, 'TOPO_S5', TRUE, 5),
+(8, 'ANG_S6', TRUE, 6), (8, 'COMPRO_S6', TRUE, 6), (8, 'ALGO_S6', TRUE, 6), (8, 'MDISC_S6', TRUE, 6), (8, 'ALGLIN_S6', TRUE, 6), (8, 'ARITH_S6', TRUE, 6), (8, 'GEOM_S6', TRUE, 6), (8, 'TOPO_S6', TRUE, 6),
 
-                            (22005,'INTRO_JAVA','2022-2023',1,'valide'),(22005,'ALGEBRE','2022-2023',1,'valide'),
-                            (22005,'ANGLAIS_1','2022-2023',1,'valide'),(22005,'ALGO_BASE','2022-2023',2,'valide'),
-                            (22005,'PROBA','2022-2023',2,'valide'),(22005,'BDD_SQL','2022-2023',2,'valide'),
-                            (22005,'STATS_INF','2022-2023',2,'valide'),(22005,'MACHINE_L','2023-2024',3,'en_cours'),
-                            (22005,'JAVA_AVANCE','2023-2024',3,'en_cours'),
+-- 9. PARCOURS MATHÉMATIQUES APPLIQUÉES
+(9, 'ANG_S1', TRUE, 1), (9, 'COMPRO_S1', TRUE, 1), (9, 'ALGO_S1', TRUE, 1), (9, 'MDISC_S1', TRUE, 1), (9, 'EQDIF_S1', TRUE, 1), (9, 'ANANUM_S1', TRUE, 1), (9, 'OPTI_S1', TRUE, 1), (9, 'MODEL_S1', TRUE, 1),
+(9, 'ANG_S2', TRUE, 2), (9, 'COMPRO_S2', TRUE, 2), (9, 'ALGO_S2', TRUE, 2), (9, 'MDISC_S2', TRUE, 2), (9, 'EQDIF_S2', TRUE, 2), (9, 'ANANUM_S2', TRUE, 2), (9, 'OPTI_S2', TRUE, 2), (9, 'MODEL_S2', TRUE, 2),
+(9, 'ANG_S3', TRUE, 3), (9, 'COMPRO_S3', TRUE, 3), (9, 'ALGO_S3', TRUE, 3), (9, 'MDISC_S3', TRUE, 3), (9, 'EQDIF_S3', TRUE, 3), (9, 'ANANUM_S3', TRUE, 3), (9, 'OPTI_S3', TRUE, 3), (9, 'MODEL_S3', TRUE, 3),
+(9, 'ANG_S4', TRUE, 4), (9, 'COMPRO_S4', TRUE, 4), (9, 'ALGO_S4', TRUE, 4), (9, 'MDISC_S4', TRUE, 4), (9, 'EQDIF_S4', TRUE, 4), (9, 'ANANUM_S4', TRUE, 4), (9, 'OPTI_S4', TRUE, 4), (9, 'MODEL_S4', TRUE, 4),
+(9, 'ANG_S5', TRUE, 5), (9, 'COMPRO_S5', TRUE, 5), (9, 'ALGO_S5', TRUE, 5), (9, 'MDISC_S5', TRUE, 5), (9, 'EQDIF_S5', TRUE, 5), (9, 'ANANUM_S5', TRUE, 5), (9, 'OPTI_S5', TRUE, 5), (9, 'MODEL_S5', TRUE, 5),
+(9, 'ANG_S6', TRUE, 6), (9, 'COMPRO_S6', TRUE, 6), (9, 'ALGO_S6', TRUE, 6), (9, 'MDISC_S6', TRUE, 6), (9, 'EQDIF_S6', TRUE, 6), (9, 'ANANUM_S6', TRUE, 6), (9, 'OPTI_S6', TRUE, 6), (9, 'MODEL_S6', TRUE, 6),
 
-                            (22006,'INTRO_JAVA','2022-2023',1,'valide'),(22006,'STATS_DESC','2022-2023',1,'valide'),
-                            (22006,'ALGEBRE','2022-2023',1,'valide'),(22006,'ALGO_BASE','2022-2023',2,'valide'),
-                            (22006,'PROBA','2022-2023',2,'valide'),(22006,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (22006,'MACHINE_L','2023-2024',3,'en_cours'),
+-- 10. PARCOURS DROIT PUBLIC
+(10, 'ANG_S1', TRUE, 1), (10, 'COMPRO_S1', TRUE, 1), (10, 'DCONST_S1', TRUE, 1), (10, 'HDROIT_S1', TRUE, 1), (10, 'DADM_S1', TRUE, 1), (10, 'LIBPUB_S1', TRUE, 1), (10, 'DINT_S1', TRUE, 1), (10, 'DFISC_S1', TRUE, 1),
+(10, 'ANG_S2', TRUE, 2), (10, 'COMPRO_S2', TRUE, 2), (10, 'DCONST_S2', TRUE, 2), (10, 'HDROIT_S2', TRUE, 2), (10, 'DADM_S2', TRUE, 2), (10, 'LIBPUB_S2', TRUE, 2), (10, 'DINT_S2', TRUE, 2), (10, 'DFISC_S2', TRUE, 2),
+(10, 'ANG_S3', TRUE, 3), (10, 'COMPRO_S3', TRUE, 3), (10, 'DCONST_S3', TRUE, 3), (10, 'HDROIT_S3', TRUE, 3), (10, 'DADM_S3', TRUE, 3), (10, 'LIBPUB_S3', TRUE, 3), (10, 'DINT_S3', TRUE, 3), (10, 'DFISC_S3', TRUE, 3),
+(10, 'ANG_S4', TRUE, 4), (10, 'COMPRO_S4', TRUE, 4), (10, 'DCONST_S4', TRUE, 4), (10, 'HDROIT_S4', TRUE, 4), (10, 'DADM_S4', TRUE, 4), (10, 'LIBPUB_S4', TRUE, 4), (10, 'DINT_S4', TRUE, 4), (10, 'DFISC_S4', TRUE, 4),
+(10, 'ANG_S5', TRUE, 5), (10, 'COMPRO_S5', TRUE, 5), (10, 'DCONST_S5', TRUE, 5), (10, 'HDROIT_S5', TRUE, 5), (10, 'DADM_S5', TRUE, 5), (10, 'LIBPUB_S5', TRUE, 5), (10, 'DINT_S5', TRUE, 5), (10, 'DFISC_S5', TRUE, 5),
+(10, 'ANG_S6', TRUE, 6), (10, 'COMPRO_S6', TRUE, 6), (10, 'DCONST_S6', TRUE, 6), (10, 'HDROIT_S6', TRUE, 6), (10, 'DADM_S6', TRUE, 6), (10, 'LIBPUB_S6', TRUE, 6), (10, 'DINT_S6', TRUE, 6), (10, 'DFISC_S6', TRUE, 6),
 
-                            (22007,'INTRO_JAVA','2022-2023',1,'valide'),(22007,'MATH_DISC','2022-2023',1,'valide'),
-                            (22007,'ALGEBRE','2022-2023',1,'valide'),(22007,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (22007,'ALGO_BASE','2022-2023',2,'valide'),(22007,'BDD_SQL','2022-2023',2,'valide'),
-                            (22007,'STATS_INF','2022-2023',2,'valide'),(22007,'MACHINE_L','2023-2024',3,'en_cours'),
-                            (22007,'OPTIM','2023-2024',3,'en_cours'),
+-- 11. PARCOURS DROIT PRIVÉ
+(11, 'ANG_S1', TRUE, 1), (11, 'COMPRO_S1', TRUE, 1), (11, 'DCONST_S1', TRUE, 1), (11, 'HDROIT_S1', TRUE, 1), (11, 'DCIVIL_S1', TRUE, 1), (11, 'DPENAL_S1', TRUE, 1), (11, 'PROCIV_S1', TRUE, 1), (11, 'DFAM_S1', TRUE, 1),
+(11, 'ANG_S2', TRUE, 2), (11, 'COMPRO_S2', TRUE, 2), (11, 'DCONST_S2', TRUE, 2), (11, 'HDROIT_S2', TRUE, 2), (11, 'DCIVIL_S2', TRUE, 2), (11, 'DPENAL_S2', TRUE, 2), (11, 'PROCIV_S2', TRUE, 2), (11, 'DFAM_S2', TRUE, 2),
+(11, 'ANG_S3', TRUE, 3), (11, 'COMPRO_S3', TRUE, 3), (11, 'DCONST_S3', TRUE, 3), (11, 'HDROIT_S3', TRUE, 3), (11, 'DCIVIL_S3', TRUE, 3), (11, 'DPENAL_S3', TRUE, 3), (11, 'PROCIV_S3', TRUE, 3), (11, 'DFAM_S3', TRUE, 3),
+(11, 'ANG_S4', TRUE, 4), (11, 'COMPRO_S4', TRUE, 4), (11, 'DCONST_S4', TRUE, 4), (11, 'HDROIT_S4', TRUE, 4), (11, 'DCIVIL_S4', TRUE, 4), (11, 'DPENAL_S4', TRUE, 4), (11, 'PROCIV_S4', TRUE, 4), (11, 'DFAM_S4', TRUE, 4),
+(11, 'ANG_S5', TRUE, 5), (11, 'COMPRO_S5', TRUE, 5), (11, 'DCONST_S5', TRUE, 5), (11, 'HDROIT_S5', TRUE, 5), (11, 'DCIVIL_S5', TRUE, 5), (11, 'DPENAL_S5', TRUE, 5), (11, 'PROCIV_S5', TRUE, 5), (11, 'DFAM_S5', TRUE, 5),
+(11, 'ANG_S6', TRUE, 6), (11, 'COMPRO_S6', TRUE, 6), (11, 'DCONST_S6', TRUE, 6), (11, 'HDROIT_S6', TRUE, 6), (11, 'DCIVIL_S6', TRUE, 6), (11, 'DPENAL_S6', TRUE, 6), (11, 'PROCIV_S6', TRUE, 6), (11, 'DFAM_S6', TRUE, 6),
 
-                            (22008,'INTRO_JAVA','2022-2023',1,'valide'),(22008,'STATS_DESC','2022-2023',1,'valide'),
-                            (22008,'ALGEBRE','2022-2023',1,'valide'),(22008,'ALGO_BASE','2022-2023',2,'valide'),
-                            (22008,'PROBA','2022-2023',2,'valide'),(22008,'BDD_SQL','2022-2023',2,'valide'),
-                            (22008,'MACHINE_L','2023-2024',3,'en_cours'),
-
-                            (22009,'INTRO_JAVA','2022-2023',1,'valide'),(22009,'MATH_DISC','2022-2023',1,'valide'),
-                            (22009,'ALGEBRE','2022-2023',1,'valide'),(22009,'ALGO_BASE','2022-2023',2,'valide'),
-                            (22009,'PROBA','2022-2023',2,'valide'),(22009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (22009,'MACHINE_L','2023-2024',3,'en_cours'),(22009,'JAVA_AVANCE','2023-2024',3,'en_cours'),
-
-                            (22010,'INTRO_JAVA','2022-2023',1,'valide'),(22010,'STATS_DESC','2022-2023',1,'valide'),
-                            (22010,'ALGEBRE','2022-2023',1,'valide'),(22010,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (22010,'ALGO_BASE','2022-2023',2,'valide'),(22010,'BDD_SQL','2022-2023',2,'valide'),
-                            (22010,'STATS_INF','2022-2023',2,'valide'),(22010,'MACHINE_L','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (23001,'Elan','Emile','2002-04-06',2),(23002,'Feron','Faustine','2001-08-19',2),
-                         (23003,'Gros','Gilles','2002-01-31',2),(23004,'Hamon','Heloise','2001-05-13',2),
-                         (23005,'Ide','Igor','2002-09-26',2),(23006,'Jan','Jasmine','2001-03-08',2),
-                         (23007,'Kopp','Kilian','2002-07-21',2),(23008,'Lang','Laure','2001-11-04',2),
-                         (23009,'Mas','Maxence','2002-02-17',2),(23010,'Nau','Noemie','2001-06-30',2);
-
-INSERT INTO Inscription VALUES
-                            (23001,'INTRO_JAVA','2021-2022',1,'valide'),(23001,'STATS_DESC','2021-2022',1,'valide'),
-                            (23001,'MATH_DISC','2021-2022',1,'valide'),(23001,'ALGEBRE','2021-2022',1,'valide'),
-                            (23001,'ANGLAIS_1','2021-2022',1,'valide'),(23001,'ALGO_BASE','2021-2022',2,'valide'),
-                            (23001,'PROBA','2021-2022',2,'valide'),(23001,'BDD_SQL','2021-2022',2,'valide'),
-                            (23001,'STATS_INF','2021-2022',2,'valide'),(23001,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (23001,'MACHINE_L','2022-2023',3,'valide'),(23001,'OPTIM','2022-2023',3,'valide'),
-                            (23001,'JAVA_AVANCE','2022-2023',3,'valide'),(23001,'PROJET_INFO','2022-2023',4,'valide'),
-                            (23001,'DEEP_L','2022-2023',4,'valide'),(23001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23002,'INTRO_JAVA','2021-2022',1,'valide'),(23002,'ALGEBRE','2021-2022',1,'valide'),
-                            (23002,'ANGLAIS_1','2021-2022',1,'valide'),(23002,'ALGO_BASE','2021-2022',2,'valide'),
-                            (23002,'PROBA','2021-2022',2,'valide'),(23002,'BDD_SQL','2021-2022',2,'valide'),
-                            (23002,'ANGLAIS_2','2021-2022',2,'valide'),(23002,'MACHINE_L','2022-2023',3,'valide'),
-                            (23002,'OPTIM','2022-2023',3,'valide'),(23002,'PROJET_INFO','2022-2023',4,'valide'),
-                            (23002,'DEEP_L','2022-2023',4,'echoue'),(23002,'DEEP_L','2023-2024',5,'en_cours'),
-                            (23002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23003,'INTRO_JAVA','2021-2022',1,'valide'),(23003,'STATS_DESC','2021-2022',1,'valide'),
-                            (23003,'MATH_DISC','2021-2022',1,'valide'),(23003,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (23003,'ALGO_BASE','2021-2022',2,'valide'),(23003,'PROBA','2021-2022',2,'valide'),
-                            (23003,'STATS_INF','2021-2022',2,'valide'),(23003,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (23003,'MACHINE_L','2022-2023',3,'valide'),(23003,'JAVA_AVANCE','2022-2023',3,'valide'),
-                            (23003,'PROJET_INFO','2022-2023',4,'valide'),(23003,'DEEP_L','2022-2023',4,'valide'),
-                            (23003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23004,'INTRO_JAVA','2021-2022',1,'valide'),(23004,'MATH_DISC','2021-2022',1,'valide'),
-                            (23004,'ALGEBRE','2021-2022',1,'valide'),(23004,'ALGO_BASE','2021-2022',2,'valide'),
-                            (23004,'PROBA','2021-2022',2,'valide'),(23004,'BDD_SQL','2021-2022',2,'valide'),
-                            (23004,'STATS_INF','2021-2022',2,'valide'),(23004,'MACHINE_L','2022-2023',3,'valide'),
-                            (23004,'OPTIM','2022-2023',3,'valide'),(23004,'PROJET_INFO','2022-2023',4,'valide'),
-                            (23004,'DEEP_L','2022-2023',4,'valide'),(23004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23005,'INTRO_JAVA','2021-2022',1,'valide'),(23005,'STATS_DESC','2021-2022',1,'valide'),
-                            (23005,'ALGEBRE','2021-2022',1,'valide'),(23005,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (23005,'ALGO_BASE','2021-2022',2,'valide'),(23005,'BDD_SQL','2021-2022',2,'valide'),
-                            (23005,'ANGLAIS_2','2021-2022',2,'valide'),(23005,'MACHINE_L','2022-2023',3,'valide'),
-                            (23005,'JAVA_AVANCE','2022-2023',3,'valide'),(23005,'PROJET_INFO','2022-2023',4,'valide'),
-                            (23005,'DEEP_L','2022-2023',4,'valide'),(23005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23006,'INTRO_JAVA','2021-2022',1,'valide'),(23006,'MATH_DISC','2021-2022',1,'valide'),
-                            (23006,'ALGEBRE','2021-2022',1,'valide'),(23006,'ALGO_BASE','2021-2022',2,'valide'),
-                            (23006,'PROBA','2021-2022',2,'valide'),(23006,'BDD_SQL','2021-2022',2,'valide'),
-                            (23006,'MACHINE_L','2022-2023',3,'valide'),(23006,'OPTIM','2022-2023',3,'valide'),
-                            (23006,'PROJET_INFO','2022-2023',4,'valide'),(23006,'DEEP_L','2022-2023',4,'valide'),
-                            (23006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23007,'INTRO_JAVA','2021-2022',1,'valide'),(23007,'STATS_DESC','2021-2022',1,'valide'),
-                            (23007,'ALGEBRE','2021-2022',1,'valide'),(23007,'ALGO_BASE','2021-2022',2,'valide'),
-                            (23007,'PROBA','2021-2022',2,'valide'),(23007,'STATS_INF','2021-2022',2,'valide'),
-                            (23007,'MACHINE_L','2022-2023',3,'valide'),(23007,'JAVA_AVANCE','2022-2023',3,'valide'),
-                            (23007,'PROJET_INFO','2022-2023',4,'valide'),(23007,'DEEP_L','2022-2023',4,'valide'),
-                            (23007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23008,'INTRO_JAVA','2021-2022',1,'valide'),(23008,'MATH_DISC','2021-2022',1,'valide'),
-                            (23008,'ALGEBRE','2021-2022',1,'valide'),(23008,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (23008,'ALGO_BASE','2021-2022',2,'valide'),(23008,'BDD_SQL','2021-2022',2,'valide'),
-                            (23008,'ANGLAIS_2','2021-2022',2,'valide'),(23008,'MACHINE_L','2022-2023',3,'valide'),
-                            (23008,'OPTIM','2022-2023',3,'valide'),(23008,'PROJET_INFO','2022-2023',4,'valide'),
-                            (23008,'DEEP_L','2022-2023',4,'valide'),(23008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (23009,'INTRO_JAVA','2021-2022',1,'valide'),(23009,'ALGEBRE','2021-2022',1,'valide'),
-                            (23009,'ALGO_BASE','2021-2022',2,'valide'),(23009,'PROBA','2021-2022',2,'valide'),
-                            (23009,'BDD_SQL','2021-2022',2,'valide'),(23009,'MACHINE_L','2022-2023',3,'valide'),
-                            (23009,'PROJET_INFO','2022-2023',4,'valide'),(23009,'DEEP_L','2023-2024',5,'en_cours'),
-
-                            (23010,'INTRO_JAVA','2021-2022',1,'valide'),(23010,'STATS_DESC','2021-2022',1,'valide'),
-                            (23010,'MATH_DISC','2021-2022',1,'valide'),(23010,'ALGEBRE','2021-2022',1,'valide'),
-                            (23010,'ALGO_BASE','2021-2022',2,'valide'),(23010,'PROBA','2021-2022',2,'valide'),
-                            (23010,'STATS_INF','2021-2022',2,'valide'),(23010,'MACHINE_L','2022-2023',3,'valide'),
-                            (23010,'OPTIM','2022-2023',3,'valide'),(23010,'PROJET_INFO','2022-2023',4,'valide'),
-                            (23010,'DEEP_L','2022-2023',4,'valide'),(23010,'ANGLAIS_3','2023-2024',5,'en_cours');
+-- 12. PARCOURS DROIT DES AFFAIRES
+(12, 'ANG_S1', TRUE, 1), (12, 'COMPRO_S1', TRUE, 1), (12, 'DCONST_S1', TRUE, 1), (12, 'HDROIT_S1', TRUE, 1), (12, 'DCOM_S1', TRUE, 1), (12, 'DSOC_S1', TRUE, 1), (12, 'FISCEN_S1', TRUE, 1), (12, 'DBANQ_S1', TRUE, 1),
+(12, 'ANG_S2', TRUE, 2), (12, 'COMPRO_S2', TRUE, 2), (12, 'DCONST_S2', TRUE, 2), (12, 'HDROIT_S2', TRUE, 2), (12, 'DCOM_S2', TRUE, 2), (12, 'DSOC_S2', TRUE, 2), (12, 'FISCEN_S2', TRUE, 2), (12, 'DBANQ_S2', TRUE, 2),
+(12, 'ANG_S3', TRUE, 3), (12, 'COMPRO_S3', TRUE, 3), (12, 'DCONST_S3', TRUE, 3), (12, 'HDROIT_S3', TRUE, 3), (12, 'DCOM_S3', TRUE, 3), (12, 'DSOC_S3', TRUE, 3), (12, 'FISCEN_S3', TRUE, 3), (12, 'DBANQ_S3', TRUE, 3),
+(12, 'ANG_S4', TRUE, 4), (12, 'COMPRO_S4', TRUE, 4), (12, 'DCONST_S4', TRUE, 4), (12, 'HDROIT_S4', TRUE, 4), (12, 'DCOM_S4', TRUE, 4), (12, 'DSOC_S4', TRUE, 4), (12, 'FISCEN_S4', TRUE, 4), (12, 'DBANQ_S4', TRUE, 4),
+(12, 'ANG_S5', TRUE, 5), (12, 'COMPRO_S5', TRUE, 5), (12, 'DCONST_S5', TRUE, 5), (12, 'HDROIT_S5', TRUE, 5), (12, 'DCOM_S5', TRUE, 5), (12, 'DSOC_S5', TRUE, 5), (12, 'FISCEN_S5', TRUE, 5), (12, 'DBANQ_S5', TRUE, 5),
+(12, 'ANG_S6', TRUE, 6), (12, 'COMPRO_S6', TRUE, 6), (12, 'DCONST_S6', TRUE, 6), (12, 'HDROIT_S6', TRUE, 6), (12, 'DCOM_S6', TRUE, 6), (12, 'DSOC_S6', TRUE, 6), (12, 'FISCEN_S6', TRUE, 6), (12, 'DBANQ_S6', TRUE, 6);
 
 -- ==========================================
--- PARCOURS 3 : Développement Logiciel
--- S1 : INTRO_JAVA, ALGO_BASE, WEB_STATIC, MATH_DISC, ANGLAIS_1
--- S2 : JAVA_AVANCE, WEB_DYN, BDD_SQL, ALGO_AVANCE, ANGLAIS_2
--- S3 : SYST_EXP, MOBILE, CLOUD, SECU_INFO
--- S4 : PROJET_INFO, ANGLAIS_3, RHETORIQUE
+-- 5. ÉTUDIANTS & INSCRIPTIONS : PARCOURS 1 (MIAGE)
 -- ==========================================
 
-INSERT INTO Etudiant VALUES
-                         (31001,'Odin','Oceane','2004-01-15',3),(31002,'Pagnol','Paul','2004-04-28',3),
-                         (31003,'Quintin','Quentin','2004-08-10',3),(31004,'Ravel','Romain','2004-03-02',3),
-                         (31005,'Sabot','Sylvie','2004-07-19',3),(31006,'Tabary','Thomas','2004-11-06',3),
-                         (31007,'Uhl','Ugo','2004-02-24',3),(31008,'Verne','Valerie','2004-09-12',3),
-                         (31009,'Wagner','William','2004-05-30',3),(31010,'Xavier','Xiao','2004-12-18',3);
-
-INSERT INTO Inscription VALUES
-                            (31001,'INTRO_JAVA','2023-2024',1,'en_cours'),(31001,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31001,'WEB_STATIC','2023-2024',1,'en_cours'),(31001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (31002,'INTRO_JAVA','2023-2024',1,'en_cours'),(31002,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (31002,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (31003,'INTRO_JAVA','2023-2024',1,'en_cours'),(31003,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31003,'WEB_STATIC','2023-2024',1,'en_cours'),(31003,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (31003,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (31004,'INTRO_JAVA','2023-2024',1,'en_cours'),(31004,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31004,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (31005,'INTRO_JAVA','2023-2024',1,'en_cours'),(31005,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (31006,'INTRO_JAVA','2023-2024',1,'en_cours'),(31006,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31006,'WEB_STATIC','2023-2024',1,'en_cours'),(31006,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (31007,'INTRO_JAVA','2023-2024',1,'en_cours'),(31007,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31008,'INTRO_JAVA','2023-2024',1,'en_cours'),(31008,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (31008,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (31009,'INTRO_JAVA','2023-2024',1,'en_cours'),(31009,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31009,'WEB_STATIC','2023-2024',1,'en_cours'),
-                            (31010,'INTRO_JAVA','2023-2024',1,'en_cours'),(31010,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (31010,'ANGLAIS_1','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (32001,'Yvan','Yann','2003-03-07',3),(32002,'Zara','Zoe','2003-06-20',3),
-                         (32003,'Abel','Adele','2002-10-12',3),(32004,'Bret','Bertrand','2003-01-25',3),
-                         (32005,'Cros','Christelle','2002-11-08',3),(32006,'Droz','Delphine','2003-04-14',3),
-                         (32007,'Eche','Etienne','2003-08-27',3),(32008,'Fons','Francois','2002-12-10',3),
-                         (32009,'Gros','Gilles','2003-02-23',3),(32010,'Hue','Helene','2002-07-06',3);
-
-INSERT INTO Inscription VALUES
-                            (32001,'INTRO_JAVA','2022-2023',1,'valide'),(32001,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32001,'WEB_STATIC','2022-2023',1,'valide'),(32001,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (32001,'JAVA_AVANCE','2022-2023',2,'valide'),(32001,'WEB_DYN','2022-2023',2,'valide'),
-                            (32001,'BDD_SQL','2022-2023',2,'valide'),(32001,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (32001,'SYST_EXP','2023-2024',3,'en_cours'),(32001,'MOBILE','2023-2024',3,'en_cours'),
-                            (32001,'CLOUD','2023-2024',3,'en_cours'),
-
-                            (32002,'INTRO_JAVA','2022-2023',1,'valide'),(32002,'WEB_STATIC','2022-2023',1,'valide'),
-                            (32002,'ANGLAIS_1','2022-2023',1,'valide'),(32002,'ALGO_BASE','2022-2023',1,'echoue'),
-                            (32002,'ALGO_BASE','2022-2023',2,'valide'),(32002,'WEB_DYN','2022-2023',2,'valide'),
-                            (32002,'BDD_SQL','2022-2023',2,'valide'),(32002,'JAVA_AVANCE','2023-2024',3,'en_cours'),
-                            (32002,'SYST_EXP','2023-2024',3,'en_cours'),
-
-                            (32003,'INTRO_JAVA','2022-2023',1,'valide'),(32003,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32003,'WEB_STATIC','2022-2023',1,'valide'),(32003,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32003,'WEB_DYN','2022-2023',2,'valide'),(32003,'BDD_SQL','2022-2023',2,'valide'),
-                            (32003,'ANGLAIS_2','2022-2023',2,'valide'),(32003,'SYST_EXP','2023-2024',3,'en_cours'),
-                            (32003,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (32004,'INTRO_JAVA','2022-2023',1,'valide'),(32004,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32004,'ANGLAIS_1','2022-2023',1,'valide'),(32004,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32004,'WEB_DYN','2022-2023',2,'valide'),(32004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (32004,'BDD_SQL','2023-2024',3,'en_cours'),(32004,'SYST_EXP','2023-2024',3,'en_cours'),
-
-                            (32005,'INTRO_JAVA','2022-2023',1,'valide'),(32005,'WEB_STATIC','2022-2023',1,'valide'),
-                            (32005,'ALGO_BASE','2022-2023',1,'valide'),(32005,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32005,'WEB_DYN','2022-2023',2,'valide'),(32005,'BDD_SQL','2022-2023',2,'valide'),
-                            (32005,'SYST_EXP','2023-2024',3,'en_cours'),(32005,'SECU_INFO','2023-2024',3,'en_cours'),
-
-                            (32006,'INTRO_JAVA','2022-2023',1,'valide'),(32006,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32006,'WEB_STATIC','2022-2023',1,'valide'),(32006,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32006,'BDD_SQL','2022-2023',2,'valide'),(32006,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (32006,'SYST_EXP','2023-2024',3,'en_cours'),(32006,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (32007,'INTRO_JAVA','2022-2023',1,'valide'),(32007,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32007,'ANGLAIS_1','2022-2023',1,'valide'),(32007,'WEB_DYN','2022-2023',2,'valide'),
-                            (32007,'JAVA_AVANCE','2022-2023',2,'valide'),(32007,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (32007,'SYST_EXP','2023-2024',3,'en_cours'),
-
-                            (32008,'INTRO_JAVA','2022-2023',1,'valide'),(32008,'WEB_STATIC','2022-2023',1,'valide'),
-                            (32008,'ALGO_BASE','2022-2023',1,'valide'),(32008,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32008,'WEB_DYN','2022-2023',2,'valide'),(32008,'BDD_SQL','2022-2023',2,'valide'),
-                            (32008,'SYST_EXP','2023-2024',3,'en_cours'),(32008,'CLOUD','2023-2024',3,'en_cours'),
-
-                            (32009,'INTRO_JAVA','2022-2023',1,'valide'),(32009,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32009,'WEB_STATIC','2022-2023',1,'valide'),(32009,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32009,'WEB_DYN','2022-2023',2,'valide'),(32009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (32009,'SYST_EXP','2023-2024',3,'en_cours'),(32009,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (32010,'INTRO_JAVA','2022-2023',1,'valide'),(32010,'ALGO_BASE','2022-2023',1,'valide'),
-                            (32010,'ANGLAIS_1','2022-2023',1,'valide'),(32010,'JAVA_AVANCE','2022-2023',2,'valide'),
-                            (32010,'BDD_SQL','2022-2023',2,'valide'),(32010,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (32010,'SYST_EXP','2023-2024',3,'en_cours'),(32010,'SECU_INFO','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (33001,'Ilic','Irene','2002-05-19',3),(33002,'Jan','Jacques','2001-09-01',3),
-                         (33003,'Katz','Kevin','2002-01-14',3),(33004,'Labbe','Leonie','2001-04-27',3),
-                         (33005,'Mahe','Maxime','2002-08-10',3),(33006,'Nabet','Nathalie','2001-12-23',3),
-                         (33007,'Oger','Olivier','2002-03-06',3),(33008,'Pade','Patricia','2001-07-19',3),
-                         (33009,'Rieu','Roland','2002-11-02',3),(33010,'Saby','Serge','2001-06-15',3);
-
-INSERT INTO Inscription VALUES
-                            (33001,'INTRO_JAVA','2021-2022',1,'valide'),(33001,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33001,'WEB_STATIC','2021-2022',1,'valide'),(33001,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (33001,'JAVA_AVANCE','2021-2022',2,'valide'),(33001,'WEB_DYN','2021-2022',2,'valide'),
-                            (33001,'BDD_SQL','2021-2022',2,'valide'),(33001,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (33001,'SYST_EXP','2022-2023',3,'valide'),(33001,'MOBILE','2022-2023',3,'valide'),
-                            (33001,'CLOUD','2022-2023',3,'valide'),(33001,'PROJET_INFO','2022-2023',4,'valide'),
-                            (33001,'ANGLAIS_3','2023-2024',5,'en_cours'),(33001,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (33002,'INTRO_JAVA','2021-2022',1,'valide'),(33002,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33002,'WEB_STATIC','2021-2022',1,'valide'),(33002,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33002,'WEB_DYN','2021-2022',2,'valide'),(33002,'BDD_SQL','2021-2022',2,'valide'),
-                            (33002,'SYST_EXP','2022-2023',3,'valide'),(33002,'MOBILE','2022-2023',3,'echoue'),
-                            (33002,'MOBILE','2022-2023',4,'valide'),(33002,'PROJET_INFO','2022-2023',4,'valide'),
-                            (33002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (33003,'INTRO_JAVA','2021-2022',1,'valide'),(33003,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33003,'ANGLAIS_1','2021-2022',1,'valide'),(33003,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33003,'WEB_DYN','2021-2022',2,'valide'),(33003,'BDD_SQL','2021-2022',2,'valide'),
-                            (33003,'ANGLAIS_2','2021-2022',2,'valide'),(33003,'SYST_EXP','2022-2023',3,'valide'),
-                            (33003,'CLOUD','2022-2023',3,'valide'),(33003,'PROJET_INFO','2022-2023',4,'valide'),
-                            (33003,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (33004,'INTRO_JAVA','2021-2022',1,'valide'),(33004,'WEB_STATIC','2021-2022',1,'valide'),
-                            (33004,'ALGO_BASE','2021-2022',1,'valide'),(33004,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33004,'WEB_DYN','2021-2022',2,'valide'),(33004,'BDD_SQL','2021-2022',2,'valide'),
-                            (33004,'SYST_EXP','2022-2023',3,'valide'),(33004,'MOBILE','2022-2023',3,'valide'),
-                            (33004,'PROJET_INFO','2022-2023',4,'valide'),(33004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (33005,'INTRO_JAVA','2021-2022',1,'valide'),(33005,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33005,'WEB_STATIC','2021-2022',1,'valide'),(33005,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33005,'WEB_DYN','2021-2022',2,'valide'),(33005,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (33005,'SYST_EXP','2022-2023',3,'valide'),(33005,'SECU_INFO','2022-2023',3,'valide'),
-                            (33005,'PROJET_INFO','2022-2023',4,'valide'),(33005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (33005,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (33006,'INTRO_JAVA','2021-2022',1,'valide'),(33006,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33006,'ANGLAIS_1','2021-2022',1,'valide'),(33006,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33006,'BDD_SQL','2021-2022',2,'valide'),(33006,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (33006,'SYST_EXP','2022-2023',3,'valide'),(33006,'MOBILE','2022-2023',3,'valide'),
-                            (33006,'CLOUD','2022-2023',3,'valide'),(33006,'PROJET_INFO','2022-2023',4,'valide'),
-                            (33006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (33007,'INTRO_JAVA','2021-2022',1,'valide'),(33007,'WEB_STATIC','2021-2022',1,'valide'),
-                            (33007,'ALGO_BASE','2021-2022',1,'valide'),(33007,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33007,'WEB_DYN','2021-2022',2,'valide'),(33007,'BDD_SQL','2021-2022',2,'valide'),
-                            (33007,'SYST_EXP','2022-2023',3,'valide'),(33007,'CLOUD','2022-2023',3,'valide'),
-                            (33007,'PROJET_INFO','2022-2023',4,'valide'),(33007,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (33008,'INTRO_JAVA','2021-2022',1,'valide'),(33008,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33008,'WEB_STATIC','2021-2022',1,'valide'),(33008,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33008,'WEB_DYN','2021-2022',2,'valide'),(33008,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (33008,'SYST_EXP','2022-2023',3,'valide'),(33008,'MOBILE','2022-2023',3,'valide'),
-                            (33008,'PROJET_INFO','2022-2023',4,'valide'),(33008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (33009,'INTRO_JAVA','2021-2022',1,'valide'),(33009,'ALGO_BASE','2021-2022',1,'valide'),
-                            (33009,'ANGLAIS_1','2021-2022',1,'valide'),(33009,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33009,'WEB_DYN','2021-2022',2,'valide'),(33009,'BDD_SQL','2021-2022',2,'valide'),
-                            (33009,'SYST_EXP','2022-2023',3,'valide'),(33009,'SECU_INFO','2022-2023',3,'valide'),
-                            (33009,'PROJET_INFO','2022-2023',4,'valide'),(33009,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (33010,'INTRO_JAVA','2021-2022',1,'valide'),(33010,'WEB_STATIC','2021-2022',1,'valide'),
-                            (33010,'ALGO_BASE','2021-2022',1,'valide'),(33010,'JAVA_AVANCE','2021-2022',2,'valide'),
-                            (33010,'WEB_DYN','2021-2022',2,'valide'),(33010,'BDD_SQL','2021-2022',2,'valide'),
-                            (33010,'SYST_EXP','2022-2023',3,'valide'),(33010,'MOBILE','2022-2023',3,'valide'),
-                            (33010,'CLOUD','2022-2023',3,'valide'),(33010,'PROJET_INFO','2022-2023',4,'valide'),
-                            (33010,'ANGLAIS_3','2023-2024',5,'en_cours');
-
--- ==========================================
--- PARCOURS 4 : Systèmes et Réseaux
--- S1 : INTRO_JAVA, ALGO_BASE, SYST_EXP, MATH_DISC, ANGLAIS_1
--- S2 : RESEAU, BDD_SQL, SECU_INFO, CLOUD, ANGLAIS_2
--- S3 : ALGO_AVANCE, MOBILE
--- S4 : PROJET_INFO, ANGLAIS_3
--- ==========================================
-
-INSERT INTO Etudiant VALUES
-                         (41001,'Toby','Theo','2004-02-11',4),(41002,'Unger','Uriel','2004-05-24',4),
-                         (41003,'Vion','Violette','2004-09-06',4),(41004,'Ward','Wendy','2004-01-19',4),
-                         (41005,'Xing','Xuan','2004-07-02',4),(41006,'Yen','Yves','2004-10-15',4),
-                         (41007,'Ziem','Zofia','2004-03-28',4),(41008,'Alix','Alex','2004-08-11',4),
-                         (41009,'Bory','Baptiste','2004-06-24',4),(41010,'Cara','Camille','2004-12-07',4);
-
-INSERT INTO Inscription VALUES
-                            (41001,'INTRO_JAVA','2023-2024',1,'en_cours'),(41001,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (41001,'SYST_EXP','2023-2024',1,'en_cours'),(41001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (41002,'INTRO_JAVA','2023-2024',1,'en_cours'),(41002,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (41002,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (41003,'INTRO_JAVA','2023-2024',1,'en_cours'),(41003,'SYST_EXP','2023-2024',1,'en_cours'),
-                            (41003,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (41004,'INTRO_JAVA','2023-2024',1,'en_cours'),(41004,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (41004,'SYST_EXP','2023-2024',1,'en_cours'),(41004,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (41005,'INTRO_JAVA','2023-2024',1,'en_cours'),(41005,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (41006,'SYST_EXP','2023-2024',1,'en_cours'),(41006,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (41007,'INTRO_JAVA','2023-2024',1,'en_cours'),(41007,'ALGO_BASE','2023-2024',1,'en_cours'),
-                            (41007,'SYST_EXP','2023-2024',1,'en_cours'),
-                            (41008,'INTRO_JAVA','2023-2024',1,'en_cours'),(41008,'MATH_DISC','2023-2024',1,'en_cours'),
-                            (41009,'INTRO_JAVA','2023-2024',1,'en_cours'),(41009,'SYST_EXP','2023-2024',1,'en_cours'),
-                            (41009,'ALGO_BASE','2023-2024',1,'en_cours'),(41009,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (41010,'INTRO_JAVA','2023-2024',1,'en_cours'),(41010,'ALGO_BASE','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (42001,'Dais','David','2003-04-13',4),(42002,'Edy','Eloise','2003-07-26',4),
-                         (42003,'Fary','Florent','2002-11-08',4),(42004,'Galy','Geraldine','2003-02-21',4),
-                         (42005,'Hely','Hugo','2002-10-04',4),(42006,'Illy','Iris','2003-05-17',4),
-                         (42007,'Jury','Julien','2003-09-30',4),(42008,'Kery','Karen','2002-08-12',4),
-                         (42009,'Lory','Lucas','2003-03-25',4),(42010,'Mary','Manon','2002-12-08',4);
-
-INSERT INTO Inscription VALUES
-                            (42001,'INTRO_JAVA','2022-2023',1,'valide'),(42001,'ALGO_BASE','2022-2023',1,'valide'),
-                            (42001,'SYST_EXP','2022-2023',1,'valide'),(42001,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (42001,'RESEAU','2022-2023',2,'valide'),(42001,'BDD_SQL','2022-2023',2,'valide'),
-                            (42001,'SECU_INFO','2022-2023',2,'valide'),(42001,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (42001,'ALGO_AVANCE','2023-2024',3,'en_cours'),(42001,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (42002,'INTRO_JAVA','2022-2023',1,'valide'),(42002,'SYST_EXP','2022-2023',1,'valide'),
-                            (42002,'ANGLAIS_1','2022-2023',1,'valide'),(42002,'RESEAU','2022-2023',2,'valide'),
-                            (42002,'BDD_SQL','2022-2023',2,'valide'),(42002,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (42002,'ALGO_AVANCE','2023-2024',3,'en_cours'),
-
-                            (42003,'INTRO_JAVA','2022-2023',1,'valide'),(42003,'ALGO_BASE','2022-2023',1,'valide'),
-                            (42003,'SYST_EXP','2022-2023',1,'valide'),(42003,'RESEAU','2022-2023',2,'valide'),
-                            (42003,'SECU_INFO','2022-2023',2,'valide'),(42003,'BDD_SQL','2022-2023',2,'valide'),
-                            (42003,'ALGO_AVANCE','2023-2024',3,'en_cours'),(42003,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (42004,'INTRO_JAVA','2022-2023',1,'valide'),(42004,'ALGO_BASE','2022-2023',1,'valide'),
-                            (42004,'ANGLAIS_1','2022-2023',1,'valide'),(42004,'RESEAU','2022-2023',2,'valide'),
-                            (42004,'BDD_SQL','2022-2023',2,'echoue'),(42004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (42004,'BDD_SQL','2023-2024',3,'valide'),(42004,'ALGO_AVANCE','2023-2024',3,'en_cours'),
-
-                            (42005,'INTRO_JAVA','2022-2023',1,'valide'),(42005,'SYST_EXP','2022-2023',1,'valide'),
-                            (42005,'ALGO_BASE','2022-2023',1,'valide'),(42005,'RESEAU','2022-2023',2,'valide'),
-                            (42005,'SECU_INFO','2022-2023',2,'valide'),(42005,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (42005,'ALGO_AVANCE','2023-2024',3,'en_cours'),
-
-                            (42006,'INTRO_JAVA','2022-2023',1,'valide'),(42006,'ALGO_BASE','2022-2023',1,'valide'),
-                            (42006,'SYST_EXP','2022-2023',1,'valide'),(42006,'RESEAU','2022-2023',2,'valide'),
-                            (42006,'BDD_SQL','2022-2023',2,'valide'),(42006,'CLOUD','2022-2023',2,'valide'),
-                            (42006,'ALGO_AVANCE','2023-2024',3,'en_cours'),(42006,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (42007,'INTRO_JAVA','2022-2023',1,'valide'),(42007,'SYST_EXP','2022-2023',1,'valide'),
-                            (42007,'ANGLAIS_1','2022-2023',1,'valide'),(42007,'RESEAU','2022-2023',2,'valide'),
-                            (42007,'ANGLAIS_2','2022-2023',2,'valide'),(42007,'ALGO_AVANCE','2023-2024',3,'en_cours'),
-
-                            (42008,'INTRO_JAVA','2022-2023',1,'valide'),(42008,'ALGO_BASE','2022-2023',1,'valide'),
-                            (42008,'SYST_EXP','2022-2023',1,'valide'),(42008,'RESEAU','2022-2023',2,'valide'),
-                            (42008,'BDD_SQL','2022-2023',2,'valide'),(42008,'SECU_INFO','2022-2023',2,'valide'),
-                            (42008,'ALGO_AVANCE','2023-2024',3,'en_cours'),
-
-                            (42009,'INTRO_JAVA','2022-2023',1,'valide'),(42009,'SYST_EXP','2022-2023',1,'valide'),
-                            (42009,'ALGO_BASE','2022-2023',1,'valide'),(42009,'RESEAU','2022-2023',2,'valide'),
-                            (42009,'CLOUD','2022-2023',2,'valide'),(42009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (42009,'ALGO_AVANCE','2023-2024',3,'en_cours'),(42009,'MOBILE','2023-2024',3,'en_cours'),
-
-                            (42010,'INTRO_JAVA','2022-2023',1,'valide'),(42010,'ALGO_BASE','2022-2023',1,'valide'),
-                            (42010,'ANGLAIS_1','2022-2023',1,'valide'),(42010,'RESEAU','2022-2023',2,'valide'),
-                            (42010,'BDD_SQL','2022-2023',2,'valide'),(42010,'SECU_INFO','2022-2023',2,'valide'),
-                            (42010,'ALGO_AVANCE','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (43001,'Nory','Nicolas','2002-06-18',4),(43002,'Ory','Odile','2001-10-01',4),
-                         (43003,'Pory','Pierre','2002-02-13',4),(43004,'Qory','Quentin','2001-05-26',4),
-                         (43005,'Rory','Renaud','2002-09-09',4),(43006,'Sory','Sophie','2001-01-22',4),
-                         (43007,'Tory','Thomas','2002-04-05',4),(43008,'Uory','Ulysse','2001-08-18',4),
-                         (43009,'Vory','Valerie','2002-12-01',4),(43010,'Wory','William','2001-03-14',4);
-
-INSERT INTO Inscription VALUES
-                            (43001,'INTRO_JAVA','2021-2022',1,'valide'),(43001,'ALGO_BASE','2021-2022',1,'valide'),
-                            (43001,'SYST_EXP','2021-2022',1,'valide'),(43001,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (43001,'RESEAU','2021-2022',2,'valide'),(43001,'BDD_SQL','2021-2022',2,'valide'),
-                            (43001,'SECU_INFO','2021-2022',2,'valide'),(43001,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (43001,'ALGO_AVANCE','2022-2023',3,'valide'),(43001,'MOBILE','2022-2023',3,'valide'),
-                            (43001,'PROJET_INFO','2022-2023',4,'valide'),(43001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43002,'INTRO_JAVA','2021-2022',1,'valide'),(43002,'SYST_EXP','2021-2022',1,'valide'),
-                            (43002,'RESEAU','2021-2022',2,'valide'),(43002,'BDD_SQL','2021-2022',2,'valide'),
-                            (43002,'ANGLAIS_2','2021-2022',2,'valide'),(43002,'ALGO_AVANCE','2022-2023',3,'valide'),
-                            (43002,'PROJET_INFO','2022-2023',4,'valide'),(43002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43003,'INTRO_JAVA','2021-2022',1,'valide'),(43003,'ALGO_BASE','2021-2022',1,'valide'),
-                            (43003,'SYST_EXP','2021-2022',1,'valide'),(43003,'RESEAU','2021-2022',2,'valide'),
-                            (43003,'SECU_INFO','2021-2022',2,'valide'),(43003,'CLOUD','2021-2022',2,'valide'),
-                            (43003,'ALGO_AVANCE','2022-2023',3,'valide'),(43003,'MOBILE','2022-2023',3,'valide'),
-                            (43003,'PROJET_INFO','2022-2023',4,'valide'),(43003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43004,'INTRO_JAVA','2021-2022',1,'valide'),(43004,'ALGO_BASE','2021-2022',1,'valide'),
-                            (43004,'ANGLAIS_1','2021-2022',1,'valide'),(43004,'RESEAU','2021-2022',2,'valide'),
-                            (43004,'BDD_SQL','2021-2022',2,'valide'),(43004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (43004,'ALGO_AVANCE','2022-2023',3,'echoue'),(43004,'ALGO_AVANCE','2022-2023',4,'valide'),
-                            (43004,'PROJET_INFO','2022-2023',4,'valide'),(43004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43005,'INTRO_JAVA','2021-2022',1,'valide'),(43005,'SYST_EXP','2021-2022',1,'valide'),
-                            (43005,'ALGO_BASE','2021-2022',1,'valide'),(43005,'RESEAU','2021-2022',2,'valide'),
-                            (43005,'SECU_INFO','2021-2022',2,'valide'),(43005,'BDD_SQL','2021-2022',2,'valide'),
-                            (43005,'ALGO_AVANCE','2022-2023',3,'valide'),(43005,'PROJET_INFO','2022-2023',4,'valide'),
-                            (43005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43006,'INTRO_JAVA','2021-2022',1,'valide'),(43006,'ALGO_BASE','2021-2022',1,'valide'),
-                            (43006,'SYST_EXP','2021-2022',1,'valide'),(43006,'RESEAU','2021-2022',2,'valide'),
-                            (43006,'BDD_SQL','2021-2022',2,'valide'),(43006,'CLOUD','2021-2022',2,'valide'),
-                            (43006,'ALGO_AVANCE','2022-2023',3,'valide'),(43006,'MOBILE','2022-2023',3,'valide'),
-                            (43006,'PROJET_INFO','2022-2023',4,'valide'),(43006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43007,'INTRO_JAVA','2021-2022',1,'valide'),(43007,'SYST_EXP','2021-2022',1,'valide'),
-                            (43007,'ANGLAIS_1','2021-2022',1,'valide'),(43007,'RESEAU','2021-2022',2,'valide'),
-                            (43007,'ANGLAIS_2','2021-2022',2,'valide'),(43007,'ALGO_AVANCE','2022-2023',3,'valide'),
-                            (43007,'PROJET_INFO','2022-2023',4,'valide'),(43007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43008,'INTRO_JAVA','2021-2022',1,'valide'),(43008,'ALGO_BASE','2021-2022',1,'valide'),
-                            (43008,'SYST_EXP','2021-2022',1,'valide'),(43008,'RESEAU','2021-2022',2,'valide'),
-                            (43008,'SECU_INFO','2021-2022',2,'valide'),(43008,'BDD_SQL','2021-2022',2,'valide'),
-                            (43008,'ALGO_AVANCE','2022-2023',3,'valide'),(43008,'PROJET_INFO','2022-2023',4,'valide'),
-                            (43008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43009,'INTRO_JAVA','2021-2022',1,'valide'),(43009,'SYST_EXP','2021-2022',1,'valide'),
-                            (43009,'ALGO_BASE','2021-2022',1,'valide'),(43009,'RESEAU','2021-2022',2,'valide'),
-                            (43009,'CLOUD','2021-2022',2,'valide'),(43009,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (43009,'ALGO_AVANCE','2022-2023',3,'valide'),(43009,'MOBILE','2022-2023',3,'valide'),
-                            (43009,'PROJET_INFO','2022-2023',4,'valide'),(43009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (43010,'INTRO_JAVA','2021-2022',1,'valide'),(43010,'ALGO_BASE','2021-2022',1,'valide'),
-                            (43010,'ANGLAIS_1','2021-2022',1,'valide'),(43010,'RESEAU','2021-2022',2,'valide'),
-                            (43010,'BDD_SQL','2021-2022',2,'valide'),(43010,'SECU_INFO','2021-2022',2,'valide'),
-                            (43010,'ALGO_AVANCE','2022-2023',3,'valide'),(43010,'PROJET_INFO','2022-2023',4,'valide'),
-                            (43010,'ANGLAIS_3','2023-2024',5,'en_cours');
-
--- ==========================================
--- PARCOURS 5 : Gestion des Entreprises
--- S1 : COMPTA, MARKETING, MACRO_ECO, MICRO_ECO, ANGLAIS_1
--- S2 : MANAGEMENT, COMPTA_ANA, DROIT_SOC, MARKETING_2, ANGLAIS_2
--- S3 : FINANCE, AUDIT, FISCALITE, STATS_DESC
--- S4 : PROJET_PRO, RHETORIQUE, ANGLAIS_3
--- ==========================================
-
-INSERT INTO Etudiant VALUES
-                         (51001,'Abbe','Anne','2004-01-05',5),(51002,'Bere','Bruno','2004-04-18',5),
-                         (51003,'Cere','Christine','2004-08-01',5),(51004,'Dere','Dominique','2004-02-14',5),
-                         (51005,'Eere','Edouard','2004-06-27',5),(51006,'Fere','Francoise','2004-10-10',5),
-                         (51007,'Gere','Gabriel','2004-03-23',5),(51008,'Here','Heloise','2004-09-05',5),
-                         (51009,'Iere','Isabelle','2004-07-19',5),(51010,'Jere','Jonathan','2004-12-02',5);
-
-INSERT INTO Inscription VALUES
-                            (51001,'COMPTA','2023-2024',1,'en_cours'),(51001,'MARKETING','2023-2024',1,'en_cours'),
-                            (51001,'MACRO_ECO','2023-2024',1,'en_cours'),(51001,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (51001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (51002,'COMPTA','2023-2024',1,'en_cours'),(51002,'MARKETING','2023-2024',1,'en_cours'),
-                            (51002,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (51003,'COMPTA','2023-2024',1,'en_cours'),(51003,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (51003,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (51004,'COMPTA','2023-2024',1,'en_cours'),(51004,'MARKETING','2023-2024',1,'en_cours'),
-                            (51004,'MACRO_ECO','2023-2024',1,'en_cours'),(51004,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (51005,'COMPTA','2023-2024',1,'en_cours'),(51005,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (51006,'COMPTA','2023-2024',1,'en_cours'),(51006,'MARKETING','2023-2024',1,'en_cours'),
-                            (51006,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (51007,'COMPTA','2023-2024',1,'en_cours'),(51007,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (51007,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (51008,'COMPTA','2023-2024',1,'en_cours'),(51008,'MARKETING','2023-2024',1,'en_cours'),
-                            (51009,'COMPTA','2023-2024',1,'en_cours'),(51009,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (51009,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (51010,'COMPTA','2023-2024',1,'en_cours'),(51010,'ANGLAIS_1','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (52001,'Kere','Karine','2003-03-15',5),(52002,'Lere','Laurent','2003-06-28',5),
-                         (52003,'Mere','Marine','2002-10-11',5),(52004,'Nere','Nicolas','2003-01-24',5),
-                         (52005,'Oere','Odile','2002-11-06',5),(52006,'Pere','Patricia','2003-04-20',5),
-                         (52007,'Qere','Quentin','2003-08-03',5),(52008,'Rere','Renaud','2002-12-16',5),
-                         (52009,'Sere','Sophie','2003-02-27',5),(52010,'Tere','Thomas','2002-07-10',5);
-
-INSERT INTO Inscription VALUES
-                            (52001,'COMPTA','2022-2023',1,'valide'),(52001,'MARKETING','2022-2023',1,'valide'),
-                            (52001,'MACRO_ECO','2022-2023',1,'valide'),(52001,'MICRO_ECO','2022-2023',1,'valide'),
-                            (52001,'ANGLAIS_1','2022-2023',1,'valide'),(52001,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52001,'COMPTA_ANA','2022-2023',2,'valide'),(52001,'MARKETING_2','2022-2023',2,'valide'),
-                            (52001,'ANGLAIS_2','2022-2023',2,'valide'),(52001,'FINANCE','2023-2024',3,'en_cours'),
-                            (52001,'AUDIT','2023-2024',3,'en_cours'),(52001,'STATS_DESC','2023-2024',3,'en_cours'),
-
-                            (52002,'COMPTA','2022-2023',1,'valide'),(52002,'MACRO_ECO','2022-2023',1,'valide'),
-                            (52002,'ANGLAIS_1','2022-2023',1,'valide'),(52002,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52002,'COMPTA_ANA','2022-2023',2,'valide'),(52002,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (52002,'FINANCE','2023-2024',3,'en_cours'),(52002,'AUDIT','2023-2024',3,'en_cours'),
-
-                            (52003,'COMPTA','2022-2023',1,'valide'),(52003,'MARKETING','2022-2023',1,'valide'),
-                            (52003,'MICRO_ECO','2022-2023',1,'valide'),(52003,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52003,'COMPTA_ANA','2022-2023',2,'valide'),(52003,'DROIT_SOC','2022-2023',2,'valide'),
-                            (52003,'FINANCE','2023-2024',3,'en_cours'),(52003,'FISCALITE','2023-2024',3,'en_cours'),
-
-                            (52004,'COMPTA','2022-2023',1,'valide'),(52004,'MACRO_ECO','2022-2023',1,'valide'),
-                            (52004,'MICRO_ECO','2022-2023',1,'valide'),(52004,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52004,'COMPTA_ANA','2022-2023',2,'echoue'),(52004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (52004,'COMPTA_ANA','2023-2024',3,'valide'),(52004,'FINANCE','2023-2024',3,'en_cours'),
-
-                            (52005,'COMPTA','2022-2023',1,'valide'),(52005,'MARKETING','2022-2023',1,'valide'),
-                            (52005,'ANGLAIS_1','2022-2023',1,'valide'),(52005,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52005,'COMPTA_ANA','2022-2023',2,'valide'),(52005,'MARKETING_2','2022-2023',2,'valide'),
-                            (52005,'FINANCE','2023-2024',3,'en_cours'),(52005,'AUDIT','2023-2024',3,'en_cours'),
-                            (52005,'STATS_DESC','2023-2024',3,'en_cours'),
-
-                            (52006,'COMPTA','2022-2023',1,'valide'),(52006,'MACRO_ECO','2022-2023',1,'valide'),
-                            (52006,'MICRO_ECO','2022-2023',1,'valide'),(52006,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52006,'COMPTA_ANA','2022-2023',2,'valide'),(52006,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (52006,'FINANCE','2023-2024',3,'en_cours'),
-
-                            (52007,'COMPTA','2022-2023',1,'valide'),(52007,'MARKETING','2022-2023',1,'valide'),
-                            (52007,'MACRO_ECO','2022-2023',1,'valide'),(52007,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52007,'COMPTA_ANA','2022-2023',2,'valide'),(52007,'DROIT_SOC','2022-2023',2,'valide'),
-                            (52007,'FINANCE','2023-2024',3,'en_cours'),(52007,'AUDIT','2023-2024',3,'en_cours'),
-
-                            (52008,'COMPTA','2022-2023',1,'valide'),(52008,'MICRO_ECO','2022-2023',1,'valide'),
-                            (52008,'ANGLAIS_1','2022-2023',1,'valide'),(52008,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52008,'COMPTA_ANA','2022-2023',2,'valide'),(52008,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (52008,'FINANCE','2023-2024',3,'en_cours'),(52008,'FISCALITE','2023-2024',3,'en_cours'),
-
-                            (52009,'COMPTA','2022-2023',1,'valide'),(52009,'MARKETING','2022-2023',1,'valide'),
-                            (52009,'MACRO_ECO','2022-2023',1,'valide'),(52009,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52009,'COMPTA_ANA','2022-2023',2,'valide'),(52009,'MARKETING_2','2022-2023',2,'valide'),
-                            (52009,'FINANCE','2023-2024',3,'en_cours'),(52009,'STATS_DESC','2023-2024',3,'en_cours'),
-
-                            (52010,'COMPTA','2022-2023',1,'valide'),(52010,'MACRO_ECO','2022-2023',1,'valide'),
-                            (52010,'MICRO_ECO','2022-2023',1,'valide'),(52010,'MANAGEMENT','2022-2023',2,'valide'),
-                            (52010,'COMPTA_ANA','2022-2023',2,'valide'),(52010,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (52010,'FINANCE','2023-2024',3,'en_cours'),(52010,'AUDIT','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (53001,'Uere','Ursula','2002-05-23',5),(53002,'Vere','Vincent','2001-09-05',5),
-                         (53003,'Were','Wilfried','2002-01-18',5),(53004,'Xere','Xavier','2001-04-02',5),
-                         (53005,'Yere','Yolande','2002-08-15',5),(53006,'Zere','Zacharie','2001-12-28',5),
-                         (53007,'Afer','Amelie','2002-03-11',5),(53008,'Bfer','Baptiste','2001-07-24',5),
-                         (53009,'Cfer','Caroline','2002-11-07',5),(53010,'Dfer','Damien','2001-06-20',5);
-
-INSERT INTO Inscription VALUES
-                            (53001,'COMPTA','2021-2022',1,'valide'),(53001,'MARKETING','2021-2022',1,'valide'),
-                            (53001,'MACRO_ECO','2021-2022',1,'valide'),(53001,'MICRO_ECO','2021-2022',1,'valide'),
-                            (53001,'ANGLAIS_1','2021-2022',1,'valide'),(53001,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53001,'COMPTA_ANA','2021-2022',2,'valide'),(53001,'MARKETING_2','2021-2022',2,'valide'),
-                            (53001,'ANGLAIS_2','2021-2022',2,'valide'),(53001,'FINANCE','2022-2023',3,'valide'),
-                            (53001,'AUDIT','2022-2023',3,'valide'),(53001,'STATS_DESC','2022-2023',3,'valide'),
-                            (53001,'PROJET_PRO','2022-2023',4,'valide'),(53001,'RHETORIQUE','2023-2024',5,'en_cours'),
-                            (53001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53002,'COMPTA','2021-2022',1,'valide'),(53002,'MACRO_ECO','2021-2022',1,'valide'),
-                            (53002,'ANGLAIS_1','2021-2022',1,'valide'),(53002,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53002,'COMPTA_ANA','2021-2022',2,'valide'),(53002,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (53002,'FINANCE','2022-2023',3,'valide'),(53002,'AUDIT','2022-2023',3,'valide'),
-                            (53002,'PROJET_PRO','2022-2023',4,'valide'),(53002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53003,'COMPTA','2021-2022',1,'valide'),(53003,'MARKETING','2021-2022',1,'valide'),
-                            (53003,'MICRO_ECO','2021-2022',1,'valide'),(53003,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53003,'COMPTA_ANA','2021-2022',2,'valide'),(53003,'DROIT_SOC','2021-2022',2,'valide'),
-                            (53003,'FINANCE','2022-2023',3,'valide'),(53003,'FISCALITE','2022-2023',3,'valide'),
-                            (53003,'PROJET_PRO','2022-2023',4,'valide'),(53003,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (53004,'COMPTA','2021-2022',1,'valide'),(53004,'MACRO_ECO','2021-2022',1,'valide'),
-                            (53004,'MICRO_ECO','2021-2022',1,'valide'),(53004,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53004,'COMPTA_ANA','2021-2022',2,'valide'),(53004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (53004,'FINANCE','2022-2023',3,'valide'),(53004,'AUDIT','2022-2023',3,'valide'),
-                            (53004,'PROJET_PRO','2022-2023',4,'valide'),(53004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53005,'COMPTA','2021-2022',1,'valide'),(53005,'MARKETING','2021-2022',1,'valide'),
-                            (53005,'ANGLAIS_1','2021-2022',1,'valide'),(53005,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53005,'COMPTA_ANA','2021-2022',2,'valide'),(53005,'MARKETING_2','2021-2022',2,'valide'),
-                            (53005,'FINANCE','2022-2023',3,'valide'),(53005,'STATS_DESC','2022-2023',3,'valide'),
-                            (53005,'PROJET_PRO','2022-2023',4,'valide'),(53005,'RHETORIQUE','2023-2024',5,'en_cours'),
-                            (53005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53006,'COMPTA','2021-2022',1,'valide'),(53006,'MACRO_ECO','2021-2022',1,'valide'),
-                            (53006,'MICRO_ECO','2021-2022',1,'valide'),(53006,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53006,'COMPTA_ANA','2021-2022',2,'valide'),(53006,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (53006,'FINANCE','2022-2023',3,'valide'),(53006,'AUDIT','2022-2023',3,'valide'),
-                            (53006,'PROJET_PRO','2022-2023',4,'valide'),(53006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53007,'COMPTA','2021-2022',1,'valide'),(53007,'MARKETING','2021-2022',1,'valide'),
-                            (53007,'MACRO_ECO','2021-2022',1,'valide'),(53007,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53007,'COMPTA_ANA','2021-2022',2,'valide'),(53007,'DROIT_SOC','2021-2022',2,'valide'),
-                            (53007,'FINANCE','2022-2023',3,'valide'),(53007,'AUDIT','2022-2023',3,'echoue'),
-                            (53007,'AUDIT','2022-2023',4,'valide'),(53007,'PROJET_PRO','2022-2023',4,'valide'),
-                            (53007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53008,'COMPTA','2021-2022',1,'valide'),(53008,'MICRO_ECO','2021-2022',1,'valide'),
-                            (53008,'ANGLAIS_1','2021-2022',1,'valide'),(53008,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53008,'COMPTA_ANA','2021-2022',2,'valide'),(53008,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (53008,'FINANCE','2022-2023',3,'valide'),(53008,'FISCALITE','2022-2023',3,'valide'),
-                            (53008,'PROJET_PRO','2022-2023',4,'valide'),(53008,'RHETORIQUE','2023-2024',5,'en_cours'),
-
-                            (53009,'COMPTA','2021-2022',1,'valide'),(53009,'MARKETING','2021-2022',1,'valide'),
-                            (53009,'MACRO_ECO','2021-2022',1,'valide'),(53009,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53009,'COMPTA_ANA','2021-2022',2,'valide'),(53009,'MARKETING_2','2021-2022',2,'valide'),
-                            (53009,'FINANCE','2022-2023',3,'valide'),(53009,'STATS_DESC','2022-2023',3,'valide'),
-                            (53009,'PROJET_PRO','2022-2023',4,'valide'),(53009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-
-                            (53010,'COMPTA','2021-2022',1,'valide'),(53010,'MACRO_ECO','2021-2022',1,'valide'),
-                            (53010,'MICRO_ECO','2021-2022',1,'valide'),(53010,'MANAGEMENT','2021-2022',2,'valide'),
-                            (53010,'COMPTA_ANA','2021-2022',2,'valide'),(53010,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (53010,'FINANCE','2022-2023',3,'valide'),(53010,'AUDIT','2022-2023',3,'valide'),
-                            (53010,'PROJET_PRO','2022-2023',4,'valide'),(53010,'RHETORIQUE','2023-2024',5,'en_cours');
-
--- ==========================================
--- PARCOURS 6-10 : Même pattern condensé
--- Pour Finance(6), Droit Privé(7), Droit Public(8), Psy Clinique(9), Psy Travail(10)
--- ==========================================
-
--- ---- PARCOURS 6 : Finance et Comptabilité ----
--- S1 : COMPTA, MICRO_ECO, MACRO_ECO, STATS_DESC, ANGLAIS_1
--- S2 : COMPTA_ANA, FINANCE, DROIT_SOC, FISCALITE, ANGLAIS_2
--- S3 : AUDIT, MANAGEMENT, MARKETING_2
--- S4 : PROJET_PRO, ANGLAIS_3
-
-INSERT INTO Etudiant VALUES
-                         (61001,'Efer','Edith','2004-02-08',6),(61002,'Ffer','Felix','2004-05-21',6),
-                         (61003,'Gfer','Genevieve','2004-09-03',6),(61004,'Hfer','Hubert','2004-01-16',6),
-                         (61005,'Ifer','Ingrid','2004-07-29',6),(61006,'Jfer','Joel','2004-11-11',6),
-                         (61007,'Kfer','Karine','2004-04-24',6),(61008,'Lfer','Louis','2004-08-07',6),
-                         (61009,'Mfer','Martine','2004-06-20',6),(61010,'Nfer','Noel','2004-12-03',6);
-
-INSERT INTO Inscription VALUES
-                            (61001,'COMPTA','2023-2024',1,'en_cours'),(61001,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (61001,'MACRO_ECO','2023-2024',1,'en_cours'),(61001,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (61002,'COMPTA','2023-2024',1,'en_cours'),(61002,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (61002,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (61003,'COMPTA','2023-2024',1,'en_cours'),(61003,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (61003,'STATS_DESC','2023-2024',1,'en_cours'),(61003,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (61004,'COMPTA','2023-2024',1,'en_cours'),(61004,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (61004,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (61005,'COMPTA','2023-2024',1,'en_cours'),(61005,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (61006,'COMPTA','2023-2024',1,'en_cours'),(61006,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (61006,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (61007,'COMPTA','2023-2024',1,'en_cours'),(61007,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (61008,'COMPTA','2023-2024',1,'en_cours'),(61008,'STATS_DESC','2023-2024',1,'en_cours'),
-                            (61008,'MICRO_ECO','2023-2024',1,'en_cours'),
-                            (61009,'COMPTA','2023-2024',1,'en_cours'),(61009,'MACRO_ECO','2023-2024',1,'en_cours'),
-                            (61009,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (61010,'COMPTA','2023-2024',1,'en_cours'),(61010,'MICRO_ECO','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (62001,'Ofer','Olivier','2003-03-14',6),(62002,'Pfer','Pascale','2003-06-27',6),
-                         (62003,'Qfer','Quentin','2002-10-10',6),(62004,'Rfer','Renaud','2003-01-23',6),
-                         (62005,'Sfer','Sandrine','2002-11-05',6),(62006,'Tfer','Thierry','2003-04-19',6),
-                         (62007,'Ufer','Ursula','2003-08-02',6),(62008,'Vfer','Valerie','2002-12-15',6),
-                         (62009,'Wfer','William','2003-02-28',6),(62010,'Xfer','Xavier','2002-07-11',6);
-
-INSERT INTO Inscription VALUES
-                            (62001,'COMPTA','2022-2023',1,'valide'),(62001,'MICRO_ECO','2022-2023',1,'valide'),
-                            (62001,'MACRO_ECO','2022-2023',1,'valide'),(62001,'STATS_DESC','2022-2023',1,'valide'),
-                            (62001,'ANGLAIS_1','2022-2023',1,'valide'),(62001,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62001,'FINANCE','2022-2023',2,'valide'),(62001,'DROIT_SOC','2022-2023',2,'valide'),
-                            (62001,'ANGLAIS_2','2022-2023',2,'valide'),(62001,'AUDIT','2023-2024',3,'en_cours'),
-                            (62001,'MANAGEMENT','2023-2024',3,'en_cours'),
-                            (62002,'COMPTA','2022-2023',1,'valide'),(62002,'MICRO_ECO','2022-2023',1,'valide'),
-                            (62002,'ANGLAIS_1','2022-2023',1,'valide'),(62002,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62002,'FINANCE','2022-2023',2,'valide'),(62002,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (62002,'AUDIT','2023-2024',3,'en_cours'),
-                            (62003,'COMPTA','2022-2023',1,'valide'),(62003,'MACRO_ECO','2022-2023',1,'valide'),
-                            (62003,'STATS_DESC','2022-2023',1,'valide'),(62003,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62003,'FINANCE','2022-2023',2,'valide'),(62003,'FISCALITE','2022-2023',2,'valide'),
-                            (62003,'AUDIT','2023-2024',3,'en_cours'),(62003,'MANAGEMENT','2023-2024',3,'en_cours'),
-                            (62004,'COMPTA','2022-2023',1,'valide'),(62004,'MICRO_ECO','2022-2023',1,'valide'),
-                            (62004,'MACRO_ECO','2022-2023',1,'valide'),(62004,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62004,'FINANCE','2022-2023',2,'echoue'),(62004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (62004,'FINANCE','2023-2024',3,'valide'),(62004,'AUDIT','2023-2024',3,'en_cours'),
-                            (62005,'COMPTA','2022-2023',1,'valide'),(62005,'STATS_DESC','2022-2023',1,'valide'),
-                            (62005,'ANGLAIS_1','2022-2023',1,'valide'),(62005,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62005,'FINANCE','2022-2023',2,'valide'),(62005,'DROIT_SOC','2022-2023',2,'valide'),
-                            (62005,'AUDIT','2023-2024',3,'en_cours'),(62005,'MARKETING_2','2023-2024',3,'en_cours'),
-                            (62006,'COMPTA','2022-2023',1,'valide'),(62006,'MACRO_ECO','2022-2023',1,'valide'),
-                            (62006,'MICRO_ECO','2022-2023',1,'valide'),(62006,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62006,'FINANCE','2022-2023',2,'valide'),(62006,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (62006,'AUDIT','2023-2024',3,'en_cours'),
-                            (62007,'COMPTA','2022-2023',1,'valide'),(62007,'MICRO_ECO','2022-2023',1,'valide'),
-                            (62007,'ANGLAIS_1','2022-2023',1,'valide'),(62007,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62007,'FINANCE','2022-2023',2,'valide'),(62007,'FISCALITE','2022-2023',2,'valide'),
-                            (62007,'AUDIT','2023-2024',3,'en_cours'),(62007,'MANAGEMENT','2023-2024',3,'en_cours'),
-                            (62008,'COMPTA','2022-2023',1,'valide'),(62008,'STATS_DESC','2022-2023',1,'valide'),
-                            (62008,'MACRO_ECO','2022-2023',1,'valide'),(62008,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62008,'FINANCE','2022-2023',2,'valide'),(62008,'DROIT_SOC','2022-2023',2,'valide'),
-                            (62008,'AUDIT','2023-2024',3,'en_cours'),
-                            (62009,'COMPTA','2022-2023',1,'valide'),(62009,'MICRO_ECO','2022-2023',1,'valide'),
-                            (62009,'MACRO_ECO','2022-2023',1,'valide'),(62009,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62009,'FINANCE','2022-2023',2,'valide'),(62009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (62009,'AUDIT','2023-2024',3,'en_cours'),(62009,'MANAGEMENT','2023-2024',3,'en_cours'),
-                            (62010,'COMPTA','2022-2023',1,'valide'),(62010,'STATS_DESC','2022-2023',1,'valide'),
-                            (62010,'ANGLAIS_1','2022-2023',1,'valide'),(62010,'COMPTA_ANA','2022-2023',2,'valide'),
-                            (62010,'FINANCE','2022-2023',2,'valide'),(62010,'FISCALITE','2022-2023',2,'valide'),
-                            (62010,'AUDIT','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (63001,'Yfer','Yann','2002-05-17',6),(63002,'Zfer','Zoe','2001-08-30',6),
-                         (63003,'Ager','Agnes','2002-01-12',6),(63004,'Bger','Bernard','2001-04-25',6),
-                         (63005,'Cger','Cecile','2002-09-08',6),(63006,'Dger','Denis','2001-12-21',6),
-                         (63007,'Eger','Emilie','2002-03-04',6),(63008,'Fger','Francois','2001-07-17',6),
-                         (63009,'Gger','Genevieve','2002-11-01',6),(63010,'Hger','Henri','2001-02-13',6);
-
-INSERT INTO Inscription VALUES
-                            (63001,'COMPTA','2021-2022',1,'valide'),(63001,'MICRO_ECO','2021-2022',1,'valide'),
-                            (63001,'MACRO_ECO','2021-2022',1,'valide'),(63001,'STATS_DESC','2021-2022',1,'valide'),
-                            (63001,'ANGLAIS_1','2021-2022',1,'valide'),(63001,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63001,'FINANCE','2021-2022',2,'valide'),(63001,'DROIT_SOC','2021-2022',2,'valide'),
-                            (63001,'ANGLAIS_2','2021-2022',2,'valide'),(63001,'AUDIT','2022-2023',3,'valide'),
-                            (63001,'MANAGEMENT','2022-2023',3,'valide'),(63001,'PROJET_PRO','2022-2023',4,'valide'),
-                            (63001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63002,'COMPTA','2021-2022',1,'valide'),(63002,'MICRO_ECO','2021-2022',1,'valide'),
-                            (63002,'ANGLAIS_1','2021-2022',1,'valide'),(63002,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63002,'FINANCE','2021-2022',2,'valide'),(63002,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (63002,'AUDIT','2022-2023',3,'valide'),(63002,'PROJET_PRO','2022-2023',4,'valide'),
-                            (63002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63003,'COMPTA','2021-2022',1,'valide'),(63003,'MACRO_ECO','2021-2022',1,'valide'),
-                            (63003,'STATS_DESC','2021-2022',1,'valide'),(63003,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63003,'FINANCE','2021-2022',2,'valide'),(63003,'FISCALITE','2021-2022',2,'valide'),
-                            (63003,'AUDIT','2022-2023',3,'valide'),(63003,'MANAGEMENT','2022-2023',3,'valide'),
-                            (63003,'PROJET_PRO','2022-2023',4,'valide'),(63003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63004,'COMPTA','2021-2022',1,'valide'),(63004,'MICRO_ECO','2021-2022',1,'valide'),
-                            (63004,'MACRO_ECO','2021-2022',1,'valide'),(63004,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63004,'FINANCE','2021-2022',2,'valide'),(63004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (63004,'AUDIT','2022-2023',3,'valide'),(63004,'PROJET_PRO','2022-2023',4,'valide'),
-                            (63004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63005,'COMPTA','2021-2022',1,'valide'),(63005,'STATS_DESC','2021-2022',1,'valide'),
-                            (63005,'ANGLAIS_1','2021-2022',1,'valide'),(63005,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63005,'FINANCE','2021-2022',2,'valide'),(63005,'DROIT_SOC','2021-2022',2,'valide'),
-                            (63005,'AUDIT','2022-2023',3,'valide'),(63005,'MARKETING_2','2022-2023',3,'valide'),
-                            (63005,'PROJET_PRO','2022-2023',4,'valide'),(63005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63006,'COMPTA','2021-2022',1,'valide'),(63006,'MACRO_ECO','2021-2022',1,'valide'),
-                            (63006,'MICRO_ECO','2021-2022',1,'valide'),(63006,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63006,'FINANCE','2021-2022',2,'valide'),(63006,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (63006,'AUDIT','2022-2023',3,'valide'),(63006,'PROJET_PRO','2022-2023',4,'valide'),
-                            (63006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63007,'COMPTA','2021-2022',1,'valide'),(63007,'MICRO_ECO','2021-2022',1,'valide'),
-                            (63007,'ANGLAIS_1','2021-2022',1,'valide'),(63007,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63007,'FINANCE','2021-2022',2,'echoue'),(63007,'FISCALITE','2021-2022',2,'valide'),
-                            (63007,'FINANCE','2022-2023',3,'valide'),(63007,'AUDIT','2022-2023',3,'valide'),
-                            (63007,'PROJET_PRO','2022-2023',4,'valide'),(63007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63008,'COMPTA','2021-2022',1,'valide'),(63008,'STATS_DESC','2021-2022',1,'valide'),
-                            (63008,'MACRO_ECO','2021-2022',1,'valide'),(63008,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63008,'FINANCE','2021-2022',2,'valide'),(63008,'DROIT_SOC','2021-2022',2,'valide'),
-                            (63008,'AUDIT','2022-2023',3,'valide'),(63008,'PROJET_PRO','2022-2023',4,'valide'),
-                            (63008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63009,'COMPTA','2021-2022',1,'valide'),(63009,'MICRO_ECO','2021-2022',1,'valide'),
-                            (63009,'MACRO_ECO','2021-2022',1,'valide'),(63009,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63009,'FINANCE','2021-2022',2,'valide'),(63009,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (63009,'AUDIT','2022-2023',3,'valide'),(63009,'MANAGEMENT','2022-2023',3,'valide'),
-                            (63009,'PROJET_PRO','2022-2023',4,'valide'),(63009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (63010,'COMPTA','2021-2022',1,'valide'),(63010,'STATS_DESC','2021-2022',1,'valide'),
-                            (63010,'ANGLAIS_1','2021-2022',1,'valide'),(63010,'COMPTA_ANA','2021-2022',2,'valide'),
-                            (63010,'FINANCE','2021-2022',2,'valide'),(63010,'FISCALITE','2021-2022',2,'valide'),
-                            (63010,'AUDIT','2022-2023',3,'valide'),(63010,'PROJET_PRO','2022-2023',4,'valide'),
-                            (63010,'ANGLAIS_3','2023-2024',5,'en_cours');
-
--- ---- PARCOURS 7 : Droit Privé ----
--- S1: DROIT_CONST, HIST_DROIT, DROIT_CIV1, ANGLAIS_1, RHETORIQUE
--- S2: DROIT_CIV2, DROIT_PEN, PROCED_CIV, DROIT_SOC, ANGLAIS_2
--- S3: DROIT_TRAV, DROIT_EUR, PROCED_PEN
--- S4: PROJET_PRO, ANGLAIS_3
-
-INSERT INTO Etudiant VALUES
-                         (71001,'Iger','Igore','2004-01-04',7),(71002,'Jger','Joelle','2004-04-17',7),
-                         (71003,'Kger','Kevin','2004-08-30',7),(71004,'Lger','Leonie','2004-02-12',7),
-                         (71005,'Mger','Marc','2004-06-25',7),(71006,'Nger','Nathalie','2004-10-08',7),
-                         (71007,'Oger','Octave','2004-03-21',7),(71008,'Pger','Patricia','2004-09-04',7),
-                         (71009,'Qger','Quentin','2004-07-18',7),(71010,'Rger','Renee','2004-11-30',7);
-
-INSERT INTO Inscription VALUES
-                            (71001,'DROIT_CONST','2023-2024',1,'en_cours'),(71001,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (71001,'DROIT_CIV1','2023-2024',1,'en_cours'),(71001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (71002,'DROIT_CONST','2023-2024',1,'en_cours'),(71002,'DROIT_CIV1','2023-2024',1,'en_cours'),
-                            (71002,'RHETORIQUE','2023-2024',1,'en_cours'),
-                            (71003,'DROIT_CONST','2023-2024',1,'en_cours'),(71003,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (71003,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (71004,'DROIT_CONST','2023-2024',1,'en_cours'),(71004,'DROIT_CIV1','2023-2024',1,'en_cours'),
-                            (71004,'HIST_DROIT','2023-2024',1,'en_cours'),(71004,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (71005,'DROIT_CONST','2023-2024',1,'en_cours'),(71005,'RHETORIQUE','2023-2024',1,'en_cours'),
-                            (71006,'DROIT_CONST','2023-2024',1,'en_cours'),(71006,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (71007,'DROIT_CONST','2023-2024',1,'en_cours'),(71007,'DROIT_CIV1','2023-2024',1,'en_cours'),
-                            (71007,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (71008,'DROIT_CONST','2023-2024',1,'en_cours'),(71008,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (71008,'RHETORIQUE','2023-2024',1,'en_cours'),
-                            (71009,'DROIT_CONST','2023-2024',1,'en_cours'),(71009,'DROIT_CIV1','2023-2024',1,'en_cours'),
-                            (71010,'DROIT_CONST','2023-2024',1,'en_cours'),(71010,'ANGLAIS_1','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (72001,'Sger','Serge','2003-02-13',7),(72002,'Tger','Therese','2003-05-26',7),
-                         (72003,'Uger','Ugo','2002-09-08',7),(72004,'Vger','Valerie','2003-01-21',7),
-                         (72005,'Wger','William','2002-10-04',7),(72006,'Xger','Xavier','2003-04-17',7),
-                         (72007,'Yger','Yves','2003-08-30',7),(72008,'Zger','Zoe','2002-12-13',7),
-                         (72009,'Aher','Andre','2003-03-27',7),(72010,'Bher','Beatrice','2002-08-09',7);
-
-INSERT INTO Inscription VALUES
-                            (72001,'DROIT_CONST','2022-2023',1,'valide'),(72001,'HIST_DROIT','2022-2023',1,'valide'),
-                            (72001,'DROIT_CIV1','2022-2023',1,'valide'),(72001,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (72001,'DROIT_CIV2','2022-2023',2,'valide'),(72001,'DROIT_PEN','2022-2023',2,'valide'),
-                            (72001,'PROCED_CIV','2022-2023',2,'valide'),(72001,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72001,'DROIT_TRAV','2023-2024',3,'en_cours'),(72001,'PROCED_PEN','2023-2024',3,'en_cours'),
-                            (72002,'DROIT_CONST','2022-2023',1,'valide'),(72002,'DROIT_CIV1','2022-2023',1,'valide'),
-                            (72002,'ANGLAIS_1','2022-2023',1,'valide'),(72002,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72002,'DROIT_PEN','2022-2023',2,'valide'),(72002,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72002,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (72003,'DROIT_CONST','2022-2023',1,'valide'),(72003,'HIST_DROIT','2022-2023',1,'valide'),
-                            (72003,'DROIT_CIV1','2022-2023',1,'valide'),(72003,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72003,'DROIT_PEN','2022-2023',2,'valide'),(72003,'DROIT_SOC','2022-2023',2,'valide'),
-                            (72003,'DROIT_TRAV','2023-2024',3,'en_cours'),(72003,'DROIT_EUR','2023-2024',3,'en_cours'),
-                            (72004,'DROIT_CONST','2022-2023',1,'valide'),(72004,'DROIT_CIV1','2022-2023',1,'valide'),
-                            (72004,'RHETORIQUE','2022-2023',1,'valide'),(72004,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72004,'DROIT_PEN','2022-2023',2,'echoue'),(72004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72004,'DROIT_PEN','2023-2024',3,'valide'),(72004,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (72005,'DROIT_CONST','2022-2023',1,'valide'),(72005,'HIST_DROIT','2022-2023',1,'valide'),
-                            (72005,'ANGLAIS_1','2022-2023',1,'valide'),(72005,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72005,'PROCED_CIV','2022-2023',2,'valide'),(72005,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72005,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (72006,'DROIT_CONST','2022-2023',1,'valide'),(72006,'DROIT_CIV1','2022-2023',1,'valide'),
-                            (72006,'ANGLAIS_1','2022-2023',1,'valide'),(72006,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72006,'DROIT_PEN','2022-2023',2,'valide'),(72006,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72006,'DROIT_TRAV','2023-2024',3,'en_cours'),(72006,'PROCED_PEN','2023-2024',3,'en_cours'),
-                            (72007,'DROIT_CONST','2022-2023',1,'valide'),(72007,'HIST_DROIT','2022-2023',1,'valide'),
-                            (72007,'DROIT_CIV1','2022-2023',1,'valide'),(72007,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72007,'DROIT_SOC','2022-2023',2,'valide'),(72007,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72007,'DROIT_TRAV','2023-2024',3,'en_cours'),(72007,'DROIT_EUR','2023-2024',3,'en_cours'),
-                            (72008,'DROIT_CONST','2022-2023',1,'valide'),(72008,'DROIT_CIV1','2022-2023',1,'valide'),
-                            (72008,'RHETORIQUE','2022-2023',1,'valide'),(72008,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72008,'DROIT_PEN','2022-2023',2,'valide'),(72008,'PROCED_CIV','2022-2023',2,'valide'),
-                            (72008,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (72009,'DROIT_CONST','2022-2023',1,'valide'),(72009,'HIST_DROIT','2022-2023',1,'valide'),
-                            (72009,'ANGLAIS_1','2022-2023',1,'valide'),(72009,'DROIT_CIV2','2022-2023',2,'valide'),
-                            (72009,'DROIT_PEN','2022-2023',2,'valide'),(72009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72009,'DROIT_TRAV','2023-2024',3,'en_cours'),(72009,'PROCED_PEN','2023-2024',3,'en_cours'),
-                            (72010,'DROIT_CONST','2022-2023',1,'valide'),(72010,'DROIT_CIV1','2022-2023',1,'valide'),
-                            (72010,'ANGLAIS_1','2022-2023',1,'valide'),(72010,'DROIT_PEN','2022-2023',2,'valide'),
-                            (72010,'PROCED_CIV','2022-2023',2,'valide'),(72010,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (72010,'DROIT_TRAV','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (73001,'Cher','Charles','2002-04-16',7),(73002,'Dher','Diane','2001-07-29',7),
-                         (73003,'Eher','Emile','2002-01-11',7),(73004,'Fher','Fabienne','2001-05-24',7),
-                         (73005,'Gher','Gaston','2002-09-07',7),(73006,'Hher','Helene','2001-12-20',7),
-                         (73007,'Iher','Irene','2002-02-02',7),(73008,'Jher','Jacques','2001-06-15',7),
-                         (73009,'Kher','Karine','2002-10-28',7),(73010,'Lher','Laurent','2001-03-13',7);
-
-INSERT INTO Inscription VALUES
-                            (73001,'DROIT_CONST','2021-2022',1,'valide'),(73001,'HIST_DROIT','2021-2022',1,'valide'),
-                            (73001,'DROIT_CIV1','2021-2022',1,'valide'),(73001,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (73001,'DROIT_CIV2','2021-2022',2,'valide'),(73001,'DROIT_PEN','2021-2022',2,'valide'),
-                            (73001,'PROCED_CIV','2021-2022',2,'valide'),(73001,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73001,'DROIT_TRAV','2022-2023',3,'valide'),(73001,'PROCED_PEN','2022-2023',3,'valide'),
-                            (73001,'DROIT_EUR','2022-2023',3,'valide'),(73001,'PROJET_PRO','2022-2023',4,'valide'),
-                            (73001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73002,'DROIT_CONST','2021-2022',1,'valide'),(73002,'DROIT_CIV1','2021-2022',1,'valide'),
-                            (73002,'ANGLAIS_1','2021-2022',1,'valide'),(73002,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73002,'DROIT_PEN','2021-2022',2,'valide'),(73002,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73002,'DROIT_TRAV','2022-2023',3,'valide'),(73002,'PROJET_PRO','2022-2023',4,'valide'),
-                            (73002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73003,'DROIT_CONST','2021-2022',1,'valide'),(73003,'HIST_DROIT','2021-2022',1,'valide'),
-                            (73003,'DROIT_CIV1','2021-2022',1,'valide'),(73003,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73003,'DROIT_SOC','2021-2022',2,'valide'),(73003,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73003,'DROIT_TRAV','2022-2023',3,'valide'),(73003,'DROIT_EUR','2022-2023',3,'valide'),
-                            (73003,'PROJET_PRO','2022-2023',4,'valide'),(73003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73004,'DROIT_CONST','2021-2022',1,'valide'),(73004,'DROIT_CIV1','2021-2022',1,'valide'),
-                            (73004,'RHETORIQUE','2021-2022',1,'valide'),(73004,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73004,'DROIT_PEN','2021-2022',2,'valide'),(73004,'PROCED_CIV','2021-2022',2,'valide'),
-                            (73004,'DROIT_TRAV','2022-2023',3,'valide'),(73004,'PROCED_PEN','2022-2023',3,'valide'),
-                            (73004,'PROJET_PRO','2022-2023',4,'valide'),(73004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73005,'DROIT_CONST','2021-2022',1,'valide'),(73005,'HIST_DROIT','2021-2022',1,'valide'),
-                            (73005,'ANGLAIS_1','2021-2022',1,'valide'),(73005,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73005,'DROIT_PEN','2021-2022',2,'valide'),(73005,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73005,'DROIT_TRAV','2022-2023',3,'valide'),(73005,'PROJET_PRO','2022-2023',4,'valide'),
-                            (73005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73006,'DROIT_CONST','2021-2022',1,'valide'),(73006,'DROIT_CIV1','2021-2022',1,'valide'),
-                            (73006,'ANGLAIS_1','2021-2022',1,'valide'),(73006,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73006,'DROIT_PEN','2021-2022',2,'echoue'),(73006,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73006,'DROIT_PEN','2022-2023',3,'valide'),(73006,'DROIT_TRAV','2022-2023',3,'valide'),
-                            (73006,'PROJET_PRO','2022-2023',4,'valide'),(73006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73007,'DROIT_CONST','2021-2022',1,'valide'),(73007,'HIST_DROIT','2021-2022',1,'valide'),
-                            (73007,'DROIT_CIV1','2021-2022',1,'valide'),(73007,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73007,'DROIT_SOC','2021-2022',2,'valide'),(73007,'PROCED_CIV','2021-2022',2,'valide'),
-                            (73007,'DROIT_TRAV','2022-2023',3,'valide'),(73007,'DROIT_EUR','2022-2023',3,'valide'),
-                            (73007,'PROCED_PEN','2022-2023',3,'valide'),(73007,'PROJET_PRO','2022-2023',4,'valide'),
-                            (73007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73008,'DROIT_CONST','2021-2022',1,'valide'),(73008,'DROIT_CIV1','2021-2022',1,'valide'),
-                            (73008,'ANGLAIS_1','2021-2022',1,'valide'),(73008,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73008,'DROIT_PEN','2021-2022',2,'valide'),(73008,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73008,'DROIT_TRAV','2022-2023',3,'valide'),(73008,'PROCED_PEN','2022-2023',3,'valide'),
-                            (73008,'PROJET_PRO','2022-2023',4,'valide'),(73008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73009,'DROIT_CONST','2021-2022',1,'valide'),(73009,'HIST_DROIT','2021-2022',1,'valide'),
-                            (73009,'RHETORIQUE','2021-2022',1,'valide'),(73009,'DROIT_CIV2','2021-2022',2,'valide'),
-                            (73009,'DROIT_PEN','2021-2022',2,'valide'),(73009,'PROCED_CIV','2021-2022',2,'valide'),
-                            (73009,'DROIT_TRAV','2022-2023',3,'valide'),(73009,'DROIT_EUR','2022-2023',3,'valide'),
-                            (73009,'PROJET_PRO','2022-2023',4,'valide'),(73009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (73010,'DROIT_CONST','2021-2022',1,'valide'),(73010,'DROIT_CIV1','2021-2022',1,'valide'),
-                            (73010,'ANGLAIS_1','2021-2022',1,'valide'),(73010,'DROIT_PEN','2021-2022',2,'valide'),
-                            (73010,'PROCED_CIV','2021-2022',2,'valide'),(73010,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (73010,'DROIT_TRAV','2022-2023',3,'valide'),(73010,'PROCED_PEN','2022-2023',3,'valide'),
-                            (73010,'PROJET_PRO','2022-2023',4,'valide'),(73010,'ANGLAIS_3','2023-2024',5,'en_cours');
-
--- ---- PARCOURS 8 : Droit Public ----
--- S1: DROIT_CONST, HIST_DROIT, DROIT_ADM, ANGLAIS_1, RHETORIQUE
--- S2: DROIT_EUR, DROIT_CIV1, PROCED_CIV, ANGLAIS_2, DROIT_PEN
--- S3: DROIT_TRAV, PROCED_PEN
--- S4: PROJET_PRO, ANGLAIS_3
-
-INSERT INTO Etudiant VALUES
-                         (81001,'Mher','Marcel','2004-01-01',8),(81002,'Nher','Nicole','2004-04-14',8),
-                         (81003,'Oher','Odile','2004-07-27',8),(81004,'Pher','Philippe','2004-02-09',8),
-                         (81005,'Qher','Quentin','2004-06-22',8),(81006,'Rher','Renee','2004-10-05',8),
-                         (81007,'Sher','Sophie','2004-03-18',8),(81008,'Ther','Thomas','2004-09-01',8),
-                         (81009,'Uher','Ulysse','2004-07-15',8),(81010,'Vher','Valerie','2004-11-28',8);
-
-INSERT INTO Inscription VALUES
-                            (81001,'DROIT_CONST','2023-2024',1,'en_cours'),(81001,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (81001,'DROIT_ADM','2023-2024',1,'en_cours'),(81001,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (81002,'DROIT_CONST','2023-2024',1,'en_cours'),(81002,'DROIT_ADM','2023-2024',1,'en_cours'),
-                            (81002,'RHETORIQUE','2023-2024',1,'en_cours'),
-                            (81003,'DROIT_CONST','2023-2024',1,'en_cours'),(81003,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (81003,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (81004,'DROIT_CONST','2023-2024',1,'en_cours'),(81004,'DROIT_ADM','2023-2024',1,'en_cours'),
-                            (81004,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (81005,'DROIT_CONST','2023-2024',1,'en_cours'),(81005,'RHETORIQUE','2023-2024',1,'en_cours'),
-                            (81006,'DROIT_CONST','2023-2024',1,'en_cours'),(81006,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (81006,'DROIT_ADM','2023-2024',1,'en_cours'),
-                            (81007,'DROIT_CONST','2023-2024',1,'en_cours'),(81007,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (81008,'DROIT_CONST','2023-2024',1,'en_cours'),(81008,'DROIT_ADM','2023-2024',1,'en_cours'),
-                            (81008,'HIST_DROIT','2023-2024',1,'en_cours'),
-                            (81009,'DROIT_CONST','2023-2024',1,'en_cours'),(81009,'RHETORIQUE','2023-2024',1,'en_cours'),
-                            (81010,'DROIT_CONST','2023-2024',1,'en_cours'),(81010,'ANGLAIS_1','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (82001,'Wher','Wilfrid','2003-02-10',8),(82002,'Xher','Xenia','2003-05-23',8),
-                         (82003,'Yher','Yann','2002-09-06',8),(82004,'Zher','Zoe','2003-01-19',8),
-                         (82005,'Aier','Andre','2002-10-01',8),(82006,'Bier','Brigitte','2003-04-15',8),
-                         (82007,'Cier','Charles','2003-07-28',8),(82008,'Dier','Denise','2002-12-11',8),
-                         (82009,'Eier','Edouard','2003-03-24',8),(82010,'Fier','Francoise','2002-08-06',8);
-
-INSERT INTO Inscription VALUES
-                            (82001,'DROIT_CONST','2022-2023',1,'valide'),(82001,'HIST_DROIT','2022-2023',1,'valide'),
-                            (82001,'DROIT_ADM','2022-2023',1,'valide'),(82001,'ANGLAIS_1','2022-2023',1,'valide'),
-                            (82001,'DROIT_EUR','2022-2023',2,'valide'),(82001,'DROIT_CIV1','2022-2023',2,'valide'),
-                            (82001,'ANGLAIS_2','2022-2023',2,'valide'),(82001,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82001,'PROCED_PEN','2023-2024',3,'en_cours'),
-                            (82002,'DROIT_CONST','2022-2023',1,'valide'),(82002,'DROIT_ADM','2022-2023',1,'valide'),
-                            (82002,'RHETORIQUE','2022-2023',1,'valide'),(82002,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82002,'ANGLAIS_2','2022-2023',2,'valide'),(82002,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82003,'DROIT_CONST','2022-2023',1,'valide'),(82003,'HIST_DROIT','2022-2023',1,'valide'),
-                            (82003,'ANGLAIS_1','2022-2023',1,'valide'),(82003,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82003,'DROIT_CIV1','2022-2023',2,'valide'),(82003,'PROCED_CIV','2022-2023',2,'valide'),
-                            (82003,'DROIT_TRAV','2023-2024',3,'en_cours'),(82003,'PROCED_PEN','2023-2024',3,'en_cours'),
-                            (82004,'DROIT_CONST','2022-2023',1,'valide'),(82004,'DROIT_ADM','2022-2023',1,'valide'),
-                            (82004,'ANGLAIS_1','2022-2023',1,'valide'),(82004,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82004,'DROIT_PEN','2022-2023',2,'valide'),(82004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (82004,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82005,'DROIT_CONST','2022-2023',1,'valide'),(82005,'HIST_DROIT','2022-2023',1,'valide'),
-                            (82005,'DROIT_ADM','2022-2023',1,'valide'),(82005,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82005,'DROIT_CIV1','2022-2023',2,'echoue'),(82005,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (82005,'DROIT_CIV1','2023-2024',3,'valide'),(82005,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82006,'DROIT_CONST','2022-2023',1,'valide'),(82006,'DROIT_ADM','2022-2023',1,'valide'),
-                            (82006,'ANGLAIS_1','2022-2023',1,'valide'),(82006,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82006,'PROCED_CIV','2022-2023',2,'valide'),(82006,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (82006,'DROIT_TRAV','2023-2024',3,'en_cours'),(82006,'PROCED_PEN','2023-2024',3,'en_cours'),
-                            (82007,'DROIT_CONST','2022-2023',1,'valide'),(82007,'HIST_DROIT','2022-2023',1,'valide'),
-                            (82007,'DROIT_ADM','2022-2023',1,'valide'),(82007,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82007,'DROIT_CIV1','2022-2023',2,'valide'),(82007,'DROIT_PEN','2022-2023',2,'valide'),
-                            (82007,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82008,'DROIT_CONST','2022-2023',1,'valide'),(82008,'DROIT_ADM','2022-2023',1,'valide'),
-                            (82008,'RHETORIQUE','2022-2023',1,'valide'),(82008,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82008,'ANGLAIS_2','2022-2023',2,'valide'),(82008,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82009,'DROIT_CONST','2022-2023',1,'valide'),(82009,'HIST_DROIT','2022-2023',1,'valide'),
-                            (82009,'ANGLAIS_1','2022-2023',1,'valide'),(82009,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82009,'PROCED_CIV','2022-2023',2,'valide'),(82009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (82009,'DROIT_TRAV','2023-2024',3,'en_cours'),
-                            (82010,'DROIT_CONST','2022-2023',1,'valide'),(82010,'DROIT_ADM','2022-2023',1,'valide'),
-                            (82010,'ANGLAIS_1','2022-2023',1,'valide'),(82010,'DROIT_EUR','2022-2023',2,'valide'),
-                            (82010,'DROIT_PEN','2022-2023',2,'valide'),(82010,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (82010,'DROIT_TRAV','2023-2024',3,'en_cours'),(82010,'PROCED_PEN','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (83001,'Gier','Gaelle','2002-04-11',8),(83002,'Hier','Herve','2001-07-24',8),
-                         (83003,'Iier','Isabelle','2002-01-06',8),(83004,'Jier','Jerome','2001-04-19',8),
-                         (83005,'Kier','Karine','2002-08-02',8),(83006,'Lier','Laurent','2001-11-15',8),
-                         (83007,'Mier','Marine','2002-02-28',8),(83008,'Nier','Nicolas','2001-06-13',8),
-                         (83009,'Oier','Odette','2002-10-26',8),(83010,'Pier','Pierre','2001-03-10',8);
-
-INSERT INTO Inscription VALUES
-                            (83001,'DROIT_CONST','2021-2022',1,'valide'),(83001,'HIST_DROIT','2021-2022',1,'valide'),
-                            (83001,'DROIT_ADM','2021-2022',1,'valide'),(83001,'ANGLAIS_1','2021-2022',1,'valide'),
-                            (83001,'DROIT_EUR','2021-2022',2,'valide'),(83001,'DROIT_CIV1','2021-2022',2,'valide'),
-                            (83001,'ANGLAIS_2','2021-2022',2,'valide'),(83001,'DROIT_TRAV','2022-2023',3,'valide'),
-                            (83001,'PROCED_PEN','2022-2023',3,'valide'),(83001,'PROJET_PRO','2022-2023',4,'valide'),
-                            (83001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83002,'DROIT_CONST','2021-2022',1,'valide'),(83002,'DROIT_ADM','2021-2022',1,'valide'),
-                            (83002,'ANGLAIS_1','2021-2022',1,'valide'),(83002,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83002,'ANGLAIS_2','2021-2022',2,'valide'),(83002,'DROIT_TRAV','2022-2023',3,'valide'),
-                            (83002,'PROJET_PRO','2022-2023',4,'valide'),(83002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83003,'DROIT_CONST','2021-2022',1,'valide'),(83003,'HIST_DROIT','2021-2022',1,'valide'),
-                            (83003,'DROIT_ADM','2021-2022',1,'valide'),(83003,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83003,'DROIT_CIV1','2021-2022',2,'valide'),(83003,'PROCED_CIV','2021-2022',2,'valide'),
-                            (83003,'DROIT_TRAV','2022-2023',3,'valide'),(83003,'PROCED_PEN','2022-2023',3,'valide'),
-                            (83003,'PROJET_PRO','2022-2023',4,'valide'),(83003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83004,'DROIT_CONST','2021-2022',1,'valide'),(83004,'DROIT_ADM','2021-2022',1,'valide'),
-                            (83004,'RHETORIQUE','2021-2022',1,'valide'),(83004,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83004,'DROIT_PEN','2021-2022',2,'valide'),(83004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (83004,'DROIT_TRAV','2022-2023',3,'valide'),(83004,'PROJET_PRO','2022-2023',4,'valide'),
-                            (83004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83005,'DROIT_CONST','2021-2022',1,'valide'),(83005,'HIST_DROIT','2021-2022',1,'valide'),
-                            (83005,'ANGLAIS_1','2021-2022',1,'valide'),(83005,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83005,'DROIT_CIV1','2021-2022',2,'valide'),(83005,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (83005,'DROIT_TRAV','2022-2023',3,'valide'),(83005,'PROJET_PRO','2022-2023',4,'valide'),
-                            (83005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83006,'DROIT_CONST','2021-2022',1,'valide'),(83006,'DROIT_ADM','2021-2022',1,'valide'),
-                            (83006,'ANGLAIS_1','2021-2022',1,'valide'),(83006,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83006,'PROCED_CIV','2021-2022',2,'valide'),(83006,'DROIT_PEN','2021-2022',2,'valide'),
-                            (83006,'DROIT_TRAV','2022-2023',3,'valide'),(83006,'PROCED_PEN','2022-2023',3,'valide'),
-                            (83006,'PROJET_PRO','2022-2023',4,'valide'),(83006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83007,'DROIT_CONST','2021-2022',1,'valide'),(83007,'HIST_DROIT','2021-2022',1,'valide'),
-                            (83007,'DROIT_ADM','2021-2022',1,'valide'),(83007,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83007,'DROIT_CIV1','2021-2022',2,'echoue'),(83007,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (83007,'DROIT_CIV1','2022-2023',3,'valide'),(83007,'DROIT_TRAV','2022-2023',3,'valide'),
-                            (83007,'PROJET_PRO','2022-2023',4,'valide'),(83007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83008,'DROIT_CONST','2021-2022',1,'valide'),(83008,'DROIT_ADM','2021-2022',1,'valide'),
-                            (83008,'ANGLAIS_1','2021-2022',1,'valide'),(83008,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83008,'ANGLAIS_2','2021-2022',2,'valide'),(83008,'DROIT_TRAV','2022-2023',3,'valide'),
-                            (83008,'PROCED_PEN','2022-2023',3,'valide'),(83008,'PROJET_PRO','2022-2023',4,'valide'),
-                            (83008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83009,'DROIT_CONST','2021-2022',1,'valide'),(83009,'HIST_DROIT','2021-2022',1,'valide'),
-                            (83009,'DROIT_ADM','2021-2022',1,'valide'),(83009,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83009,'DROIT_PEN','2021-2022',2,'valide'),(83009,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (83009,'DROIT_TRAV','2022-2023',3,'valide'),(83009,'PROJET_PRO','2022-2023',4,'valide'),
-                            (83009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (83010,'DROIT_CONST','2021-2022',1,'valide'),(83010,'DROIT_ADM','2021-2022',1,'valide'),
-                            (83010,'RHETORIQUE','2021-2022',1,'valide'),(83010,'DROIT_EUR','2021-2022',2,'valide'),
-                            (83010,'PROCED_CIV','2021-2022',2,'valide'),(83010,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (83010,'DROIT_TRAV','2022-2023',3,'valide'),(83010,'PROCED_PEN','2022-2023',3,'valide'),
-                            (83010,'PROJET_PRO','2022-2023',4,'valide'),(83010,'ANGLAIS_3','2023-2024',5,'en_cours');
-
--- ---- PARCOURS 9 : Psychologie Clinique ----
--- S1: PSYCH_GEN, PSYCH_DEV, METHODO, STATS_PSY, ANGLAIS_1
--- S2: PSYCH_SOC, NEURO, PSYCH_CLIN, ANGLAIS_2, SPORT
--- S3: ENTRETIEN, PSYCH_TEST, PSYCH_TRAV
--- S4: PROJET_PRO, ANGLAIS_3
-
-INSERT INTO Etudiant VALUES
-                         (91001,'Qier','Quentin','2004-01-02',9),(91002,'Rier','Renee','2004-04-15',9),
-                         (91003,'Sier','Sabine','2004-07-28',9),(91004,'Tier','Therese','2004-02-10',9),
-                         (91005,'Uier','Ulysse','2004-06-23',9),(91006,'Vier','Viviane','2004-10-06',9),
-                         (91007,'Wier','Wilfrid','2004-03-19',9),(91008,'Xier','Xenia','2004-09-02',9),
-                         (91009,'Yier','Yolande','2004-07-16',9),(91010,'Zier','Zacharie','2004-11-29',9);
-
-INSERT INTO Inscription VALUES
-                            (91001,'PSYCH_GEN','2023-2024',1,'en_cours'),(91001,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (91001,'METHODO','2023-2024',1,'en_cours'),(91001,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (91002,'PSYCH_GEN','2023-2024',1,'en_cours'),(91002,'METHODO','2023-2024',1,'en_cours'),
-                            (91002,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (91003,'PSYCH_GEN','2023-2024',1,'en_cours'),(91003,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (91003,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (91004,'PSYCH_GEN','2023-2024',1,'en_cours'),(91004,'METHODO','2023-2024',1,'en_cours'),
-                            (91004,'PSYCH_DEV','2023-2024',1,'en_cours'),(91004,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (91005,'PSYCH_GEN','2023-2024',1,'en_cours'),(91005,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (91006,'PSYCH_GEN','2023-2024',1,'en_cours'),(91006,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (91006,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (91007,'PSYCH_GEN','2023-2024',1,'en_cours'),(91007,'METHODO','2023-2024',1,'en_cours'),
-                            (91008,'PSYCH_GEN','2023-2024',1,'en_cours'),(91008,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (91008,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (91009,'PSYCH_GEN','2023-2024',1,'en_cours'),(91009,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (91010,'PSYCH_GEN','2023-2024',1,'en_cours'),(91010,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (91010,'METHODO','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (92001,'Ajer','Amelie','2003-02-12',9),(92002,'Bjer','Boris','2003-05-25',9),
-                         (92003,'Cjer','Claire','2002-09-08',9),(92004,'Djer','Denis','2003-01-21',9),
-                         (92005,'Ejer','Edith','2002-10-03',9),(92006,'Fjer','Fabrice','2003-04-17',9),
-                         (92007,'Gjer','Geraldine','2003-08-30',9),(92008,'Hjer','Henri','2002-12-13',9),
-                         (92009,'Ijer','Isabelle','2003-03-26',9),(92010,'Jjer','Jacques','2002-08-08',9);
-
-INSERT INTO Inscription VALUES
-                            (92001,'PSYCH_GEN','2022-2023',1,'valide'),(92001,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (92001,'METHODO','2022-2023',1,'valide'),(92001,'STATS_PSY','2022-2023',1,'valide'),
-                            (92001,'ANGLAIS_1','2022-2023',1,'valide'),(92001,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92001,'NEURO','2022-2023',2,'valide'),(92001,'PSYCH_CLIN','2022-2023',2,'valide'),
-                            (92001,'ANGLAIS_2','2022-2023',2,'valide'),(92001,'ENTRETIEN','2023-2024',3,'en_cours'),
-                            (92001,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92002,'PSYCH_GEN','2022-2023',1,'valide'),(92002,'METHODO','2022-2023',1,'valide'),
-                            (92002,'ANGLAIS_1','2022-2023',1,'valide'),(92002,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92002,'PSYCH_CLIN','2022-2023',2,'valide'),(92002,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (92002,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92003,'PSYCH_GEN','2022-2023',1,'valide'),(92003,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (92003,'STATS_PSY','2022-2023',1,'valide'),(92003,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92003,'NEURO','2022-2023',2,'valide'),(92003,'PSYCH_CLIN','2022-2023',2,'valide'),
-                            (92003,'ENTRETIEN','2023-2024',3,'en_cours'),(92003,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92004,'PSYCH_GEN','2022-2023',1,'valide'),(92004,'METHODO','2022-2023',1,'valide'),
-                            (92004,'ANGLAIS_1','2022-2023',1,'valide'),(92004,'PSYCH_CLIN','2022-2023',2,'valide'),
-                            (92004,'NEURO','2022-2023',2,'echoue'),(92004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (92004,'NEURO','2023-2024',3,'valide'),(92004,'ENTRETIEN','2023-2024',3,'en_cours'),
-                            (92005,'PSYCH_GEN','2022-2023',1,'valide'),(92005,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (92005,'METHODO','2022-2023',1,'valide'),(92005,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92005,'PSYCH_CLIN','2022-2023',2,'valide'),(92005,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (92005,'ENTRETIEN','2023-2024',3,'en_cours'),(92005,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92006,'PSYCH_GEN','2022-2023',1,'valide'),(92006,'STATS_PSY','2022-2023',1,'valide'),
-                            (92006,'ANGLAIS_1','2022-2023',1,'valide'),(92006,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92006,'NEURO','2022-2023',2,'valide'),(92006,'PSYCH_CLIN','2022-2023',2,'valide'),
-                            (92006,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92007,'PSYCH_GEN','2022-2023',1,'valide'),(92007,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (92007,'METHODO','2022-2023',1,'valide'),(92007,'PSYCH_CLIN','2022-2023',2,'valide'),
-                            (92007,'ANGLAIS_2','2022-2023',2,'valide'),(92007,'ENTRETIEN','2023-2024',3,'en_cours'),
-                            (92007,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92008,'PSYCH_GEN','2022-2023',1,'valide'),(92008,'STATS_PSY','2022-2023',1,'valide'),
-                            (92008,'ANGLAIS_1','2022-2023',1,'valide'),(92008,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92008,'PSYCH_CLIN','2022-2023',2,'valide'),(92008,'NEURO','2022-2023',2,'valide'),
-                            (92008,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (92009,'PSYCH_GEN','2022-2023',1,'valide'),(92009,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (92009,'ANGLAIS_1','2022-2023',1,'valide'),(92009,'PSYCH_CLIN','2022-2023',2,'valide'),
-                            (92009,'NEURO','2022-2023',2,'valide'),(92009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (92009,'ENTRETIEN','2023-2024',3,'en_cours'),
-                            (92010,'PSYCH_GEN','2022-2023',1,'valide'),(92010,'METHODO','2022-2023',1,'valide'),
-                            (92010,'STATS_PSY','2022-2023',1,'valide'),(92010,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (92010,'PSYCH_CLIN','2022-2023',2,'valide'),(92010,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (92010,'PSYCH_TEST','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (93001,'Kjer','Karine','2002-04-14',9),(93002,'Ljer','Laurent','2001-07-27',9),
-                         (93003,'Mjer','Marine','2002-01-09',9),(93004,'Njer','Nicolas','2001-04-22',9),
-                         (93005,'Ojer','Odile','2002-08-05',9),(93006,'Pjer','Patricia','2001-11-18',9),
-                         (93007,'Qjer','Quentin','2002-02-01',9),(93008,'Rjer','Renee','2001-05-14',9),
-                         (93009,'Sjer','Serge','2002-09-27',9),(93010,'Tjer','Therese','2001-01-10',9);
-
-INSERT INTO Inscription VALUES
-                            (93001,'PSYCH_GEN','2021-2022',1,'valide'),(93001,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (93001,'METHODO','2021-2022',1,'valide'),(93001,'STATS_PSY','2021-2022',1,'valide'),
-                            (93001,'ANGLAIS_1','2021-2022',1,'valide'),(93001,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (93001,'NEURO','2021-2022',2,'valide'),(93001,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93001,'ANGLAIS_2','2021-2022',2,'valide'),(93001,'ENTRETIEN','2022-2023',3,'valide'),
-                            (93001,'PSYCH_TEST','2022-2023',3,'valide'),(93001,'PROJET_PRO','2022-2023',4,'valide'),
-                            (93001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93002,'PSYCH_GEN','2021-2022',1,'valide'),(93002,'METHODO','2021-2022',1,'valide'),
-                            (93002,'ANGLAIS_1','2021-2022',1,'valide'),(93002,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93002,'ANGLAIS_2','2021-2022',2,'valide'),(93002,'ENTRETIEN','2022-2023',3,'valide'),
-                            (93002,'PSYCH_TEST','2022-2023',3,'valide'),(93002,'PROJET_PRO','2022-2023',4,'valide'),
-                            (93002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93003,'PSYCH_GEN','2021-2022',1,'valide'),(93003,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (93003,'STATS_PSY','2021-2022',1,'valide'),(93003,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (93003,'NEURO','2021-2022',2,'valide'),(93003,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93003,'ENTRETIEN','2022-2023',3,'valide'),(93003,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (93003,'PROJET_PRO','2022-2023',4,'valide'),(93003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93004,'PSYCH_GEN','2021-2022',1,'valide'),(93004,'METHODO','2021-2022',1,'valide'),
-                            (93004,'ANGLAIS_1','2021-2022',1,'valide'),(93004,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93004,'NEURO','2021-2022',2,'valide'),(93004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (93004,'PSYCH_TEST','2022-2023',3,'valide'),(93004,'ENTRETIEN','2022-2023',3,'valide'),
-                            (93004,'PROJET_PRO','2022-2023',4,'valide'),(93004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93005,'PSYCH_GEN','2021-2022',1,'valide'),(93005,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (93005,'METHODO','2021-2022',1,'valide'),(93005,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (93005,'PSYCH_CLIN','2021-2022',2,'echoue'),(93005,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (93005,'PSYCH_CLIN','2022-2023',3,'valide'),(93005,'ENTRETIEN','2022-2023',3,'valide'),
-                            (93005,'PSYCH_TEST','2022-2023',3,'valide'),(93005,'PROJET_PRO','2022-2023',4,'valide'),
-                            (93005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93006,'PSYCH_GEN','2021-2022',1,'valide'),(93006,'STATS_PSY','2021-2022',1,'valide'),
-                            (93006,'ANGLAIS_1','2021-2022',1,'valide'),(93006,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93006,'NEURO','2021-2022',2,'valide'),(93006,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (93006,'ENTRETIEN','2022-2023',3,'valide'),(93006,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (93006,'PROJET_PRO','2022-2023',4,'valide'),(93006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93007,'PSYCH_GEN','2021-2022',1,'valide'),(93007,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (93007,'METHODO','2021-2022',1,'valide'),(93007,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (93007,'PSYCH_CLIN','2021-2022',2,'valide'),(93007,'NEURO','2021-2022',2,'valide'),
-                            (93007,'ENTRETIEN','2022-2023',3,'valide'),(93007,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (93007,'PROJET_PRO','2022-2023',4,'valide'),(93007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93008,'PSYCH_GEN','2021-2022',1,'valide'),(93008,'STATS_PSY','2021-2022',1,'valide'),
-                            (93008,'ANGLAIS_1','2021-2022',1,'valide'),(93008,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93008,'ANGLAIS_2','2021-2022',2,'valide'),(93008,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (93008,'ENTRETIEN','2022-2023',3,'valide'),(93008,'PROJET_PRO','2022-2023',4,'valide'),
-                            (93008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93009,'PSYCH_GEN','2021-2022',1,'valide'),(93009,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (93009,'ANGLAIS_1','2021-2022',1,'valide'),(93009,'PSYCH_CLIN','2021-2022',2,'valide'),
-                            (93009,'NEURO','2021-2022',2,'valide'),(93009,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (93009,'ENTRETIEN','2022-2023',3,'valide'),(93009,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (93009,'PROJET_PRO','2022-2023',4,'valide'),(93009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (93010,'PSYCH_GEN','2021-2022',1,'valide'),(93010,'METHODO','2021-2022',1,'valide'),
-                            (93010,'STATS_PSY','2021-2022',1,'valide'),(93010,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (93010,'PSYCH_CLIN','2021-2022',2,'valide'),(93010,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (93010,'PSYCH_TEST','2022-2023',3,'valide'),(93010,'ENTRETIEN','2022-2023',3,'valide'),
-                            (93010,'PROJET_PRO','2022-2023',4,'valide'),(93010,'ANGLAIS_3','2023-2024',5,'en_cours');
-
--- ---- PARCOURS 10 : Psychologie du Travail ----
--- S1: PSYCH_GEN, PSYCH_DEV, METHODO, STATS_PSY, ANGLAIS_1
--- S2: PSYCH_SOC, PSYCH_TRAV, NEURO, ANGLAIS_2, SPORT
--- S3: ENTRETIEN, PSYCH_TEST, PSYCH_CLIN
--- S4: PROJET_PRO, ANGLAIS_3
-
-INSERT INTO Etudiant VALUES
-                         (101001,'Ujer','Ursula','2004-01-03',10),(101002,'Vjer','Valerie','2004-04-16',10),
-                         (101003,'Wjer','Wilfrid','2004-07-29',10),(101004,'Xjer','Xenia','2004-02-11',10),
-                         (101005,'Yjer','Yann','2004-06-24',10),(101006,'Zjer','Zoe','2004-10-07',10),
-                         (101007,'Aker','Andre','2004-03-20',10),(101008,'Bker','Brigitte','2004-09-03',10),
-                         (101009,'Cker','Charles','2004-07-17',10),(101010,'Dker','Denise','2004-11-30',10);
-
-INSERT INTO Inscription VALUES
-                            (101001,'PSYCH_GEN','2023-2024',1,'en_cours'),(101001,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (101001,'METHODO','2023-2024',1,'en_cours'),(101001,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (101002,'PSYCH_GEN','2023-2024',1,'en_cours'),(101002,'METHODO','2023-2024',1,'en_cours'),
-                            (101002,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (101003,'PSYCH_GEN','2023-2024',1,'en_cours'),(101003,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (101003,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (101004,'PSYCH_GEN','2023-2024',1,'en_cours'),(101004,'METHODO','2023-2024',1,'en_cours'),
-                            (101004,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (101005,'PSYCH_GEN','2023-2024',1,'en_cours'),(101005,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (101006,'PSYCH_GEN','2023-2024',1,'en_cours'),(101006,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (101006,'METHODO','2023-2024',1,'en_cours'),
-                            (101007,'PSYCH_GEN','2023-2024',1,'en_cours'),(101007,'STATS_PSY','2023-2024',1,'en_cours'),
-                            (101008,'PSYCH_GEN','2023-2024',1,'en_cours'),(101008,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (101008,'ANGLAIS_1','2023-2024',1,'en_cours'),
-                            (101009,'PSYCH_GEN','2023-2024',1,'en_cours'),(101009,'METHODO','2023-2024',1,'en_cours'),
-                            (101010,'PSYCH_GEN','2023-2024',1,'en_cours'),(101010,'PSYCH_DEV','2023-2024',1,'en_cours'),
-                            (101010,'STATS_PSY','2023-2024',1,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (102001,'Eker','Edith','2003-02-13',10),(102002,'Fker','Fabrice','2003-05-26',10),
-                         (102003,'Gker','Geraldine','2002-09-09',10),(102004,'Hker','Henri','2003-01-22',10),
-                         (102005,'Iker','Isabelle','2002-10-04',10),(102006,'Jker','Jacques','2003-04-18',10),
-                         (102007,'Kker','Karine','2003-08-01',10),(102008,'Lker','Laurent','2002-12-14',10),
-                         (102009,'Mker','Marine','2003-03-27',10),(102010,'Nker','Nicolas','2002-07-09',10);
-
-INSERT INTO Inscription VALUES
-                            (102001,'PSYCH_GEN','2022-2023',1,'valide'),(102001,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (102001,'METHODO','2022-2023',1,'valide'),(102001,'STATS_PSY','2022-2023',1,'valide'),
-                            (102001,'ANGLAIS_1','2022-2023',1,'valide'),(102001,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (102001,'PSYCH_TRAV','2022-2023',2,'valide'),(102001,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (102001,'PSYCH_TEST','2023-2024',3,'en_cours'),(102001,'PSYCH_CLIN','2023-2024',3,'en_cours'),
-                            (102002,'PSYCH_GEN','2022-2023',1,'valide'),(102002,'METHODO','2022-2023',1,'valide'),
-                            (102002,'ANGLAIS_1','2022-2023',1,'valide'),(102002,'PSYCH_TRAV','2022-2023',2,'valide'),
-                            (102002,'ANGLAIS_2','2022-2023',2,'valide'),(102002,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (102003,'PSYCH_GEN','2022-2023',1,'valide'),(102003,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (102003,'STATS_PSY','2022-2023',1,'valide'),(102003,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (102003,'PSYCH_TRAV','2022-2023',2,'valide'),(102003,'NEURO','2022-2023',2,'valide'),
-                            (102003,'PSYCH_TEST','2023-2024',3,'en_cours'),(102003,'PSYCH_CLIN','2023-2024',3,'en_cours'),
-                            (102004,'PSYCH_GEN','2022-2023',1,'valide'),(102004,'METHODO','2022-2023',1,'valide'),
-                            (102004,'ANGLAIS_1','2022-2023',1,'valide'),(102004,'PSYCH_TRAV','2022-2023',2,'valide'),
-                            (102004,'NEURO','2022-2023',2,'echoue'),(102004,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (102004,'NEURO','2023-2024',3,'valide'),(102004,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (102005,'PSYCH_GEN','2022-2023',1,'valide'),(102005,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (102005,'METHODO','2022-2023',1,'valide'),(102005,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (102005,'PSYCH_TRAV','2022-2023',2,'valide'),(102005,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (102005,'PSYCH_TEST','2023-2024',3,'en_cours'),(102005,'PSYCH_CLIN','2023-2024',3,'en_cours'),
-                            (102006,'PSYCH_GEN','2022-2023',1,'valide'),(102006,'STATS_PSY','2022-2023',1,'valide'),
-                            (102006,'ANGLAIS_1','2022-2023',1,'valide'),(102006,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (102006,'PSYCH_TRAV','2022-2023',2,'valide'),(102006,'NEURO','2022-2023',2,'valide'),
-                            (102006,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (102007,'PSYCH_GEN','2022-2023',1,'valide'),(102007,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (102007,'METHODO','2022-2023',1,'valide'),(102007,'PSYCH_TRAV','2022-2023',2,'valide'),
-                            (102007,'ANGLAIS_2','2022-2023',2,'valide'),(102007,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (102007,'PSYCH_CLIN','2023-2024',3,'en_cours'),
-                            (102008,'PSYCH_GEN','2022-2023',1,'valide'),(102008,'STATS_PSY','2022-2023',1,'valide'),
-                            (102008,'ANGLAIS_1','2022-2023',1,'valide'),(102008,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (102008,'PSYCH_TRAV','2022-2023',2,'valide'),(102008,'NEURO','2022-2023',2,'valide'),
-                            (102008,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (102009,'PSYCH_GEN','2022-2023',1,'valide'),(102009,'PSYCH_DEV','2022-2023',1,'valide'),
-                            (102009,'ANGLAIS_1','2022-2023',1,'valide'),(102009,'PSYCH_TRAV','2022-2023',2,'valide'),
-                            (102009,'NEURO','2022-2023',2,'valide'),(102009,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (102009,'PSYCH_TEST','2023-2024',3,'en_cours'),
-                            (102010,'PSYCH_GEN','2022-2023',1,'valide'),(102010,'METHODO','2022-2023',1,'valide'),
-                            (102010,'STATS_PSY','2022-2023',1,'valide'),(102010,'PSYCH_SOC','2022-2023',2,'valide'),
-                            (102010,'PSYCH_TRAV','2022-2023',2,'valide'),(102010,'ANGLAIS_2','2022-2023',2,'valide'),
-                            (102010,'PSYCH_TEST','2023-2024',3,'en_cours');
-
-INSERT INTO Etudiant VALUES
-                         (103001,'Oker','Odile','2002-04-12',10),(103002,'Pker','Pierre','2001-07-25',10),
-                         (103003,'Qker','Quentin','2002-01-07',10),(103004,'Rker','Renee','2001-04-20',10),
-                         (103005,'Sker','Serge','2002-08-03',10),(103006,'Tker','Therese','2001-11-16',10),
-                         (103007,'Uker','Ulysse','2002-02-28',10),(103008,'Vker','Valerie','2001-06-12',10),
-                         (103009,'Wker','Wilfrid','2002-10-25',10),(103010,'Xker','Xavier','2001-02-08',10);
-
-INSERT INTO Inscription VALUES
-                            (103001,'PSYCH_GEN','2021-2022',1,'valide'),(103001,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (103001,'METHODO','2021-2022',1,'valide'),(103001,'STATS_PSY','2021-2022',1,'valide'),
-                            (103001,'ANGLAIS_1','2021-2022',1,'valide'),(103001,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (103001,'PSYCH_TRAV','2021-2022',2,'valide'),(103001,'NEURO','2021-2022',2,'valide'),
-                            (103001,'ANGLAIS_2','2021-2022',2,'valide'),(103001,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (103001,'PSYCH_CLIN','2022-2023',3,'valide'),(103001,'PROJET_PRO','2022-2023',4,'valide'),
-                            (103001,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103002,'PSYCH_GEN','2021-2022',1,'valide'),(103002,'METHODO','2021-2022',1,'valide'),
-                            (103002,'ANGLAIS_1','2021-2022',1,'valide'),(103002,'PSYCH_TRAV','2021-2022',2,'valide'),
-                            (103002,'ANGLAIS_2','2021-2022',2,'valide'),(103002,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (103002,'PROJET_PRO','2022-2023',4,'valide'),(103002,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103003,'PSYCH_GEN','2021-2022',1,'valide'),(103003,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (103003,'STATS_PSY','2021-2022',1,'valide'),(103003,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (103003,'PSYCH_TRAV','2021-2022',2,'valide'),(103003,'NEURO','2021-2022',2,'valide'),
-                            (103003,'PSYCH_TEST','2022-2023',3,'valide'),(103003,'PSYCH_CLIN','2022-2023',3,'valide'),
-                            (103003,'PROJET_PRO','2022-2023',4,'valide'),(103003,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103004,'PSYCH_GEN','2021-2022',1,'valide'),(103004,'METHODO','2021-2022',1,'valide'),
-                            (103004,'ANGLAIS_1','2021-2022',1,'valide'),(103004,'PSYCH_TRAV','2021-2022',2,'valide'),
-                            (103004,'NEURO','2021-2022',2,'valide'),(103004,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (103004,'PSYCH_TEST','2022-2023',3,'valide'),(103004,'ENTRETIEN','2022-2023',3,'valide'),
-                            (103004,'PROJET_PRO','2022-2023',4,'valide'),(103004,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103005,'PSYCH_GEN','2021-2022',1,'valide'),(103005,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (103005,'METHODO','2021-2022',1,'valide'),(103005,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (103005,'PSYCH_TRAV','2021-2022',2,'echoue'),(103005,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (103005,'PSYCH_TRAV','2022-2023',3,'valide'),(103005,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (103005,'PROJET_PRO','2022-2023',4,'valide'),(103005,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103006,'PSYCH_GEN','2021-2022',1,'valide'),(103006,'STATS_PSY','2021-2022',1,'valide'),
-                            (103006,'ANGLAIS_1','2021-2022',1,'valide'),(103006,'PSYCH_TRAV','2021-2022',2,'valide'),
-                            (103006,'NEURO','2021-2022',2,'valide'),(103006,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (103006,'PSYCH_TEST','2022-2023',3,'valide'),(103006,'PSYCH_CLIN','2022-2023',3,'valide'),
-                            (103006,'PROJET_PRO','2022-2023',4,'valide'),(103006,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103007,'PSYCH_GEN','2021-2022',1,'valide'),(103007,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (103007,'METHODO','2021-2022',1,'valide'),(103007,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (103007,'PSYCH_TRAV','2021-2022',2,'valide'),(103007,'NEURO','2021-2022',2,'valide'),
-                            (103007,'PSYCH_TEST','2022-2023',3,'valide'),(103007,'PROJET_PRO','2022-2023',4,'valide'),
-                            (103007,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103008,'PSYCH_GEN','2021-2022',1,'valide'),(103008,'STATS_PSY','2021-2022',1,'valide'),
-                            (103008,'ANGLAIS_1','2021-2022',1,'valide'),(103008,'PSYCH_TRAV','2021-2022',2,'valide'),
-                            (103008,'ANGLAIS_2','2021-2022',2,'valide'),(103008,'PSYCH_TEST','2022-2023',3,'valide'),
-                            (103008,'PSYCH_CLIN','2022-2023',3,'valide'),(103008,'PROJET_PRO','2022-2023',4,'valide'),
-                            (103008,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103009,'PSYCH_GEN','2021-2022',1,'valide'),(103009,'PSYCH_DEV','2021-2022',1,'valide'),
-                            (103009,'ANGLAIS_1','2021-2022',1,'valide'),(103009,'PSYCH_TRAV','2021-2022',2,'valide'),
-                            (103009,'NEURO','2021-2022',2,'valide'),(103009,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (103009,'PSYCH_TEST','2022-2023',3,'valide'),(103009,'ENTRETIEN','2022-2023',3,'valide'),
-                            (103009,'PROJET_PRO','2022-2023',4,'valide'),(103009,'ANGLAIS_3','2023-2024',5,'en_cours'),
-                            (103010,'PSYCH_GEN','2021-2022',1,'valide'),(103010,'METHODO','2021-2022',1,'valide'),
-                            (103010,'STATS_PSY','2021-2022',1,'valide'),(103010,'PSYCH_SOC','2021-2022',2,'valide'),
-                            (103010,'PSYCH_TRAV','2021-2022',2,'valide'),(103010,'ANGLAIS_2','2021-2022',2,'valide'),
-                            (103010,'PSYCH_TEST','2022-2023',3,'valide'),(103010,'PSYCH_CLIN','2022-2023',3,'valide'),
-                            (103010,'PROJET_PRO','2022-2023',4,'valide'),(103010,'ANGLAIS_3','2023-2024',5,'en_cours');
+-- ------------------------------------------
+-- PROMO L1 (5 Étudiants) - Inscrits en S1 et S2 (en_cours)
+-- ------------------------------------------
+INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, id_parcours) VALUES
+                                                                             (11001, 'Aubert', 'Alice', '2005-02-14', 1), (11002, 'Baudry', 'Bastien', '2005-06-21', 1),
+                                                                             (11003, 'Caron', 'Chloe', '2004-11-03', 1), (11004, 'Dumont', 'David', '2005-01-30', 1),
+                                                                             (11005, 'Evrard', 'Emma', '2005-08-12', 1);
+
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation) VALUES
+-- Étudiant 11001
+(11001, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11001, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11001, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11001, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11001, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11001, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11001, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11001, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
+(11001, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11001, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11001, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11001, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11001, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11001, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11001, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11001, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
+-- Étudiant 11002
+(11002, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11002, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11002, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11002, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11002, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11002, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11002, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11002, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
+(11002, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11002, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11002, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11002, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11002, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11002, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11002, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11002, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
+-- Étudiant 11003
+(11003, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11003, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11003, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11003, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11003, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11003, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11003, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11003, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
+(11003, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11003, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11003, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11003, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11003, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11003, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11003, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11003, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
+-- Étudiant 11004
+(11004, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11004, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11004, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11004, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11004, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11004, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11004, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11004, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
+(11004, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11004, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11004, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11004, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11004, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11004, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11004, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11004, 'DWEB_S2', '2023-2024', 2, 'en_cours'),
+-- Étudiant 11005
+(11005, 'ANG_S1', '2023-2024', 1, 'en_cours'), (11005, 'COMPRO_S1', '2023-2024', 1, 'en_cours'), (11005, 'ALGO_S1', '2023-2024', 1, 'en_cours'), (11005, 'MDISC_S1', '2023-2024', 1, 'en_cours'), (11005, 'ECOG_S1', '2023-2024', 1, 'en_cours'), (11005, 'COMP_S1', '2023-2024', 1, 'en_cours'), (11005, 'SINF_S1', '2023-2024', 1, 'en_cours'), (11005, 'DWEB_S1', '2023-2024', 1, 'en_cours'),
+(11005, 'ANG_S2', '2023-2024', 2, 'en_cours'), (11005, 'COMPRO_S2', '2023-2024', 2, 'en_cours'), (11005, 'ALGO_S2', '2023-2024', 2, 'en_cours'), (11005, 'MDISC_S2', '2023-2024', 2, 'en_cours'), (11005, 'ECOG_S2', '2023-2024', 2, 'en_cours'), (11005, 'COMP_S2', '2023-2024', 2, 'en_cours'), (11005, 'SINF_S2', '2023-2024', 2, 'en_cours'), (11005, 'DWEB_S2', '2023-2024', 2, 'en_cours');
+
+-- ------------------------------------------
+-- PROMO L2 (5 Étudiants) - S1/S2 validés, S3/S4 en_cours
+-- ------------------------------------------
+INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, id_parcours) VALUES
+                                                                             (12001, 'Fabre', 'Florent', '2004-03-15', 1), (12002, 'Garnier', 'Gisele', '2003-12-08', 1),
+                                                                             (12003, 'Huet', 'Hugo', '2004-07-22', 1), (12004, 'Imbert', 'Ines', '2004-02-11', 1),
+                                                                             (12005, 'Jacquot', 'Jules', '2004-09-05', 1);
+
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation) VALUES
+-- Étudiant 12001 (A tout validé en L1 l'an dernier)
+(12001, 'ANG_S1', '2022-2023', 1, 'valide'), (12001, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12001, 'ALGO_S1', '2022-2023', 1, 'valide'), (12001, 'MDISC_S1', '2022-2023', 1, 'valide'), (12001, 'ECOG_S1', '2022-2023', 1, 'valide'), (12001, 'COMP_S1', '2022-2023', 1, 'valide'), (12001, 'SINF_S1', '2022-2023', 1, 'valide'), (12001, 'DWEB_S1', '2022-2023', 1, 'valide'),
+(12001, 'ANG_S2', '2022-2023', 2, 'valide'), (12001, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12001, 'ALGO_S2', '2022-2023', 2, 'valide'), (12001, 'MDISC_S2', '2022-2023', 2, 'valide'), (12001, 'ECOG_S2', '2022-2023', 2, 'valide'), (12001, 'COMP_S2', '2022-2023', 2, 'valide'), (12001, 'SINF_S2', '2022-2023', 2, 'valide'), (12001, 'DWEB_S2', '2022-2023', 2, 'valide'),
+(12001, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12001, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12001, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12001, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12001, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12001, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12001, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12001, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
+(12001, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12001, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12001, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12001, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12001, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12001, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12001, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12001, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
+-- Étudiant 12002
+(12002, 'ANG_S1', '2022-2023', 1, 'valide'), (12002, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12002, 'ALGO_S1', '2022-2023', 1, 'valide'), (12002, 'MDISC_S1', '2022-2023', 1, 'valide'), (12002, 'ECOG_S1', '2022-2023', 1, 'valide'), (12002, 'COMP_S1', '2022-2023', 1, 'valide'), (12002, 'SINF_S1', '2022-2023', 1, 'valide'), (12002, 'DWEB_S1', '2022-2023', 1, 'valide'),
+(12002, 'ANG_S2', '2022-2023', 2, 'valide'), (12002, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12002, 'ALGO_S2', '2022-2023', 2, 'valide'), (12002, 'MDISC_S2', '2022-2023', 2, 'valide'), (12002, 'ECOG_S2', '2022-2023', 2, 'valide'), (12002, 'COMP_S2', '2022-2023', 2, 'valide'), (12002, 'SINF_S2', '2022-2023', 2, 'valide'), (12002, 'DWEB_S2', '2022-2023', 2, 'valide'),
+(12002, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12002, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12002, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12002, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12002, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12002, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12002, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12002, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
+(12002, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12002, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12002, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12002, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12002, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12002, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12002, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12002, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
+-- Étudiant 12003 (Avec un échec rattrapé)
+(12003, 'ANG_S1', '2022-2023', 1, 'valide'), (12003, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12003, 'ALGO_S1', '2022-2023', 1, 'echoue'), (12003, 'MDISC_S1', '2022-2023', 1, 'valide'), (12003, 'ECOG_S1', '2022-2023', 1, 'valide'), (12003, 'COMP_S1', '2022-2023', 1, 'valide'), (12003, 'SINF_S1', '2022-2023', 1, 'valide'), (12003, 'DWEB_S1', '2022-2023', 1, 'valide'),
+(12003, 'ANG_S2', '2022-2023', 2, 'valide'), (12003, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12003, 'ALGO_S2', '2022-2023', 2, 'valide'), (12003, 'MDISC_S2', '2022-2023', 2, 'valide'), (12003, 'ECOG_S2', '2022-2023', 2, 'valide'), (12003, 'COMP_S2', '2022-2023', 2, 'valide'), (12003, 'SINF_S2', '2022-2023', 2, 'valide'), (12003, 'DWEB_S2', '2022-2023', 2, 'valide'),
+(12003, 'ALGO_S1', '2023-2024', 1, 'en_cours'), -- Rattrapage de la L1 !
+(12003, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12003, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12003, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12003, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12003, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12003, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12003, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12003, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
+(12003, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12003, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12003, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12003, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12003, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12003, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12003, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12003, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
+-- Étudiant 12004
+(12004, 'ANG_S1', '2022-2023', 1, 'valide'), (12004, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12004, 'ALGO_S1', '2022-2023', 1, 'valide'), (12004, 'MDISC_S1', '2022-2023', 1, 'valide'), (12004, 'ECOG_S1', '2022-2023', 1, 'valide'), (12004, 'COMP_S1', '2022-2023', 1, 'valide'), (12004, 'SINF_S1', '2022-2023', 1, 'valide'), (12004, 'DWEB_S1', '2022-2023', 1, 'valide'),
+(12004, 'ANG_S2', '2022-2023', 2, 'valide'), (12004, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12004, 'ALGO_S2', '2022-2023', 2, 'valide'), (12004, 'MDISC_S2', '2022-2023', 2, 'valide'), (12004, 'ECOG_S2', '2022-2023', 2, 'valide'), (12004, 'COMP_S2', '2022-2023', 2, 'valide'), (12004, 'SINF_S2', '2022-2023', 2, 'valide'), (12004, 'DWEB_S2', '2022-2023', 2, 'valide'),
+(12004, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12004, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12004, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12004, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12004, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12004, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12004, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12004, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
+(12004, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12004, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12004, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12004, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12004, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12004, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12004, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12004, 'DWEB_S4', '2023-2024', 4, 'en_cours'),
+-- Étudiant 12005
+(12005, 'ANG_S1', '2022-2023', 1, 'valide'), (12005, 'COMPRO_S1', '2022-2023', 1, 'valide'), (12005, 'ALGO_S1', '2022-2023', 1, 'valide'), (12005, 'MDISC_S1', '2022-2023', 1, 'valide'), (12005, 'ECOG_S1', '2022-2023', 1, 'valide'), (12005, 'COMP_S1', '2022-2023', 1, 'valide'), (12005, 'SINF_S1', '2022-2023', 1, 'valide'), (12005, 'DWEB_S1', '2022-2023', 1, 'valide'),
+(12005, 'ANG_S2', '2022-2023', 2, 'valide'), (12005, 'COMPRO_S2', '2022-2023', 2, 'valide'), (12005, 'ALGO_S2', '2022-2023', 2, 'valide'), (12005, 'MDISC_S2', '2022-2023', 2, 'valide'), (12005, 'ECOG_S2', '2022-2023', 2, 'valide'), (12005, 'COMP_S2', '2022-2023', 2, 'valide'), (12005, 'SINF_S2', '2022-2023', 2, 'valide'), (12005, 'DWEB_S2', '2022-2023', 2, 'valide'),
+(12005, 'ANG_S3', '2023-2024', 3, 'en_cours'), (12005, 'COMPRO_S3', '2023-2024', 3, 'en_cours'), (12005, 'ALGO_S3', '2023-2024', 3, 'en_cours'), (12005, 'MDISC_S3', '2023-2024', 3, 'en_cours'), (12005, 'ECOG_S3', '2023-2024', 3, 'en_cours'), (12005, 'COMP_S3', '2023-2024', 3, 'en_cours'), (12005, 'SINF_S3', '2023-2024', 3, 'en_cours'), (12005, 'DWEB_S3', '2023-2024', 3, 'en_cours'),
+(12005, 'ANG_S4', '2023-2024', 4, 'en_cours'), (12005, 'COMPRO_S4', '2023-2024', 4, 'en_cours'), (12005, 'ALGO_S4', '2023-2024', 4, 'en_cours'), (12005, 'MDISC_S4', '2023-2024', 4, 'en_cours'), (12005, 'ECOG_S4', '2023-2024', 4, 'en_cours'), (12005, 'COMP_S4', '2023-2024', 4, 'en_cours'), (12005, 'SINF_S4', '2023-2024', 4, 'en_cours'), (12005, 'DWEB_S4', '2023-2024', 4, 'en_cours');
+
+
+-- ------------------------------------------
+-- PROMO L3 (5 Étudiants) - S1 à S4 validés, S5/S6 en_cours
+-- ------------------------------------------
+INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, id_parcours) VALUES
+                                                                             (13001, 'Lambert', 'Leo', '2003-05-18', 1), (13002, 'Martin', 'Manon', '2002-10-09', 1),
+                                                                             (13003, 'Navarro', 'Noa', '2003-01-27', 1), (13004, 'Olivier', 'Ocean', '2002-08-14', 1),
+                                                                             (13005, 'Perrin', 'Paul', '2003-12-01', 1);
+
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation) VALUES
+-- Étudiant 13001 (A tout validé ses 2 premières années !)
+(13001, 'ANG_S1', '2021-2022', 1, 'valide'), (13001, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13001, 'ALGO_S1', '2021-2022', 1, 'valide'), (13001, 'MDISC_S1', '2021-2022', 1, 'valide'), (13001, 'ECOG_S1', '2021-2022', 1, 'valide'), (13001, 'COMP_S1', '2021-2022', 1, 'valide'), (13001, 'SINF_S1', '2021-2022', 1, 'valide'), (13001, 'DWEB_S1', '2021-2022', 1, 'valide'),
+(13001, 'ANG_S2', '2021-2022', 2, 'valide'), (13001, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13001, 'ALGO_S2', '2021-2022', 2, 'valide'), (13001, 'MDISC_S2', '2021-2022', 2, 'valide'), (13001, 'ECOG_S2', '2021-2022', 2, 'valide'), (13001, 'COMP_S2', '2021-2022', 2, 'valide'), (13001, 'SINF_S2', '2021-2022', 2, 'valide'), (13001, 'DWEB_S2', '2021-2022', 2, 'valide'),
+(13001, 'ANG_S3', '2022-2023', 3, 'valide'), (13001, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13001, 'ALGO_S3', '2022-2023', 3, 'valide'), (13001, 'MDISC_S3', '2022-2023', 3, 'valide'), (13001, 'ECOG_S3', '2022-2023', 3, 'valide'), (13001, 'COMP_S3', '2022-2023', 3, 'valide'), (13001, 'SINF_S3', '2022-2023', 3, 'valide'), (13001, 'DWEB_S3', '2022-2023', 3, 'valide'),
+(13001, 'ANG_S4', '2022-2023', 4, 'valide'), (13001, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13001, 'ALGO_S4', '2022-2023', 4, 'valide'), (13001, 'MDISC_S4', '2022-2023', 4, 'valide'), (13001, 'ECOG_S4', '2022-2023', 4, 'valide'), (13001, 'COMP_S4', '2022-2023', 4, 'valide'), (13001, 'SINF_S4', '2022-2023', 4, 'valide'), (13001, 'DWEB_S4', '2022-2023', 4, 'valide'),
+(13001, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13001, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13001, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13001, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13001, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13001, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13001, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13001, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
+(13001, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13001, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13001, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13001, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13001, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13001, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13001, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13001, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+
+-- Étudiant 13002
+(13002, 'ANG_S1', '2021-2022', 1, 'valide'), (13002, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13002, 'ALGO_S1', '2021-2022', 1, 'valide'), (13002, 'MDISC_S1', '2021-2022', 1, 'valide'), (13002, 'ECOG_S1', '2021-2022', 1, 'valide'), (13002, 'COMP_S1', '2021-2022', 1, 'valide'), (13002, 'SINF_S1', '2021-2022', 1, 'valide'), (13002, 'DWEB_S1', '2021-2022', 1, 'valide'),
+(13002, 'ANG_S2', '2021-2022', 2, 'valide'), (13002, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13002, 'ALGO_S2', '2021-2022', 2, 'valide'), (13002, 'MDISC_S2', '2021-2022', 2, 'valide'), (13002, 'ECOG_S2', '2021-2022', 2, 'valide'), (13002, 'COMP_S2', '2021-2022', 2, 'valide'), (13002, 'SINF_S2', '2021-2022', 2, 'valide'), (13002, 'DWEB_S2', '2021-2022', 2, 'valide'),
+(13002, 'ANG_S3', '2022-2023', 3, 'valide'), (13002, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13002, 'ALGO_S3', '2022-2023', 3, 'valide'), (13002, 'MDISC_S3', '2022-2023', 3, 'valide'), (13002, 'ECOG_S3', '2022-2023', 3, 'valide'), (13002, 'COMP_S3', '2022-2023', 3, 'valide'), (13002, 'SINF_S3', '2022-2023', 3, 'valide'), (13002, 'DWEB_S3', '2022-2023', 3, 'valide'),
+(13002, 'ANG_S4', '2022-2023', 4, 'valide'), (13002, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13002, 'ALGO_S4', '2022-2023', 4, 'valide'), (13002, 'MDISC_S4', '2022-2023', 4, 'valide'), (13002, 'ECOG_S4', '2022-2023', 4, 'valide'), (13002, 'COMP_S4', '2022-2023', 4, 'valide'), (13002, 'SINF_S4', '2022-2023', 4, 'valide'), (13002, 'DWEB_S4', '2022-2023', 4, 'valide'),
+(13002, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13002, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13002, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13002, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13002, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13002, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13002, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13002, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
+(13002, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13002, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13002, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13002, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13002, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13002, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13002, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13002, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+
+-- Étudiant 13003
+(13003, 'ANG_S1', '2021-2022', 1, 'valide'), (13003, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13003, 'ALGO_S1', '2021-2022', 1, 'valide'), (13003, 'MDISC_S1', '2021-2022', 1, 'valide'), (13003, 'ECOG_S1', '2021-2022', 1, 'valide'), (13003, 'COMP_S1', '2021-2022', 1, 'valide'), (13003, 'SINF_S1', '2021-2022', 1, 'valide'), (13003, 'DWEB_S1', '2021-2022', 1, 'valide'),
+(13003, 'ANG_S2', '2021-2022', 2, 'valide'), (13003, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13003, 'ALGO_S2', '2021-2022', 2, 'valide'), (13003, 'MDISC_S2', '2021-2022', 2, 'valide'), (13003, 'ECOG_S2', '2021-2022', 2, 'valide'), (13003, 'COMP_S2', '2021-2022', 2, 'valide'), (13003, 'SINF_S2', '2021-2022', 2, 'valide'), (13003, 'DWEB_S2', '2021-2022', 2, 'valide'),
+(13003, 'ANG_S3', '2022-2023', 3, 'valide'), (13003, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13003, 'ALGO_S3', '2022-2023', 3, 'valide'), (13003, 'MDISC_S3', '2022-2023', 3, 'valide'), (13003, 'ECOG_S3', '2022-2023', 3, 'valide'), (13003, 'COMP_S3', '2022-2023', 3, 'valide'), (13003, 'SINF_S3', '2022-2023', 3, 'valide'), (13003, 'DWEB_S3', '2022-2023', 3, 'valide'),
+(13003, 'ANG_S4', '2022-2023', 4, 'valide'), (13003, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13003, 'ALGO_S4', '2022-2023', 4, 'valide'), (13003, 'MDISC_S4', '2022-2023', 4, 'valide'), (13003, 'ECOG_S4', '2022-2023', 4, 'valide'), (13003, 'COMP_S4', '2022-2023', 4, 'valide'), (13003, 'SINF_S4', '2022-2023', 4, 'valide'), (13003, 'DWEB_S4', '2022-2023', 4, 'valide'),
+(13003, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13003, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13003, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13003, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13003, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13003, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13003, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13003, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
+(13003, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13003, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13003, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13003, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13003, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13003, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13003, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13003, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+
+-- Étudiant 13004
+(13004, 'ANG_S1', '2021-2022', 1, 'valide'), (13004, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13004, 'ALGO_S1', '2021-2022', 1, 'valide'), (13004, 'MDISC_S1', '2021-2022', 1, 'valide'), (13004, 'ECOG_S1', '2021-2022', 1, 'valide'), (13004, 'COMP_S1', '2021-2022', 1, 'valide'), (13004, 'SINF_S1', '2021-2022', 1, 'valide'), (13004, 'DWEB_S1', '2021-2022', 1, 'valide'),
+(13004, 'ANG_S2', '2021-2022', 2, 'valide'), (13004, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13004, 'ALGO_S2', '2021-2022', 2, 'valide'), (13004, 'MDISC_S2', '2021-2022', 2, 'valide'), (13004, 'ECOG_S2', '2021-2022', 2, 'valide'), (13004, 'COMP_S2', '2021-2022', 2, 'valide'), (13004, 'SINF_S2', '2021-2022', 2, 'valide'), (13004, 'DWEB_S2', '2021-2022', 2, 'valide'),
+(13004, 'ANG_S3', '2022-2023', 3, 'valide'), (13004, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13004, 'ALGO_S3', '2022-2023', 3, 'valide'), (13004, 'MDISC_S3', '2022-2023', 3, 'valide'), (13004, 'ECOG_S3', '2022-2023', 3, 'valide'), (13004, 'COMP_S3', '2022-2023', 3, 'valide'), (13004, 'SINF_S3', '2022-2023', 3, 'valide'), (13004, 'DWEB_S3', '2022-2023', 3, 'valide'),
+(13004, 'ANG_S4', '2022-2023', 4, 'valide'), (13004, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13004, 'ALGO_S4', '2022-2023', 4, 'valide'), (13004, 'MDISC_S4', '2022-2023', 4, 'valide'), (13004, 'ECOG_S4', '2022-2023', 4, 'valide'), (13004, 'COMP_S4', '2022-2023', 4, 'valide'), (13004, 'SINF_S4', '2022-2023', 4, 'valide'), (13004, 'DWEB_S4', '2022-2023', 4, 'valide'),
+(13004, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13004, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13004, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13004, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13004, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13004, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13004, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13004, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
+(13004, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13004, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13004, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13004, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13004, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13004, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13004, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13004, 'DWEB_S6', '2023-2024', 6, 'en_cours'),
+
+-- Étudiant 13005
+(13005, 'ANG_S1', '2021-2022', 1, 'valide'), (13005, 'COMPRO_S1', '2021-2022', 1, 'valide'), (13005, 'ALGO_S1', '2021-2022', 1, 'valide'), (13005, 'MDISC_S1', '2021-2022', 1, 'valide'), (13005, 'ECOG_S1', '2021-2022', 1, 'valide'), (13005, 'COMP_S1', '2021-2022', 1, 'valide'), (13005, 'SINF_S1', '2021-2022', 1, 'valide'), (13005, 'DWEB_S1', '2021-2022', 1, 'valide'),
+(13005, 'ANG_S2', '2021-2022', 2, 'valide'), (13005, 'COMPRO_S2', '2021-2022', 2, 'valide'), (13005, 'ALGO_S2', '2021-2022', 2, 'valide'), (13005, 'MDISC_S2', '2021-2022', 2, 'valide'), (13005, 'ECOG_S2', '2021-2022', 2, 'valide'), (13005, 'COMP_S2', '2021-2022', 2, 'valide'), (13005, 'SINF_S2', '2021-2022', 2, 'valide'), (13005, 'DWEB_S2', '2021-2022', 2, 'valide'),
+(13005, 'ANG_S3', '2022-2023', 3, 'valide'), (13005, 'COMPRO_S3', '2022-2023', 3, 'valide'), (13005, 'ALGO_S3', '2022-2023', 3, 'valide'), (13005, 'MDISC_S3', '2022-2023', 3, 'valide'), (13005, 'ECOG_S3', '2022-2023', 3, 'valide'), (13005, 'COMP_S3', '2022-2023', 3, 'valide'), (13005, 'SINF_S3', '2022-2023', 3, 'valide'), (13005, 'DWEB_S3', '2022-2023', 3, 'valide'),
+(13005, 'ANG_S4', '2022-2023', 4, 'valide'), (13005, 'COMPRO_S4', '2022-2023', 4, 'valide'), (13005, 'ALGO_S4', '2022-2023', 4, 'valide'), (13005, 'MDISC_S4', '2022-2023', 4, 'valide'), (13005, 'ECOG_S4', '2022-2023', 4, 'valide'), (13005, 'COMP_S4', '2022-2023', 4, 'valide'), (13005, 'SINF_S4', '2022-2023', 4, 'valide'), (13005, 'DWEB_S4', '2022-2023', 4, 'valide'),
+(13005, 'ANG_S5', '2023-2024', 5, 'en_cours'), (13005, 'COMPRO_S5', '2023-2024', 5, 'en_cours'), (13005, 'ALGO_S5', '2023-2024', 5, 'en_cours'), (13005, 'MDISC_S5', '2023-2024', 5, 'en_cours'), (13005, 'ECOG_S5', '2023-2024', 5, 'en_cours'), (13005, 'COMP_S5', '2023-2024', 5, 'en_cours'), (13005, 'SINF_S5', '2023-2024', 5, 'en_cours'), (13005, 'DWEB_S5', '2023-2024', 5, 'en_cours'),
+(13005, 'ANG_S6', '2023-2024', 6, 'en_cours'), (13005, 'COMPRO_S6', '2023-2024', 6, 'en_cours'), (13005, 'ALGO_S6', '2023-2024', 6, 'en_cours'), (13005, 'MDISC_S6', '2023-2024', 6, 'en_cours'), (13005, 'ECOG_S6', '2023-2024', 6, 'en_cours'), (13005, 'COMP_S6', '2023-2024', 6, 'en_cours'), (13005, 'SINF_S6', '2023-2024', 6, 'en_cours'), (13005, 'DWEB_S6', '2023-2024', 6, 'en_cours');

@@ -1355,167 +1355,303 @@ INSERT INTO Etudiant VALUES (31227, 'Nom_12_27', 'Prenom_27', '2003-03-18', 12);
 INSERT INTO Etudiant VALUES (31228, 'Nom_12_28', 'Prenom_28', '2003-09-23', 12);
 
 -- Inscription
-
--- L1
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
-SELECT e.num_etu, sp.code_ue, '2023-2024', sp.semestrePrevu, 'en_cours'
-FROM Etudiant e
-         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
-WHERE e.num_etu BETWEEN 10000 AND 19999
-  AND sp.semestrePrevu IN (1,2);
-
--- L2
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
-SELECT e.num_etu, sp.code_ue,
-       CASE WHEN sp.semestrePrevu IN (1,2) THEN '2022-2023' ELSE '2023-2024' END,
-       sp.semestrePrevu,
-       CASE WHEN sp.semestrePrevu IN (1,2) THEN 'valide' ELSE 'en_cours' END
-FROM Etudiant e
-         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
-WHERE e.num_etu BETWEEN 20000 AND 29999
-  AND sp.semestrePrevu IN (1,2,3,4);
-
--- L3
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
-SELECT e.num_etu, sp.code_ue,
-       CASE
-           WHEN sp.semestrePrevu IN (1,2) THEN '2021-2022'
-           WHEN sp.semestrePrevu IN (3,4) THEN '2022-2023'
-           ELSE '2023-2024'
-           END,
-       sp.semestrePrevu,
-       CASE
-           WHEN sp.semestrePrevu IN (1,2,3,4) THEN 'valide'
-           ELSE 'en_cours'
-           END
-FROM Etudiant e
-         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
-WHERE e.num_etu BETWEEN 30000 AND 39999
-  AND sp.semestrePrevu IN (1,2,3,4,5,6);
-
+-- ======================================================
+-- LISTES DE NOMS / PRENOMS
+-- ======================================================
 
 DROP TABLE IF EXISTS Prenoms;
 DROP TABLE IF EXISTS Noms;
 
 CREATE TABLE Prenoms (
                          id_prenom INT PRIMARY KEY,
-                         prenom VARCHAR(50) NOT NULL
+                         prenom VARCHAR(50)
 );
 
 CREATE TABLE Noms (
                       id_nom INT PRIMARY KEY,
-                      nom VARCHAR(50) NOT NULL
+                      nom VARCHAR(50)
 );
 
-INSERT INTO Prenoms (id_prenom, prenom) VALUES
-                                            (1,'Lucas'),
-                                            (2,'Emma'),
-                                            (3,'Hugo'),
-                                            (4,'Jade'),
-                                            (5,'Louis'),
-                                            (6,'Lina'),
-                                            (7,'Nathan'),
-                                            (8,'Chloe'),
-                                            (9,'Leo'),
-                                            (10,'Manon'),
-                                            (11,'Gabriel'),
-                                            (12,'Sarah'),
-                                            (13,'Arthur'),
-                                            (14,'Ines'),
-                                            (15,'Adam'),
-                                            (16,'Camille'),
-                                            (17,'Noah'),
-                                            (18,'Lea'),
-                                            (19,'Tom'),
-                                            (20,'Eva'),
-                                            (21,'Theo'),
-                                            (22,'Clara'),
-                                            (23,'Paul'),
-                                            (24,'Lola'),
-                                            (25,'Mathis'),
-                                            (26,'Juliette'),
-                                            (27,'Maxime'),
-                                            (28,'Anais'),
-                                            (29,'Baptiste'),
-                                            (30,'Marine'),
-                                            (31,'Ethan'),
-                                            (32,'Charlotte'),
-                                            (33,'Alexandre'),
-                                            (34,'Lucie'),
-                                            (35,'Antoine'),
-                                            (36,'Elise'),
-                                            (37,'Romain'),
-                                            (38,'Nina'),
-                                            (39,'Victor'),
-                                            (40,'Alice'),
-                                            (41,'Julien'),
-                                            (42,'Mael'),
-                                            (43,'Valentin'),
-                                            (44,'Zoe'),
-                                            (45,'Samuel'),
-                                            (46,'Margot'),
-                                            (47,'Thomas'),
-                                            (48,'Jeanne'),
-                                            (49,'Benjamin'),
-                                            (50,'Pauline');
+-- ======================================================
+-- 100 PRENOMS
+-- ======================================================
 
-INSERT INTO Noms (id_nom, nom) VALUES
-                                   (1,'Martin'),
-                                   (2,'Bernard'),
-                                   (3,'Thomas'),
-                                   (4,'Petit'),
-                                   (5,'Robert'),
-                                   (6,'Richard'),
-                                   (7,'Durand'),
-                                   (8,'Dubois'),
-                                   (9,'Moreau'),
-                                   (10,'Laurent'),
-                                   (11,'Simon'),
-                                   (12,'Michel'),
-                                   (13,'Lefebvre'),
-                                   (14,'Leroy'),
-                                   (15,'Roux'),
-                                   (16,'David'),
-                                   (17,'Bertrand'),
-                                   (18,'Morel'),
-                                   (19,'Fournier'),
-                                   (20,'Girard'),
-                                   (21,'Bonnet'),
-                                   (22,'Dupont'),
-                                   (23,'Lambert'),
-                                   (24,'Fontaine'),
-                                   (25,'Rousseau'),
-                                   (26,'Vincent'),
-                                   (27,'Muller'),
-                                   (28,'Lefevre'),
-                                   (29,'Faure'),
-                                   (30,'Andre'),
-                                   (31,'Mercier'),
-                                   (32,'Blanc'),
-                                   (33,'Guerin'),
-                                   (34,'Boyer'),
-                                   (35,'Garnier'),
-                                   (36,'Chevalier'),
-                                   (37,'Francois'),
-                                   (38,'Legrand'),
-                                   (39,'Gauthier'),
-                                   (40,'Garcia'),
-                                   (41,'Perrin'),
-                                   (42,'Robin'),
-                                   (43,'Clement'),
-                                   (44,'Morin'),
-                                   (45,'Henry'),
-                                   (46,'Roussel'),
-                                   (47,'Mathieu'),
-                                   (48,'Gautier'),
-                                   (49,'Masson'),
-                                   (50,'Marchand');
+INSERT INTO Prenoms VALUES
+                        (1,'Lucas'),
+                        (2,'Emma'),
+                        (3,'Hugo'),
+                        (4,'Jade'),
+                        (5,'Louis'),
+                        (6,'Lina'),
+                        (7,'Nathan'),
+                        (8,'Chloe'),
+                        (9,'Leo'),
+                        (10,'Manon'),
+                        (11,'Gabriel'),
+                        (12,'Sarah'),
+                        (13,'Arthur'),
+                        (14,'Ines'),
+                        (15,'Adam'),
+                        (16,'Camille'),
+                        (17,'Noah'),
+                        (18,'Lea'),
+                        (19,'Tom'),
+                        (20,'Eva'),
+                        (21,'Theo'),
+                        (22,'Clara'),
+                        (23,'Paul'),
+                        (24,'Lola'),
+                        (25,'Mathis'),
+                        (26,'Juliette'),
+                        (27,'Maxime'),
+                        (28,'Anais'),
+                        (29,'Baptiste'),
+                        (30,'Marine'),
+                        (31,'Ethan'),
+                        (32,'Charlotte'),
+                        (33,'Alexandre'),
+                        (34,'Lucie'),
+                        (35,'Antoine'),
+                        (36,'Elise'),
+                        (37,'Romain'),
+                        (38,'Nina'),
+                        (39,'Victor'),
+                        (40,'Alice'),
+                        (41,'Julien'),
+                        (42,'Mael'),
+                        (43,'Valentin'),
+                        (44,'Zoe'),
+                        (45,'Samuel'),
+                        (46,'Margot'),
+                        (47,'Thomas'),
+                        (48,'Jeanne'),
+                        (49,'Benjamin'),
+                        (50,'Pauline'),
+                        (51,'Amaury'),
+                        (52,'Basile'),
+                        (53,'Celia'),
+                        (54,'Dorian'),
+                        (55,'Elina'),
+                        (56,'Flavie'),
+                        (57,'Gaspard'),
+                        (58,'Heloise'),
+                        (59,'Ilan'),
+                        (60,'Judith'),
+                        (61,'Kylian'),
+                        (62,'Lison'),
+                        (63,'Maelys'),
+                        (64,'Nolann'),
+                        (65,'Oriane'),
+                        (66,'Priam'),
+                        (67,'Quitterie'),
+                        (68,'Ruben'),
+                        (69,'Salome'),
+                        (70,'Theophile'),
+                        (71,'Ugo'),
+                        (72,'Violette'),
+                        (73,'Wassim'),
+                        (74,'Yanis'),
+                        (75,'Zelie'),
+                        (76,'Anouk'),
+                        (77,'Berenice'),
+                        (78,'Cassian'),
+                        (79,'Diane'),
+                        (80,'Eliott'),
+                        (81,'Faustine'),
+                        (82,'Gaetan'),
+                        (83,'Hortense'),
+                        (84,'Ismael'),
+                        (85,'Jules'),
+                        (86,'Loane'),
+                        (87,'Malo'),
+                        (88,'Ninon'),
+                        (89,'Octave'),
+                        (90,'Philippine'),
+                        (91,'Raphael'),
+                        (92,'Sixtine'),
+                        (93,'Titouan'),
+                        (94,'Victoire'),
+                        (95,'Yse'),
+                        (96,'Apolline'),
+                        (97,'Brune'),
+                        (98,'Colin'),
+                        (99,'Eleonore'),
+                        (100,'Maureen');
+
+-- ======================================================
+-- 100 NOMS
+-- ======================================================
+
+INSERT INTO Noms VALUES
+                     (1,'Martin'),
+                     (2,'Bernard'),
+                     (3,'Thomas'),
+                     (4,'Petit'),
+                     (5,'Robert'),
+                     (6,'Richard'),
+                     (7,'Durand'),
+                     (8,'Dubois'),
+                     (9,'Moreau'),
+                     (10,'Laurent'),
+                     (11,'Simon'),
+                     (12,'Michel'),
+                     (13,'Lefebvre'),
+                     (14,'Leroy'),
+                     (15,'Roux'),
+                     (16,'David'),
+                     (17,'Bertrand'),
+                     (18,'Morel'),
+                     (19,'Fournier'),
+                     (20,'Girard'),
+                     (21,'Bonnet'),
+                     (22,'Dupont'),
+                     (23,'Lambert'),
+                     (24,'Fontaine'),
+                     (25,'Rousseau'),
+                     (26,'Vincent'),
+                     (27,'Muller'),
+                     (28,'Lefevre'),
+                     (29,'Faure'),
+                     (30,'Andre'),
+                     (31,'Mercier'),
+                     (32,'Blanc'),
+                     (33,'Guerin'),
+                     (34,'Boyer'),
+                     (35,'Garnier'),
+                     (36,'Chevalier'),
+                     (37,'Francois'),
+                     (38,'Legrand'),
+                     (39,'Gauthier'),
+                     (40,'Garcia'),
+                     (41,'Perrin'),
+                     (42,'Robin'),
+                     (43,'Clement'),
+                     (44,'Morin'),
+                     (45,'Henry'),
+                     (46,'Roussel'),
+                     (47,'Mathieu'),
+                     (48,'Gautier'),
+                     (49,'Masson'),
+                     (50,'Marchand'),
+                     (51,'Vasse'),
+                     (52,'Delorme'),
+                     (53,'Ponsard'),
+                     (54,'Vidalin'),
+                     (55,'Borie'),
+                     (56,'Launay'),
+                     (57,'Giroux'),
+                     (58,'Mallet'),
+                     (59,'Tissier'),
+                     (60,'Brunel'),
+                     (61,'Noiret'),
+                     (62,'Savarin'),
+                     (63,'Ducros'),
+                     (64,'Valentin'),
+                     (65,'Riviere'),
+                     (66,'Charlier'),
+                     (67,'Monnier'),
+                     (68,'Fauvel'),
+                     (69,'Bessiere'),
+                     (70,'Cazals'),
+                     (71,'Delaunay'),
+                     (72,'Rochas'),
+                     (73,'Lavergne'),
+                     (74,'Menard'),
+                     (75,'Perrotin'),
+                     (76,'Aubanel'),
+                     (77,'Courtois'),
+                     (78,'Guichard'),
+                     (79,'Clementin'),
+                     (80,'Renaudin'),
+                     (81,'Bourdin'),
+                     (82,'Dumontel'),
+                     (83,'Vautrin'),
+                     (84,'Briand'),
+                     (85,'Marquet'),
+                     (86,'Roussin'),
+                     (87,'Fresson'),
+                     (88,'Chabrol'),
+                     (89,'Auriol'),
+                     (90,'Pelletier'),
+                     (91,'Bellanger'),
+                     (92,'Cassignol'),
+                     (93,'Maziere'),
+                     (94,'Lacombe'),
+                     (95,'Prevost'),
+                     (96,'Ardouin'),
+                     (97,'Boissel'),
+                     (98,'Joubert'),
+                     (99,'Saunier'),
+                     (100,'Vernadet');
+
+-- ======================================================
+-- ATTRIBUTION DES NOMS / PRENOMS AUX ETUDIANTS
+-- ======================================================
 
 UPDATE Etudiant e
     JOIN Noms n
-    ON n.id_nom = ((e.num_etu - 1) MOD 50) + 1
+    ON n.id_nom = (((e.id_parcours*17)+(FLOOR(e.num_etu/10000)*11)+(e.num_etu*3)) MOD 100)+1
     JOIN Prenoms p
-    ON p.id_prenom = (((e.num_etu DIV 10) + (e.id_parcours * 7) - 1) MOD 50) + 1
+    ON p.id_prenom = (((e.id_parcours*13)+(FLOOR(e.num_etu/10000)*7)+(e.num_etu*5)) MOD 100)+1
 SET
     e.nom = n.nom,
     e.prenom = p.prenom;
+
+-- ======================================================
+-- INSCRIPTIONS AUX UE
+-- ======================================================
+
+-- L1 : semestres 1 et 2 en cours
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    '2023-2024',
+    sp.semestrePrevu,
+    'en_cours'
+FROM Etudiant e
+         JOIN Structure_Parcours sp
+              ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 1
+  AND sp.semestrePrevu IN (1,2);
+
+-- L2 : S1/S2 validés, S3/S4 en cours
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    CASE
+        WHEN sp.semestrePrevu IN (1,2) THEN '2022-2023'
+        ELSE '2023-2024'
+        END,
+    sp.semestrePrevu,
+    CASE
+        WHEN sp.semestrePrevu IN (1,2) THEN 'valide'
+        ELSE 'en_cours'
+        END
+FROM Etudiant e
+         JOIN Structure_Parcours sp
+              ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 2
+  AND sp.semestrePrevu IN (1,2,3,4);
+
+-- L3 : S1/S2/S3/S4 validés, S5/S6 en cours
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    CASE
+        WHEN sp.semestrePrevu IN (1,2) THEN '2021-2022'
+        WHEN sp.semestrePrevu IN (3,4) THEN '2022-2023'
+        ELSE '2023-2024'
+        END,
+    sp.semestrePrevu,
+    CASE
+        WHEN sp.semestrePrevu IN (1,2,3,4) THEN 'valide'
+        ELSE 'en_cours'
+        END
+FROM Etudiant e
+         JOIN Structure_Parcours sp
+              ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 3
+  AND sp.semestrePrevu IN (1,2,3,4,5,6);

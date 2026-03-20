@@ -36,13 +36,6 @@ CREATE TABLE Parcours (
                           FOREIGN KEY (id_mention) REFERENCES Mention(id_mention)
 );
 
-CREATE TABLE Catalogue_Mention (
-                                   id_mention INT,
-                                   code_ue VARCHAR(20),
-                                   PRIMARY KEY (id_mention, code_ue),
-                                   FOREIGN KEY (id_mention) REFERENCES Mention(id_mention),
-                                   FOREIGN KEY (code_ue) REFERENCES UE(code_ue)
-);
 
 CREATE TABLE Structure_Parcours (
                                     id_parcours INT,
@@ -81,6 +74,23 @@ CREATE TABLE Inscription (
                              FOREIGN KEY (num_etu) REFERENCES Etudiant(num_etu),
                              FOREIGN KEY (code_ue) REFERENCES UE(code_ue)
 );
+
+CREATE TABLE Historique_Semestre (
+                          id_semestre INT AUTO_INCREMENT,
+                          annee_univ  VARCHAR(9) NOT NULL,
+                          est_impair  BOOLEAN NOT NULL,
+                          est_courant BOOLEAN DEFAULT FALSE,
+                          PRIMARY KEY (id_semestre)
+);
+
+INSERT INTO Historique_Semestre (annee_univ, est_impair, est_courant) VALUES
+                                                               ('2021-2022', TRUE,  FALSE),
+                                                               ('2021-2022', FALSE, FALSE),
+                                                               ('2022-2023', TRUE,  FALSE),
+                                                               ('2022-2023', FALSE, FALSE),
+                                                               ('2023-2024', TRUE,  FALSE),
+                                                               ('2023-2024', FALSE, FALSE),
+                                                               ('2024-2025', TRUE,  TRUE);
 
 -- ==========================================
 -- 1. INSERTIONS DES MENTIONS
@@ -1357,7 +1367,7 @@ INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, semestre, id_parcour
 -- INSCRIPTIONS AUX UE
 -- ======================================================
 
--- L1
+-- L1 : uniquement S1 en cours
 INSERT INTO Inscription (num_etu, code_ue, annee_univ, statut_validation)
 SELECT
     e.num_etu,
@@ -1368,44 +1378,126 @@ FROM Etudiant e
          JOIN Structure_Parcours sp
               ON sp.id_parcours = e.id_parcours
 WHERE FLOOR(e.num_etu / 10000) = 1
-  AND sp.semestrePrevu IN (1,2);
+  AND sp.semestrePrevu = 1;
 
--- L2
+-- L2 : S1 validé, S2 avec quelques échecs, S3 en cours
 INSERT INTO Inscription (num_etu, code_ue, annee_univ, statut_validation)
 SELECT
     e.num_etu,
     sp.code_ue,
-    CASE
-        WHEN sp.semestrePrevu IN (1,2) THEN '2022-2023'
-        ELSE '2023-2024'
-        END,
-    CASE
-        WHEN sp.semestrePrevu IN (1,2) THEN 'valide'
-        ELSE 'en_cours'
-        END
+    '2022-2023',
+    'valide'
 FROM Etudiant e
-         JOIN Structure_Parcours sp
-              ON sp.id_parcours = e.id_parcours
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
 WHERE FLOOR(e.num_etu / 10000) = 2
-  AND sp.semestrePrevu IN (1,2,3,4);
+  AND sp.semestrePrevu = 1
 
--- L3
+UNION ALL
+
+-- S2 : la plupart validés, les derniers chiffres pairs échouent 1 UE obligatoire
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    '2022-2023',
+    CASE
+        WHEN (e.num_etu % 10) IN (2, 4, 6) AND sp.est_obligatoire = TRUE AND sp.semestrePrevu = 2
+            AND sp.code_ue = (
+                SELECT sp2.code_ue FROM Structure_Parcours sp2
+                WHERE sp2.id_parcours = e.id_parcours
+                  AND sp2.semestrePrevu = 2
+                  AND sp2.est_obligatoire = TRUE
+                ORDER BY sp2.code_ue LIMIT 1
+            )
+            THEN 'echoue'
+        ELSE 'valide'
+        END
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 2
+  AND sp.semestrePrevu = 2
+
+UNION ALL
+
+-- S3 en cours
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    '2023-2024',
+    'en_cours'
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 2
+  AND sp.semestrePrevu = 3;
+
+-- L3 : S1/S2 validés, S3/S4 avec quelques échecs, S5 en cours
 INSERT INTO Inscription (num_etu, code_ue, annee_univ, statut_validation)
 SELECT
     e.num_etu,
     sp.code_ue,
+    '2021-2022',
+    'valide'
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 3
+  AND sp.semestrePrevu IN (1, 2)
+
+UNION ALL
+
+-- S3 : quelques échecs pour les num_etu se terminant par 8
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    '2022-2023',
     CASE
-        WHEN sp.semestrePrevu IN (1,2) THEN '2021-2022'
-        WHEN sp.semestrePrevu IN (3,4) THEN '2022-2023'
-        ELSE '2023-2024'
-        END,
-    CASE
-        WHEN sp.semestrePrevu IN (1,2,3,4) THEN 'valide'
-        ELSE 'en_cours'
+        WHEN (e.num_etu % 10) = 8 AND sp.est_obligatoire = TRUE AND sp.semestrePrevu = 3
+            AND sp.code_ue = (
+                SELECT sp2.code_ue FROM Structure_Parcours sp2
+                WHERE sp2.id_parcours = e.id_parcours
+                  AND sp2.semestrePrevu = 3
+                  AND sp2.est_obligatoire = TRUE
+                ORDER BY sp2.code_ue LIMIT 1
+            )
+            THEN 'echoue'
+        ELSE 'valide'
         END
 FROM Etudiant e
-         JOIN Structure_Parcours sp
-              ON sp.id_parcours = e.id_parcours
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
 WHERE FLOOR(e.num_etu / 10000) = 3
-  AND sp.semestrePrevu IN (1,2,3,4,5,6);
+  AND sp.semestrePrevu = 3
 
+UNION ALL
+
+-- S4 : quelques échecs pour les num_etu se terminant par 4
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    '2022-2023',
+    CASE
+        WHEN (e.num_etu % 10) = 4 AND sp.est_obligatoire = TRUE AND sp.semestrePrevu = 4
+            AND sp.code_ue = (
+                SELECT sp2.code_ue FROM Structure_Parcours sp2
+                WHERE sp2.id_parcours = e.id_parcours
+                  AND sp2.semestrePrevu = 4
+                  AND sp2.est_obligatoire = TRUE
+                ORDER BY sp2.code_ue LIMIT 1
+            )
+            THEN 'echoue'
+        ELSE 'valide'
+        END
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 3
+  AND sp.semestrePrevu = 4
+
+UNION ALL
+
+-- S5 en cours
+SELECT
+    e.num_etu,
+    sp.code_ue,
+    '2023-2024',
+    'en_cours'
+FROM Etudiant e
+         JOIN Structure_Parcours sp ON sp.id_parcours = e.id_parcours
+WHERE FLOOR(e.num_etu / 10000) = 3
+  AND sp.semestrePrevu = 5;

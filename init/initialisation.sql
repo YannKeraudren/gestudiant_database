@@ -76,7 +76,6 @@ CREATE TABLE Inscription (
                              num_etu INT,
                              code_ue VARCHAR(20),
                              annee_univ VARCHAR(9),
-                             semestre INT,
                              statut_validation VARCHAR(20) DEFAULT 'en_cours',
                              PRIMARY KEY (num_etu, code_ue, annee_univ, semestre),
                              FOREIGN KEY (num_etu) REFERENCES Etudiant(num_etu),
@@ -1353,61 +1352,59 @@ INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, semestre, id_parcour
 INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, semestre, id_parcours) VALUES (31228, 'Ducros', 'Raphaël', '2003-01-02', 5, 12);
 INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, semestre, id_parcours) VALUES (31229, 'Renaudin', 'Anaïs', '2003-01-13', 5, 12);
 INSERT INTO Etudiant (num_etu, nom, prenom, date_naissance, semestre, id_parcours) VALUES (31230, 'Boissel', 'Oriane', '2003-01-24', 5, 12);
+
 -- ======================================================
 -- INSCRIPTIONS AUX UE
 -- ======================================================
 
 -- L1 : semestres 1 et 2 en cours
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, statut_validation)
 SELECT
     e.num_etu,
     sp.code_ue,
     '2023-2024',
-    sp.semestrePrevu,
     'en_cours'
 FROM Etudiant e
          JOIN Structure_Parcours sp
               ON sp.id_parcours = e.id_parcours
 WHERE FLOOR(e.num_etu / 10000) = 1
-  AND sp.semestrePrevu IN (1,2);
+  AND sp.semestre_prevu IN (1,2);
 
 -- L2 : S1/S2 validés, S3/S4 en cours
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, statut_validation)
 SELECT
     e.num_etu,
     sp.code_ue,
     CASE
-        WHEN sp.semestrePrevu IN (1,2) THEN '2022-2023'
+        WHEN sp.semestre_prevu IN (1,2) THEN '2022-2023'
         ELSE '2023-2024'
         END,
-    sp.semestrePrevu,
     CASE
-        WHEN sp.semestrePrevu IN (1,2) THEN 'valide'
+        WHEN sp.semestre_prevu IN (1,2) THEN 'valide'
         ELSE 'en_cours'
         END
 FROM Etudiant e
          JOIN Structure_Parcours sp
               ON sp.id_parcours = e.id_parcours
 WHERE FLOOR(e.num_etu / 10000) = 2
-  AND sp.semestrePrevu IN (1,2,3,4);
+  AND sp.semestre_prevu IN (1,2,3,4);
 
 -- L3 : S1/S2/S3/S4 validés, S5/S6 en cours
-INSERT INTO Inscription (num_etu, code_ue, annee_univ, semestre, statut_validation)
+INSERT INTO Inscription (num_etu, code_ue, annee_univ, statut_validation)
 SELECT
     e.num_etu,
     sp.code_ue,
     CASE
-        WHEN sp.semestrePrevu IN (1,2) THEN '2021-2022'
-        WHEN sp.semestrePrevu IN (3,4) THEN '2022-2023'
+        WHEN sp.semestre_prevu IN (1,2) THEN '2021-2022'
+        WHEN sp.semestre_prevu IN (3,4) THEN '2022-2023'
         ELSE '2023-2024'
         END,
-    sp.semestrePrevu,
     CASE
-        WHEN sp.semestrePrevu IN (1,2,3,4) THEN 'valide'
+        WHEN sp.semestre_prevu IN (1,2,3,4) THEN 'valide'
         ELSE 'en_cours'
         END
 FROM Etudiant e
          JOIN Structure_Parcours sp
               ON sp.id_parcours = e.id_parcours
 WHERE FLOOR(e.num_etu / 10000) = 3
-  AND sp.semestrePrevu IN (1,2,3,4,5,6);
+  AND sp.semestre_prevu IN (1,2,3,4,5,6);

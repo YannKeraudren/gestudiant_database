@@ -88,9 +88,7 @@ INSERT INTO Historique_Semestre (annee_univ, est_impair, est_courant) VALUES
                                                                ('2021-2022', FALSE, FALSE),
                                                                ('2022-2023', TRUE,  FALSE),
                                                                ('2022-2023', FALSE, FALSE),
-                                                               ('2023-2024', TRUE,  FALSE),
-                                                               ('2023-2024', FALSE, FALSE),
-                                                               ('2024-2025', TRUE,  TRUE);
+                                                               ('2023-2024', TRUE,  TRUE);
 
 -- ==========================================
 -- 1. INSERTIONS DES MENTIONS
